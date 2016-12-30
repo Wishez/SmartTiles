@@ -1,0 +1,21 @@
+/**********
+
+  THIRD PARTY
+
+***********/
+@import "../fonts/font-awesome.min.css";
+@import "../../bower_components/bootstrap/dist/css/bootstrap.min.css";
+@import "../../bower_components/normalize-css/normalize.css";
+@import "../../bower_components/breakpoint-sass/stylesheets/breakpoint";
+/**********
+
+  CUSTOM
+
+***********/
+
+@import "../fonts/fonts.scss";
+@import "../blocks/custom/custom.scss";
+@import "../blocks/header/header.scss";
+@import "../blocks/footer/footer.scss";
+@import "../blocks/main/main.scss";
+
