@@ -1,4 +1,6 @@
 require 'compass/import-once/activate'
+require 'susy'
+require 'breakpoint'
 # Require any additional compass plugins here.
 
 # Set this to the root of your project when deployed:
@@ -7,6 +9,7 @@ css_dir = "build/css"
 sass_dir = "src/scss"
 images_dir = "src/img"
 javascripts_dir = "src/js"
+fonts_dir = "src/fonts"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed

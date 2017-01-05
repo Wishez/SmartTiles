@@ -1,2 +1,8 @@
 @import "logo/logo.scss";
 @import "navigation/navigation.scss";
+@import "callBlock/callBlock.scss";
+@import "search/search.scss";
+.header__navbar {
+  background-color: transparent;
+  border: 0;
+}

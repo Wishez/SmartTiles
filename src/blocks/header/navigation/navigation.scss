@@ -1,0 +1,4 @@
+.navContent__navigation{
+  @include span(5 of 10 last);
+  @include clearfix;
+}
