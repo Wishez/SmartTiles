@@ -1,3 +1,15 @@
 .navContent__logo {
-  @include span(3);
+  @include span(5);
+}
+
+.logo__name {
+  font-size: (45em / 16);
+  color: $cyan;
+  letter-spacing: 11px;
+}
+
+.navList__navItem {
+  .navItem__refer {
+    padding: 20px 14px 10px;
+  }
 }
