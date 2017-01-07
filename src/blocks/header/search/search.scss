@@ -1,3 +1,25 @@
 .navContent__search {
   @include span(5 last);
+  font-family: $stackComfortaa;
+  color: $night-black;
+  margin-top: 1%;
+}
+.searchForm__inputSearch {
+  margin: 0 9% 0 4%;
+  width: 70%;
+  padding: 2px 0 2px 2%;
+  border: 0;
+  &::-webkit-input-placeholder {
+    color: #c4c4c4;
+  }
+}
+.searchForm__btnSearch {
+  font-size: (14em / 16);
+  padding: 2px 7px;
+  border: 0;
+  background: $cyan;
+  position: relative;
+  &:active {
+    bottom: -3px;
+  }
 }

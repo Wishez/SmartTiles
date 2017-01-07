@@ -2,3 +2,15 @@
   @include span(5 last);
   @include clearfix;
 }
+.navList__navItem {
+  text-align: center;
+  &.active a {
+    &:hover {
+      color: $beige !important;    
+    }
+  }
+}
+.navItem__refer {
+  transition: color .5s; 
+  @include link-colors($beige !important, $gray !important);
+}

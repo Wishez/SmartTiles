@@ -1,6 +1,26 @@
 .navContent__callBlock {
   @include span(2);
+  padding: 35px 0 0;
+  text-align: center;
+}
+.callBlock__call {
+  &:hover {
+    text-decoration: none;
+  }
+  &:focus {
+    text-decoration: none;      
+  }
 }
 .call__icon {
   color: #69ff54;
+}
+.call__devider {
+    margin: 5px 0 10px;
+}
+.call__tel {
+  font-size: (20em / 16);
+  color: $beige;
+  & i.fa-volume-control-phone {
+    transform: rotate(-20deg);
+  }
 }
