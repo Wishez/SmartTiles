@@ -1,7 +1,19 @@
 .navContent__callBlock {
   @include span(2);
-  padding: 35px 0 0;
+  padding: 25px 0 0;
   text-align: center;
+  position: relative;
+  left: 65px;
+  @include breakpoint($md){
+    @include span(1);
+    left: 0;
+    padding-top: 35px;
+  }
+  @include breakpoint($sm){
+    @include span(3);
+    padding: 0;
+    top: 50px;
+  }
 }
 .callBlock__call {
   &:hover {
@@ -13,6 +25,7 @@
 }
 .call__icon {
   color: #69ff54;
+  margin-top: 10px;
 }
 .call__devider {
     margin: 5px 0 10px;

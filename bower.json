@@ -18,7 +18,7 @@
     "font-awesome": "Font-Awesome#^4.7.0",
     "slick-carousel": "^1.6.0",
     "susy": "^2.2.12",
-    "breakpoint": "^4.6.4",
-    "bootstrap-sass": "^3.3.7"
+    "bootstrap-sass": "^3.3.7",
+    "breakpoint-sass": "^2.7.1"
   }
 }
