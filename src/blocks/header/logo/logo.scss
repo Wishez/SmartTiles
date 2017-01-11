@@ -3,7 +3,7 @@
   @include breakpoint($md) {
     @include span(5);
   }
-   @include breakpoint($md) {
+   @include breakpoint($sm) {
     @include span(9);
   }    
 }

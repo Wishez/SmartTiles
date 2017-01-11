@@ -36,4 +36,11 @@
   & i.fa-volume-control-phone {
     transform: rotate(-20deg);
   }
+  @include breakpoint($md) {
+    display: none;
+    z-index: 99;
+    position: absolute;
+    width: 200px;
+    left: -60px;
+  }
 }

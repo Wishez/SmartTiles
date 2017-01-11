@@ -3,7 +3,6 @@
 var gulp = require('gulp'),
     pug = require('gulp-pug'),
     watch = require('gulp-watch'),
-    modernizr = require('gulp-modernizr'),
     prefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
     sass = require('gulp-sass'),
@@ -73,7 +72,6 @@ gulp.task('js', function () {
     gulp.src(path.src.js) //Найдём наш main файл
         .pipe(rigger()) //Прогоним через rigger
         .pipe(sourcemaps.init()) //Инициализируем sourcemap
-        .pipe(modernizr())
         .pipe(jshint())
         .pipe(uglify()) //Сожмём наш js
         .pipe(sourcemaps.write()) //Пропишем карты

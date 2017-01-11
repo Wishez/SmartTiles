@@ -19,6 +19,7 @@
     "slick-carousel": "^1.6.0",
     "susy": "^2.2.12",
     "bootstrap-sass": "^3.3.7",
-    "breakpoint-sass": "^2.7.1"
+    "breakpoint-sass": "^2.7.1",
+    "modernizr": "^3.3.1"
   }
 }

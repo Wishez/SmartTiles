@@ -4,6 +4,7 @@
   color: $night-black;
   margin-top: 1%;
   @include breakpoint($md) {
+    @include span(6 last);
   }
   @include breakpoint($sm) {
     @include span(12);
@@ -15,10 +16,6 @@
   width: 70%;
   padding: 2px 0 2px 2%;
   border: 0;
-  @include breakpoint($md) {
-    margin-left: 4px;
-    width: 73%;
-  }
   &::-webkit-input-placeholder {
     color: #c4c4c4;
   }
