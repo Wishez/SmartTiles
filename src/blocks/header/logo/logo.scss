@@ -3,9 +3,17 @@
   @include breakpoint($md) {
     @include span(5);
   }
-   @include breakpoint($sm) {
+  @include breakpoint($sm) {
     @include span(9);
-  }    
+  }
+  @include breakpoint($xs) {
+    @include span(12);
+  }
+}
+.logo {
+  @include breakpoint($xxs) {
+    margin-left: 7%;      
+  }
 }
 .logo__name {
   font-size: (70rem / 16);
@@ -16,5 +24,21 @@
     position: relative;
     left: 5%;
     top: 5px;
+  }
+  @include breakpoint($xs) {
+    margin: 0 0 0 15px;
+  }
+  @include breakpoint($xxs) {
+    clear: both;
+    text-align: center;
+  }
+}
+.logo__navButton {
+  margin: 0;
+  position: relative;
+  right: 7%;
+  top: 20px;
+  @include breakpoint($xxs) {
+    right: 40%;
   }
 }

@@ -8,11 +8,17 @@
   }
   @include breakpoint($sm) {
     @include span(12);
-    
+  }
+  @include breakpoint($xs) {
+    @include span(8);
+    margin-right: 0;
+  }
+  @include breakpoint($xxs) {
+    @include span(12);      
   }
 }
 .searchForm__inputSearch {
-  margin: 0 11% 0 7px;
+  margin: 0 9% 0 17px;
   width: 70%;
   padding: 2px 0 2px 2%;
   border: 0;
@@ -20,9 +26,13 @@
     color: #c4c4c4;
   }
   @include breakpoint($sm) {
-    margin-left: 2%;
-    margin-right: 7.5%;
+    margin-left: 3.5%;
+    margin-right: 6%;
     width: 45%;
+  }
+  @include breakpoint($xs) {
+    width: 65%;
+    margin-right: 10%;
   }
 }
 .searchForm__btnSearch {
