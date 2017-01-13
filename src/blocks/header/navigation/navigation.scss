@@ -15,6 +15,9 @@
   }
   @include breakpoint($xxs) {
     @include span(12);
+    margin: 80px 15px 0 0;
+    border-top: 0;
+    
   }
 }
 .navigation__navList {
@@ -30,9 +33,15 @@
       color: $beige !important;    
     }
   }
+  @include breakpoint($xxs) {
+    
+  }
 }
 .navItem__refer {
   transition: color .5s; 
   padding: 25px 14px 10px !important;
   @include link-colors($beige !important, $gray !important);
+  @include breakpoint($xxs) {
+   padding-top: 10px !important; 
+  }
 }

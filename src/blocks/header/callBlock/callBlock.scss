@@ -12,7 +12,7 @@
   @include breakpoint($sm){
     @include span(3 last);
     padding: 0;
-    top: 50px;
+    top: 5px;
     margin-right: 10%;
   }
   @include breakpoint($xs) {
@@ -20,7 +20,10 @@
     padding: 0;
     margin: 10px 0;
     left: 5%;
-  }    
+  }
+  @include breakpoint($xxs){
+    display: none;    
+  }
 }
 .callBlock__call {
   &:hover {

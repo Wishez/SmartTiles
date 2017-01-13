@@ -9,10 +9,14 @@
   @include breakpoint($xs) {
     @include span(12);
   }
+  @include breakpoint($xxs) {
+    @include span(12);
+  }
 }
 .logo {
   @include breakpoint($xxs) {
-    margin-left: 7%;      
+    @include span(12);
+    margin-left: 15px;
   }
 }
 .logo__name {
@@ -27,18 +31,27 @@
   }
   @include breakpoint($xs) {
     margin: 0 0 0 15px;
+    font-size: (100vw / 16);
   }
   @include breakpoint($xxs) {
     clear: both;
     text-align: center;
+    font-size: (70rem / 16);
   }
 }
 .logo__navButton {
   margin: 0;
   position: relative;
-  right: 7%;
+  right: 5vw;
   top: 20px;
   @include breakpoint($xxs) {
     right: 40%;
+  }
+}
+
+.logo__name-visible_xxs {
+  display: none;
+  @include breakpoint($xxs) {
+    display: block;    
   }
 }
