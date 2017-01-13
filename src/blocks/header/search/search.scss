@@ -14,7 +14,8 @@
     margin-right: 0;
   }
   @include breakpoint($xxs) {
-    @include span(12);      
+    @include span(12);
+    margin-top: 25%;
   }
 }
 .searchForm__inputSearch {
