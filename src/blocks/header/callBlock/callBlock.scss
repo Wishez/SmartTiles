@@ -22,7 +22,10 @@
     left: 5%;
   }
   @include breakpoint($xxs){
-    display: none;    
+    @include span(12);
+    left: 0;
+    margin: 0 0 20px;
+    order: 3;
   }
 }
 .callBlock__call {

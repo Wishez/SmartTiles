@@ -1,2 +1,3 @@
-//= jumbotron/jumbotron.js
-//= info.js
+//= offers/offers.js
+//= frims/firms.js
+//= connect/conncet.js

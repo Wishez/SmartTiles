@@ -15,7 +15,7 @@
   }
   @include breakpoint($xxs) {
     @include span(12);
-    margin-top: 25%;
+    order: 4;
   }
 }
 .searchForm__inputSearch {
@@ -33,7 +33,10 @@
   }
   @include breakpoint($xs) {
     width: 65%;
-    margin-right: 10%;
+    margin-right: 0;
+  }
+  @include breakpoint($xxs) {
+    width: 45%;
   }
 }
 .searchForm__btnSearch {
@@ -42,7 +45,18 @@
   border: 0;
   background: $cyan;
   position: relative;
+  transition: background-color 1s ease;
   &:active {
     bottom: -3px;
   }
+  &:hover {
+    background-color: #74ff86;
+  }
+  @include breakpoint($xs) {
+    float: right;    
+  }
+  @include breakpoint($xxs) {
+    margin-right: 20px;    
+  }
 }
+

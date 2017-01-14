@@ -5,4 +5,10 @@
 .header__navbar {
   background-color: transparent;
   border: 0;
+  .navbar__navContent {
+    @include breakpoint($xxs) {
+      display: flex;
+      flex-flow: column nowrap;
+    }    
+  }
 }

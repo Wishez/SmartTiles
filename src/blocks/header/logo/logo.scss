@@ -11,18 +11,20 @@
   }
   @include breakpoint($xxs) {
     @include span(12);
+    min-height: 170px;
   }
 }
 .logo {
   @include breakpoint($xxs) {
     @include span(12);
-    margin-left: 15px;
+    margin-left: 20px;
   }
 }
 .logo__name {
   font-size: (70rem / 16);
   color: $cyan;
   letter-spacing: 11px;
+  white-space: nowrap;
   @include breakpoint($sm) {
     margin: 0;
     position: relative;
@@ -31,12 +33,13 @@
   }
   @include breakpoint($xs) {
     margin: 0 0 0 15px;
-    font-size: (100vw / 16);
+    font-size: (110vw / 16);
   }
   @include breakpoint($xxs) {
     clear: both;
     text-align: center;
     font-size: (70rem / 16);
+    margin: 0;
   }
 }
 .logo__navButton {
@@ -45,8 +48,9 @@
   right: 5vw;
   top: 20px;
   @include breakpoint($xxs) {
-    right: 40%;
+    right: 35vw;
     top: 73px;
+    order: 1;
   }
 }
 
