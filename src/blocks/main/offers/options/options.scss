@@ -1,0 +1,52 @@
+.offers__options {
+  @include span(12);
+}
+.optionsList__refer {
+  @include span(3);
+  margin: 0;
+//  &:last-child {
+//    .optionsList__option {
+//      margin: 0;          
+//    }
+//  }
+}
+.optionsList__option {
+  perspective: 500;
+  transform-style: preserve-3d;
+  transition: perspective 0.5s;
+  margin: 0 15px 0 0;
+  border: 10px solid #fff;
+  height: 190px;
+  list-style: none;
+  background-color: $gray;
+  position: relative;
+  @include box-shadow(0 5px 15px $shadow);
+  transform: rotateY(30deg);
+}
+
+.option__variant {
+  position: absolute;
+  left: 17%;
+  top: 90%;
+  text-align: center;
+  background-color: rgba(29, 22, 16, .8);
+  border: 1px solid #000;
+  font-size: (30rem / 16);
+  width: 65.79634464751958%;
+  height: 36.47058823529412%;
+  padding: 3% 8%;
+  word-wrap: break-word;
+  overflow: hidden;
+  @include border-radius(5px);
+  @include box-shadow(0 5px 15px $shadow);
+  
+}
+//@each $option, $text in 
+//(flooring, напольные покрытия),
+//(ceilingSystems, 'потолочные системы'),
+//(wallCoverings, 'настенные покрытия'),
+//(textiles, 'текстиль') {
+//  .optionsList__option-#{$option}:after {
+//    content: '#{$text}';      
+//  }      
+//}
