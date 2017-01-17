@@ -2,6 +2,14 @@
   color: $beige;
   @include span(12);
 }
+.headings__title {
+  @include breakpoint($xxs) {
+    font-size: (36rem / 16);  
+  }
+}
 .headings__subTitle {
   font-family: $stackComfortaa;
+  @include breakpoint($xxs) {
+    font-size: (30rem / 16);   
+  }
 }

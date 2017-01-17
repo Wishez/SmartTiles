@@ -1,3 +1,3 @@
 //= offers/offers.js
-//= frims/firms.js
-//= connect/conncet.js
+// frims/firms.js
+// connect/conncet.js

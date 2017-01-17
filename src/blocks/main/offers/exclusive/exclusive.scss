@@ -1,0 +1,17 @@
+.offers__exclusive {
+  @include span(12);
+  margin-top: 120px;
+  color: $night-black;
+  text-align: center;
+}
+.exclusive__slides {
+  background-color: $gray;
+  border: 10px solid #fff;
+  height: 300px;
+}
+.slick-arrow {
+  margin: 0 -20px;
+}
+.slick-prev:before, .slick-next:before {
+  
+}
