@@ -68,7 +68,10 @@
       @include box-shadow(0 5px 10px $shadow);
       width: 65.79634464751958%;
       left: 17%;
-      padding: 3% 8%;
+      @include breakpoint($lg) {
+        padding: 3% 8%;  
+      }
+      padding: 3% 12%;
     }
   }
 }
@@ -83,7 +86,7 @@
   font-size: (30rem / 16);
   width: 80.79634464751958%;
   height: 36.47058823529412%;
-  padding: 3% 15%;
+  padding: 3% 19%;
   word-wrap: break-word;
   overflow: hidden;
   @include border-radius(5px);
@@ -92,6 +95,9 @@
   transform: translateZ(30px) rotateY(30deg);
   @include transition-property(transform, box-shadow, left, width, padding);
   @include transition-duration(0.5s);
+  @include breakpoint($lg) {
+        padding: 3% 15%;  
+  }
 }
 
 /* Baground for otions */

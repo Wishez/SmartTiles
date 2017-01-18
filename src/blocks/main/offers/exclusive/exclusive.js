@@ -1,1 +1,3 @@
-$('.exclusive__slides').slick();
+$('.exclusive__slides').slick({
+  dots: true
+});

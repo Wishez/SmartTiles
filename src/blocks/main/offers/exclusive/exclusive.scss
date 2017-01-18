@@ -7,11 +7,35 @@
 .exclusive__slides {
   background-color: $gray;
   border: 10px solid #fff;
-  height: 300px;
-}
-.slick-arrow {
-  margin: 0 -20px;
-}
-.slick-prev:before, .slick-next:before {
+  height: 445px;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  @include breakpoint($xs) {
+    height: 200px;    
+  }
+  &:after {
+   content: '';
+   position: absolute;
   
+  }
+}
+.slick-next:before, .slick-prev:before {
+  font-size: 40px;
+  color: $cyan; 
+}
+.slick-next {
+  margin: 0 -15px;
+}
+.slick-prev {
+  margin: 0 -35px;
+}
+.slick-dots {
+  bottom: -40px;
+  li.slick-active button:before {
+    color: $beige;
+  }
+  li button:before {
+    color: $beige;    
+  }
 }
