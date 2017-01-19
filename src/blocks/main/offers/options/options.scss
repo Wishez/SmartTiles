@@ -100,4 +100,13 @@
   }
 }
 
-/* Baground for otions */
+/* Background for otions */
+@each $category, $num in 
+      (flooring, 1),
+      (ceilingSystems, 2),
+      (wallCoverings, 3),
+      (textiles, 4) {
+      .optionsList__option-#{$category} {
+        background: url(../img/categories/c_#{$num}.png) no-repeat center;
+      }
+}

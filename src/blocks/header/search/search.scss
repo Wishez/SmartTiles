@@ -1,7 +1,7 @@
 .navContent__search {
   @include span(5 last);
   font-family: $stackComfortaa;
-  color: $night-black;
+  color: $nightBlack;
   margin-top: 1%;
   @include breakpoint($md) {
     @include span(6 last);
