@@ -58,6 +58,9 @@
         background: url(../img/exclusive/ex_#{$num}.png) no-repeat center;
         background-size: cover;
         padding-top: 8%;
+        @include breakpoint($lg) {
+          padding-top: 6.5%;    
+        }
         @include breakpoint($sm) {
           padding-top: 4.5%;    
         }

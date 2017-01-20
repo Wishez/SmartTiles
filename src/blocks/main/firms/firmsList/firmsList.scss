@@ -1,0 +1,24 @@
+.firmsList__item {
+  position: absolute;
+
+}
+
+@each $firm, $i in
+(2tec2, 1),
+(altro, 2),
+(amtico, 3),
+(balsan, 4),
+(forbo, 5),
+(carpetconcept, 6),
+(ege, 7),
+(royalMosa, 8),
+(vescome, 9){
+  .firmsList__item-img_#{$firm} {
+    min-width: 210px;
+    height: 70px;
+    background: url('../img/firms/f_#{$i}.png') center;
+    background-size: cover;
+  } 
+}
+
+// Сделать спрайты, установить для каждой картинки фирмы свой размер, разместить по блоку на свои позиции.
