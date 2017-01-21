@@ -1,24 +1,30 @@
-.firmsList__item {
+.firmsList__firm {
   position: absolute;
-
+  list-style: none;
 }
 
-@each $firm, $i in
-(2tec2, 1),
-(altro, 2),
-(amtico, 3),
-(balsan, 4),
-(forbo, 5),
-(carpetconcept, 6),
-(ege, 7),
-(royalMosa, 8),
-(vescome, 9){
-  .firmsList__item-img_#{$firm} {
+$firms: sprite-map("firms/*.png");
+@each $firm, $y, $height, $offsetTop, $offsetLeft, $rotate in
+(2tec2, 0, 47, 7.5187969924812%, 3.56887937187723%, -25),
+(altro, -47, 87, 74.13533834586466%, 24.98215560314061%, -20),
+(amtico,-136, 50, -3.56887937187723%, 25.05353319057816%, 20),
+(balsan, -186, 55, 70.67669172932331%, 81.01356174161313% ,-21),
+(forbo, -340, 48, 9.47368421052632%, 61.67023554603854%, -20),
+(carpetconcept, -242, 33, 26.91729323308271%, 81.79871520342612%, 40),
+(ege, -285, 55, 64.3609022556391%, 65.31049250535332%, 15),
+(royalMosa, -388, 150, 37.14285714285714%, 5.99571734475375% , 15),
+(vescome, -538, 44, 49.16030534351145%, 42.89793004996431%, -50){
+  .firm__img_#{$firm} {
     min-width: 210px;
-    height: 70px;
-    background: url('../img/firms/f_#{$i}.png') center;
+    height: #{$height}px;
+    background: url("../img/firms.png") 0 #{$y}px no-repeat;
     background-size: cover;
+    
   } 
+  .firm_#{$firm} {
+    top: $offsetTop;
+    left: $offsetLeft;
+    @include rotate(#{$rotate}deg);
+  }
 }
-
 // Сделать спрайты, установить для каждой картинки фирмы свой размер, разместить по блоку на свои позиции.
