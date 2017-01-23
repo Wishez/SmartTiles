@@ -1,0 +1,6 @@
+@import 'contact/contact.scss';
+
+.mainContent__connect {
+  @include span(12);
+  background-color: $gray;
+}

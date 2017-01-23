@@ -48,9 +48,9 @@ $firms: sprite-map("firms/*.png");
 (2tec2, 0, 71, 210,  14.5187969924812%, 3.56887937187723%),
 (altro, -76, 130, 220,  74.13533834586466%, 14.98215560314061%),
 (amtico,-186, 98, 200, 25.6887937187723%, 25.05353319057816%),
-(balsan, -299, 72, 211, 83.67669172932331%, 69.01356174161313%),
+(balsan, -299, 72, 211, 83.67669172932331%, 48.01356174161313%),
 (forbo, -477, 65, 193, 13.47368421052632%, 61.67023554603854%),
-(carpetconcept, -345, 80, 199,  31.91729323308271%, 70.79871520342612%),
+(carpetconcept, -345, 80, 199,  40.91729323308271%, 63.79871520342612%),
 (ege,  -404, 65, 190, 64.3609022556391%, 65.31049250535332%),
 (royalMosa, -825, 180, 184, 44.14285714285714%, 5.99571734475375%),
 (vescome, -729, 160, 212, 43.16030534351145%, 19.89793004996431%){
@@ -72,15 +72,15 @@ $firms: sprite-map("firms/*.png");
 
 $firms-xxs: sprite-map("firms-xxs/*.png");
 @each $firm, $y, $height, $width in
-(2tec2, 0, 70, .55),
-(altro, -91, 155, .55),
-(amtico, -244, 105, 100),
-(balsan, -350, 93, .55),
-(forbo, -620, 89, .55),
-(carpetconcept, -455, 70, .55),
-(ege, -527, 90, .55),
-(royalMosa, -713, 160, .55),
-(vescome, -890, 73, 100){
+(2tec2, 0, 70, 55%),
+(altro, -91, 155, 55%),
+(amtico, -244, 105, 94%),
+(balsan, -350, 93, 55%),
+(forbo, -620, 89, 55%),
+(carpetconcept, -455, 70, 55%),
+(ege, -527, 90, 55%),
+(royalMosa, -713, 160, 55%),
+(vescome, -890, 73, 97%){
   .firm_#{$firm} {  
     @include breakpoint($xxs) {
       position: static;
@@ -89,7 +89,7 @@ $firms-xxs: sprite-map("firms-xxs/*.png");
   }
   .firm__img_#{$firm} {
     @include breakpoint($xxs) {
-      width: #{$width}em;
+      width: $width;
       margin: 0 auto;
       background-image: $firms-xxs;
       height: #{$height}px;
