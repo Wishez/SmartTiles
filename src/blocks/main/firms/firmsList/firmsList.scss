@@ -1,3 +1,6 @@
+.firms__firmsList {
+  padding: 0;
+}
 .firmsList__firm {
   position: absolute;
   list-style: none;
@@ -24,17 +27,33 @@ $firms: sprite-map("firms/*.png");
     left: $offsetLeft;
   }
 }
-
+@each $firm, $offsetTop, $offsetLeft in
+(2tec2, 7.5187969924812%, 3.56887937187723%),
+(altro,  72.13533834586466%, 20.98215560314061%),
+(amtico, -6.6887937187723%, 33.05353319057816%),
+(balsan, 77.67669172932331%, 48.01356174161313%),
+(forbo, 8.47368421052632%, 71.67023554603854%),
+(carpetconcept, 41.91729323308271%, 70.79871520342612%),
+(ege,  63.3609022556391%, 74.31049250535332%),
+(royalMosa,  44.14285714285714%, 5.99571734475375%),
+(vescome, 39.16030534351145%, 34.89793004996431%){
+  .firm_#{$firm} {  
+    @include breakpoint($sm) {
+      top: $offsetTop;
+      left: $offsetLeft;
+    }  
+  }   
+}
 @each $firm, $y, $height, $max-width, $offsetTop, $offsetLeft in
 (2tec2, 0, 71, 210,  14.5187969924812%, 3.56887937187723%),
-(altro, -102, 170, 150,  74.13533834586466%, 14.98215560314061%),
-(amtico,-277, 139, 310, 25.6887937187723%, 25.05353319057816%),
-(balsan, -421, 88, 162, 83.67669172932331%, 74.01356174161313%),
+(altro, -76, 130, 220,  74.13533834586466%, 14.98215560314061%),
+(amtico,-186, 98, 200, 25.6887937187723%, 25.05353319057816%),
+(balsan, -299, 72, 211, 83.67669172932331%, 69.01356174161313%),
 (forbo, -477, 65, 193, 13.47368421052632%, 61.67023554603854%),
-(carpetconcept, -513, 112, 199,  31.91729323308271%, 71.79871520342612%),
-(ege,  -625, 95, 160, 64.3609022556391%, 65.31049250535332%),
+(carpetconcept, -345, 80, 199,  31.91729323308271%, 70.79871520342612%),
+(ege,  -404, 65, 190, 64.3609022556391%, 65.31049250535332%),
 (royalMosa, -825, 180, 184, 44.14285714285714%, 5.99571734475375%),
-(vescome, -1010, 216, 269, 49.16030534351145%, 36.89793004996431%){
+(vescome, -729, 160, 212, 43.16030534351145%, 19.89793004996431%){
   .firm_#{$firm} {  
     @include breakpoint($xs) {
       top: $offsetTop;
@@ -42,9 +61,40 @@ $firms: sprite-map("firms/*.png");
     }  
   }  
   .firm__img_#{$firm} {
-    min-width: #{$max-width}px;
-    height: #{$height}px;
-    background-position: 0 #{$y}px;
-    background-size: cover;
+    @include breakpoint($xs) {
+      min-width: #{$max-width}px;
+      height: #{$height}px;
+      background-position: 0 #{$y}px;
+      background-size: cover;
+    }
+  } 
+}
+
+$firms-xxs: sprite-map("firms-xxs/*.png");
+@each $firm, $y, $height, $width in
+(2tec2, 0, 70, .55),
+(altro, -91, 155, .55),
+(amtico, -244, 105, 100),
+(balsan, -350, 93, .55),
+(forbo, -620, 89, .55),
+(carpetconcept, -455, 70, .55),
+(ege, -527, 90, .55),
+(royalMosa, -713, 160, .55),
+(vescome, -890, 73, 100){
+  .firm_#{$firm} {  
+    @include breakpoint($xxs) {
+      position: static;
+      margin-top: 10px;
+    }  
+  }
+  .firm__img_#{$firm} {
+    @include breakpoint($xxs) {
+      width: #{$width}em;
+      margin: 0 auto;
+      background-image: $firms-xxs;
+      height: #{$height}px;
+      background-position: 0 #{$y}px;
+      background-size: auto;
+    }
   } 
 }
