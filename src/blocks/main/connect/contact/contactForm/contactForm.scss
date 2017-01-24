@@ -37,4 +37,10 @@
 }
 .connectForm__button {
   margin-top: 65px;
+  background-color: $beige;
+  border: 2px solid #000;
+  font-size: (24em / 16);
+  box-shadow: 0 0 15px $shadow;
+  padding: 13px;
+  color: #1d1610;
 }

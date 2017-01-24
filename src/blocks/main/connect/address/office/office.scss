@@ -1,0 +1,13 @@
+.address__office {
+  border: 2px solid #000;
+  @include span(5);
+  height: 240px;
+  margin-top: 96px;
+  @include box-shadow(0 0 10px $shadow);
+  @include breakpoint($sm) {
+    @include span(12);    
+  }
+  @include breakpoint($xs) {
+    @include span(12);    
+  }
+}
