@@ -1,0 +1,34 @@
+.contact__formBlock
+  form#contact.formBLock__contactForm.contactForm(
+    method="get",
+    action=""
+  )
+    .contactForm__controller.controller
+      label.controller__label.controller__label-for_name(for="name") Имя
+      input#name.controller__input(
+        type="text",
+        name="name",
+        placeholder="Имя"
+      )
+    .contactForm__controller.controller
+      label.controller__label.controller__label-for_email(for="email") Email
+      input#email.controller__input(
+        type="email",
+        name="email",
+        placeholder="Email"
+      )
+    .contactForm__controller.controller
+      label.controller__label.controller__label-for_email(for="phoneNumber") Телефон
+      input#email.controller__input(
+        type="tel",
+        name="phoneNumber",
+        placeholder="Телефон"
+      )
+    .contactForm__controller.controller
+      label.controller__label.controller__label-for_message(for="message") Сообщение
+      textarea#message.controller__input.controller__input-textarea(
+        type="text",
+        name="message",
+        placeholder="Сообщение"
+      )
+    button#sendForm.connectForm__button Отправить

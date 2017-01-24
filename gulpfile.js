@@ -30,7 +30,7 @@ src: { //Пути откуда брать исходники
     html: 'src/*.pug', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
     js: 'src/js/*.js',//В стилях и скриптах нам понадобятся только main файлы
     style: 'src/scss/*.scss',
-    template: 'src/templates/*.pug',
+    template: 'src/templates/**/*.pug',
     img: 'src/img/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
     fonts: 'src/fonts/**/*.*'
 },
@@ -66,15 +66,18 @@ gulp.task('clean', function (cb) {
 gulp.task('html', function buildHTML() {
     gulp.src(path.src.html) //Выберем файлы по нужному пути
         .pipe(pug()) //
-        .pipe(gulp.dest(path.build.html)) //Выплюнем их в папку build
-        .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
-});
-gulp.task('htmlTemplates', function buildHTML() {
+        .pipe(gulp.dest(path.build.html)); //Выплюнем их в папку build
     gulp.src(path.src.template) //Выберем файлы по нужному пути
         .pipe(pug()) //
-        .pipe(gulp.dest(path.build.template)) //Выплюнем их в папку build
+        .pipe(gulp.dest(path.build.template))
         .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
 });
+// gulp.task('htmlTemplates', function buildHTML() {
+//     gulp.src(path.src.template) //Выберем файлы по нужному пути
+//         .pipe(pug()) //
+//         .pipe(gulp.dest(path.build.template)) //Выплюнем их в папку build
+//         .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
+// });
 gulp.task('js', function () {
     gulp.src(path.src.js) //Найдём наш main файл
         .pipe(rigger()) //Прогоним через rigger
@@ -120,7 +123,6 @@ gulp.task('fonts', function() {
 
 gulp.task('build', [
     'html',
-    'htmlTemplates',
     'js',
     'style',
     'fonts',
