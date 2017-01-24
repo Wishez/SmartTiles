@@ -15,10 +15,17 @@
   &:last-child {
     @include last;
   }
+  @include breakpoint($xxs) {
+    @include span(5);
+    &:last-child {
+           
+    }
+  }
 }
 .separator__addressCard {
   color: #b3b3b3;
   @include span(2);
   text-align: center;
   margin: 0;
+  font-size: 25px;
 }

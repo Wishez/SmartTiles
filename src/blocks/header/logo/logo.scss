@@ -54,7 +54,7 @@
   }
 }
 
-.logo__name-visible_xxs {
+.visible_xxs {
   display: none;
   @include breakpoint($xxs) {
     display: block;    

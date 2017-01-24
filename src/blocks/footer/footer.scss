@@ -1,3 +1,17 @@
-
-@import 'contact/contact.scss';
-@import 'sociality/sociality.scss';
+@import 'logo/logo.scss';
+.footer {
+  @include span(12);
+  height: 192px;
+  background-color: #1d1610;
+  text-align: center;
+  padding-top: 4.0625%;
+  @include breakpoint($sm) {
+    padding-top: 7.0625%;
+  }
+  @include breakpoint($xs) {
+    padding-top: 10.0625%;
+  }
+  @include breakpoint($xxs) {
+    padding-top: 11.0625%;
+  }
+}
