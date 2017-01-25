@@ -1,0 +1,8 @@
+nav.mainContent__subNav.subNav
+  ul.subNav__subNavList
+  -
+    var navCaterogies = ["покрытия", "фирмы", "покрытия для..."]
+  each category in navCaterogies
+    li.subnavList__subCategory.subCategory
+      a.subCategory__refer= category
+  
