@@ -43,4 +43,7 @@
   @include breakpoint($xxs) {
    padding: 10px  !important; 
   }
+  &:hover {
+    color: lighten($beige, 20%) !important;
+  }
 }

@@ -1,0 +1,23 @@
+.covers__tiles {
+  @include span(12);
+}
+.tiles__tilesList{
+  @include display-flex(flex);
+  @include flex-flow(row wrap);
+  @include justify-content(space-between);
+  @include align-items(center);      
+
+}
+.tilesList__tile {
+  @include span(4);
+  height: 270px;
+  border: 10px solid #fff;
+  background-color: $gray;
+  position: relative;
+  margin: 40px 0 0;
+}
+.tile__name {
+  position: absolute;
+  left: 22.43589743589744%;
+  top: 67.30769230769231%;
+}

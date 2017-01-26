@@ -27,12 +27,16 @@ $lg: 1200px;
 /* Mixins */
 /* Body Custom */
 body {
+  & * {
+    margin: 0;
+    padding: 0;
+  }
   font: {
     family: $stackGagalin;
     size: 16px;
   }
   line-height: 145%;
-  word-break: break-all;
+  word-break: break-word;
   hyphens: auto;
   -webkit-hyphenate-before: 2;
   -webkit-hyphenate-after: 3;

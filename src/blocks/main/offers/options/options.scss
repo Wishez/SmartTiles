@@ -3,10 +3,17 @@
   margin-top: 100px;
   position: relative;
   @include breakpoint($lg) {
-    left: 2%;
+    left: 5%;
+  }
+  @include breakpoint($md) {
+    left: 3%;
+  }
+  @include breakpoint($sm) {
+    left: 8%;
   }
   @include breakpoint($xs) {
      margin-top: 0;
+     left: 10%;
   }
 }
 .optionsList__refer {
