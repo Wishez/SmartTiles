@@ -1,2 +1,2 @@
-// heading/heading.js
+//= heading/heading.js
 //= tiles/tiles.js

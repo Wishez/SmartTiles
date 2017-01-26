@@ -1,4 +1,4 @@
 //= subNav/subNav.js
 //= covers/covers.js
-//= frims/firms.js
+//= firms/firms.js
 //= for/for.js

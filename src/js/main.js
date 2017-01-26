@@ -12,7 +12,8 @@
   CUSTOM
 
 ***********/
-$(document).ready(function () {
+$(function () {
   //= ../blocks/header/header.js
   //= ../blocks/main/main.js
+  //= ../templates/categories/main/main.js
 });//end ready

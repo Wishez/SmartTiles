@@ -72,12 +72,7 @@ gulp.task('html', function buildHTML() {
         .pipe(gulp.dest(path.build.template))
         .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
 });
-// gulp.task('htmlTemplates', function buildHTML() {
-//     gulp.src(path.src.template) //Выберем файлы по нужному пути
-//         .pipe(pug()) //
-//         .pipe(gulp.dest(path.build.template)) //Выплюнем их в папку build
-//         .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
-// });
+
 gulp.task('js', function () {
     gulp.src(path.src.js) //Найдём наш main файл
         .pipe(rigger()) //Прогоним через rigger
