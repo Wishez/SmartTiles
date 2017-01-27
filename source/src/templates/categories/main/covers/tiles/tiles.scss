@@ -4,7 +4,7 @@
 .tiles__tilesList{
   @include display-flex(flex);
   @include flex-flow(row wrap);
-  @include justify-content(space-between);
+  @include justify-content(center);
   @include align-items(center);      
 
 }
@@ -14,14 +14,43 @@
   border: 10px solid #fff;
   background-color: $gray;
   position: relative;
-  margin: 40px 0 0;
+  margin: 100px auto 0;
   list-style-type: none;
+  box-shadow: 0 0 15px $shadow;
+  @include breakpoint($sm) {
+    @include span(5);
+    margin-right: auto;
+  }
+  @include breakpoint($xs) {
+    @include span(5);
+    margin-right: auto;
+  }
+  @include breakpoint($xxs) {
+    @include span(12);
+    margin-right: auto;
+  }
   &:hover .tile__description {
     height: 70%;
     border-bottom-width: 2px;
     box-shadow: 0 5px 20px $shadow;
     padding: 5%;
   }
+}
+
+.tile__name {
+  position: absolute;
+  left: 18.27676240208877%;
+  top: 77.77777777777778%;
+  width: 63.18537859007833%;
+  height: 37.77777777777778%;
+  font-size: (24em / 16);
+//  color: #e8d3d3;
+  color: darken(#e8d3d3, 20%);
+  border: 1px solid #000;
+  background-color: $ghostBlack;
+  text-align: center;
+  padding: 5.78512396694215%;
+  overflow: hidden;
 }
 
 .tile__description {
@@ -35,18 +64,4 @@
    overflow:hidden;
    padding: 0;
    text-align: center;
-}
-
-.tile__name {
-  position: absolute;
-  left: 18.27676240208877%;
-  top: 77.77777777777778%;
-  width: 63.18537859007833%;
-  height: 37.77777777777778%;
-  font-size: (30em / 16);
-  color: #e8d3d3;
-  border: 1px solid #000;
-  background-color: $ghostBlack;
-  text-align: center;
-  padding: 1.568627450980392%;
 }

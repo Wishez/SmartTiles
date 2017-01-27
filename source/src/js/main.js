@@ -16,4 +16,5 @@ $(function () {
   //= ../blocks/header/header.js
   //= ../blocks/main/main.js
   //= ../templates/categories/main/main.js
+  //= ../templates/collection/blocks/collection.js
 });//end ready

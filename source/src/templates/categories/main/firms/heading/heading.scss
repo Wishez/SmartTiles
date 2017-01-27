@@ -1,3 +1,4 @@
 .firms__heading {
- color: $maroon;
+   @extend .covers__heading;
+   color: $maroon;
 }

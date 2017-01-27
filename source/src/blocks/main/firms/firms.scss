@@ -4,10 +4,11 @@
 .mainContent__firms {
   @include span(12);
   position: relative;
-  background: url("../img/firms/background.jpg");
-  background-size: cover;
+  background: url("../img/purty_wood.png") repeat;
+  background-size: 100px 100px;
   min-height: 665px;
   height: auto;
   margin-top: 125px;
   box-shadow: 0 0 40px $shadow;
+  padding: 0 0 10%;
 }
