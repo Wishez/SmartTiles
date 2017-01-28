@@ -1,6 +1,10 @@
-@import "tiles/tiles.scss";
-.collectionSlider {
+.collection__collectionSlider {
+  @include span(12);
   background: url("../img/purty_wood.png") repeat;
   background-size: 100px 100px;
-  margin-top: 50px;
+  margin-top: 70px;      
 }
+.collectionSlider__slides {
+  
+}
+@import "tiles/tiles.scss";
