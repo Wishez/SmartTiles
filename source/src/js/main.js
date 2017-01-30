@@ -17,4 +17,5 @@ $(function () {
   //= ../blocks/main/main.js
   //= ../templates/categories/main/main.js
   //= ../templates/collection/blocks/collection.js
+  //= ../templates/category/main/main.js
 });//end ready

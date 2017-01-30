@@ -1,1 +1,6 @@
 @import "visitCard/visitCard.scss";
+.collection__contact {
+  @include span(12);
+  @extend .mainContent__connect;
+  padding-bottom: 8%;
+}
