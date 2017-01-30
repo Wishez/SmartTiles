@@ -14,7 +14,7 @@
     font-size: (15em / 16);      
   }
   @include breakpoint($xxs) {
-    font-size: (10em / 16);      
+    font-size: (13em / 16);      
   }
   & .breadcrumb__breadcrumbItem:before {
     content: "\21CB";
@@ -28,9 +28,6 @@
   & .breadcrumb__breadcrumbItem:first-child:before {
     content: "";      
   }
-//  & > .active {
-//    color: darken($beige, 20%);
-//  }
 }
 .breadcrumb__breadcrumbItem {
   & .breadcrumbItem__refer{

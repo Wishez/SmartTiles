@@ -18,4 +18,5 @@ $(function () {
   //= ../templates/categories/main/main.js
   //= ../templates/collection/blocks/collection.js
   //= ../templates/category/main/main.js
+  //= ../templates/firm/main/firm.js
 });//end ready

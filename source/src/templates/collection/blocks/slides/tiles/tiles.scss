@@ -11,6 +11,10 @@
   @include span(4);
   height: 200px;
   margin: 20px auto;
+  @include breakpoint($xs) {
+    @include span(5);
+    height: 115px;
+  }
 }
 .tile__sample {
   height: 100%;
@@ -31,4 +35,8 @@
   color: darken(#e8d3d3, 20%);
   box-shadow: 0 0 15px $shadow;
   padding-top: (23% / 71) * 10;
+  @include breakpoint($xxs) {
+    width: (200% / 319) * 100;
+    left: (119% / 319) * 100;
+  }
 }

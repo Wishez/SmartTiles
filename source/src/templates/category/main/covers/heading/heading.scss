@@ -8,6 +8,7 @@
     font-size: (45em / 16);    
   }
   @include breakpoint($xxs) {
-    font-size: 16vw;    
+    font-size: 16vw;
+    margin-top: 10px;
   }
 }
