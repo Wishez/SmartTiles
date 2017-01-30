@@ -13,6 +13,9 @@
   margin: 20px auto;
   @include breakpoint($xs) {
     @include span(5);
+    height: 150px;
+  }
+  @include breakpoint($xxs) {
     height: 115px;
   }
 }

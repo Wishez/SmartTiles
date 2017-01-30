@@ -20,7 +20,7 @@
   @include span(3);
   margin: 0;    
   @include transform-style(preserve-3d);
-  @include perspective(500);
+  @include perspective(500px);
   transition: perspective 0.5s;
   position: relative;
   @include breakpoint($md) {
@@ -40,7 +40,7 @@
     right: 7%;  
   }
   &:hover {
-   @include perspective(5000);    
+   @include perspective(5000px);    
   }
   &:nth-child(1n+3) {
     margin-top: 100px;   
@@ -98,7 +98,7 @@
   overflow: hidden;
   @include border-radius(5px);
   @include box-shadow(0 20px 40px $shadow);
-  @include perspective(500);
+  @include perspective(500px);
   transform: translateZ(30px) rotateY(30deg);
   @include transition-property(transform, box-shadow, left, width, padding);
   @include transition-duration(0.5s);

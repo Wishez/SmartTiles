@@ -19,4 +19,5 @@ $(function () {
   //= ../templates/collection/blocks/collection.js
   //= ../templates/category/main/main.js
   //= ../templates/firm/main/firm.js
+  //= ../templates/firms/main/firms.js
 });//end ready

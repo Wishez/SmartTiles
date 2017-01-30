@@ -1,5 +1,5 @@
 .slick-dotted.slick-slider {
-  margin: 0;
+  margin: 0 auto;
 }
 .collection__collectionSlider {
   @include span(12);
@@ -12,7 +12,7 @@
     font-size: 50px;
     color: $maroon;
     @include breakpoint($lg) {
-      font-size: 50px;
+      font-size: 70px;
     }
     @include breakpoint($xxs) {
       font-size: 40px;

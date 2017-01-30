@@ -47,3 +47,14 @@
     color: lighten($beige, 20%) !important;
   }
 }
+.navigation__btnTop {
+  width: 149px;
+  height: 67px;
+  position: fixed;
+  top: 65%;
+  right: 0;
+  text-align: center;
+  color: $cyan;
+  @include rotate(60deg);
+  background-color: $nightBlack;
+}
