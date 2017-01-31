@@ -6,18 +6,18 @@
 //= ../../bower_components/jquery/dist/jquery.min.js
 //= ../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js
 //= ../../bower_components/slick-carousel/slick/slick.min.js
-
 /**********
 
   CUSTOM
 
 ***********/
+//= ../blocks/custom/custom.js
 $(function () {
   //= ../blocks/header/header.js
   //= ../blocks/main/main.js
-  //= ../templates/categories/main/main.js
-  //= ../templates/collection/blocks/collection.js
-  //= ../templates/category/main/main.js
-  //= ../templates/firm/main/firm.js
-  //= ../templates/firms/main/firms.js
+  //= ../snippets/categories-snippet/main/main.js
+  //= ../snippets/collection-snippet/main/collection.js
+  //= ../snippets/category-snippet/main/main.js
+  //= ../snippets/firm-snippet/main/firm.js
+  //= ../snippets/firms-snippet/main/firms.js
 });//end ready

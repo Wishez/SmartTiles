@@ -20,11 +20,12 @@
 @import "../blocks/custom/custom.scss";
 @import "../blocks/header/header.scss";
 @import "../blocks/main/main.scss";
-@import "../templates/categories/main/main.scss";
-@import "../templates/collection/blocks/collection.scss";
-@import "../templates/category/main/main.scss";
-@import "../templates/firm/main/firm.scss";
-@import "../templates/firms/main/firms.scss";
+@import "../snippets/categories-snippet/main/main.scss";
+@import "../snippets/collection-snippet/main/collection.scss";
+@import "../snippets/category-snippet/main/main.scss";
+@import "../snippets/firm-snippet/main/firm.scss";
+@import "../snippets/firms-snippet/main/firms.scss";
+@import "../snippets/covers-snippet/main/covers.scss";
 @import "../blocks/footer/footer.scss";
 
 

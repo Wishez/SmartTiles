@@ -48,13 +48,36 @@
   }
 }
 .navigation__btnTop {
+  z-index: 999;
   width: 149px;
   height: 67px;
   position: fixed;
   top: 65%;
-  right: 0;
+  right: -3.5%; // 149 - 67
   text-align: center;
-  color: $cyan;
-  @include rotate(60deg);
+  color: $cyan !important;
+  @include rotate(-90deg);
   background-color: $nightBlack;
+  transition: color 0.5s;
+  font-size: (30em / 16);
+  padding-top: (13% / 67) * 10;
+  &:hover {
+    color: lighten($cyan, 20%) !important;
+  }
+  @include breakpoint($md) {
+    right: -3.8%;
+  }
+  @include breakpoint($sm) {
+    right: -5%;
+  }
+  @include breakpoint($xs) {
+    right: -7%;
+    padding-top: (17% / 67) * 10;
+  }
+  @include breakpoint($xxs) {
+    right: -8%;
+    width: 90px;
+    height: 40px;
+    font-size: (20em / 16);
+  }
 }

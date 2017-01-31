@@ -1,0 +1,34 @@
+.subNavList {
+  @include display-flex(flex);
+  @include flex-flow(row wrap);
+  @include justify-content(space-around);
+  @include align-items(center);
+  padding: 0;
+  margin-top: 30px;
+  @include breakpoint($xxs) {
+    @include flex-flow(column wrap);
+    margin-top: 5px;
+  }
+}
+.subnavList__subCategory {
+  @include span(3);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  font-size: (26em / 16);
+  @include breakpoint($xs) {
+    font-size: (20em / 16);
+  }
+  @include breakpoint($xxs) {
+    @include span(12);
+    margin-top: 20px;
+  }
+  & > .subCategory__refer {
+    color: $beige;
+    transition: color 0.5s;
+    &:hover {
+      color: lighten($beige, 20%);      
+    }
+  }
+}

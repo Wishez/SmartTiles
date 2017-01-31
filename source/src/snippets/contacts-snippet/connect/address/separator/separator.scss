@@ -1,0 +1,31 @@
+.address__separator {
+  @include span(12);
+  display: inline-flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.separator__line {
+  @include span(3);
+  border-top: 0;
+  height: 17px;
+  background-color: #b3b3b3;
+  margin: 0;
+  &:last-child {
+    @include last;
+  }
+  @include breakpoint($xxs) {
+    @include span(5);
+    &:last-child {
+           
+    }
+  }
+}
+.separator__addressCard {
+  color: #b3b3b3;
+  @include span(2);
+  text-align: center;
+  margin: 0;
+  font-size: 25px;
+}
