@@ -11,6 +11,7 @@
   CUSTOM
 
 ***********/
+(function(global) {
 //= ../blocks/custom/custom.js
 $(function () {
   //= ../blocks/header/header.js
@@ -21,3 +22,4 @@ $(function () {
   //= ../snippets/firm-snippet/main/firm.js
   //= ../snippets/firms-snippet/main/firms.js
 });//end ready
+})(window)
