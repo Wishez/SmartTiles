@@ -2,12 +2,6 @@
   @include span(12);
   margin-top: 100px;
   position: relative;
-  @include breakpoint($lg) {
-    left: 5%;
-  }
-  @include breakpoint($md) {
-    left: 3%;
-  }
   @include breakpoint($sm) {
     left: 8%;
   }
@@ -22,6 +16,7 @@
   @include perspective(500px);
   transition: perspective 0.5s;
   position: relative;
+  right: -5%;
   @include breakpoint($md) {
     @include span(6);
     margin: 0;
@@ -33,10 +28,9 @@
   @include breakpoint($xs) {
     @include span(12);
     margin-top: 100px;
-    right: -5%;
   }
   @include breakpoint($xxs) {
-    right: 7%;  
+    right: -5%;  
   }
   &:hover {
    @include perspective(5000px);    

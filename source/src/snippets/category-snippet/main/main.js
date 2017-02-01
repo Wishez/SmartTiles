@@ -1,1 +1,1 @@
-// covers/covers.js
+//= covers/covers.js

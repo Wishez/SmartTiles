@@ -1,5 +1,4 @@
 var $callIcon = $('.call__icon i');
-var $tel = $('.call__tel');
 
 $callIcon.hover(
   function() {

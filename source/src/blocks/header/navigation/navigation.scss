@@ -64,6 +64,13 @@
   &:hover {
     color: lighten($cyan, 20%) !important;
   }
+  &:focus {
+    text-decoration: none;
+    @extend .navigation__btnTop;
+  }
+  &:active {
+    @extend .navigation__btnTop;
+  }
   @include breakpoint($md) {
     right: -3.8%;
   }
@@ -75,7 +82,7 @@
     padding-top: (17% / 67) * 10;
   }
   @include breakpoint($xxs) {
-    right: -8%;
+    right: -6%;
     width: 90px;
     height: 40px;
     font-size: (20em / 16);

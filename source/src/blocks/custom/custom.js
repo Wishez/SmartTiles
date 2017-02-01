@@ -1,7 +1,8 @@
 var st = {};
 
-var homeHtml = "snippets/home-snippet.html";
-var catalog = "snippets/catigories-snippet.html";
+var homeHtml = "snippets/home-snippet/home-snippet.html";
+var catalogHtml = "snippets/catigories-snippet/catigories-snippet.html";
+var contactsHtml = "snippets/contacts-snippet/contacts-snippet.html";
 
 var showLoading = function(selector) {
   var html = "<div class='text-center'>";
@@ -9,13 +10,7 @@ var showLoading = function(selector) {
   $(selector).html(html);
 }
 
-$('#contacts').on('click', function(e) {
-showLoading('#main');
-//  $.get('/snippets/contacts-snippet');
-e.preventDefault();
-}); // end click
-$('#home').on('click', function(e) {
-  showLoading('#main');
-//  $.get('/snippets/contacts-snippet');
-  e.preventDefault();
-}); // end click
+var switchActiveMenu = function(selector) {
+  $('#nav').find('li').removeClass('active');
+  $(selector).addClass('active');
+}

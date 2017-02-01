@@ -4,6 +4,7 @@
 
 ***********/
 //= ../../bower_components/jquery/dist/jquery.min.js
+//= ../../bower_components/jquery.easing/js/jquery.easing.min.js
 //= ../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js
 //= ../../bower_components/slick-carousel/slick/slick.min.js
 /**********
@@ -13,7 +14,7 @@
 ***********/
 (function(global) {
 //= ../blocks/custom/custom.js
-$(function () {
+$(function() {
   //= ../blocks/header/header.js
   //= ../blocks/main/main.js
   //= ../snippets/categories-snippet/main/main.js
