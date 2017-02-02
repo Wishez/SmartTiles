@@ -19,15 +19,17 @@
 @import "../fonts/fonts.scss";
 @import "../blocks/custom/custom.scss";
 @import "../blocks/header/header.scss";
-@import "../blocks/main/main.scss";
-@import "../snippets/categories-snippet/main/main.scss";
+@import "../snippets/home-snippet/main/main.scss";
+@import "../snippets/contacts-snippet/connect/connect.scss";
+@import "../snippets/breadcrumb-snippet/breadcrumb.scss";
+@import "../snippets/heading-snippet/heading.scss";
+@import "../snippets/catalog-snippet/main/main.scss";
+
 @import "../snippets/collection-snippet/main/collection.scss";
 @import "../snippets/category-snippet/main/main.scss";
 @import "../snippets/firm-snippet/main/firm.scss";
 @import "../snippets/firms-snippet/main/firms.scss";
 @import "../snippets/covers-snippet/main/covers.scss";
-@import "../snippets/breadcrumb-snippet/breadcrumb.scss";
-@import "../snippets/heading-snippet/heading.scss";
 @import "../blocks/footer/footer.scss";
 
 

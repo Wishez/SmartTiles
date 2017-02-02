@@ -1,28 +1,29 @@
-var $main = $('#main');
-$('#contacts').on('click', function(e) {
-  showLoading('#main');
-  switchActiveMenu(this);
-  $.get(contactsHtml).done(function(data){  
-    $main.html(data);
-  });//end get
+$(document).on('click', '#subNav .subCategory__refer, #btnTop', function(e) {
+  var $this = $(this);
+  $('html, body').stop().animate({
+    scrollTop: $($this.attr('href')).offset().top
+  }, 1500, 'easeInOutExpo');
   e.preventDefault();
-}); // end click
+});// end click
+
+
+loadSelectedMenu('#contacts', smartApp.getContacts);
+
 $('#home').on('click', function(e) {
   showLoading('#main');
   switchActiveMenu(this);
-  $.get(homeHtml).done(function(data) {
-    $main.html(data);
-  });
+  st.loadHomeContent();
   e.preventDefault();
 }); // end click
-$('#catalog').on('click', function(e) {
-  showLoading('#main');
-  switchActiveMenu(this);
-  $.get(homeHtml).done(function(data) {
-    $main.html(data);
-  });
-  e.preventDefault();
-}); // end click
+loadSelectedMenu('#catalog', smartApp.getCatalog);
+//$('#catalog').on('click', function(e) {
+//  showLoading('#main');
+//  switchActiveMenu(this);
+//  smartApp.getCatalog().done(function(data) {
+//    $main.html(data);
+//  });
+//  e.preventDefault();
+//}); // end click
 var $btnTop = $('#btnTop');
 $btnTop.hide();
 $(window).scroll(function(){

@@ -13,11 +13,12 @@
 
 ***********/
 (function(global) {
-//= ../blocks/custom/custom.js
-$(function() {
+ //= ../blocks/custom/custom.js
+ $(function() {
   //= ../blocks/header/header.js
-  //= ../blocks/main/main.js
-});//end ready
-
+  //= ../snippets/home-snippet/main/main.js
+  //= ../snippets/catalog-snippet/main/main.js
+  });//end ready
+  
   global.$st = st; 
 })(window);

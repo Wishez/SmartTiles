@@ -56,7 +56,6 @@
   right: 5vw; // 149 - 67
   text-align: center;
   color: $cyan !important;
-//  @include rotate(-90deg);
   background-color: $nightBlack;
   transition: color 0.5s;
   font-size: (30em / 16);
@@ -72,19 +71,19 @@
     @extend .navigation__btnTop;
   }
   @include breakpoint($md) {
-    right: -3.8%;
+    
   }
   @include breakpoint($sm) {
-    right: -5%;
+    font-size: (22em / 16)
   }
   @include breakpoint($xs) {
-    right: -7%;
-    padding-top: (17% / 67) * 10;
+    font-size: (22em / 16);
+    width: 15vw;
+    height: 7vw;
   }
   @include breakpoint($xxs) {
-    right: -6%;
-    width: 90px;
-    height: 40px;
-    font-size: (20em / 16);
+    font-size: (18em / 16);
+    width: 22vw;
+    height: 11vw;
   }
 }

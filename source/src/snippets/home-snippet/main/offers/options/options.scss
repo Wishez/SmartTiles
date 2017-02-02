@@ -14,7 +14,6 @@
   transition: perspective 0.5s;
   position: relative;
   right: -5%;
-  
   @include breakpoint($md) {
     @include span(6);
     margin: 0;
@@ -27,8 +26,7 @@
     @include span(12);
     margin-top: 100px;
   }
-  @include breakpoint($xxs) {
-    right: -5%;  
+  @include breakpoint($xxs) { 
   }
   &:hover {
    @include perspective(5000px);    
@@ -44,7 +42,6 @@
   margin: 0 15px 0 0;
   border: 10px solid #fff;
   max-width: 285px;
-  max-height: 190px;
   padding-top: 59%;
   list-style: none;
   background-color: $gray;
@@ -64,10 +61,12 @@
   @include breakpoint($xs) {
     margin: 0 auto;
     padding-top: 25%;
+    height: 200px;
   }
   @include breakpoint($xxs) {
     margin: 0 auto;
     padding-top: 46%;
+    height: auto;
   }
   &:hover {
     @include rotateY(0);

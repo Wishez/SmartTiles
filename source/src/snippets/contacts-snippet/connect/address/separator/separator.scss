@@ -27,5 +27,7 @@
   @include span(2);
   text-align: center;
   margin: 0;
-  font-size: 25px;
+  @include breakpoint($xxs) {      
+    font-size: 25px;
+  }
 }
