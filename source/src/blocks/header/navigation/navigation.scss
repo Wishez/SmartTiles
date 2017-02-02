@@ -49,18 +49,18 @@
 }
 .navigation__btnTop {
   z-index: 999;
-  width: 149px;
-  height: 67px;
+  width: 10vw;
+  height: 5vw;
   position: fixed;
-  top: 65%;
-  right: -3.5%; // 149 - 67
+  bottom: 0;
+  right: 5vw; // 149 - 67
   text-align: center;
   color: $cyan !important;
-  @include rotate(-90deg);
+//  @include rotate(-90deg);
   background-color: $nightBlack;
   transition: color 0.5s;
   font-size: (30em / 16);
-  padding-top: (13% / 67) * 10;
+  line-height: 220%;
   &:hover {
     color: lighten($cyan, 20%) !important;
   }
