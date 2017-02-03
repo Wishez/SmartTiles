@@ -1,0 +1,9 @@
+.collectionSlider__listTiles {
+  @include display-flex(flex);
+  @include flex-flow(row wrap);
+  @include justify-content(space-around);
+  @include align-items(flex-end);
+  max-width: 900px;
+  padding: 10%;
+  margin: 0 auto;
+}

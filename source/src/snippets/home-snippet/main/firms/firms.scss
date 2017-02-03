@@ -1,0 +1,14 @@
+@import "title/title.scss";
+@import "firmsList/firmsList.scss";
+
+.mainContent__firms {
+  @include span(12);
+  position: relative;
+  background: url("../img/purty_wood.png") repeat;
+  background-size: 100px 100px;
+  height: auto;
+  margin-top: 125px;
+  min-height: 680px;
+  box-shadow: 0 0 40px $shadow;
+  padding: 0 0 10%;
+}

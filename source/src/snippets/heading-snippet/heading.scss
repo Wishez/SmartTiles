@@ -1,0 +1,19 @@
+.heading {
+  font-size: (59em / 16);
+  color: $beige;
+  text-align: center;
+  @include span(12);
+  margin-top: 50px;
+  @include breakpoint($xs) {
+    font-size: (45em / 16);    
+  }
+  @include breakpoint($xxs) {
+    font-size: 16vw;    
+  }
+}
+.heading-firm {
+   color: $maroon !important;
+}
+.heading-for {
+  color: $nightBlack !important;
+}
