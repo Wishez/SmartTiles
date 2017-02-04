@@ -34,38 +34,38 @@ var smartApp = (function(){
   
   obj.getCatalog = function() {
     return $.get(catalogHtml);
-  }
+  };
   
   obj.getCategory = function() {
     return $.get(categoryHtml);
-  }
+  };
   
   obj.getFirm = function() {
     return $.get(firmHtml);
-  }
+  };
   
   obj.getCollection = function() {
     return $.get(collectionHtml);
-  }
+  };
   obj.getBreadcrumb = function() {
     return $.get(breadcrumbHtml);
-  }
+  };
   obj.getHeading = function() {
     return $.get(headingHtml);
-  }
+  };
   obj.getTile = function() {
     return $.get(tileHtml);
-  }
+  };
   obj.getSample = function() {
     return $.get(sampleHtml);
-  }
+  };
   // До сих пор не знаю, нужны ли мне эти шаблоны;0.
   obj.getFirms = function() {
     return $.get(firmsHtml);
-  }
+  };
   obj.getCovers = function() {
     return $.get(coversHtml);
-  }
+  };
   return obj;
 })();
 

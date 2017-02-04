@@ -1,9 +1,13 @@
 {
-  "name": "test",
-  "version": "1.0.0",
+  "name": "template",
+  "version": "2.0.0",
   "description": "",
-  "author": "Rory Mercury",
+  "author": "Shining Finger",
   "license": "ISC",
+  "private": true,
+  "scripts": {
+    "istall": "bower install"
+  },
   "devDependencies": {
     "gulp": "^3.9.1"
   },

@@ -73,10 +73,12 @@ gulp.task('html', function buildHTML() {
         .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
 });
 gulp.task('js', function () {
+    gulp.src(path.watch.js)
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'))
     gulp.src(path.src.js) //Найдём наш main файл
         .pipe(rigger()) //Прогоним через rigger
         .pipe(sourcemaps.init()) //Инициализируем sourcemap
-        .pipe(jshint())
         .pipe(uglify()) //Сожмём наш js
         .pipe(sourcemaps.write()) //Пропишем карты
         .pipe(gulp.dest(path.build.js)) //Выплюнем готовый файл в build
