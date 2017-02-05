@@ -2,18 +2,19 @@
 
 var gulp = require('gulp'),
     pug = require('gulp-pug'),
-    watch = require('gulp-watch'),
-    prefixer = require('gulp-autoprefixer'),
-    uglify = require('gulp-uglify'),
     sass = require('gulp-sass'),
     compass = require('gulp-compass'),
-    sourcemaps = require('gulp-sourcemaps'),
-    rigger = require('gulp-rigger'),
+    watch = require('gulp-watch'),
+    prefixer = require('gulp-autoprefixer'),
     cleanCSS = require('gulp-clean-css'),
+    sourcemaps = require('gulp-sourcemaps'),
+    jshint = require('gulp-jshint'),
+    uglify = require('gulp-uglify'),
+    babel = require('gulp-babel'),
+    rigger = require('gulp-rigger'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
     rimraf = require('rimraf'),
-    jshint = require('gulp-jshint'),
     browserSync = require("browser-sync"),
     reload = browserSync.reload;
 
@@ -79,6 +80,7 @@ gulp.task('js', function () {
     gulp.src(path.src.js) //Найдём наш main файл
         .pipe(rigger()) //Прогоним через rigger
         .pipe(sourcemaps.init()) //Инициализируем sourcemap
+        .pipe(babel())
         .pipe(uglify()) //Сожмём наш js
         .pipe(sourcemaps.write()) //Пропишем карты
         .pipe(gulp.dest(path.build.js)) //Выплюнем готовый файл в build
