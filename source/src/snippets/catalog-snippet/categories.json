@@ -1,20 +1,11 @@
 [{
-  "id": 1,
-  "name": "Дизайн плитка",
-  "short_name": "DT",
-  "description": "",
+  "id": 1,"name": "Дизайн плитка","short_name": "DT","description": "",
   "firms": [
      {
-       "id": 1,
-       "name": "Amtico",
-       "short_name": "AM",
-       "description": "",
+       "id": 1,"name": "Amtico","short_name": "AMT","description": "",
        "collections": [
           {
-          	"id": 1,
-            "name": "Wood",
-            "short_name": "W",
-            "description": "",
+          	"id": 1,"name": "Amtico standart","short_name": "W","description": "Wood",
             "samples": [
               {"id": 1,"name": "Washed teak","num": "w599","description": ""},
               {"id": 2,"name": "White maple","num": "W682","description": ""},
@@ -72,10 +63,7 @@
             ]
           },
           {
-          	"id": 2,
-            "name": "Stone",
-            "short_name": "S",
-            "description": "",
+          	"id": 2,"name": "Amtico standart","short_name": "S","description": "Stone",
             "samples": [
               {"id": 1,"name": "Antique porcelain","num": "an41","description": ""},
               {"id": 2,"name": "Australian sandstone","num": "au44","description": ""},
@@ -136,4 +124,111 @@
        ]
      }
   ]
-}]
+},
+{
+  "id": 2,"name": "Ковровая плитка","short_name": "CT","description": "",
+  "firms": [
+     {
+       "id": 1,"name": "Ege","short_name": "EGE","description": "Англия",
+       "collections": [
+          {
+          	"id": 1,"name": "Helsinki","short_name": "HSK","description": "Ege, Carre Modular",
+            "samples": [
+              {"id": 1,"name": "","num": "RFM52204230","description":"Helsinki"},
+              {"id": 2,"name": "","num": "RFM52754230","description":"Helsinki"},
+              {"id": 3,"name": "","num": "RFM52754231","description":"Helsinki"},
+              {"id": 4,"name": " Wood","num": "RFM52754232","description":"Helsinki"},
+              {"id": 5,"name": "","num": "RFM52854230","description":"Helsinki"},
+              {"id": 6,"name": "","num": "RFM52854231","description":"Helsinki"},
+              {"id": 7,"name": "","num": "RFM52854232","description":"Helsinki"},
+              {"id": 8,"name": "","num": "RFM52954230","description":"Helsinki"},
+              {"id": 9,"name": "","num": "RFM52954231","description":"Helsinki"},
+              {"id": 10, "name": "","num": "RFM52954232","description":"Helsinki"},
+              {"id": 11,"name": "","num": "RFM52954233","description":"Helsinki"},
+              {"id": 12,"name": "","num": "RFM52954234","description":"Helsinki"}
+            ]
+          },
+          {
+          	"id": 2,"name": "New York","short_name": "NY","description": "Carre Modular Collection",
+            "samples": [
+              {"id": 1,"name": "","num": "RFM52954210","description": "New York"},
+              {"id": 2,"name": "","num": "RFM52954211","description": "New York"},
+              {"id": 3,"name": "","num": "RFM52954212","description": "New York"},
+              {"id": 4,"name": "","num": "RFM52954213","description": "New York"},
+              {"id": 5,"name": "","num": "RFM52954214","description": "New York"},
+              {"id": 6,"name": "","num": "RFM52954215","description": "New York"},
+              {"id": 7,"name": "","num": "RFM52954216","description": "New York"}
+            ]
+          }
+       ]
+     }
+  ]
+},
+{
+  "id": 3,"name": "Ковровые покрытия","short_name": "CC","description": "",
+  "firms": [
+     {
+       "id": 1,"name": "Balsan","short_name": "BLS","description": "Франция",
+       "collections": [
+          {
+          	"id": 1,"name": "Bubble","short_name": "BBL","description": "Design Concept Collection",
+            "samples": [
+              {"id": 1,"name": "","num": "180","description": "Bubble"},
+              {"id": 2,"name": "","num": "260","description": "Bubble"},
+              {"id": 3,"name": "","num": "550","description": "Bubble"},
+              {"id": 4,"name": " Wood","num": "580","description": "Bubble"},
+              {"id": 5,"name": "","num": "880","description": "Bubble"},
+              {"id": 6,"name": "","num": "990","description": "Bubble"}
+            ]
+          },
+          {
+          	"id": 2,"name": "Campus","short_name": "CPS","description": "Design Concept Collection",
+            "samples": [
+              {"id": 1,"name": "","num": "140","description": "Campus"},
+              {"id": 2,"name": "","num": "160","description": "Campus"},
+              {"id": 3,"name": "","num": "240","description": "Campus"},
+              {"id": 4,"name": "","num": "270","description": "Campus"},
+              {"id": 5,"name": "","num": "440","description": "Campus"},
+              {"id": 6,"name": "","num": "570","description": "Campus"},
+              {"id": 7,"name": "","num": "590","description": "Campus"},
+              {"id": 7,"name": "","num": "930","description": "Campus"}
+            ]
+          }
+       ]
+     }
+  ]
+},
+{
+  "id":4,"name":"Травмобезопасный ленолиум","short_name":"CL","description": "",
+  "firms": [
+     {
+       "id": 1,"name": "Altro","short_name": "ALT","description": "Германия",
+       "collections": [
+          {
+          	"id": 1,"name": "Atlas","short_name": "ATL","description": "Altro Atlas",
+            "samples": [
+              {"id": 1,"name": "Anvil","num": "X4094","description": "Bubble"},
+              {"id": 2,"name": "Mushroom","num": "X4042","description": "Bubble"},
+              {"id": 3,"name": "Pewter Grey","num": "X4039","description": "Bubble"},
+              {"id": 4,"name": "Quarry Red","num": "X4060","description": "Bubble"},
+              {"id": 5,"name": "Walnut","num": "X4086","description": "Bubble"}
+            ]
+          },
+          {
+          	"id": 2,"name": "Campus","short_name": "CPS","description": "Design Concept Collection",
+            "samples": [
+              {"id": 1,"name": "","num": "140","description": "Campus"},
+              {"id": 2,"name": "","num": "160","description": "Campus"},
+              {"id": 3,"name": "","num": "240","description": "Campus"},
+              {"id": 4,"name": "","num": "270","description": "Campus"},
+              {"id": 5,"name": "","num": "440","description": "Campus"},
+              {"id": 6,"name": "","num": "570","description": "Campus"},
+              {"id": 7,"name": "","num": "590","description": "Campus"},
+              {"id": 7,"name": "","num": "930","description": "Campus"}
+            ]
+          }
+       ]
+     }
+  ]
+}
+]
