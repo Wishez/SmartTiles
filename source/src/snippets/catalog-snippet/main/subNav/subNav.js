@@ -4,4 +4,4 @@ $(document).on('click', '#subNav .subCategory__refer, #btnTop', function(e) {
     scrollTop: $($this.attr('href')).offset().top
   }, 1500, 'easeInOutExpo');
   e.preventDefault();
-});
+});// end click

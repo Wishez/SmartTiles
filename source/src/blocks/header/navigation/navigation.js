@@ -15,15 +15,16 @@ $('#home').on('click', function(e) {
   st.loadHomeContent();
   e.preventDefault();
 }); // end click
-loadSelectedMenu('#catalog', smartApp.getCatalog);
-//$('#catalog').on('click', function(e) {
-//  showLoading('#main');
-//  switchActiveMenu(this);
-//  smartApp.getCatalog().done(function(data) {
-//    $main.html(data);
-//  });
-//  e.preventDefault();
-//}); // end click
+//loadSelectedMenu('#catalog', smartApp.getCatalog);
+$('#catalog').on('click', function(e) {
+  showLoading('#main');
+  switchActiveMenu(this);
+  smartApp.getCatalog().done(function(catalog) {
+    $main.html(catalog);
+    st.buildAndShowCategoriesHTML();
+  });
+  e.preventDefault();
+}); // end click
 var $btnTop = $('#btnTop');
 $btnTop.hide();
 $(window).scroll(function(){

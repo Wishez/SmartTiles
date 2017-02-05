@@ -3,11 +3,11 @@ var st = {};
 var homeHtml = "snippets/home-snippet/home-snippet.html";
 var contactsHtml = "snippets/contacts-snippet/contacts-snippet.html";
 var catalogHtml = "snippets/catalog-snippet/catalog-snippet.html";
-var categoryHtml = "../snippets/category-snippet/category-html.html";
+var categoryHtml = "../snippets/category-snippet/category-snippet.html";
 var firmHtml = "snippets/firm-snippet/firm-snippet.html";
 var collectionHtml = "snippets/collection-snippet//collection-snippet.html";
 
-var catalogItemsUrl = "https://smart-tiles.herokuapp.com/catalog_itoms.json?category=";
+var catalogCategories = "data/categories.json";
 
 var breadcrumbHtml = "snippets/breadcrumb-snippet/breadcrumb-snippet.html";
 var headingHtml = "snippets/heading-snippet/heading-snippet.html";
@@ -54,7 +54,7 @@ var smartApp = (function(){
     return $.get(headingHtml);
   };
   obj.getTile = function() {
-    return $.get(tileHtml);
+    return $.get(tileHtml); 
   };
   obj.getSample = function() {
     return $.get(sampleHtml);
@@ -65,6 +65,9 @@ var smartApp = (function(){
   };
   obj.getCovers = function() {
     return $.get(coversHtml);
+  };
+  obj.getCategories = function() {
+    return $.getJSON(catalogCategories);
   };
   return obj;
 })();
@@ -91,4 +94,22 @@ var loadSelectedMenu = function(selector, smartAppRquest) {
   }); // end click
 };
 
+var insertProperty = function(string, propName, propValue) {
+  var propToReplace = "{{" + propName + "}}";
+  string = string.replace(new RegExp(propToReplace, "g"), propValue);
+  
+  return string;
+};
+// TEST insertProperty. Наверное, надо всё же использовать Mocha.
+//smartApp.getTile().done(function(tile) {
+//  console.log(tile);
+//  var finalHtml = '<div class="container"><ul class="tiles__tilesList tilesList">';
+//  var html = tile;
+//  html = insertProperty(html, "short_name", "DT"); 
+//  html = insertProperty(html, "name", "GO TO THE HELL!");
+//  finalHtml += html;
+//  finalHtml += '</ul></div>';              
+//  console.log(finalHtml);
+//  return finalHtml;
+//});
 
