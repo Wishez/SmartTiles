@@ -14,11 +14,11 @@ st.buildAndShowCategoryHTML = function(category, categoryName) {
   // Получаем шаблон страницы категории
   smartApp.getCategory().done(function(categoryHtml) {
   // Выбираем из шаблона блок категории.
-//    var $category = $('#category');
+    var $category = $('#category');
     // Строим заголовок.
-//    var heading = buildHeadingViewHTML("firms", categoryName);
+    var heading = buildHeadingViewHTML("", categoryName);
     // Строим навигационнаю цепочку.
-//    var breadcrumb = buildBreadcrumbViewHTML("category", categoryName);
+//    var breadcrumb = buildBreadcrumbViewHTML(categoryName, "", "");
 //    smartApp.getBreadcrumb().done(function(breadcrumbHtml) {
 //    });
     // Начинаем преображать шаблон.

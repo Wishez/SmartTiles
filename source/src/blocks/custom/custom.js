@@ -12,6 +12,7 @@ var firmItems = "data/firms.json";
 
 var breadcrumbHtml = "snippets/breadcrumb-snippet/breadcrumb-snippet.html";
 var headingHtml = "snippets/heading-snippet/heading-snippet.html";
+var headingFirmHtml = "snippets/heading-snippet/heading-snippet-firm.html";
 var tileHtml = "snippets/tile-snippet/tile-snippet.html";
 var sampleHtml = "snippets/sample-snippet/sample-snippet.html";
   
@@ -53,6 +54,9 @@ var smartApp = (function(){
   };
   obj.getHeading = function() {
     return $.get(headingHtml);
+  };
+  obj.getHeadingFirm = function() {
+    return $.get(headingFirmHtml);
   };
   obj.getTile = function() {
     return $.get(tileHtml); 
