@@ -10,7 +10,7 @@
 }
 .tilesList__tile {
   @include span(4);
-  height: 270px;
+//  height: 270px;
   border: 10px solid #fff;
   background-color: $gray;
   position: relative;
@@ -64,4 +64,10 @@
    overflow:hidden;
    padding: 0;
    text-align: center;
+}
+
+.tile__img {
+//  width: 100%;
+//  height: 100%;
+//  overflow: hidden; 
 }

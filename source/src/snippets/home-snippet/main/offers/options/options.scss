@@ -109,7 +109,7 @@
 }
 
 /* Background for options */
-$options: sprite-map("options/*.png");
+$options: sprite-map("./options/*.png");
 @each $category, $y, $another-y in 
       (flooring, 0),
       (ceilingSystems, -163, -184),
