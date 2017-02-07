@@ -11,6 +11,7 @@ var catalogCategories = "data/categories.json";
 var firmItems = "data/firms.json";
 
 var breadcrumbHtml = "snippets/breadcrumb-snippet/breadcrumb-snippet.html";
+var breadcrumbFirmHtml = "snippets/breadcrumb-snippet/breadcrumb-firm-snippet.html";
 var headingHtml = "snippets/heading-snippet/heading-snippet.html";
 var headingFirmHtml = "snippets/heading-snippet/heading-snippet-firm.html";
 var tileHtml = "snippets/tile-snippet/tile-snippet.html";
@@ -49,18 +50,27 @@ var smartApp = (function(){
   obj.getCollection = function() {
     return $.get(collectionHtml);
   };
+  
   obj.getBreadcrumb = function() {
     return $.get(breadcrumbHtml);
   };
+  
+  obj.getBreadcrumbFirm = function () {
+    return $.get(breadcrumbFirmHtml);
+  };
+  
   obj.getHeading = function() {
     return $.get(headingHtml);
   };
+  
   obj.getHeadingFirm = function() {
     return $.get(headingFirmHtml);
   };
+  
   obj.getTile = function() {
     return $.get(tileHtml); 
   };
+  
   obj.getSample = function() {
     return $.get(sampleHtml);
   };
@@ -68,12 +78,15 @@ var smartApp = (function(){
   obj.getFirms = function() {
     return $.get(firmsHtml);
   };
+  
   obj.getCovers = function() {
     return $.get(coversHtml);
   };
+  
   obj.getCategories = function() {
     return $.getJSON(catalogCategories);
   };
+  
   obj.getFirmsItems = function() {
     return $.getJSON(firmItems);
   };

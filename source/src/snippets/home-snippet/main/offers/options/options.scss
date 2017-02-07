@@ -109,14 +109,14 @@
 }
 
 /* Background for options */
-$options-range: sprite-map("options-range/*.png");
+
 @each $category, $y, $another-y in 
-      (flooring, 0),
+      (flooring, 0, 0),
       (ceilingSystems, -163, -184),
       (wallCoverings, -325, -366),
       (textiles, -488, -551) {
       .optionsList__option-#{$category} {
-        background: $options-range 0 #{$y}px no-repeat;
+        background: url('../../img/option-sprite.png') 0 #{$y}px no-repeat;//$options-range
         background-size: cover;
         @include breakpoint($md) {
           background-position: 0 #{$another-y}px;
