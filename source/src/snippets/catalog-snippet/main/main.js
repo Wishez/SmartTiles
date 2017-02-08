@@ -9,7 +9,7 @@ st.buildAndShowCategoriesHTML = function() {
   smartApp.getCategories().done(function(categories){
     // Получаем шаблон плитки.
     smartApp.getTile().done(function(tileHtml) {     
-      var categoriesViewHtml = buildTilesViewHtml(categories, tileHtml);
+      var categoriesViewHtml = buildTilesViewHtml(categories, tileHtml, "");
       
       $covers.html(categoriesViewHtml);
     });

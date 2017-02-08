@@ -1,4 +1,4 @@
-[{"id": 1,"name": "Amtico","short_name": "AMT","description": "","categorories": ["DT"],  
+[{"id": 1,"name": "Amtico","short_name": "AMT","description": "","categories": ["DT"],  
   "collections": [
   {
   	"id": 1,"name": "Amtico standart","short_name": "W","description": "Wood",
@@ -120,7 +120,7 @@
   ]
 },
 {
- "id": 2,"name": "Ege","short_name": "EGE","description": "Англия", "categorories": ["CT"],
+ "id": 2,"name": "Ege","short_name": "EGE","description": "Англия", "categories": ["CT"],
  "collections": [
     {
       "id": 1,"name": "Helsinki","short_name": "HSK","description": "Ege, Carre Modular",
@@ -154,7 +154,7 @@
   ]
 },
 {
-   "id": 3,"name": "Balsan","short_name": "BLS","description": "Франция", "categorories": ["CC"],
+   "id": 3,"name": "Balsan","short_name": "BLS","description": "Франция", "categories": ["CC"],
    "collections": [
     {
       "id": 1,"name": "Bubble","short_name": "BBL","description": "Design Concept Collection",
@@ -183,7 +183,7 @@
   ] 
 },
 {
-   "id": 4,"name": "Altro","short_name": "ALT","description": "Германия", "categorories": ["CL"],
+   "id": 4,"name": "Altro","short_name": "ALT","description": "Германия", "categories": ["CL"],
    "collections": [
       {
         "id": 1,"name": "Atlas","short_name": "ATL","description": "Altro Atlas",

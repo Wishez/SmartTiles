@@ -15,6 +15,9 @@
 // В первый аргумент передаётся категория из атрибута data-cat, которое хранит короткое имя категории
 // Второй аргумент - значение элемента с классом .tile__name 
 // По которому кликнули.
+// Заметка: в обработчике события щелчка мыши
+// Извлекай данные плитки data-cat и data-firm
+// Присваивай их навигационной цепочке!
 st.buildAndShowCategoryHTML = function(category, categoryName, styleType) {
   // Получаем шаблон страницы категории
   smartApp.getCategory().done(function(categoryHtml) {
@@ -22,39 +25,43 @@ st.buildAndShowCategoryHTML = function(category, categoryName, styleType) {
     var $category = $('#firmsCategory');
     var breadcrumb = "";
     var heading = "";
-    var finalHTML = categoryHtml;
+    var finalHTML = "";
     
     // Сначала строим breadcrumb
     smartApp.getBreadcrumb().done(function(breadcrumbHtml) {
-      breadcrumb = buildBreadcrumbViewHTML(breadcrumbHtml, styleType, categoryName, "", "");
-      console.log(breadcrumb);
-      
-      // Потом строится heading 
-      heading = buildHeadingViewHTML(styleType, categoryName);
-      console.log(heading);
-    // Начинаем преображать шаблон.
-//    categoryHTML = $category.prepend(heading);
-//    categoryHTML = $category.prepend(breadcrumb);
-      // После чего плиточки   
+      // Получаем кусок html-ля плитки.
       smartApp.getTile().done(function(tileHtml) {
-        smartApp.getFirmsItems().done(function(firmsItems) {
+      // Получаем данные о фирмах в json формате.
+       smartApp.getFirmsItems().done(function(firmsItems) {
           // Массив с фирмами, которые пренадлежат категориям.
           st.arrayItems = [];
-          
+          //  Строим навигационную цепочку с сатегорией
+          breadcrumb = buildBreadcrumbViewHTML(breadcrumbHtml, styleType, categoryName, "", "", "");
+          // Потом строится heading 
+          heading = buildHeadingViewHTML(styleType, categoryName);
+          console.log(heading);
+          console.log(breadcrumb);
+         
+          // Находим фирмы, которые принадлежат категории
           firmsItems.map(function(firm) {
-            console.log(firm);
+            // Маccив категорий, к которы принадлежит фирма.
             var categoriesOfFirm = firm.categories;
-            // маccив категорий, к которы принадлежит фирма.
             categoriesOfFirm.map(function(cat) {
               if (cat == category) {
                 return st.arrayItems.push(firm);
               }
             });
           });
-          console.log(st.arrayItems);
-          
-          var categoryItems = buildTilesViewHtml(st.arrayItems, tileHtml);
+          // Строим плитки с фирмами.
+          var categoryItems = buildTilesViewHtml(st.arrayItems, tileHtml, "firm");
           console.log(categoryItems);
+         // Запихиваем плитки в полученный шаблон категории.
+         categoryHtml += categoryItems;
+         // Компануем.
+         finalHTML = breadcrumb + heading + categoryHtml;
+         
+         // И последний штрих.
+         $('#main').html(finalHTML);
         });
         // Впихиваем их в блок, где должны отображаться фирмы категории
 //        categoryHTML = $('#firmsCategory').html(categoryItems);
@@ -65,4 +72,4 @@ st.buildAndShowCategoryHTML = function(category, categoryName, styleType) {
     });
   });
 };
-st.buildAndShowCategoryHTML('CT', 'Ковровая плитка', "firm");
+st.buildAndShowCategoryHTML('CT', 'Ковровая плитка', "");

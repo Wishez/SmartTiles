@@ -1,5 +1,8 @@
-.covers__tiles {
+.coverTiles {
   @include span(12);
+}
+.coverTiles-firm {
+  @extend .mainContent__firms;
 }
 .tiles__tilesList{
   @include display-flex(flex);
