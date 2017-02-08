@@ -1,11 +1,11 @@
 // WARNING! Возможно, в некоторых вызовах этой функции
 // categoryName и firmName, которые передадуться в аргументы функции
 // будут изменены местами...
-//var breadcrumbTest = buildBreadcrumbViewHTML("category", "firm", "col", false);
-
-function buildBreadcrumbViewHTML(categoryName, firmName, collectionName, breadcrumbType) {
-    var finalHTML = "";
-    var html = "";
+function buildBreadcrumbViewHTML(string, styleType,categoryName, firmName, collectionName) {
+    var finalHTML =  '<ol id="breadcrumb" class="mainContent__breadcrumb breadcrumb">' + string;
+    if(styleType === "firm") {
+      finalHTML = '<ol id="breadcrumb" class="mainContent__breadcrumb breadcrumb breadcrumb-firm">' + string;
+    }
     
     // Шаблоны элементов нав. цепочки.
     var bcElemActive = '<li class="breadcrumb__breadcrumbItem breadcrumbItem active">';
@@ -15,59 +15,25 @@ function buildBreadcrumbViewHTML(categoryName, firmName, collectionName, breadcr
     var idBcCategory = 'id="bcCategory">';
     var idBcFirm = 'id=bcFirm>';
     // Готовые элементы навигационной цепочка 
-    var bcCategory = bcElemActive + categoryName + '</li>';
+    var bcCategory = bcElemActive + categoryName + '</li></ol>';
     var bcCategoryFirm = bcElem + idBcCategory + bcRefer + categoryName +
-        '</a>' + bcElemActive + firmName + '</li>';
+        '</a>' + bcElemActive + firmName + '</li></ol>';
     var bcCategoryFirmCollection = bcElem + idBcCategory + bcRefer + categoryName + '</a>' + 
       bcElem + idBcFirm + bcRefer + firmName + '</a>' +
-      bcElemActive + collectionName + '</li>';
-  
-  // Есть навигационная цепочка с бардовым цветом,
-  // А есть с бежевым. Проверяем на желание сделать
-  // Бардовою цепочку.
-  if (breadcrumbType == "firm") {
-    smartApp.getBreadcrumbFirm().done(function(breadcrumbHtml) {
-      html = breadcrumbHtml;
+      bcElemActive + collectionName + '</li></ol>';
+
+    if (firmName === "") {    
+      finalHTML += bcCategory;
+        
+      return finalHTML;
+    } else if (collectionName === "") {
+      finalHTML += bcCategoryFirm;
       
-      if (firmName === "") {
-        html += bcCategory;
-        finalHTML = html;
-
-        return finalHTML;
-      } else if (collectionName === "") {
-        html += bcCategoryFirm;
-        finalHTML = html;
-        
-        return finalHTML;
-      } else {
-        html += bcCategoryFirmCollection;
-        finalHTML = html;
-        
-        return finalHTML;
-      }
-    });
-  } else {    
-    smartApp.getBreadcrumb().done(function(breadcrumbHtml) {
-      html = breadcrumbHtml;
-
-      // Проверяем аргументы и возвращаем скомпанованную строку.
-      if (firmName === "") {
-        html += bcCategory;
-        finalHTML = html;
-
-        return finalHTML;
-      } else if (collectionName === "") {
-        html += bcCategoryFirm;
-        finalHTML = html;
-        
-        return finalHTML;
-      } else {
-        html += bcCategoryFirmCollection;
-        finalHTML = html;
-        
-        return finalHTML;
-      }
-    });
-  }                        
-}
+      return finalHTML;
+    } else {
+      finalHTML = bcCategoryFirmCollection;
+      
+      return finalHTML;
+    }
+}                        
 // Используй силу, ЛЮК!

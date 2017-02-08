@@ -1,8 +1,11 @@
-function buildHeadingViewHTML(string, headingType, headingName) {
-  var finalHTML = "";
+function buildHeadingViewHTML(styleType, headingName) {
+  var finalHTML = '<h2 class="heading">';
+
+  if (styleType === "firm") {
+    finalHTML = '<h2 class="heading heading-firm">';
+  }
   
-  string = insertProperty(string, "name", headingName);
-  finalHTML += string
+  finalHTML += headingName + '</h2>';
   
   return finalHTML;
 }

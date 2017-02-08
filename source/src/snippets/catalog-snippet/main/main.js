@@ -5,34 +5,13 @@
 st.buildAndShowCategoriesHTML = function() {
   var $covers = $('#covers');
   var $firms = $('#firms');
+  // Получаем json-файл со всеми категориями.
   smartApp.getCategories().done(function(categories){
+    // Получаем шаблон плитки.
     smartApp.getTile().done(function(tileHtml) {     
-      var categoriesViewHtml = buildCategoriesViewHtml(categories, tileHtml);
+      var categoriesViewHtml = buildTilesViewHtml(categories, tileHtml);
       
       $covers.html(categoriesViewHtml);
     });
   });
-};
-function buildCategoriesViewHtml(categories, tileHtml) {
-  var finalHtml = '<ul class="tiles__tilesList tilesList">';
-  
-  categories.map(function(category) {
-    var html = tileHtml;
-    var name = "" + category.name;
-    var short_name = category.short_name + "/" + category.short_name;
-    var description = category.description;
-    
-//    $('.tile').attr("data-cat", category.short_name);
-    html = insertProperty(html, "category", category.short_name);
-    html = insertProperty(html, "short_name", short_name); 
-    html = insertProperty(html, "name", name);
-    html = insertProperty(html, "description", description);
-    
-    finalHtml += html;
-  });
-  
-  finalHtml += '</ul></div>';                  
-  
-  return finalHtml;
-}
-  
+}; 

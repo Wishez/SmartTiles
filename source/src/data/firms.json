@@ -56,10 +56,10 @@
       {"id": 51, "name": "American Ash","num": "w794","description": ""},
       {"id": 52, "name": "Temple Cedar","num": "wZ735","description": ""},
       {"id": 53, "name": "Wild cherry","num": "w731","description": ""}
-    ]
-  },
+      ]
+    },
   {
-  	"id": 2,"name": "Amtico standart","short_name": "S","description": "Stone",
+    "id": 2,"name": "Amtico standart","short_name": "S","description": "Stone",
     "samples": [
       {"id": 1,"name": "Antique porcelain","num": "an41","description": ""},
       {"id": 2,"name": "Australian sandstone","num": "au44","description": ""},
@@ -115,10 +115,12 @@
       {"id": 52, "name": "Veneto Rosso","num": "ts54","description": ""},
       {"id": 53, "name": "Tivoly Stone","num": "ts79","description": ""},
       {"id": 53, "name": "Verde Stone","num": "ve82","description": ""}
-    ]
+      ]
+    }
+  ]
 },
 {
- "id": 1,"name": "Ege","short_name": "EGE","description": "Англия", "categorories": ["CT"],
+ "id": 2,"name": "Ege","short_name": "EGE","description": "Англия", "categorories": ["CT"],
  "collections": [
     {
       "id": 1,"name": "Helsinki","short_name": "HSK","description": "Ege, Carre Modular",
@@ -152,36 +154,36 @@
   ]
 },
 {
-   "id": 1,"name": "Balsan","short_name": "BLS","description": "Франция", "categorories": ["CC"],
+   "id": 3,"name": "Balsan","short_name": "BLS","description": "Франция", "categorories": ["CC"],
    "collections": [
-      {
-        "id": 1,"name": "Bubble","short_name": "BBL","description": "Design Concept Collection",
-        "samples": [
-          {"id": 1,"name": "","num": "180","description": "Bubble"},
-          {"id": 2,"name": "","num": "260","description": "Bubble"},
-          {"id": 3,"name": "","num": "550","description": "Bubble"},
-          {"id": 4,"name": " Wood","num": "580","description": "Bubble"},
-          {"id": 5,"name": "","num": "880","description": "Bubble"},
-          {"id": 6,"name": "","num": "990","description": "Bubble"}
-        ]
-      },
-      {
-        "id": 2,"name": "Campus","short_name": "CPS","description": "Design Concept Collection",
-        "samples": [
-          {"id": 1,"name": "","num": "140","description": "Campus"},
-          {"id": 2,"name": "","num": "160","description": "Campus"},
-          {"id": 3,"name": "","num": "240","description": "Campus"},
-          {"id": 4,"name": "","num": "270","description": "Campus"},
-          {"id": 5,"name": "","num": "440","description": "Campus"},
-          {"id": 6,"name": "","num": "570","description": "Campus"},
-          {"id": 7,"name": "","num": "590","description": "Campus"},
-          {"id": 7,"name": "","num": "930","description": "Campus"}
-        ]
-      }
-    ] 
+    {
+      "id": 1,"name": "Bubble","short_name": "BBL","description": "Design Concept Collection",
+      "samples": [
+        {"id": 1,"name": "","num": "180","description": "Bubble"},
+        {"id": 2,"name": "","num": "260","description": "Bubble"},
+        {"id": 3,"name": "","num": "550","description": "Bubble"},
+        {"id": 4,"name": " Wood","num": "580","description": "Bubble"},
+        {"id": 5,"name": "","num": "880","description": "Bubble"},
+        {"id": 6,"name": "","num": "990","description": "Bubble"}
+      ]
+    },
+    {
+      "id": 2,"name": "Campus","short_name": "CPS","description": "Design Concept Collection",
+      "samples": [
+        {"id": 1,"name": "","num": "140","description": "Campus"},
+        {"id": 2,"name": "","num": "160","description": "Campus"},
+        {"id": 3,"name": "","num": "240","description": "Campus"},
+        {"id": 4,"name": "","num": "270","description": "Campus"},
+        {"id": 5,"name": "","num": "440","description": "Campus"},
+        {"id": 6,"name": "","num": "570","description": "Campus"},
+        {"id": 7,"name": "","num": "590","description": "Campus"},
+        {"id": 7,"name": "","num": "930","description": "Campus"}
+      ]
+    }
+  ] 
 },
- {
-   "id": 1,"name": "Altro","short_name": "ALT","description": "Германия", "categorories": ["CL"],
+{
+   "id": 4,"name": "Altro","short_name": "ALT","description": "Германия", "categorories": ["CL"],
    "collections": [
       {
         "id": 1,"name": "Atlas","short_name": "ATL","description": "Altro Atlas",

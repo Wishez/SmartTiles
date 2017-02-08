@@ -54,17 +54,9 @@ var smartApp = (function(){
   obj.getBreadcrumb = function() {
     return $.get(breadcrumbHtml);
   };
-  
-  obj.getBreadcrumbFirm = function () {
-    return $.get(breadcrumbFirmHtml);
-  };
-  
+    
   obj.getHeading = function() {
     return $.get(headingHtml);
-  };
-  
-  obj.getHeadingFirm = function() {
-    return $.get(headingFirmHtml);
   };
   
   obj.getTile = function() {
