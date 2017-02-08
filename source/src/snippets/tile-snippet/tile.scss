@@ -1,5 +1,6 @@
 .coverTiles {
   @include span(12);
+  padding-bottom: 75px;
 }
 .coverTiles-firm {
   @extend .mainContent__firms;
@@ -13,7 +14,7 @@
 }
 .tilesList__tile {
   @include span(4);
-//  height: 270px;
+  max-width: 400px;
   border: 10px solid #fff;
   background-color: $gray;
   position: relative;
@@ -47,7 +48,6 @@
   width: 63.18537859007833%;
   height: 37.77777777777778%;
   font-size: (24em / 16);
-//  color: #e8d3d3;
   color: darken(#e8d3d3, 20%);
   border: 1px solid #000;
   background-color: $ghostBlack;

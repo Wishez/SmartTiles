@@ -9,19 +9,19 @@ $(document).on('click', '#subNav .subCategory__refer, #btnTop', function(e) {
 
 loadSelectedMenu('#contacts', smartApp.getContacts);
 
-$('#home').on('click', function(e) {
+$(document).on('click', '#home, #bcHome', function(e) {
   showLoading('#main');
   switchActiveMenu(this);
   st.loadHomeContent();
   e.preventDefault();
 }); // end click
 //loadSelectedMenu('#catalog', smartApp.getCatalog);
-$('#catalog').on('click', function(e) {
+$(document).on('click', '#catalog, #bcCatalog', function(e) {
   showLoading('#main');
   switchActiveMenu(this);
   smartApp.getCatalog().done(function(catalog) {
     $main.html(catalog);
-    st.buildAndShowCategoriesHTML();
+    st.buildAndShowCategoriesHTML('#covers', false);
   });
   e.preventDefault();
 }); // end click

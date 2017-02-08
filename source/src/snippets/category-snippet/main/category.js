@@ -1,12 +1,4 @@
 //= tiles/tiles.js
-//st.buidAndShowCategory = function(categoryName) {
-//  var cateogryContainer = '#category';
-//  smartApp.getCategory().done(function(category) {
-//    //buildAndShowBreadcrumb(categoryContainer, categoryName);
-//    //buildAndShowHeading(categoryContainer, categoryName);
-//    //buildAndShowTiles(categoryContainer, categoryName);
-//  });
-//}
 // ! Выполняй ajax запросы в одной функции, строя цепочку из них,
 // Передавая возвращаемые в запросах данные в функции,
 // которые строят фрагменты html. В последнем запросе
@@ -18,7 +10,7 @@
 // Заметка: в обработчике события щелчка мыши
 // Извлекай данные плитки data-cat и data-firm
 // Присваивай их навигационной цепочке!
-st.buildAndShowCategoryHTML = function(category, categoryName, styleType) {
+st.buildAndShowCategoryHTML = function(category, categoryName) {
   // Получаем шаблон страницы категории
   smartApp.getCategory().done(function(categoryHtml) {
   // Выбираем из шаблона блок категории.
@@ -36,9 +28,9 @@ st.buildAndShowCategoryHTML = function(category, categoryName, styleType) {
           // Массив с фирмами, которые пренадлежат категориям.
           st.arrayItems = [];
           //  Строим навигационную цепочку с сатегорией
-          breadcrumb = buildBreadcrumbViewHTML(breadcrumbHtml, styleType, categoryName, "", "", "");
+          breadcrumb = buildBreadcrumbViewHTML(breadcrumbHtml, "", categoryName, "", "", "");
           // Потом строится heading 
-          heading = buildHeadingViewHTML(styleType, categoryName);
+          heading = buildHeadingViewHTML("", categoryName);
           console.log(heading);
           console.log(breadcrumb);
          
@@ -72,4 +64,3 @@ st.buildAndShowCategoryHTML = function(category, categoryName, styleType) {
     });
   });
 };
-st.buildAndShowCategoryHTML('CT', 'Ковровая плитка', "");

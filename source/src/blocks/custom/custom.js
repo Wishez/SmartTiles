@@ -19,7 +19,7 @@ var sampleHtml = "snippets/sample-snippet/sample-snippet.html";
   
 var firmsHtml = "snippets/firms-snippet/firms-snippet.html";
 var coversHtml = "snippets/covers-snippet/covers-snippet.html";
-
+// Выборки
 var $main = $('#main');
 
 
