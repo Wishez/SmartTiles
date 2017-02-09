@@ -18,10 +18,3 @@ st.loadHomeContent = function() {
   });// end get
 }; // end loadHomeContent
 st.loadHomeContent();
-st.loadMenuContent = function(htmlSnippet) {
-//    $.get(htmlSnippet, )
-};
-
-st.loadCatalog = function() {
-  
-};

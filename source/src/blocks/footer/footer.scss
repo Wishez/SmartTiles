@@ -2,6 +2,8 @@
 .footer {
   @include span(12);
   height: 192px;
+  position: absolute;
+  bottom: 0;
   background-color: #1d1610;
   text-align: center;
   padding-top: 4.0625%;

@@ -18,49 +18,40 @@ st.buildAndShowCategoryHTML = function(category, categoryName) {
     var breadcrumb = "";
     var heading = "";
     var finalHTML = "";
-    
-    // Сначала строим breadcrumb
-    smartApp.getBreadcrumb().done(function(breadcrumbHtml) {
-      // Получаем кусок html-ля плитки.
-      smartApp.getTile().done(function(tileHtml) {
-      // Получаем данные о фирмах в json формате.
-       smartApp.getFirmsItems().done(function(firmsItems) {
-          // Массив с фирмами, которые пренадлежат категориям.
-          st.arrayItems = [];
-          //  Строим навигационную цепочку с сатегорией
-          breadcrumb = buildBreadcrumbViewHTML(breadcrumbHtml, "", categoryName, "", "", "");
-          // Потом строится heading 
-          heading = buildHeadingViewHTML("", categoryName);
-          console.log(heading);
-          console.log(breadcrumb);
-         
-          // Находим фирмы, которые принадлежат категории
-          firmsItems.map(function(firm) {
-            // Маccив категорий, к которы принадлежит фирма.
-            var categoriesOfFirm = firm.categories;
-            categoriesOfFirm.map(function(cat) {
-              if (cat == category) {
-                return st.arrayItems.push(firm);
-              }
-            });
-          });
-          // Строим плитки с фирмами.
-          var categoryItems = buildTilesViewHtml(st.arrayItems, tileHtml, "firm");
-          console.log(categoryItems);
-         // Запихиваем плитки в полученный шаблон категории.
-         categoryHtml += categoryItems;
-         // Компануем.
-         finalHTML = breadcrumb + heading + categoryHtml;
-         
-         // И последний штрих.
-         $('#main').html(finalHTML);
-        });
-        // Впихиваем их в блок, где должны отображаться фирмы категории
-//        categoryHTML = $('#firmsCategory').html(categoryItems);
-        // Законченный код отправляем в блок с основным контентом
-//        $main.html(categoryHTML);
-    console.log();
-      });
-    });
-  });
+
+    // Получаем кусок html-ля плитки.
+    smartApp.getTile().done(function(tileHtml) {
+    // Получаем данные о фирмах в json формате.
+     smartApp.getFirmsItems().done(function(firmsItems) {
+        // Массив с фирмами, которые пренадлежат категориям.
+        st.arrayItems = [];
+        //  Строим навигационную цепочку с сатегорией
+        breadcrumb = buildBreadcrumbViewHTML("", categoryName, "", "", "");
+        // Потом строится heading 
+        heading = buildHeadingViewHTML("", categoryName);
+
+        // Находим фирмы, которые принадлежат категории
+        firmsItems.map(function(firm) {
+          // Маccив категорий, к которы принадлежит фирма.
+          var categoriesOfFirm = firm.categories;
+          categoriesOfFirm.map(function(cat) {
+            if (cat == category) {
+              return st.arrayItems.push(firm);
+            }
+          }); // end map
+        });// end map
+       
+        // Строим плитки с фирмами.
+        var categoryItems = buildTilesViewHtml(st.arrayItems, tileHtml, "firm");
+
+       // Запихиваем плитки в полученный шаблон категории.
+       categoryHtml += categoryItems;
+       // Компануем.
+       finalHTML = breadcrumb + heading + categoryHtml;
+
+       // И последний штрих.
+       $('#main').html(finalHTML);
+      });// end getFirmsItems
+    });// end getTile
+  });// end getCategory
 };
