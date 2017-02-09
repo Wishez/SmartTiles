@@ -6,15 +6,12 @@ $(document).on('click', '#options a', function(e) {
   
   var heading = buildHeadingViewHTML(false, headingName);
   var breadcrumb = buildBreadcrumbViewHTML("", headingName, "", "");
-  console.log(heading);
-  console.log(breadcrumb);
+  var bcAndHeading = breadcrumb + heading;
   
   st.buildAndShowCategoriesHTML('#main', categories);
+  setTimeout(function() { $('#main').prepend(bcAndHeading); }, 100);
   
-  var bcAndHeading = "" + breadcrumb + heading;
-  $main.delay(10).queue(function (next) {
-    $(this).prepend(bcAndHeading);
-    next();
-  });
+  
+  
   e.preventDefault();
 });
