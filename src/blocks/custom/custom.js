@@ -24,6 +24,22 @@ var $main = $('#main');
 // Частоиспользуемые элементы
 var container = '<div class="container">';
 
+// Навигационное кэширование.
+st.breadcrumb = {
+  category: {
+    short_name : "",
+    name : ""
+  },
+  firm : {
+    short_name : "",
+    name : ""
+  },
+  collection: {
+    short_name : "",
+    name : ""
+  }
+};
+
 // Запросики.
 var smartApp = (function(){
   var obj = {};

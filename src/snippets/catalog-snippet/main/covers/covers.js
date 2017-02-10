@@ -1,12 +1,12 @@
-$(document).on( 'click', '#covers a', function( event ) {
+$(document).on( 'click', '#covers a, #optionCategory + .coverTiles a', function( event ) {
   showLoading('#main');
   var $this = $(this),
       category = $this.attr('data-cat'),
       categoryName = $this.find('.tile__name')[0].innerHTML;
+  // Заполняем и обновляем кэш при клике.
+  st.breadcrumb.category.short_name = category;
+  st.breadcrumb.category.name = categoryName;
   
-  console.log(categoryName);
   $st.buildAndShowCategoryHTML(category, categoryName);
-  // Передай нав цеп данные.
-  setTimeout(function () { $('#bcCategory, #category a').attr('data-cat', category); }, 100);
   event.preventDefault();
 });// end click

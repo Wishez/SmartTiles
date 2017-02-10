@@ -39,24 +39,25 @@ st.buildAndShowCategoryHTML = function(category, categoryName) {
       
      // Компануем.
      finalHTML += breadcrumb + heading + '</div>' + categoryItems + '</section>';
-     console.log(finalHTML);
+     
      // И последний штрих.
      $('#main').html(finalHTML);
     });// end getFirmsItems
   });// end getTile
-};
+};// end buildAndShowCategoryHTML
 
-$(document).on('click', '#category a', function(e) {
+$(document).on('click', '#category a.tile', function(e) {
   showLoading("#main");
   // Собираем информацию
-  
   var $this = $(this),
-      cat = $this.attr('data-cat'),
+      cat = st.breadcrumb.category.short_name,
       firm = $this.attr('data-firm'),
-      nameCategory = $('#bcCategory')[0].innerHTML;
-//      nameFirm = $this.find('')[0].innerHTML;
+      nameCategory = st.breadcrumb.category.name,
+      nameFirm = $this.find('.tile__name').html();
   console.log(cat, firm, nameCategory, nameFirm);
+  // Кэшируем иформацию о фирме
+  st.breadcrumb.firm.short_name = firm;
+  st.breadcrumb.firm.name = nameFirm;
   
-//  st.buildAndViewFirmHtml(cat, 'EGE', 'Травмобезопасный ленолеум', 'Ege'); 
-//  setTimeout(function () { $('#bcCategory, #category a').attr('data-cat', category); }, 100);
-});
+  st.buildAndViewFirmHtml(cat, firm, nameCategory, nameFirm); 
+});// end click

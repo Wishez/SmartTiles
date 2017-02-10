@@ -46,25 +46,10 @@ function buildBreadcrumbViewHTML(styleType, categoryName, firmName, collectionNa
     }
 }                        
 // Используй силу, ЛЮК!
-$('#bcCategory').on('click', function() {
-  var $this = $(this),
-      cat = $this.attr('data-cat');
-  smartApp.getCategories().done(function( categories ) {
-    var categoryName = findFullName(categories ,cat);
-    
-    st.buildAndShowCategoryHTML(cat, categoryName);
-  });
-});
+$(document).on('click', '#bcCategory a', function() {
+  var cat = st.breadcrumb.category.short_name,
+      categoryName = st.breadcrumb.category.name;
 
-function findFullName(list, short_name) {
-  var match = "";
-  // Ищем в масиве короткое имя.
-  list.map(function( elem ) {
-    if ( elem.short_name == short_name) {
-      // Присваиваем полное при совпадении.
-      match = elem.name;
-    }
-  });
-  
-  return match;
-}
+  st.buildAndShowCategoryHTML(cat, categoryName);
+
+});
