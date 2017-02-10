@@ -6,7 +6,7 @@ $(document).on('click', '#options a', function(e) {
   
   var heading = buildHeadingViewHTML(false, headingName);
   var breadcrumb = buildBreadcrumbViewHTML("", headingName, "", "");
-  var bcAndHeading = breadcrumb + heading;
+  var bcAndHeading = '<div class="container">' + breadcrumb + heading + '</div>';
   
   st.buildAndShowCategoriesHTML('#main', categories);
   setTimeout(function() { $('#main').prepend(bcAndHeading); }, 100);

@@ -1,4 +1,3 @@
-//= tiles/tiles.js
 // ! Выполняй ajax запросы в одной функции, строя цепочку из них,
 // Передавая возвращаемые в запросах данные в функции,
 // которые строят фрагменты html. В последнем запросе
@@ -11,8 +10,8 @@
 // Извлекай данные плитки data-cat и data-firm
 // Присваивай их навигационной цепочке!
 st.buildAndShowCategoryHTML = function(category, categoryName) {
-  var finalHTML = '<div class="container">';
-  finalHTML += '<section class="mainContent__category category">';
+  var finalHTML = '<section class="mainContent__category category" id="category">';
+  finalHTML += container;
   // Получаем кусок html-ля плитки.
   smartApp.getTile().done(function( tileHtml ) {
   // Получаем данные о фирмах в json формате.
@@ -40,9 +39,24 @@ st.buildAndShowCategoryHTML = function(category, categoryName) {
       
      // Компануем.
      finalHTML += breadcrumb + heading + '</div>' + categoryItems + '</section>';
-
+     console.log(finalHTML);
      // И последний штрих.
      $('#main').html(finalHTML);
     });// end getFirmsItems
   });// end getTile
 };
+
+$(document).on('click', '#category a', function(e) {
+  showLoading("#main");
+  // Собираем информацию
+  
+  var $this = $(this),
+      cat = $this.attr('data-cat'),
+      firm = $this.attr('data-firm'),
+      nameCategory = $('#bcCategory')[0].innerHTML;
+//      nameFirm = $this.find('')[0].innerHTML;
+  console.log(cat, firm, nameCategory, nameFirm);
+  
+//  st.buildAndViewFirmHtml(cat, 'EGE', 'Травмобезопасный ленолеум', 'Ege'); 
+//  setTimeout(function () { $('#bcCategory, #category a').attr('data-cat', category); }, 100);
+});

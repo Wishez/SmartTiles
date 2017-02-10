@@ -4,6 +4,7 @@
 }
 .coverTiles-firm {
   @extend .mainContent__firms;
+  margin-top: 90px;
 }
 .tiles__tilesList{
   @include display-flex(flex);

@@ -21,7 +21,8 @@ var firmsHtml = "snippets/firms-snippet/firms-snippet.html";
 var coversHtml = "snippets/covers-snippet/covers-snippet.html";
 // Выборки
 var $main = $('#main');
-
+// Частоиспользуемые элементы
+var container = '<div class="container">';
 
 // Запросики.
 var smartApp = (function(){
@@ -113,16 +114,3 @@ var insertProperty = function(string, propName, propValue) {
   
   return string;
 };
-// TEST insertProperty. Наверное, надо всё же использовать Mocha.
-//smartApp.getTile().done(function(tile) {
-//  console.log(tile);
-//  var finalHtml = '<div class="container"><ul class="tiles__tilesList tilesList">';
-//  var html = tile;
-//  html = insertProperty(html, "short_name", "DT"); 
-//  html = insertProperty(html, "name", "GO TO THE HELL!");
-//  finalHtml += html;
-//  finalHtml += '</ul></div>';              
-//  console.log(finalHtml);
-//  return finalHtml;
-//});
-

@@ -1,7 +1,7 @@
 function buildTilesViewHtml(arrayItems, tileHtml, typeTile) {
   var isTypeFirm = (typeTile == "firm"); 
   var finalHtml =  isTypeFirm ? '<div class="coverTiles coverTiles-firm">' : '<div class="coverTiles">';
-  finalHtml += '<ul class="tiles__tilesList tilesList">';
+  finalHtml += container + '<ul class="tiles__tilesList tilesList">';
   // short_name определяет url картинки и устанавливается в атрибуты data-cat и data-firm...
   var name = "", short_name = "", description = "";
   // Значение, которое устанавливается плиткам коллекций фирмы. 
@@ -32,7 +32,7 @@ function buildTilesViewHtml(arrayItems, tileHtml, typeTile) {
     finalHtml += html;
   }); // end arrayItems.map
   
-  finalHtml += '</ul></div>';                  
+  finalHtml += '</ul></div></div>';                  
   
   return finalHtml;
 }

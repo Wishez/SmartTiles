@@ -3,7 +3,7 @@
 // будут изменены местами...
 function buildBreadcrumbViewHTML(styleType, categoryName, firmName, collectionName) {    
     // Шаблоны элементов нав. цепочки.
-    var bcElemActive = '<li class="breadcrumb__breadcrumbItem breadcrumbItem active" ';
+    var bcElemActive = '<li class="breadcrumb__breadcrumbItem breadcrumbItem active"';
     var bcElem = '<li data-cat="" data-firm="" class="breadcrumb__breadcrumbItem breadcrumbItem" ';
     var bcRefer = '<a class="breadcrumbItem__refer" href="#">'; 
     //Индификаторы навигационных элементов.
@@ -46,3 +46,25 @@ function buildBreadcrumbViewHTML(styleType, categoryName, firmName, collectionNa
     }
 }                        
 // Используй силу, ЛЮК!
+$('#bcCategory').on('click', function() {
+  var $this = $(this),
+      cat = $this.attr('data-cat');
+  smartApp.getCategories().done(function( categories ) {
+    var categoryName = findFullName(categories ,cat);
+    
+    st.buildAndShowCategoryHTML(cat, categoryName);
+  });
+});
+
+function findFullName(list, short_name) {
+  var match = "";
+  // Ищем в масиве короткое имя.
+  list.map(function( elem ) {
+    if ( elem.short_name == short_name) {
+      // Присваиваем полное при совпадении.
+      match = elem.name;
+    }
+  });
+  
+  return match;
+}

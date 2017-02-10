@@ -7,5 +7,6 @@ $(document).on( 'click', '#covers a', function( event ) {
   console.log(categoryName);
   $st.buildAndShowCategoryHTML(category, categoryName);
   // Передай нав цеп данные.
+  setTimeout(function () { $('#bcCategory, #category a').attr('data-cat', category); }, 100);
   event.preventDefault();
 });// end click

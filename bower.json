@@ -1,6 +1,6 @@
 {
-  "name": "test",
-  "varsion": "0.0.0",
+  "name": "Smart Tiles",
+  "version": "1.0.0",
   "authors": [
     "Rory Mercury"
   ],
@@ -8,9 +8,7 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "bower_components"
   ],
   "dependencies": {
     "normalize-css": "^5.0.0",
