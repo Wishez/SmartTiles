@@ -4,34 +4,32 @@ st.buildAndShowCollectionHtml = function(collection, collectionName) {
   // Шаблон с образцами коллекции.
   smartApp.getCollection().done(function(collectionHtml) {
     // Получить образцы коллекций
-    console.log("success collectionHtml");
    smartApp.getCollectionItems().done(function(collectionItems) {
       // Получить шаблон образца
-      console.log("success collectionItems");
       smartApp.getSample().done(function( sampleHtml ) {
-        console.log("success sampleHtml");
-        // Создаём массив нужный образцов коллекций
-        var samples = [];
-        // Ищем образцы по короткому названию фирмы и запихиваем их в массив образцов.
-        // ! не работает
-        collectionItems.map(function( firm ) {
-          // Если у фирмы есть такая коллекция
-          if (firm.hasOwnProperty(collection)) {
-            //  Перебираем её образцы.
-            firm[collection].map(function( sample ) {
-              // Отправляем их в массив.
-              return samples.push( sample );
-            });
-          }
-        });
-        console.log(samples);
-        // Пострить навигационную цепочку передавая кэшированные данные и данные из аргументов функции со обычным стилем.
-        // Построить заголовок коллекции. Обычный стиль. Имя коллекции.
-        // Создаём строку html со всеми образцами. !Создай функцию buildSamplesViewHTML(array, sampleHtml);
-        // Заменяем в collection html, где слайды, {{samples}}
-    
-        // Запихиваем контент куда надо.
+        // ВНИМАНИЕ: Вместо "EGE" подставь кешированное значение фирмы, когда функция пройдёт тесты. st.breadcrumb.firm.short_name
+        // Массив образцов нужной коллекции
+        var samples = collectionItems[0]["EGE"][collection];
         
+        
+        // Пострить навигационную цепочку передавая кэшированные данные и данные из аргументов функции со обычным стилем.
+        var breadcrumb = buildBreadcrumbViewHTML("", st.breadcrumb.category.name, st.breadcrumb.firm.name, collectionName);
+        // Построить заголовок коллекции. Обычный стиль. Имя коллекции.
+        var heading = buildHeadingViewHTML("", collectionName);
+        // Создаём строку html со всеми образцами.
+        var collectionSamples = buildSamplesViewHTML(samples, sampleHtml);
+        // Заменяем в collection html, где слайды, {{samples}}
+        collectionHtml = insertProperty(collectionHtml , "samples", collectionSamples);
+        
+        // Собираем всё вместе.
+        var finalHtml = breadcrumb + heading + collectionHtml;
+        // Запихиваем контент куда надо.
+        $('#main').html(finalHtml);
+        
+        // Инициализируем слайды.
+        $('#collectionSamples').slick({
+          dots: true
+        }); // end slick
       });// end getSample
     });// end getCollectionItems
   });// end getCollection
