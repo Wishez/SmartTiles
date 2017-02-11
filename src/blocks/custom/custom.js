@@ -9,6 +9,7 @@ var collectionHtml = "snippets/collection-snippet//collection-snippet.html";
 
 var catalogCategories = "data/categories.json";
 var firmItems = "data/firms.json";
+var collectionItems = "data/samples.json";
 
 var breadcrumbHtml = "snippets/breadcrumb-snippet/breadcrumb-snippet.html";
 var breadcrumbFirmHtml = "snippets/breadcrumb-snippet/breadcrumb-firm-snippet.html";
@@ -96,9 +97,14 @@ var smartApp = (function(){
     return $.getJSON(catalogCategories);
   };
   
-  obj.getFirmsItems = function() {
+  obj.getCategoryFirms = function() {
     return $.getJSON(firmItems);
   };
+  
+  obj.getCollectionItems = function() {
+    return $.getJSON(collectionItems);
+  };
+  
   return obj;
 })();
 

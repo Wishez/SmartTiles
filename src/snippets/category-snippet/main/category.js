@@ -12,15 +12,16 @@
 st.buildAndShowCategoryHTML = function(category, categoryName) {
   var finalHTML = '<section class="mainContent__category category" id="category">';
   finalHTML += container;
+
   // Получаем кусок html-ля плитки.
   smartApp.getTile().done(function( tileHtml ) {
   // Получаем данные о фирмах в json формате.
-   smartApp.getFirmsItems().done(function( firmsItems ) {
+   smartApp.getCategoryFirms().done(function( categoryFirms ) {
       // Массив с фирмами, которые пренадлежат категориям.
       st.arrayItems = [];
 
       // Находим фирмы, которые принадлежат категории
-      firmsItems.map(function(firm) {
+      categoryFirms.map(function( firm ) {
         // Маccив категорий, к которы принадлежит фирма.
         var categoriesOfFirm = firm.categories;
         categoriesOfFirm.map(function(cat) {
@@ -29,20 +30,20 @@ st.buildAndShowCategoryHTML = function(category, categoryName) {
           }
         }); // end map
       });// end map
-
+  
       //  Строим навигационную цепочку с сатегорией
       var breadcrumb = buildBreadcrumbViewHTML("", categoryName, "", "", "");
       // Потом строится heading 
       var heading = buildHeadingViewHTML("", categoryName);
       // Строим плитки с фирмами.
       var categoryItems = buildTilesViewHtml(st.arrayItems, tileHtml, "firm");
-      
+   
      // Компануем.
      finalHTML += breadcrumb + heading + '</div>' + categoryItems + '</section>';
      
      // И последний штрих.
      $('#main').html(finalHTML);
-    });// end getFirmsItems
+    });// end getcategoryFirms
   });// end getTile
 };// end buildAndShowCategoryHTML
 
