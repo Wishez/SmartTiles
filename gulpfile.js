@@ -11,7 +11,6 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     uglifyjs = require('uglify-js'),
     uglify = require('gulp-uglify'),
-    pump = require('pump'),
     cleanCSS = require('gulp-clean-css'),
     jsonminify = require('gulp-jsonminify'),
     imagemin = require('gulp-imagemin'),
@@ -19,6 +18,7 @@ var gulp = require('gulp'),
     rigger = require('gulp-rigger'),
     rimraf = require('rimraf'),
     browserSync = require("browser-sync"),
+    concat = require('gulp-concat'),
     reload = browserSync.reload;
 
 var path = {
@@ -43,7 +43,7 @@ src: { //Пути откуда брать исходники
 watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
     html: 'src/**/*.pug',
     js: 'src/**/*.js',
-    style: 'src/**/*.scss',
+    style: 'src/scss/*.scss',
     image: 'src/img/**/*.*',
     fonts: 'src/fonts/**/*.*'
 },
@@ -99,13 +99,14 @@ gulp.task('js', function () {
 
 gulp.task('style', function () {
     gulp.src(path.src.style) //Выбираем main.scss
-        .pipe(sourcemaps.init())//As well as js
+        .pipe(sourcemaps.init())
         .pipe(compass({
       		config_file: './config.rb',
       		css: 'build/css',
       		sass: 'src/scss'
     	}))
-        .pipe(prefixer()) //Add vendor prefixs //Compress
+        .pipe(prefixer())
+        //Compress
         .pipe(cleanCSS())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css)) //Кладём в build
