@@ -11,7 +11,6 @@ st.buildAndShowCollectionHtml = function(collection, collectionName) {
         // Массив образцов нужной коллекции
         var samples = collectionItems[0][st.breadcrumb.firm.short_name][collection];
         
-        
         // Пострить навигационную цепочку передавая кэшированные данные и данные из аргументов функции со обычным стилем.
         var breadcrumb = buildBreadcrumbViewHTML("", st.breadcrumb.category.name, st.breadcrumb.firm.name, collectionName);
         // Построить заголовок коллекции. Обычный стиль. Имя коллекции.
@@ -22,7 +21,7 @@ st.buildAndShowCollectionHtml = function(collection, collectionName) {
         collectionHtml = insertProperty(collectionHtml , "samples", collectionSamples);
         
         // Собираем всё вместе.
-        var finalHtml = breadcrumb + heading + collectionHtml;
+        var finalHtml = container + breadcrumb + heading + '</div>' + collectionHtml;
         // Запихиваем контент куда надо.
         $('#main').html(finalHtml);
         

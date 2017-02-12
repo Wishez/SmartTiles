@@ -49,7 +49,18 @@ function buildBreadcrumbViewHTML(styleType, categoryName, firmName, collectionNa
 $(document).on('click', '#bcCategory a', function() {
   var cat = st.breadcrumb.category.short_name,
       categoryName = st.breadcrumb.category.name;
-
+ 
   st.buildAndShowCategoryHTML(cat, categoryName);
+  
+  return false;
+});
 
+$(document).on('click', '#bcFirm a', function() {
+  var firm = st.breadcrumb.firm.short_name,
+      firmName = st.breadcrumb.firm.name;
+  
+  st.buildAndViewFirmHtml(firm, firmName);
+  
+  return false;
+  
 });
