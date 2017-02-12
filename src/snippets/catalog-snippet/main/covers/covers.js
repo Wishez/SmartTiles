@@ -8,5 +8,6 @@ $(document).on( 'click', '#covers a, #optionCategory + .coverTiles a', function(
   st.breadcrumb.category.name = categoryName;
   
   $st.buildAndShowCategoryHTML(category, categoryName);
+  
   event.preventDefault();
 });// end click

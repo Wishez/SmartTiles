@@ -15,7 +15,7 @@ function buildTilesViewHtml(arrayItems, tileHtml, typeTile) {
     if (isTypeFirm) {
       short_name = categoryShortName + "/" + item.short_name + "/" + item.short_name;
           
-      html = insertProperty(html, "category", categoryShortName);
+      html = insertProperty(html, "category", item.categories[0]);
       html = insertProperty(html, "firm", item.short_name);
       html = insertProperty(html, "short_name", short_name);
     } else {

@@ -6,25 +6,23 @@ $(document).on('click', '#subNav .subCategory__refer, #btnTop', function(e) {
   e.preventDefault();
 });// end click
 
-
-loadSelectedMenu('#contacts', smartApp.getContacts);
 // Навигационные индификаторы
-var home = '#home';
-var catalog = '#catalog';
 
-$(document).on('click', home + ', #bcHome', function(e) {
+loadSelectedMenu(st.nav.contacts, smartApp.getContacts);
+
+$(document).on('click', st.nav.home + ', #bcHome', function(e) {
   showLoading('#main');
   switchActiveMenu(home);
   st.loadHomeContent();
   e.preventDefault();
 }); // end click
 //loadSelectedMenu('#catalog', smartApp.getCatalog);
-$(document).on('click', catalog + ', #bcCatalog', function(e) {
+$(document).on('click', st.nav.catalog + ', #bcCatalog', function(e) {
   showLoading('#main');
   switchActiveMenu(catalog);
   smartApp.getCatalog().done(function(catalog) {
     $main.html(catalog);
-    st.buildAndShowCategoriesHTML('#covers', false);
+    st.buildAndShowCategoriesHTML(false, false);
   });
   e.preventDefault();
 }); // end click

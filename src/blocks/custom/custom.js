@@ -1,5 +1,5 @@
 var st = {};
-
+// Пути к шаблонам !Нужно их почтистить
 st.homeHtml = "snippets/home-snippet/home-snippet.html";
 st.contactsHtml = "snippets/contacts-snippet/contacts-snippet.html";
 st.catalogHtml = "snippets/catalog-snippet/catalog-snippet.html";
@@ -25,6 +25,13 @@ var $main = $('#main');
 
 // Частоиспользуемые элементы
 var container = '<div class="container">';
+
+// Навигационные индификаторы
+st.nav = {
+  home: '#home',
+  catalog: '#catalog',
+  contacts: '#contacts'
+};
 
 // Навигационное кэширование.
 st.breadcrumb = {
