@@ -17,7 +17,7 @@ function buildSamplesViewHTML(arrayItems, sampleHtml) {
 
   arrayItems.forEach(function( item, i ) {
     // Проверяем сколько образцов в строке
-    if ( (i + 1) == counter && (i + 1) != arrayItems.length ) {
+    if ( (i) == counter && (i) != arrayItems.length ) {
       // При последнем нам конечно же не нужно добавляться закрывающие теги. 
       // Кому "нам" то? Ты здесь один. Ты совсем поехал что-ли?
       finalHtml += closeTags + row + container + ul;

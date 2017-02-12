@@ -40,7 +40,7 @@ function buildBreadcrumbViewHTML(styleType, categoryName, firmName, collectionNa
       
       return finalHTML;
     } else {
-      finalHTML = bcCategoryFirmCollection;
+      finalHTML += bcCategoryFirmCollection;
       
       return finalHTML;
     }

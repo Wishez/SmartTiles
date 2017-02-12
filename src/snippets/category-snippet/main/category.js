@@ -49,16 +49,13 @@ st.buildAndShowCategoryHTML = function(category, categoryName) {
 
 $(document).on('click', '#category a.tile', function(e) {
   showLoading("#main");
-  // Собираем информацию
-  var $this = $(this),
-      cat = st.breadcrumb.category.short_name,
-      firm = $this.attr('data-firm'),
-      nameCategory = st.breadcrumb.category.name,
-      nameFirm = $this.find('.tile__name').html();
-  console.log(cat, firm, nameCategory, nameFirm);
-  // Кэшируем иформацию о фирме
-  st.breadcrumb.firm.short_name = firm;
-  st.breadcrumb.firm.name = nameFirm;
   
-  st.buildAndViewFirmHtml(cat, firm, nameCategory, nameFirm); 
+  var $this = $(this);
+  // Кэшируем иформацию о фирме
+  st.breadcrumb.firm.short_name = $this.attr('data-firm');
+  st.breadcrumb.firm.name = $this.find('.tile__name').html();
+  
+  st.buildAndViewFirmHtml(st.breadcrumb.firm.short_name, st.breadcrumb.firm.name);
+  
+  e.preventDefault();
 });// end click

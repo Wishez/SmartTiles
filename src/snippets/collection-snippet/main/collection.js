@@ -9,7 +9,7 @@ st.buildAndShowCollectionHtml = function(collection, collectionName) {
       smartApp.getSample().done(function( sampleHtml ) {
         // ВНИМАНИЕ: Вместо "EGE" подставь кешированное значение фирмы, когда функция пройдёт тесты. st.breadcrumb.firm.short_name
         // Массив образцов нужной коллекции
-        var samples = collectionItems[0]["EGE"][collection];
+        var samples = collectionItems[0][st.breadcrumb.firm.short_name][collection];
         
         
         // Пострить навигационную цепочку передавая кэшированные данные и данные из аргументов функции со обычным стилем.
@@ -34,4 +34,4 @@ st.buildAndShowCollectionHtml = function(collection, collectionName) {
     });// end getCollectionItems
   });// end getCollection
 };// end buildAndShowCollectionHtml
-st.buildAndShowCollectionHtml('HSK', 'Helsinki');
+//st.buildAndShowCollectionHtml('HSK', 'Helsinki');

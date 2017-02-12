@@ -1,6 +1,6 @@
 // Передаём в аргументы короткое имя категории, фирмы и их полные имена.
-st.buildAndViewFirmHtml = function(category, firm, categoryName, firmName) {
-  var finalHTML = '<section class="mainContent__firm firm">'; 
+st.buildAndViewFirmHtml = function(firm, firmName) {
+  var finalHTML = '<section class="mainContent__firm firm" id="firm">'; 
   // Делаем запросы, получаем список фирм для того чтобы найти нужную и отобразить все её коллекции.
   smartApp.getCategoryFirms().done(function( categoryItems ) {
     // Шаблон плитки для коллекций фирмы
@@ -18,7 +18,7 @@ st.buildAndViewFirmHtml = function(category, firm, categoryName, firmName) {
         }
       });
       // Строим навигационную цепочку, заголовок и плитки  в стиле "THE FIRM". 
-      var breadcrumb = buildBreadcrumbViewHTML("firm", categoryName, firmName, "");
+      var breadcrumb = buildBreadcrumbViewHTML("firm", st.breadcrumb.category.name, firmName, "");
       var heading = buildHeadingViewHTML("firm", firmName);
       // Не указываю стиль "firm", потому что секция фирмы, стилизована по-умолчанию.
       var collections = buildTilesViewHtml(firmCollections, tileHtml, "");
@@ -30,4 +30,16 @@ st.buildAndViewFirmHtml = function(category, firm, categoryName, firmName) {
       $main.html(finalHTML);
       });// end getTile
   });// end getCategoryFirms
-};
+};// end buildAndShowFirmHtml
+
+$(document).on('click', '#firm a', function(e) {
+  showLoading('#main');
+  
+  var $this = $(this);
+  // Кэшируем данные выбранной коллекции.
+  st.breadcrumb.collection.short_name = $this.attr('data-cat');
+  st.breadcrumb.collection.name = $this.find('.tile__name').html();
+  st.buildAndShowCollectionHtml(st.breadcrumb.collection.short_name,  st.breadcrumb.collection.name);
+  
+  e.preventDefault();
+});
