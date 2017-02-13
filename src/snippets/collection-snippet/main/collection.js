@@ -10,7 +10,8 @@ st.buildAndShowCollectionHtml = function(collection, collectionName) {
         // ВНИМАНИЕ: Вместо "EGE" подставь кешированное значение фирмы, когда функция пройдёт тесты. st.breadcrumb.firm.short_name
         // Массив образцов нужной коллекции
         var samples = collectionItems[0][st.breadcrumb.firm.short_name][collection];
-        
+        console.log(st.breadcrumb.firm.short_name);
+        console.log(samples);
         // Пострить навигационную цепочку передавая кэшированные данные и данные из аргументов функции со обычным стилем.
         var breadcrumb = buildBreadcrumbViewHTML("", st.breadcrumb.category.name, st.breadcrumb.firm.name, collectionName);
         // Построить заголовок коллекции. Обычный стиль. Имя коллекции.

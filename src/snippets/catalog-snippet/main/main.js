@@ -27,13 +27,13 @@ st.buildAndShowCategoriesHTML = function(selector , homeCategories) {
             }
           });
 
-          categoriesViewHtml = buildTilesViewHtml(sortCategories, tileHtml, "");
+          categoriesViewHtml = buildTilesViewHtml(sortCategories, tileHtml, "", "category");
           // Селектор указывается, только если понадобиться получить и вставить категории в определённое, которое вам-мне захочется,  место.
           $(selector).html(categoriesViewHtml);
         } else {
           // Сооружаем категории, фирмы и покрытия "для чего нибудь" для коталога.
-          categoriesViewHtml = buildTilesViewHtml(categories, tileHtml, "");
-          firmsViewHtml = buildTilesViewHtml(firms, tileHtml, "firm");
+          categoriesViewHtml = buildTilesViewHtml(categories, tileHtml, "", "category");
+          firmsViewHtml = buildTilesViewHtml(firms, tileHtml, "firm", "firm");
           // Пускаем в расход готовые плитки.
           $("#covers").html(categoriesViewHtml);
           $("#firms").append(firmsViewHtml);

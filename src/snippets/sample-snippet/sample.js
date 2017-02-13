@@ -11,7 +11,6 @@ function buildSamplesViewHTML(arrayItems, sampleHtml) {
   var categoryShortName = st.breadcrumb.category.short_name;
   var firmShortName = st.breadcrumb.firm.short_name;
   var collectionShortName = st.breadcrumb.collection.short_name;
-  console.log(categoryShortName, firmShortName, collectionShortName);
   // Счётчик для проверки колличества образцов с строке. 
   var counter = 6;
 

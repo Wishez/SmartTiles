@@ -22,7 +22,7 @@ var gulp = require('gulp'),
     reload = browserSync.reload;
 
 var path = {
-build: { //Тут мы укажем куда складывать готовые после сборки файлы
+build: {
     html: 'build/',
     snippets: 'build/snippets/',
     js: 'build/js/',
@@ -31,16 +31,16 @@ build: { //Тут мы укажем куда складывать готовые
     img: 'build/img/',
     fonts: 'build/fonts/'
 },
-src: { //Пути откуда брать исходники
-    html: 'src/*.pug', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
-    js: 'src/js/main.js',//В стилях и скриптах нам понадобятся только main файлы
+src: { 
+    html: 'src/*.pug', 
+    js: 'src/js/main.js',
     data: 'src/data/*.json',
     style: 'src/scss/*.scss',
     snippets: 'src/snippets/*/*.pug',
-    img: 'src/img/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
+    img: 'src/img/**/*.*',
     fonts: 'src/fonts/**/*.*'
 },
-watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
+watch: {
     html: 'src/**/*.pug',
     js: 'src/**/*.js',
     style: 'src/**/*.scss',
@@ -98,7 +98,7 @@ gulp.task('js', function () {
 });
 
 gulp.task('style', function () {
-    gulp.src(path.src.style) //Выбираем main.scss
+    gulp.src(path.src.style)
         .pipe(sourcemaps.init())
         .pipe(compass({
       		config_file: './config.rb',
@@ -109,19 +109,19 @@ gulp.task('style', function () {
         //Compress
         .pipe(cleanCSS())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(path.build.css)) //Кладём в build
+        .pipe(gulp.dest(path.build.css))
         .pipe(reload({stream: true}))
 });
 
 gulp.task('image', function() {
-    gulp.src(path.src.img) //Выбераем наши картинки
-        .pipe(imagemin ({ //Сожмём их
+    gulp.src(path.src.img)
+        .pipe(imagemin ({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()],
             interlaced: true
         }))
-        .pipe(gulp.dest(path.build.img)) //И бросим в build
+        .pipe(gulp.dest(path.build.img))
         .pipe(reload({stream: true}));
 });
 

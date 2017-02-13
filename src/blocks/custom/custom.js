@@ -32,7 +32,6 @@ st.nav = {
   catalog: '#catalog',
   contacts: '#contacts'
 };
-
 // Навигационное кэширование.
 st.breadcrumb = {
   category: {

@@ -18,7 +18,7 @@ st.buildAndShowCategoryHTML = function(category, categoryName) {
   // Получаем данные о фирмах в json формате.
    smartApp.getCategoryFirms().done(function( categoryFirms ) {
       // Массив с фирмами, которые пренадлежат категориям.
-      st.arrayItems = [];
+      var arrayItems = [];
 
       // Находим фирмы, которые принадлежат категории
       categoryFirms.map(function( firm ) {
@@ -26,7 +26,7 @@ st.buildAndShowCategoryHTML = function(category, categoryName) {
         var categoriesOfFirm = firm.categories;
         categoriesOfFirm.map(function(cat) {
           if (cat == category) {
-            return st.arrayItems.push(firm);
+            return arrayItems.push(firm);
           }
         }); // end map
       });// end map
@@ -36,7 +36,7 @@ st.buildAndShowCategoryHTML = function(category, categoryName) {
       // Потом строится heading 
       var heading = buildHeadingViewHTML("", categoryName);
       // Строим плитки с фирмами.
-      var categoryItems = buildTilesViewHtml(st.arrayItems, tileHtml, "firm");
+      var categoryItems = buildTilesViewHtml(arrayItems, tileHtml, "firm", 'firm');
    
      // Компануем.
      finalHTML += breadcrumb + heading + '</div>' + categoryItems + '</section>';

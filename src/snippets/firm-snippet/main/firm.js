@@ -21,7 +21,7 @@ st.buildAndViewFirmHtml = function(firm, firmName) {
       var breadcrumb = buildBreadcrumbViewHTML("firm", st.breadcrumb.category.name, firmName, "");
       var heading = buildHeadingViewHTML("firm", firmName);
       // Не указываю стиль "firm", потому что секция фирмы, стилизована по-умолчанию.
-      var collections = buildTilesViewHtml(firmCollections, tileHtml, "");
+      var collections = buildTilesViewHtml(firmCollections, tileHtml, "", "collection");
 
       // Компануём всё это дело.
       finalHTML += container + breadcrumb + heading + '</div>' + collections;
@@ -37,7 +37,7 @@ $(document).on('click', '#firm a', function(e) {
   
   var $this = $(this);
   // Кэшируем данные выбранной коллекции.
-  st.breadcrumb.collection.short_name = $this.attr('data-cat');
+  st.breadcrumb.collection.short_name = $this.attr('data-col');
   st.breadcrumb.collection.name = $this.find('.tile__name').html();
   st.buildAndShowCollectionHtml(st.breadcrumb.collection.short_name,  st.breadcrumb.collection.name);
   
