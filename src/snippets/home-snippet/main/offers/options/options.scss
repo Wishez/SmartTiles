@@ -38,6 +38,7 @@
     }
   }
 }
+
 .optionsList__option {
   margin: 0 15px 0 0;
   border: 10px solid #fff;
@@ -45,6 +46,7 @@
   padding-top: 59%;
   list-style: none;
   background-color: $gray;
+  background-image: url('../img/options-sprite.png');
   position: relative;
   @include box-shadow(0 7px 15px $shadow);
   @include rotateY(30deg);  
@@ -109,14 +111,14 @@
 }
 
 /* Background for options */
-
 @each $category, $y, $another-y in 
       (flooring, 0, 0),
       (ceilingSystems, -163, -184),
       (wallCoverings, -325, -366),
       (textiles, -488, -551) {
       .optionsList__option-#{$category} {
-        background: url('../../img/option-sprite.png') 0 #{$y}px no-repeat;//$options-range
+        background-position: 0 #{$y}px;
+        background-repeat: no-repeat;
         background-size: cover;
         @include breakpoint($md) {
           background-position: 0 #{$another-y}px;

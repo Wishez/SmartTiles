@@ -43,7 +43,7 @@ src: { //Пути откуда брать исходники
 watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
     html: 'src/**/*.pug',
     js: 'src/**/*.js',
-    style: 'src/scss/*.scss',
+    style: 'src/**/*.scss',
     image: 'src/img/**/*.*',
     fonts: 'src/fonts/**/*.*'
 },

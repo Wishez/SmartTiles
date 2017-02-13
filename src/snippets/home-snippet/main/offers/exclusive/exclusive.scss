@@ -7,15 +7,13 @@
 .exclusive__slides {
   background-color: $gray;
   border: 10px solid #fff;
-  height: 445px;
+  height: auto;
   width: 80%;
   margin: 0 auto;
   position: relative;
-  @include breakpoint($sm) {
-    height: 250px;    
+  @include breakpoint($sm) {    
   }
-  @include breakpoint($xs) {
-    height: 200px;    
+  @include breakpoint($xs) { 
   }
   &:after {
     content: 'exclusive';
@@ -33,7 +31,7 @@
     @include rotate(30deg);
     @include box-shadow(15px 20px 15px rgba(0, 0, 0, .5));
     @include breakpoint($sm) {
-      height: 37%;
+      height: 30%;
       bottom: 79%;
       left: 83%;
     }
@@ -47,25 +45,25 @@
       @include box-shadow(10px 13px 15px rgba(0, 0, 0, .5));
     }
     @include breakpoint($xxs) {
-      width: 40%;
+      width: 32%;
       bottom: 82%;
     }
   }
 }
-@each  $num in (1)
+@for $i from 1 through 4
       {
-      .slides__exclusiveImg {
-        background: url(../img/exclusive/ex_#{$num}.png) no-repeat center;
+      .exclusiveImg-#{$i} {
+        background: url(../img/exclusive/ex_#{$i}.jpg) no-repeat center;
         background-size: cover;
-        padding-top: 8%;
-        @include breakpoint($lg) {
-          padding-top: 6.5%;    
+        padding-top: 7.9%;
+        @include breakpoint($md) {
+          padding-top: 9.7%;    
         }
         @include breakpoint($sm) {
-          padding-top: 4.5%;    
+//          padding-top: 4.5%;    
         }
         @include breakpoint($xs) {
-          padding-top: 3.5%;    
+//          padding-top: 3.5%;    
         }
       }
 }
@@ -76,6 +74,7 @@
 //        background: url(../img/exclusive/ex_#{$num}.png) no-repeat center;
 //      }
 //} */
+/* Slider */
 .slick-next:before, .slick-prev:before {
   font-size: 40px;
   color: $cyan; 

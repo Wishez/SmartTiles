@@ -1,13 +1,9 @@
 .listTiles__tile {
   @include span(4);
-  height: 200px;
+  height: auto;
   margin: 20px auto;
   @include breakpoint($xs) {
     @include span(5);
-    height: 150px;
-  }
-  @include breakpoint($xxs) {
-    height: 115px;
   }
 }
 .tile__sample {
