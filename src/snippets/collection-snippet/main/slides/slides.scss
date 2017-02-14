@@ -52,6 +52,7 @@
   & .slick-dots {
     width: 95%;
     bottom: 7%;
+    right: 0;
     @include breakpoint($xs) {
       bottom: 3%;
     }
