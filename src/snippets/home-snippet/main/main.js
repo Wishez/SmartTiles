@@ -14,6 +14,7 @@ st.loadHomeContent = function() {
     smartApp.getContacts().done(function(data) {
       $main.append(data);                         
     });
+    
     $main.focus();
   });// end get
 }; // end loadHomeContent

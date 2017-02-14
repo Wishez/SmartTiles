@@ -6,7 +6,7 @@ $(document).on('click', '#options a', function(e) {
       headingName = $this.find('.option__variant')[0].innerHTML;
   
   var heading = buildHeadingViewHTML(false, headingName);
-  var breadcrumb = buildBreadcrumbViewHTML(false, headingName, "", "");
+  var breadcrumb = buildBreadcrumbViewHTML(false, "categories", headingName, "", "");
   var bcAndHeading = '<div id="optionCategory">' + container + breadcrumb + heading + '</div></div>';
   
   st.buildAndShowCategoriesHTML('#main', categories);

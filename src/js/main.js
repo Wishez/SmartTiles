@@ -27,9 +27,6 @@
   //= ../snippets/heading-snippet/heading.js
   //= ../snippets/tile-snippet/tile.js
   //= ../snippets/sample-snippet/sample.js
-  // Пока что не знаю, понадобятся ли шаблоны ниже. 
-  //= ../snippets/firms-snippet/main/firms.js
-  //= ../snippets/covers-snippet/main/covers.js
 });//end ready
   
   global.$st = st; 
