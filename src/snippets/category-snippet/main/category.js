@@ -47,6 +47,43 @@ st.buildAndShowCategoryHTML = function(category, categoryName) {
   });// end getTile
 };// end buildAndShowCategoryHTML
 
+st.buildAndShowCollectionsCategoryHTML = function(category, categoryName) {
+  // Получаю данные с плитками
+  smartApp.getCategoryFirms().done(function( categoryFirmsItems ) {
+    // Получаю шаблон плиток.
+    smartApp.getTile().done(function( tileHtml ) {
+      // Создаю массив нужных коллекций категории фирмы.
+      var collections = [];
+      // Заполняю этот массив.
+      categoryFirmsItems.forEach( function ( categoryFirm ) {
+        if (categoryFirm.short_name == st.breadcrumb.firm.short_name) {
+          
+          collections = categoryFirm.collections.map( function( collection ) {
+            if ( collection.category == category ) {
+              return collection;                        
+            }
+          });// end map 
+        }
+      });// end categoryFirmsItems.map
+      console.log(collections);
+      // Строю навигационную цепочку.
+      var breadcrumb = buildBreadcrumbViewHTML(false, st.breadcrumb.firm.name, categoryName, "");
+      console.log(breadcrumb);
+      // Мастерю заголовок.
+      var heading = buildHeadingViewHTML(false, categoryName);
+      console.log(heading);
+      // Материализую заполненный массив.
+      var collectionsTilesHtml = buildTilesViewHtml( collections, tileHtml, "firm", "collection");
+      console.log(collectionsTilesHtml);
+      // Компоную всё это чудо, оборачивая его в контейнер.
+      var finalHTML = '<section id="collectionsCategoryFirm">' + container + breadcrumb + heading + '</div>' +  collectionsTilesHtml + '</section>';
+      
+      // Рендерю его на странице.
+      $(st.ids.main).html(finalHTML);
+    });// end getTile
+  });// end getCategoryFirms 
+};
+
 $(document).on('click', '#category a.tile', function(e) {
   showLoading("#main");
   
@@ -55,7 +92,21 @@ $(document).on('click', '#category a.tile', function(e) {
   st.breadcrumb.firm.short_name = $this.attr('data-firm');
   st.breadcrumb.firm.name = $this.find('.tile__name').html();
   
-  st.buildAndViewFirmHtml(st.breadcrumb.firm.short_name, st.breadcrumb.firm.name);
+  st.buildAndShowFirmHtml(st.breadcrumb.firm.short_name, st.breadcrumb.firm.name);
+  
+  e.preventDefault();
+});// end click
+
+// Когда выбираешь какую-нибудь категорию, строются  коллекциии фирмы выбранной категории. 
+$(document).on('click', '#categoriesFirm a', function(e) {
+  showLoading("#main");
+  
+  var $this = $(this);
+ 
+  st.breadcrumb.category.short_name = $this.attr('data-cat');
+  st.breadcrumb.category.name = $this.find('.tile__name').html();
+  
+  st.buildAndShowCollectionsCategoryHTML(st.breadcrumb.category.short_name, st.breadcrumb.category.name);
   
   e.preventDefault();
 });// end click

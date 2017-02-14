@@ -1,5 +1,5 @@
 // Передаём в аргументы короткое имя категории, фирмы и их полные имена.
-st.buildAndViewFirmHtml = function(firm, firmName) {
+st.buildAndShowFirmHtml = function(firm, firmName) {
   var finalHTML = '<section class="mainContent__firm firm" id="firm">'; 
   // Делаем запросы, получаем список фирм для того чтобы найти нужную и отобразить все её коллекции.
   smartApp.getCategoryFirms().done(function( categoryItems ) {
@@ -32,7 +32,7 @@ st.buildAndViewFirmHtml = function(firm, firmName) {
   });// end getCategoryFirms
 };// end buildAndShowFirmHtml
 
-$(document).on('click', '#firm a', function(e) {
+$(document).on('click', '#firm a, #collectionsCategoryFirm a', function(e) {
   showLoading('#main');
   
   var $this = $(this);
@@ -43,3 +43,5 @@ $(document).on('click', '#firm a', function(e) {
   
   e.preventDefault();
 });
+
+

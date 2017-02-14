@@ -59,7 +59,7 @@ $(document).on('click', '#bcFirm a', function() {
   var firm = st.breadcrumb.firm.short_name,
       firmName = st.breadcrumb.firm.name;
   
-  st.buildAndViewFirmHtml(firm, firmName);
+  st.buildAndShowFirmHtml(firm, firmName);
   
   return false;
   

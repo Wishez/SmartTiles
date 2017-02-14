@@ -9,5 +9,3 @@ function buildHeadingViewHTML(styleType, headingName) {
   
   return finalHTML;
 }
-//var result = buildHeadingViewHTML("<h2 class='heading'>{{name}}</h2>", false, "Hello, I'm result!");
-//console.log(result);
