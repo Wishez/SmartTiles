@@ -12,7 +12,7 @@ $(document).on('click', '#firms a', function() {
   st.breadcrumb.firm.name = headingName;
   
   var heading = buildHeadingViewHTML("firm", headingName);
-  var breadcrumb = buildBreadcrumbViewHTML("firm", headingName, "", "");
+  var breadcrumb = buildBreadcrumbViewHTML("firm", "categories", headingName, "", "");
   var bcAndHeading = container + breadcrumb + heading + '</div>';
   
   

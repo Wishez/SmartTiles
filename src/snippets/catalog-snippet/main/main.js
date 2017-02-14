@@ -1,7 +1,6 @@
 //= subNav/subNav.js
 //= covers/covers.js
 //= firms/firms.js
-//= for/for.js
 // arrayCategories - массив категорий, извлечённых из data-cat категории на главной странице.
 st.buildAndShowCategoriesHTML = function(selector , arrayCategories) {
   // Получаем json-файл со всеми категориями.
@@ -53,9 +52,7 @@ st.buildAndShowCategoriesHTML = function(selector , arrayCategories) {
           $("#firms").append(firmsViewHtml);
           // Нужен функционал, который даётся при стиле "firm", но вот сами стили не заходят в дизайн.
           $('.coverTiles').removeClass('coverTiles-firm');
-        }
-        
-        
+        }   
       });// end getTile
     });// end getCategoryFirms
   });// end getCategories

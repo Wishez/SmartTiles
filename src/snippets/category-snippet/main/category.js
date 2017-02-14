@@ -32,7 +32,7 @@ st.buildAndShowCategoryHTML = function(category, categoryName) {
       });// end map
   
       //  Строим навигационную цепочку с сатегорией
-      var breadcrumb = buildBreadcrumbViewHTML("", categoryName, "", "", "");
+      var breadcrumb = buildBreadcrumbViewHTML(false, "categories", categoryName, "", "");
       // Потом строится heading 
       var heading = buildHeadingViewHTML("", categoryName);
       // Строим плитки с фирмами.
@@ -67,7 +67,7 @@ st.buildAndShowCollectionsCategoryHTML = function(category, categoryName) {
       });// end categoryFirmsItems.map
       console.log(collections);
       // Строю навигационную цепочку.
-      var breadcrumb = buildBreadcrumbViewHTML(false, st.breadcrumb.firm.name, categoryName, "");
+      var breadcrumb = buildBreadcrumbViewHTML(false, "firms", st.breadcrumb.firm.name, categoryName, "");
       console.log(breadcrumb);
       // Мастерю заголовок.
       var heading = buildHeadingViewHTML(false, categoryName);

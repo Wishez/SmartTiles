@@ -18,7 +18,7 @@ st.buildAndShowFirmHtml = function(firm, firmName) {
         }
       });
       // Строим навигационную цепочку, заголовок и плитки  в стиле "THE FIRM". 
-      var breadcrumb = buildBreadcrumbViewHTML("firm", st.breadcrumb.category.name, firmName, "");
+      var breadcrumb = buildBreadcrumbViewHTML("firm", "categories",  st.breadcrumb.category.name, firmName, "");
       var heading = buildHeadingViewHTML("firm", firmName);
       // Не указываю стиль "firm", потому что секция фирмы, стилизована по-умолчанию.
       var collections = buildTilesViewHtml(firmCollections, tileHtml, "", "collection");

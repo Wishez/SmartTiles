@@ -13,7 +13,7 @@ st.buildAndShowCollectionHtml = function(collection, collectionName) {
         console.log(st.breadcrumb.firm.short_name);
         console.log(samples);
         // Пострить навигационную цепочку передавая кэшированные данные и данные из аргументов функции со обычным стилем.
-        var breadcrumb = buildBreadcrumbViewHTML("", st.breadcrumb.category.name, st.breadcrumb.firm.name, collectionName);
+        var breadcrumb = buildBreadcrumbViewHTML(false, "categories", st.breadcrumb.category.name, st.breadcrumb.firm.name, collectionName);
         // Построить заголовок коллекции. Обычный стиль. Имя коллекции.
         var heading = buildHeadingViewHTML("", collectionName);
         // Создаём строку html со всеми образцами.
