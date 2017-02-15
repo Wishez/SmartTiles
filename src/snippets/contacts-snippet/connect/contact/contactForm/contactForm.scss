@@ -13,13 +13,13 @@
   align-items: flex-start;
   font-family: $stackComfortaa;
   margin-top: 5px;
-  &-focused .controller__label {
-    color: $maroon;
-  }
   &-filled .controller__label {
     color: #a4a2a1;
     top: 0;
     opacity: 1;
+  }
+  &-focused .controller__label {
+    color: $maroon;
   }
 }
 .controller__label {

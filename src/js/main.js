@@ -18,12 +18,11 @@
   //= ../blocks/header/header.js
 
   //= ../snippets/home-snippet/main/main.js
-  //= ../snippets/contacts-snippet/connect/connect.js
   //= ../snippets/catalog-snippet/main/main.js
   //= ../snippets/category-snippet/main/category.js
+  //= ../snippets/contacts-snippet/connect/connect.js
   //= ../snippets/firm-snippet/main/firm.js
   //= ../snippets/collection-snippet/main/collection.js
-   
   //= ../snippets/breadcrumb-snippet/breadcrumb.js
   //= ../snippets/heading-snippet/heading.js
   //= ../snippets/tile-snippet/tile.js
