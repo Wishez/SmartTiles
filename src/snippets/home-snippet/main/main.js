@@ -1,21 +1,22 @@
 //= offers/offers.js
 
 // Загружаем домашнюю страницу.
-showLoading('#main');
+showLoading(st.ids.main);
 st.loadHomeContent = function() {
-  smartApp.getHomePattern().done(function(data) {
-    $main.html(data);
-    // Инициализируем карусель. 
-    $('.exclusive__slides').slick({
-      dots: true
-    });
-    // Загружаем кусочек всего сайта,
-    // который встваляется здесь и не только
-    smartApp.getContacts().done(function(data) {
-      $main.append(data);                         
-    });
-    
-    $main.focus();
-  });// end get
+  smartApp.getHomePattern().done(function( homeContentHtml ) {
+    // Запрашиваем шаблон с контактами и формой.
+    smartApp.getContacts().done(function( contactsHtml ) {
+      // Компануем страницу.
+      var finalHTML = homeContentHtml + contactsHtml; 
+      st.select.$main.html( finalHTML );
+      // Инициализируем карусель. 
+      $('.exclusive__slides').slick({
+        dots: true
+      });
+      
+      // Настраиваем форму для связи.
+      settingUpForm();
+    });// end getContacts
+  });// end getHomePettern
 }; // end loadHomeContent
 st.loadHomeContent();

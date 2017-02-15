@@ -23,6 +23,15 @@ st.coversHtml = "snippets/covers-snippet/covers-snippet.html";
 // Выборки
 var $main = $('#main');
 
+st.select = {
+  $main: $('#main'),
+  $btnTop: $('#btnTop'),
+  form: {
+    $inputs: "",
+    $labels: ""
+  }
+}
+
 // Частоиспользуемые элементы
 var container = '<div class="container">';
 
@@ -30,11 +39,16 @@ var container = '<div class="container">';
 st.nav = {
   home: '#home',
   catalog: '#catalog',
-  contacts: '#contacts'
+  contacts: '#contacts',
+  btnUp: '#btnTop'
 };
 // Индификаторы
 st.ids = {
-  main: '#main'
+  main: '#main',
+  breadcrumb: {
+    home: '#bcHome',
+    catalog: '#bcCatalog'
+  }
 };
 // Навигационное кэширование.
 st.breadcrumb = {

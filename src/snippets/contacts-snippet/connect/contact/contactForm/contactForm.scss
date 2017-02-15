@@ -13,11 +13,24 @@
   align-items: flex-start;
   font-family: $stackComfortaa;
   margin-top: 5px;
+  &-focused .controller__label {
+    color: $maroon;
+  }
+  &-filled .controller__label {
+    color: #a4a2a1;
+    top: 0;
+    opacity: 1;
+  }
 }
 .controller__label {
   @include span(12);
-  color: $maroon;
-  font-size: (14em / 16);    
+  font-size: (14em / 16);
+  display: block;
+  position: relative;
+  top: 2em;
+  opacity: 0;
+  z-index: 0;
+  transition: top .3s ease, opacity .3s ease;
 }
 .controller__input {
   @include span(12);
@@ -25,6 +38,7 @@
   border: 0;
   border-bottom: 1px solid #a4a2a1; 
   color: $nightBlack;
+  z-index: 1;
   &:focus {
     outline: 0;    
   }

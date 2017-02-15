@@ -10,28 +10,28 @@ $(document).on('click', '#subNav .subCategory__refer, #btnTop', function(e) {
 
 loadSelectedMenu(st.nav.contacts, smartApp.getContacts);
 
-$(document).on('click', st.nav.home + ', #bcHome', function(e) {
-  showLoading('#main');
+$(document).on('click', st.nav.home + ', ' + st.ids.breadcrumb.home, function(e) {
+  showLoading(st.ids.main);
   switchActiveMenu(home);
   st.loadHomeContent();
   e.preventDefault();
 }); // end click
 //loadSelectedMenu('#catalog', smartApp.getCatalog);
-$(document).on('click', st.nav.catalog + ', #bcCatalog', function(e) {
-  showLoading('#main');
+$(document).on('click', st.nav.catalog + ', ' + st.ids.breadcrumb.catalog , function(e) {
+  showLoading(st.ids.main);
   switchActiveMenu(catalog);
   smartApp.getCatalog().done(function(catalog) {
-    $main.html(catalog);
+    st.select.$main.html(catalog);
     st.buildAndShowCategoriesHTML(false, false);
   });
   e.preventDefault();
 }); // end click
 var $btnTop = $('#btnTop');
-$btnTop.hide();
+st.select.$btnTop.hide();
 $(window).scroll(function(){
   if ($(this).scrollTop() < 100) {
-    $btnTop.fadeOut(1000);
+    st.select.$btnTop.fadeOut(1000);
   } else {
-    $btnTop.fadeIn(1000);
+    st.select.$btnTop.fadeIn(1000);
   }  
 });// end scroll
