@@ -49,8 +49,7 @@
 }
 .navigation__btnTop {
   z-index: 999;
-  width: 10vw;
-  height: 5vw;
+  padding: 0.5% 1%;
   position: fixed;
   bottom: 0;
   right: 5vw;
@@ -58,7 +57,7 @@
   color: $cyan !important;
   background-color: $nightBlack;
   transition: color 0.5s;
-  font-size: (30em / 16);
+  font-size: (22em / 16);
   line-height: 220%;
   &:hover {
     color: lighten($cyan, 20%) !important;
@@ -70,20 +69,15 @@
   &:active {
     @extend .navigation__btnTop;
   }
-  @include breakpoint($lg) {
-    height: 4vw;
-  }
   @include breakpoint($sm) {
     font-size: (22em / 16);
   }
   @include breakpoint($xs) {
     font-size: (22em / 16);
-    width: 15vw;
-    height: 7vw;
+
+    padding: 0.5% 2%;
   }
   @include breakpoint($xxs) {
     font-size: (18em / 16);
-    width: 22vw;
-    height: 11vw;
   }
 }

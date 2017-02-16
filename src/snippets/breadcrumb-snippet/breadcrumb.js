@@ -91,5 +91,4 @@ $(document).on('click', '#bcFirm a', function() {
   st.buildAndShowFirmHtml(firm, secondName);
   
   return false;
-  
 });

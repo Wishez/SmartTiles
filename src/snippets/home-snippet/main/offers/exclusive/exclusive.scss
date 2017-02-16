@@ -11,14 +11,10 @@
   width: 80%;
   margin: 0 auto;
   position: relative;
-  @include breakpoint($sm) {    
-  }
-  @include breakpoint($xs) { 
-  }
   &:after {
     content: 'exclusive';
     color: $red;
-    line-height: 7rem;
+    padding: 2.5% 0;
     bottom: 85%;
     left: 80%;
     font-size: (36rem / 16);
@@ -41,12 +37,14 @@
       bottom: 79%;
       font-size: 3vw;
       left: 79%;
-      line-height: 5rem;
       @include box-shadow(10px 13px 15px rgba(0, 0, 0, .5));
     }
     @include breakpoint($xxs) {
-      width: 32%;
-      bottom: 82%;
+      width: 40%;
+      height: 40%;
+      left: 75%;
+      bottom: 75%;
+      border-width: 5px;
     }
   }
 }

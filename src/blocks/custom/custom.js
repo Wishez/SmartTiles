@@ -1,36 +1,12 @@
 var st = {};
-// Пути к шаблонам !Нужно их почтистить
-st.homeHtml = "snippets/home-snippet/home-snippet.html";
-st.contactsHtml = "snippets/contacts-snippet/contacts-snippet.html";
-st.catalogHtml = "snippets/catalog-snippet/catalog-snippet.html";
-st.categoryHtml = "../snippets/category-snippet/category-snippet.html";
-st.firmHtml = "snippets/firm-snippet/firm-snippet.html";
-st.collectionHtml = "snippets/collection-snippet//collection-snippet.html";
 
-st.catalogCategories = "data/categories.json";
-st.firmItems = "data/firms.json";
-st.collectionItems = "data/samples.json";
-
-st.breadcrumbHtml = "snippets/breadcrumb-snippet/breadcrumb-snippet.html";
-st.breadcrumbFirmHtml = "snippets/breadcrumb-snippet/breadcrumb-firm-snippet.html";
-st.headingHtml = "snippets/heading-snippet/heading-snippet.html";
-st.headingFirmHtml = "snippets/heading-snippet/heading-snippet-firm.html";
-st.tileHtml = "snippets/tile-snippet/tile-snippet.html";
-st.sampleHtml = "snippets/sample-snippet/sample-snippet.html";
-  
-st.firmsHtml = "snippets/firms-snippet/firms-snippet.html";
-st.coversHtml = "snippets/covers-snippet/covers-snippet.html";
 // Выборки
 var $main = $('#main');
 
 st.select = {
   $main: $('#main'),
-  $btnTop: $('#btnTop'),
-  form: {
-    $inputs: "",
-    $labels: ""
-  }
-}
+  $btnTop: $('#btnTop')
+};
 
 // Частоиспользуемые элементы
 var container = '<div class="container">';
@@ -68,69 +44,78 @@ st.breadcrumb = {
 
 // Запросики.
 var smartApp = (function(){
-  var obj = {};
+  // Пути к шаблонам 
+  var homeHtml = "snippets/home-snippet/home-snippet.html",
+      contactsHtml = "snippets/contacts-snippet/contacts-snippet.html",
+      catalogHtml = "snippets/catalog-snippet/catalog-snippet.html",
+      categoryHtml = "../snippets/category-snippet/category-snippet.html",
+      firmHtml = "snippets/firm-snippet/firm-snippet.html",
+      collectionHtml = "snippets/collection-snippet//collection-snippet.html",
+
+      catalogCategories = "data/categories.json",
+      firmItems = "data/firms.json",
+      collectionItems = "data/samples.json",
+
+      breadcrumbHtml = "snippets/breadcrumb-snippet/breadcrumb-snippet.html",
+      breadcrumbFirmHtml = "snippets/breadcrumb-snippet/breadcrumb-firm-snippet.html",
+      headingHtml = "snippets/heading-snippet/heading-snippet.html",
+      headingFirmHtml = "snippets/heading-snippet/heading-snippet-firm.html",
+      tileHtml = "snippets/tile-snippet/tile-snippet.html",
+      sampleHtml = "snippets/sample-snippet/sample-snippet.html";
                 
-  obj.getHomePattern = function() {
-    return $.get(st.homeHtml);
+  return {  
+    getHomePattern: function() {
+        return $.get(homeHtml);
+    },
+
+    getContacts: function() {
+        return $.get(contactsHtml);
+    },
+
+    getCatalog: function() {
+      return $.get(catalogHtml);
+    },
+
+    getCategory: function() {
+      return $.get(categoryHtml);
+    },
+
+    getFirm: function() {
+      return $.get(firmHtml);
+    },
+
+    getCollection: function() {
+      return $.get(collectionHtml);
+    },
+
+    getBreadcrumb: function() {
+      return $.get(breadcrumbHtml);
+    },
+
+    getHeading: function() {
+      return $.get(headingHtml);
+    },
+
+    getTile: function() {
+      return $.get(tileHtml); 
+    },
+
+    getSample: function() {
+      return $.get(sampleHtml);
+    },
+
+    getCategories: function() {
+      return $.getJSON(catalogCategories);
+    },
+
+    getCategoryFirms: function() {
+      return $.getJSON(firmItems);
+    },
+
+    getCollectionItems: function() {
+      return $.getJSON(collectionItems);
+    }
   };
-  
-  obj.getContacts = function() {
-    return $.get(st.contactsHtml);
-  };
-  
-  obj.getCatalog = function() {
-    return $.get(st.catalogHtml);
-  };
-  
-  obj.getCategory = function() {
-    return $.get(st.categoryHtml);
-  };
-  
-  obj.getFirm = function() {
-    return $.get(st.firmHtml);
-  };
-  
-  obj.getCollection = function() {
-    return $.get(st.collectionHtml);
-  };
-  
-  obj.getBreadcrumb = function() {
-    return $.get(st.breadcrumbHtml);
-  };
-    
-  obj.getHeading = function() {
-    return $.get(st.headingHtml);
-  };
-  
-  obj.getTile = function() {
-    return $.get(st.tileHtml); 
-  };
-  
-  obj.getSample = function() {
-    return $.get(st.sampleHtml);
-  };
-  // До сих пор не знаю, нужны ли мне эти шаблоны;0.
-  obj.getFirms = function() {
-    return $.get(st.firmsHtml);
-  };
-  
-  obj.getCovers = function() {
-    return $.get(st.coversHtml);
-  };
-  
-  obj.getCategories = function() {
-    return $.getJSON(st.catalogCategories);
-  };
-  
-  obj.getCategoryFirms = function() {
-    return $.getJSON(st.firmItems);
-  };
-  
-  obj.getCollectionItems = function() {
-    return $.getJSON(st.collectionItems);
-  };
-  
-  return obj;
 })();
 
 var showLoading = function(selector) {

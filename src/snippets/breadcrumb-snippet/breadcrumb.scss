@@ -14,7 +14,7 @@
     font-size: (15em / 16);      
   }
   @include breakpoint($xxs) {
-    font-size: (10em / 16);      
+    font-size: (16em / 16);
   }
   & .breadcrumb__breadcrumbItem:before {
     content: "\21CB";
@@ -26,10 +26,17 @@
     }
   }
   & .breadcrumb__breadcrumbItem:first-child:before {
-    content: "";      
+    content: "";
+    @include breakpoint($xxs) {
+      content: '\21CB';
+      margin: 0 14px;
+    }
   }
 }
 .breadcrumb__breadcrumbItem {
+  @include breakpoint($xxs) {
+    display: block !important;
+  }
   & .breadcrumbItem__refer{
     color: $beige;
     &:hover {

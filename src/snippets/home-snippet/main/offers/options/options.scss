@@ -8,15 +8,19 @@
 }
 .optionsList__refer {
   @include span(3);
+  max-width: 349px;
+  height: auto;
   margin: 0;    
+  right: -5%;
+  position: relative;
+  @include clearfix;
   @include transform-style(preserve-3d);
   @include perspective(500px);
   transition: perspective 0.5s;
-  position: relative;
-  right: -5%;
   @include breakpoint($md) {
     @include span(6);
     margin: 0;
+    right: -15%;
   }
   @include breakpoint($sm) {
     @include span(6);
@@ -25,8 +29,10 @@
   @include breakpoint($xs) {
     @include span(12);
     margin-top: 100px;
+    right: -26%;
   }
-  @include breakpoint($xxs) { 
+  @include breakpoint($xxs) {
+    right: -8%;
   }
   &:hover {
    @include perspective(5000px);    
@@ -40,35 +46,22 @@
 }
 
 .optionsList__option {
-  margin: 0 15px 0 0;
+  margin: 0 auto;
   border: 10px solid #fff;
-  max-width: 285px;
-  padding-top: 59%;
   list-style: none;
   background-color: $gray;
   background-image: url('../img/options-sprite.png');
   position: relative;
+  padding-bottom: (213% / 358) * 100;
   @include box-shadow(0 7px 15px $shadow);
   @include rotateY(30deg);  
   @include transition-property(transform, box-shadow);
   @include transition-duration(0.5s);
-  @include breakpoint($md) {
-    margin: 0 auto;
-    padding-top: 38%;
-  }
-  @include breakpoint($sm) {
-    margin: 0 auto;
-    padding-top: 50%;
-  }
-  @include breakpoint($xs) {
-    margin: 0 auto;
-    padding-top: 25%;
-    height: 200px;
+  @include breakpoint($lg) {
+    margin: 0 15px 0 0;
   }
   @include breakpoint($xxs) {
     margin: 0 auto;
-    padding-top: 46%;
-    height: auto;
   }
   &:hover {
     @include rotateY(0);
@@ -111,26 +104,17 @@
 }
 
 /* Background for options */
-@each $category, $y, $another-y in 
+@each $category, $y, $lg-y in 
       (flooring, 0, 0),
-      (ceilingSystems, -163, -184),
-      (wallCoverings, -325, -366),
-      (textiles, -488, -551) {
+      (ceilingSystems, -228, -163),
+      (wallCoverings, (2 * -228), (2 * -163)),
+      (textiles, (3 * -228), (3 * -163)) {
       .optionsList__option-#{$category} {
         background-position: 0 #{$y}px;
         background-repeat: no-repeat;
         background-size: cover;
-        @include breakpoint($md) {
-          background-position: 0 #{$another-y}px;
-        }
-        @include breakpoint($sm) {
-          background-position: 0 #{$another-y}px;
-        }
-         @include breakpoint($md) {
-          background-position: 0 #{$another-y}px;
-        }
-        @include breakpoint($xs) {
-          background-position: 0 #{$another-y}px;
+        @include breakpoint($lg) {
+          background-position: 0 #{$lg-y}px;
         }
       }
 }
