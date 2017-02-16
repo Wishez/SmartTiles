@@ -1,6 +1,21 @@
+// Всплывающие метки и их стили при фокусе и при заполненном поле. 
 $(document)
   .on('input propertychange', '.contactForm__controller', function(e) {
-    $(this).toggleClass('contactForm__controller-filled', !! $(e.target).val()); 
+    $(this).toggleClass('contactForm__controller-filled', !! $(e.target).val());
+  
+    var $nameInput = $('#name');
+    var str = $nameInput.val();
+  
+    // Преобразуем первую букву в имени пользователя.
+    str = str
+           .toLowerCase()
+           .split(' ')
+           .map( function( word ) {
+             return word.replace(word.charAt(0), word.charAt(0).toUpperCase());
+           })
+           .join(' ');
+  
+    $nameInput.val(str);
   })
   .on('focus', '.contactForm__controller', function() {
     $(this).addClass('contactForm__controller-focused');
@@ -9,4 +24,38 @@ $(document)
     $(this).removeClass('contactForm__controller-focused');
   });
 
-//$('#phoneNumber').mask('+0(000)-00-00');
+// Настраивает маску формы.
+function settingUpForm() {
+  $('#phoneNumber').mask('9 (999) 999 99 99');
+}
+
+var domains = ['gmail.com', 'aol.com', 'yahoo.com', 'mail.ru', 'yandex.ru', 'list.ru'];
+var topLevelDomains = ["com", "net", "org", "ru"];
+
+// Хелпер для валидации введённого почтовго ящика.
+$(document).on('blur', '#email', function() {
+  $(this).mailcheck({
+    domains: domains,                       // optional
+    topLevelDomains: topLevelDomains,       // optional
+    suggested: function(element, suggestion) {
+      $('#helper').html('Возможно, вы имели в виду <b><i>' + suggestion.full + "</b></i>?");
+    },
+    empty: function(element) {
+       $('#helper').html("");
+    }
+  });
+});
+
+//$(document).on('input propertychange', '.controller', function() {
+//  var $nameInput = $('#name');
+//  var str = $nameInput.val();
+//  str = str
+//           .toLowerCase()
+//           .split(' ')
+//           .map( function( word ) {
+//             return word.replace(word.charAt(0), word.charAt(0).toUpperCase());
+//           })
+//           .join(' ');
+//  
+//  $nameInput.val(str);
+//});

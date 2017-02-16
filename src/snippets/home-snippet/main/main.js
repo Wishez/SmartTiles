@@ -14,7 +14,8 @@ st.loadHomeContent = function() {
         dots: true
       });
       
-      
+      // Настраиваем форму.
+      settingUpForm();
     });// end getContacts
   });// end getHomePettern
 }; // end loadHomeContent

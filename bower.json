@@ -24,6 +24,9 @@
     "normalize-scss": "^3.0.3",
     "sassy-maps": "^0.4.0",
     "slick-carousel": "^1.6.0",
-    "susy": "^2.2.12"
+    "susy": "^2.2.12",
+    "typeahead.js": "^0.11.1",
+    "jquery.maskedinput": "^1.4.1",
+    "mailcheck": "^1.1.2"
   }
 }

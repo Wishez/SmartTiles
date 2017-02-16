@@ -6,7 +6,9 @@
         type="text",
         name="name",
         placeholder="Имя",
-        required=''
+        maxlength="24",
+        minlength="1",
+        required=""
       )
     .contactForm__controller.controller
       label.controller__label.controller__label-for_email(for="email") Email
@@ -14,8 +16,11 @@
         type="email",
         name="email",
         placeholder="Email",
+        maxlength="40",
+        minlength="10",
         required=''
       )
+      p#helper.conroller__emailHelper
     .contactForm__controller.controller
       label.controller__label.controller__label-for_email(for="phoneNumber") Телефон
       input#phoneNumber.controller__input(
