@@ -24,13 +24,13 @@ $(document)
     $(this).removeClass('contactForm__controller-focused');
   });
 
-// Настраивает маску формы.
+// Настраивает маски формы.
 function settingUpForm() {
-  $('#phoneNumber').mask('9 (999) 999 99 99');
+  $('#phoneNumber').mask('0 (000) 000 00 00');
 }
 
 var domains = ['gmail.com', 'aol.com', 'yahoo.com', 'mail.ru', 'yandex.ru', 'list.ru'];
-var topLevelDomains = ["com", "net", "org", "ru"];
+var topLevelDomains = ["com", "net", "org", "ru", "io"];
 
 // Хелпер для валидации введённого почтовго ящика.
 $(document).on('blur', '#email', function() {
@@ -45,17 +45,3 @@ $(document).on('blur', '#email', function() {
     }
   });
 });
-
-//$(document).on('input propertychange', '.controller', function() {
-//  var $nameInput = $('#name');
-//  var str = $nameInput.val();
-//  str = str
-//           .toLowerCase()
-//           .split(' ')
-//           .map( function( word ) {
-//             return word.replace(word.charAt(0), word.charAt(0).toUpperCase());
-//           })
-//           .join(' ');
-//  
-//  $nameInput.val(str);
-//});

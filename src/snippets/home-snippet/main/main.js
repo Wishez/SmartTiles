@@ -11,7 +11,16 @@ st.loadHomeContent = function() {
       st.select.$main.html( finalHTML );
       // Инициализируем карусель. 
       $('.exclusive__slides').slick({
-        dots: true
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 2500,
+        responsive: [{
+              breakpoint: 768,
+              settings: {
+                arrows: false
+              }  
+            }
+          ]
       });
       
       // Настраиваем форму.

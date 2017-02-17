@@ -7,7 +7,20 @@ $(document).on('click', '#subNav .subCategory__refer, #btnTop' , function() {
   return false;
 });// end click
 
-loadSelectedMenu(st.nav.contacts, smartApp.getContacts);
+//loadSelectedMenu(st.nav.contacts, smartApp.getContacts);
+
+$(document).on('click', st.nav.contacts, function() {
+   showLoading(st.ids.main);
+   switchActiveMenu(this);
+  
+   smartApp.getContacts().done(function( contactsHtml ){  
+     $main.html(contactsHtml);
+     
+     settingUpForm();
+   });//end get
+  
+  return false;
+});
 
 $(document).on('click', st.nav.home + ', ' + st.ids.breadcrumb.home, function() {
   showLoading(st.ids.main);

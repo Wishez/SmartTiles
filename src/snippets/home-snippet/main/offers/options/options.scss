@@ -25,14 +25,15 @@
   @include breakpoint($sm) {
     @include span(6);
     margin: 0;
+    right: -5%;
   }
   @include breakpoint($xs) {
     @include span(12);
     margin-top: 100px;
-    right: -26%;
+    right: -25%;
   }
   @include breakpoint($xxs) {
-    right: -8%;
+    right: -4%;
   }
   &:hover {
    @include perspective(5000px);    

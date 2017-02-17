@@ -11,6 +11,9 @@
   width: 80%;
   margin: 0 auto;
   position: relative;
+  @include breakpoint($xxs) {
+      width: 100%;
+    }
   &:after {
     content: 'exclusive';
     color: $red;
@@ -40,10 +43,10 @@
       @include box-shadow(10px 13px 15px rgba(0, 0, 0, .5));
     }
     @include breakpoint($xxs) {
-      width: 40%;
-      height: 40%;
-      left: 75%;
-      bottom: 75%;
+      width: 25%;
+      height: 30%;
+      left: 79%;
+      bottom: 76%;
       border-width: 5px;
     }
   }
@@ -53,25 +56,12 @@
       .exclusiveImg-#{$i} {
         background: url(../img/exclusive/ex_#{$i}.jpg) no-repeat center;
         background-size: cover;
-        padding-top: 7.9%;
+        padding-bottom: 7.9%;
         @include breakpoint($md) {
-          padding-top: 9.7%;    
-        }
-        @include breakpoint($sm) {
-//          padding-top: 4.5%;    
-        }
-        @include breakpoint($xs) {
-//          padding-top: 3.5%;    
+          padding-bottom: 9.7%;    
         }
       }
 }
-///* @each $category, $num in 
-//      (exclusive, 1)
-//      {
-//      .slides__exclusiveImg-#{$category} {
-//        background: url(../img/exclusive/ex_#{$num}.png) no-repeat center;
-//      }
-//} */
 /* Slider */
 .slick-next:before, .slick-prev:before {
   font-size: 40px;
