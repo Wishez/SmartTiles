@@ -29,7 +29,7 @@
     content: "";
     @include breakpoint($xxs) {
       content: '\21CB';
-      margin: 0 14px;
+      margin: 0 5px;
     }
   }
 }

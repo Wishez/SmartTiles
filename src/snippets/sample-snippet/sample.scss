@@ -37,8 +37,13 @@
   box-shadow: 0 0 15px $shadow;
   padding-top: (23% / 71) * 10;
   @include breakpoint($xxs) {
-    width: (200% / 319) * 100;
-    left: (119% / 319) * 100;
+    font-size: (14em / 16);
+  }
+  @include breakpoint($xxs) {
+    width: span(12);
+    left: 0;
+    font-size: (13em / 16);
+    min-height: 27px;
   }
 }
 

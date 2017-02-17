@@ -45,10 +45,10 @@
   @include breakpoint($xs) {
     margin: 0 0 0 15px;
     font-size: (110vw / 16);
+    text-align: center;
   }
   @include breakpoint($xxs) {
     clear: both;
-    text-align: center;
     font-size: (70rem / 16);
     margin: 0;
   }
@@ -59,8 +59,8 @@
   right: 5vw;
   top: 20px;
   @include breakpoint($xs) {
-    right: 9.5vw;
-    top: 0;
+    right: 22.5vw;
+    top: 12vw;
   }
   @include breakpoint($xxs) {
     right: 40vw;

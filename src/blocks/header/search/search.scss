@@ -10,11 +10,10 @@
     @include span(12);
   }
   @include breakpoint($xs) {
-    @include span(8);
+    @include span(12);
     margin-right: 0;
   }
   @include breakpoint($xxs) {
-    @include span(12);
     order: 4;
   }
 }
@@ -32,8 +31,8 @@
     width: 45%;
   }
   @include breakpoint($xs) {
-    width: 65%;
-    margin-right: 0;
+    width: 60%;
+    margin-right: 25px;
   }
   @include breakpoint($xxs) {
     width: 45%;
@@ -53,7 +52,8 @@
     background-color: #74ff86;
   }
   @include breakpoint($xs) {
-    float: right;    
+    float: right;
+    margin-right: 11vw;
   }
   @include breakpoint($xxs) {
     margin-right: 20px;    
