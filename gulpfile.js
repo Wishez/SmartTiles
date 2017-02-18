@@ -43,6 +43,7 @@ src: {
 watch: {
     html: 'src/**/*.pug',
     js: 'src/**/*.js',
+    data: 'src/**/*.json',
     style: 'src/**/*.scss',
     image: 'src/img/**/*.*',
     fonts: 'src/fonts/**/*.*'
@@ -145,7 +146,7 @@ gulp.task('watch', function() {
     watch([path.watch.style], function(event, cb){
         gulp.start('style');
     });
-    watch([path.watch.js], function(event, cb){
+    watch([path.watch.js, path.watch.data], function(event, cb){
         gulp.start('js');
     });
     watch([path.watch.image], function(event, cb){

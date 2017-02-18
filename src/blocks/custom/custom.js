@@ -54,6 +54,7 @@ var smartApp = (function(){
 
       catalogCategories = "data/categories.json",
       firmItems = "data/firms.json",
+      allCollections = "data/allCollections.json",
       collectionItems = "data/samples.json",
 
       breadcrumbHtml = "snippets/breadcrumb-snippet/breadcrumb-snippet.html",
@@ -110,6 +111,10 @@ var smartApp = (function(){
 
     getCategoryFirms: function() {
       return $.getJSON(firmItems);
+    },
+    
+    getAllCollections: function() {
+      return $.getJSON(allCollections);
     },
 
     getCollectionItems: function() {
