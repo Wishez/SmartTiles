@@ -18,24 +18,14 @@
   }
 }
 .searchForm__inputSearch {
-  margin: 0 9% 0 17px;
-  width: 70%;
   padding: 2px 0 2px 2%;
   border: 0;
+  width: 100%;
   &::-webkit-input-placeholder {
     color: #c4c4c4;
   }
   @include breakpoint($sm) {
-    margin-left: 3.5%;
-    margin-right: 6%;
-    width: 45%;
-  }
-  @include breakpoint($xs) {
-    width: 60%;
-    margin-right: 25px;
-  }
-  @include breakpoint($xxs) {
-    width: 45%;
+//    margin-right: 6%;
   }
 }
 .searchForm__btnSearch {
@@ -45,6 +35,7 @@
   background: $cyan;
   position: relative;
   transition: background-color 1s ease;
+  vertical-align: middle;
   &:active {
     bottom: -3px;
   }
@@ -53,10 +44,50 @@
   }
   @include breakpoint($xs) {
     float: right;
-    margin-right: 11vw;
+    margin-right: 21vw;
   }
   @include breakpoint($xxs) {
     margin-right: 20px;    
   }
 }
 
+/* typeahead styles */
+.twitter-typeahead {
+  margin: 0 9% 0 19px;
+  width: 70%;
+  @include breakpoint($sm) {
+    width: 45%;
+    margin-left: 3.8%;
+    margin-right: 5.8%;
+  }
+  @include breakpoint($xs) {
+    width: 45%;
+  }
+  @include breakpoint($xxs) {
+    width: 65%;
+  }
+}
+.tt-dataset {
+  background-color: $gray;
+}
+
+.search__caption {
+  color: lighten($maroon, 20%);
+  border-bottom: 1px solid $beige;
+  font-weight: bold;
+  padding: 1% 0.5%;
+}
+.tt-suggestion {
+  cursor: pointer;
+  color: $maroon;
+  padding: 1% 0.5%;
+  transition: color 0.5s;
+  &:hover {
+    color: lighten($maroon, 20%);
+  }
+}
+.tt-menu {
+  width: 100%;
+}
+.tt-highlight {
+}
