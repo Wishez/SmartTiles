@@ -47,6 +47,7 @@ function buildTilesViewHtml(arrayItems, tileHtml, styleTiles, urlPath) {
           item.short_name + '/' +
           item.short_name;
         
+        console.log(cats[0]);
         html = insertProperty(html, "category", cats.toString());
         html = insertProperty(html, "firm", item.short_name);
         
