@@ -28,4 +28,48 @@ st.loadHomeContent = function() {
     });// end getContacts
   });// end getHomePettern
 }; // end loadHomeContent
+
 st.loadHomeContent();
+
+st.buildHomeCategories = function( spec ) {
+  /* spec
+     {
+       arrayCategories: string,
+       name: string
+     }
+  */
+  // Получаем категории.
+  smartApp.getCategories().done(function( categories ) {
+    // Шаблон плитки.
+    smartApp.getTile().done(function(tileHtml) {
+      var arrayCategories = spec.arrayCategories.split(" "),
+          // Имя выбранной категории, если что.
+          name = spec.name,
+          sortedCategories = [];
+      
+      // Отбираем нужные категории.
+      arrayCategories.forEach(function( compareCategory ) {
+        // Ищем нужную категорию.
+        categories.forEach(function( category ) {
+          if (category.short_name == compareCategory ) {
+            sortedCategories.push(category);
+          }
+        });// end categories.forEach
+      });// end arrayCategories.forEach
+      
+      console.log(sortedCategories);
+
+      var homeCategories = catalogResource({
+             name: name,
+             stylesPlace: 'mainContent__homeCategories',
+             idPlace: 'homeCategories',
+             stock: sortedCategories,
+             path: 'category',
+             tileHtml: tileHtml,
+             geolocation: '#main'
+       });
+      
+      homeCategories.presentResource();
+    });// end smartApp.getTile
+  });// end smartApp.getCategories
+};// end buildHomeCategories

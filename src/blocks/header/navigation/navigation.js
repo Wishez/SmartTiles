@@ -37,7 +37,7 @@ $(document).on('click', st.nav.catalog + ', ' + st.ids.breadcrumb.catalog , func
   
   smartApp.getCatalog().done(function(catalog) {
     st.select.$main.html(catalog);
-    st.buildAndShowCategoriesHTML(false, false);
+    st.buildAndShowCatalog();
   });
   
   return false;

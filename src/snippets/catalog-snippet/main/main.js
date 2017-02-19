@@ -1,6 +1,5 @@
 //= subNav/subNav.js
-//= covers/covers.js
-//= firms/firms.js
+
 // arrayCategories - массив категорий, извлечённых из data-cat категории на главной странице.
 st.buildAndShowCategoriesHTML = function(selector , arrayCategories) {
   // Получаем json-файл со всеми категориями.
@@ -18,7 +17,7 @@ st.buildAndShowCategoriesHTML = function(selector , arrayCategories) {
           // Создаём массив категорий.
           arrayCategories = arrayCategories.split(" ");
           
-          console.log(arrayCategories);
+        
           
           var sortCategories = [];
           
@@ -26,11 +25,6 @@ st.buildAndShowCategoriesHTML = function(selector , arrayCategories) {
           arrayCategories.forEach(function( compareCategory ) {
             // Ищем нужную категорию.
             categories.forEach(function( category, i ) {
-              
-              console.log(category.short_name, compareCategory);
-              
-              console.log(category.short_name == compareCategory);
-              
               if (category.short_name == compareCategory ) {
                 sortCategories.push(category);
               }
@@ -60,42 +54,46 @@ st.buildAndShowCategoriesHTML = function(selector , arrayCategories) {
 
 // Функциаональное программирование...
 
-var catalogRecource = function( spec ) {
+var catalogResource = function( spec ) {
 /*
  {
    name: string,
    styleName: string(classes),
-   stylesPlace: string(classes),
+   stylesPlace: string(otional[heading-firm]),
    idPlace: string(id),
    stock: array,
-   styleStock: string(class),
-   pathToImgs: string,
-   tileHtml: string
+   styleStock: string(classes),
+   path: string,
+   tileHtml: string,
+   geolocation: string(selector),
+   func: 'functuion'(html, append and another functions)
  }
 */
 
-  var that = {};
+  var that = {},
   // Какие характеристики у него есть?
   // Имя заголовка и его стиль.
-  var name = spec.name;
-  var styleName = spec.styleName;
-  // Навигация к нему.
+      name = spec.name,
+      styleName = spec.styleName ? spec.styleName : "",
   // Место, где он должен быть.
-  var geolocation = spec.geolocation;
+      geolocation = spec.geolocation,
+  // И каким способом должно прийти.
+      func = spec.func ? spec.func : "",
   // У этого место есть стиль.
   // А также наименнование.
-  var position = '<section class="' + spec.stylesPlace + '" id="' + spec.idPlace + '">';
-  var positionCloseTag = '</section>';
+      position = '<section class="' + spec.stylesPlace + '" id="' + spec.idPlace + '">',
+      positionCloseTag = '</section>',
   // У ресурса есть свой инвентарь и стиль его стиль.
-  var stock = spec.stock;
-  var styleStock = spec.styleStock;
+      stock = spec.stock,
+      styleStock = spec.styleStock ? spec.styleStock : "",
   // У ресурса есть свой источник с изображениями.
-  var pathToImgs = spec.path; 
+      pathToImgs = spec.path,
   // Шаблон плитки.
-  var tileHtml = spec.tileHtml;
+      tileHtml = spec.tileHtml;
 
-  
-      
+  // Думаю, что позицию понадобиться изменить.
+  that.position = position;
+  that.positionCloseTag = positionCloseTag;
   // Что он умеет делать?
   // Умеет представить себя.
   that.buildHeading = function() {
@@ -104,6 +102,7 @@ var catalogRecource = function( spec ) {
   
     return heading;
   };
+  // Навигация к нему.
   // Может указать где он находится.
 //  that.buildBreadcrumb = function() {
 //    
@@ -180,73 +179,98 @@ var catalogRecource = function( spec ) {
   };
   
   // И может прийти в любое место.
-  that.presentResurce = function( selector ) {
+  that.presentResource = function() {
     var heading = that.buildHeading();
     var tiles = that.buildTiles();
     
-    var finalHTML = position + 
+    var finalHTML = that.position + 
         '<div class="container">' + heading +  '</div>' + 
         tiles + positionCloseTag;
-    
-    $(geolocation).html(finalHTML);
+    if ( func == 'append' ){
+      $(geolocation).append(finalHTML);
+    } else {
+      $(geolocation).html(finalHTML);
+    }
   };
   
   return that;
 };
 
+
 // arrayCategories - массив категорий, извлечённых из data-cat категории на главной странице.
-st.buildAndShowCategoriesHTMLTEST = function(selector , arrayCategories) {
+st.buildAndShowCatalog = function() {
   // Получаем json-файл со всеми категориями.
-  smartApp.getCategories().done(function(categories){
+  smartApp.getCategories().done(function( categories ){
     // Получаеем json с фирмами.
     smartApp.getCategoryFirms().done(function( firms ) {
       // Получаем шаблон плитки.
-      smartApp.getTile().done(function(tileHtml) {     
-        // Буду собирать в них нужные данные для секций.
-        // #category, #firms
-        var categoriesViewHtml = "";
-        var firmsViewHtml = "";
-        // Проверяем - с главной ли страницы выбрали категорию.
-        if (arrayCategories) {
-          // Создаём массив категорий.
-          arrayCategories = arrayCategories.split(" ");
-          
-          console.log(arrayCategories);
-          
-          var sortCategories = [];
-          
-          // Проходим по каждой категории в переданном массиве.
-          arrayCategories.forEach(function( compareCategory ) {
-            // Ищем нужную категорию.
-            categories.forEach(function( category, i ) {
-              
-              console.log(category.short_name, compareCategory);
-              
-              console.log(category.short_name == compareCategory);
-              
-              if (category.short_name == compareCategory ) {
-                sortCategories.push(category);
-              }
-            });// end categories.forEach
-            
-          });// end arrayCategories.forEach
-          
-          
-
-          categoriesViewHtml = buildTilesViewHtml(sortCategories, tileHtml, "", "category");
-          // Селектор указывается, только если понадобиться получить и вставить категории в определённое, которое вам-мне захочется,  место.
-          $(selector).html(categoriesViewHtml);
-        } else {
-          // Сооружаем категории, фирмы и покрытия "для чего нибудь" для коталога.
-          categoriesViewHtml = buildTilesViewHtml(categories, tileHtml, "", "category");
-          firmsViewHtml = buildTilesViewHtml(firms, tileHtml, "firm", "firms");
-          // Пускаем в расход готовые плитки.
-          $("#covers").html(categoriesViewHtml);
-          $("#firms").append(firmsViewHtml);
-          // Нужен функционал, который даётся при стиле "firm", но вот сами стили не заходят в дизайн.
-          $('.coverTiles').removeClass('coverTiles-firm');
-        }   
+      smartApp.getTile().done(function( tileHtml ) {     
+        
+        var catalogCategories = catalogResource({
+               name: 'Покрытия',
+               stylesPlace: 'mainContent__covers covers',
+               idPlace: 'catalogCovers',
+               stock: categories,
+               path: 'category',
+               tileHtml: tileHtml,
+               geolocation: '#main',
+               func: "append"});
+        
+        
+        var catalogFirms = catalogResource({
+               name: 'Фирмы',
+               styleName: 'heading-firm',
+               stylesPlace: 'mainContent__firms firms',
+               idPlace: 'catalogFirms',
+               stock: firms,
+               path: 'firms',
+               tileHtml: tileHtml,
+               geolocation: '#main',
+               func: "append"});
+  
+        catalogCategories.presentResource();
+        catalogFirms.presentResource();
       });// end getTile
     });// end getCategoryFirms
   });// end getCategories
 };// end buildAndShowCategoriesHTML
+
+$(document).on( 'click', '#catalogCovers a, #homeCategories a', function( event ) {
+  showLoading('#main');
+  var $this = $(this),
+      category = $this.attr('data-cat'),
+      categoryName = $this.find('.tile__name')[0].innerHTML;
+  // Заполняем и обновляем кэш при клике.
+  st.breadcrumb.category.short_name = category;
+  st.breadcrumb.category.name = categoryName;
+  
+  $st.buildAndShowCategoryHTML(category, categoryName);
+  
+  event.preventDefault();
+});// end click
+
+$(document).on('click', '#catalogFirms a', function() {
+  
+  showLoading(st.ids.main);
+  
+  var $this = $(this),
+      // Массив категорий
+      categories = $this.attr('data-cat'),
+      headingName = $this.find('.tile__name')[0].innerHTML;
+  
+  st.breadcrumb.firm.short_name = $this.attr('data-firm');
+  st.breadcrumb.firm.name = headingName;
+  
+  var heading = buildHeadingViewHTML("firm", headingName);
+  var breadcrumb = buildBreadcrumbViewHTML("firm", "categories", headingName, "", "");
+  var bcAndHeading = container + breadcrumb + heading + '</div>';
+  
+  
+  
+  st.buildAndShowCategoriesHTML(st.ids.main, categories);
+  
+  setTimeout(function() { $main.prepend(bcAndHeading); 
+  $main.wrapInner('<div id="categoriesFirm" class="mainContent__firm"></div>');}, 200);
+  
+  return false;
+});// end click
