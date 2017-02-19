@@ -1,19 +1,19 @@
 var categories = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: '../data/categories.json'
+  prefetch: 'data/categories.json'
 });
 
 var firms = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: '../data/firms.json'
+  prefetch: 'data/firms.json'
 });
 
 var collection = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: '/data/allCollections.json'
+  prefetch: 'data/allCollections.json'
 });
 
 $('#search .typeahead').typeahead({
@@ -87,17 +87,13 @@ st.search = function( value ) {
             }
           }); // end collection.forEach
 
-          console.log(matches.categories);
-          console.log(matches.firms);
-          console.log(matches.collections);
-          lenCats = matches.categories.length,
-          lenFirms = matches.firms.length,
-          lenCollections = matches.collections.length,
-          console.log(lenCats, lenFirms, lenCollections);
+          lenCats = matches.categories.length;
+          lenFirms = matches.firms.length;
+          lenCollections = matches.collections.length;
           
-          checkCats = lenCats != 0,
-          checkFirms = lenFirms != 0,
-          checkCollections = lenCollections != 0;
+          checkCats = lenCats !== 0;
+          checkFirms = lenFirms !== 0;
+          checkCollections = lenCollections !== 0;
           console.log(checkCats, checkFirms,  checkCollections);
           // Проверить на наличие совпадений в мaссивах.
           // Выстроить плитки.
@@ -113,7 +109,6 @@ st.search = function( value ) {
             
             finalHTML += categoriesTilesHTML + firmsTilesHTML + collectionsTilesHTML;
             
-            console.log(finalHTML);
             $main.html(finalHTML);
           } else {
             finalHTML = '<p class="text-center mo-matches">Вы искали: <strong>' + value +'</strong>.</br>';
@@ -129,8 +124,7 @@ st.search = function( value ) {
       });// end smartApp.getAllCollections
     });// end smartApp.getCategoryFirms
   });// end smartApp.getCategories
-  
-}
+};
 
 $(document).on('submit', '#search', function() {
   var value = $(this).find('#searchInput').val();
