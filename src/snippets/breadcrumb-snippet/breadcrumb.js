@@ -4,11 +4,10 @@ function buildBreadcrumbViewHTML(styleType, begining, firstName, secondName, thi
     var bcElem = '<li data-cat="" data-firm="" class="breadcrumb__breadcrumbItem breadcrumbItem" ';
     var bcRefer = '<a class="breadcrumbItem__refer" href="#">'; 
     //Индификаторы навигационных элементов.
-    var id = 'id="';
-    var idBcCategory = id + 'bcCategory">';
-    var idBcFirm = id + 'bcFirm">';
-    var idBcHome = id + 'bcHome">';
-    var idBcCatalog = id + 'bcCatalog">';
+    var idBcCategory = 'id="bcCategory">';
+    var idBcFirm = 'id="bcFirm">';
+    var idBcHome = 'id="bcHome">';
+    var idBcCatalog = 'id="bcCatalog">';
   
   
   

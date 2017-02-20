@@ -1,14 +1,113 @@
-// ! Выполняй ajax запросы в одной функции, строя цепочку из них,
-// Передавая возвращаемые в запросах данные в функции,
-// которые строят фрагменты html. В последнем запросе
-// запихивай их в на главную страничку^_^!
+var singleResource = function( params ) {
+  var that = catalogResource( params );
+  
+  delete params.func;
+  // К одиночному ресурсу добавляется навигационная цепочка.
+  that._category = params.category;
+  that._firm = params.firm;
+  that._collection = params.collection;
+  
+  that._breadcrumbElements = {
+    // Шаблоны элементов нав. цепочки.
+    bcElemActive: '<li class="breadcrumb__breadcrumbItem breadcrumbItem active" ',
+    bcElem: '<li data-cat="" data-firm="" class="breadcrumb__breadcrumbItem breadcrumbItem"  ',
+    bcRefer: '<a class="breadcrumbItem__refer" href="#">',
+    ids: {
+      bcCategory: 'id="bcCategory">',
+      bcFirm: 'id="bcFirm">'
+    },
+    solidElements: {
+      homeAndCatalogBC: ""
+    }
+  };
+  
+   that.homeAndCatalogBC = that._breadcrumbElements.bcElem +  'id="bcHome">' +     that._breadcrumbElements.bcRefer   + "Главная" + "</a></li>" + that._breadcrumbElements.bcElem + 'id="bcCatalog">' + that._breadcrumbElements.bcRefer + "Каталог" + "</a></li>"
+  
+  
+  that._buildBreadcrumb = function() {
+
+  };
+
+  that.presentResource = function() {
+    var breadcrumb = that._buildBreadcrumb(),
+        heading = that.buildHeading(),
+        tiles = that.buildTiles();
+
+    var finalHTML = that.position + 
+        '<div class="container">' + breadcrumb + heading +  '</div>' + 
+        tiles + that.positionCloseTag;
+   
+    $(params.geolocation).html(finalHTML);
+  };
+  
+  return that;
+};
+
+var catalogAndHomeCategory = function( params ) {
+  var that = singleResource( params );
+  
+  that._category = params.category;
+  that._name = st.breadcrumb.category.name;
+  
+  var categoryBC = that._breadcrumbElements.bcElemActive + that._breadcrumbElements.ids.bcCategory + st.breadcrumb.category.name + '</li></ol>';
+  
+  
+  that._buildBreadcrumb = function() {
+    var finalHTML = '<ol id="breadcrumb" class="mainContent__breadcrumb breadcrumb">' +   that.homeAndCatalogBC;
+    
+    finalHTML += categoryBC;
+    
+    return finalHTML;
+  };
+  
+  return that;
+};
+
+var catalogFirm = function( params ) {
+  var that = singleResource( params );
+  
+  return that;
+}
+
+st.buildHomeAndCatalogCategory = function( short_name ) {
+  // Получаем данные о фирмах в json формате.
+  smartApp.getCategoryFirms().done(function( firms ) {
+    smartApp.getTile().done(function( tileHtml ) {
+      // Массив с фирмами, которые пренадлежат категориям.
+      var arrayItems = [];
+
+      // Находим фирмы, которые принадлежат категории
+      firms.forEach(function( firm ) {
+        // Маccив категорий, которые принадлежат фирме.
+         console.log(firm);
+        firm.categories.forEach(function( cat ) {
+          console.log(cat);
+          if ( cat == short_name ) {
+            arrayItems.push(firm);
+          }
+        }); // end map
+      });// end map
+      
+      console.log(arrayItems);
+      
+      var category = catalogAndHomeCategory({
+        category: short_name,
+        idPlace: 'category',
+        stock: arrayItems,
+        styleStock: 'coverTiles-firm',
+        path: 'firm',
+        tileHtml: tileHtml,
+        geolocation: '#main'
+      });
+      
+      category.presentResource();
+    });
+  });
+};
 
 // В первый аргумент передаётся категория из атрибута data-cat, которое хранит короткое имя категории
 // Второй аргумент - значение элемента с классом .tile__name 
 // По которому кликнули.
-// Заметка: в обработчике события щелчка мыши
-// Извлекай данные плитки data-cat и data-firm
-// Присваивай их навигационной цепочке!
 st.buildAndShowCategoryHTML = function(category, categoryName) {
   var finalHTML = '<section class="mainContent__category category" id="category">';
   finalHTML += container;
@@ -65,16 +164,16 @@ st.buildAndShowCollectionsCategoryHTML = function(category, categoryName) {
           });// end map 
         }
       });// end categoryFirmsItems.map
-      console.log(collections);
+      
       // Строю навигационную цепочку.
       var breadcrumb = buildBreadcrumbViewHTML(false, "firms", st.breadcrumb.firm.name, categoryName, "");
-      console.log(breadcrumb);
+      
       // Мастерю заголовок.
       var heading = buildHeadingViewHTML(false, categoryName);
-      console.log(heading);
+      
       // Материализую заполненный массив.
       var collectionsTilesHtml = buildTilesViewHtml( collections, tileHtml, "firm", "collection");
-      console.log(collectionsTilesHtml);
+      
       // Компоную всё это чудо, оборачивая его в контейнер.
       var finalHTML = '<section id="collectionsCategoryFirm">' + container + breadcrumb + heading + '</div>' +  collectionsTilesHtml + '</section>';
       
@@ -83,6 +182,9 @@ st.buildAndShowCollectionsCategoryHTML = function(category, categoryName) {
     });// end getTile
   });// end getCategoryFirms 
 };
+
+
+
 
 $(document).on('click', '#category a.tile', function(e) {
   showLoading("#main");
