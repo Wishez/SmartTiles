@@ -75,10 +75,9 @@ function buildBreadcrumbViewHTML(styleType, begining, firstName, secondName, thi
 }                        
 // Используй силу, ЛЮК!
 $(document).on('click', '#bcCategory a', function() {
-  var cat = st.breadcrumb.category.short_name,
-      firstName = st.breadcrumb.category.name;
- 
-  st.buildAndShowCategoryHTML(cat, firstName);
+  var backToLastCategory = st.buildHomeAndCatalogCategory;
+  
+  backToLastCategory( st.breadcrumb.category.short_name );
   
   return false;
 });

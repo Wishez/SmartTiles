@@ -49,12 +49,7 @@ var catalogResource = function( spec ) {
   
     return heading;
   };
-  // Навигация к нему.
-  // Может указать где он находится.
-//  that.buildBreadcrumb = function() {
-//    
-//  };
-  
+
   // Собирает свой инвентарь.
   that.buildTiles = function() {
     var finalHtml = '<div class="coverTiles ' + styleStock + '">';
@@ -187,12 +182,12 @@ $(document).on( 'click', '#catalogCovers a, #homeCategories a', function( event 
   
   var $this = $(this),
       category = $this.attr('data-cat');
-//      categoryName = $this.find('.tile__name')[0].innerHTML;
+  
   // Заполняем и обновляем кэш при клике.
   st.breadcrumb.category.short_name = category;
   st.breadcrumb.category.name = $this.find('.tile__name')[0].innerHTML;
   
-//  $st.buildAndShowCategoryHTML(category, categoryName);
+
   st.buildHomeAndCatalogCategory( category );
   
   event.preventDefault();
@@ -204,22 +199,12 @@ $(document).on('click', '#catalogFirms a', function() {
   
   var $this = $(this),
       // Массив категорий
-      categories = $this.attr('data-cat'),
-      headingName = $this.find('.tile__name')[0].innerHTML;
+      categories = $this.attr('data-cat');
   
   st.breadcrumb.firm.short_name = $this.attr('data-firm');
-  st.breadcrumb.firm.name = headingName;
-  
-  var heading = buildHeadingViewHTML("firm", headingName);
-  var breadcrumb = buildBreadcrumbViewHTML("firm", "categories", headingName, "", "");
-  var bcAndHeading = container + breadcrumb + heading + '</div>';
-  
-  
-  
-  st.buildAndShowCategoriesHTML(st.ids.main, categories);
-  
-  setTimeout(function() { $main.prepend(bcAndHeading); 
-  $main.wrapInner('<div id="categoriesFirm" class="mainContent__firm"></div>');}, 200);
+  st.breadcrumb.firm.name = $this.find('.tile__name')[0].innerHTML;
+      
+  st.buildCategoriesFirm( categories );
   
   return false;
 });// end click

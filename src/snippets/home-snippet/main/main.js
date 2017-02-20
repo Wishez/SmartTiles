@@ -1,7 +1,6 @@
 //= offers/offers.js
 
 // Загружаем домашнюю страницу.
-showLoading(st.ids.main);
 st.loadHomeContent = function() {
   smartApp.getHomePattern().done(function( homeContentHtml ) {
     // Запрашиваем шаблон с контактами и формой.
@@ -29,6 +28,7 @@ st.loadHomeContent = function() {
   });// end getHomePettern
 }; // end loadHomeContent
 
+showLoading(st.ids.main);
 st.loadHomeContent();
 
 st.buildHomeCategories = function( spec ) {
