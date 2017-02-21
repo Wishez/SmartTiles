@@ -10,7 +10,7 @@
     margin-top: -30px;
   }
   @include breakpoint($xs) {
-    width: span(12);
+    width: span(12); 
     margin: 20px 0 0 !important;
   }
   @include breakpoint($xxs) {

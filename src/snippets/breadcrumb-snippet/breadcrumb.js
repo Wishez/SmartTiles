@@ -74,7 +74,7 @@ function buildBreadcrumbViewHTML(styleType, begining, firstName, secondName, thi
     }
 }                        
 // Используй силу, ЛЮК!
-$(document).on('click', '#bcCategory a', function() {
+$(document).on('click', '#firm #bcCategory a', function() {
   var backToLastCategory = st.buildHomeAndCatalogCategory;
   
   backToLastCategory( st.breadcrumb.category.short_name );
@@ -82,11 +82,20 @@ $(document).on('click', '#bcCategory a', function() {
   return false;
 });
 
-$(document).on('click', '#bcFirm a', function() {
-  var firm = st.breadcrumb.firm.short_name,
-      secondName = st.breadcrumb.firm.name;
+$(document).on('click', '#categoryCollections #bcFirm a', function() {
+  var backToLastCategoriesFirm = st.buildCatalogFirmHTML,
+      categories = $(this).attr('data-cat');
   
-  st.buildAndShowFirmHtml(firm, secondName);
+  backToLastCategoriesFirm( categories );
   
   return false;
 });
+
+//$(document).on('click', '#bcFirm a', function() {
+//  var firm = st.breadcrumb.firm.short_name,
+//      secondName = st.breadcrumb.firm.name;
+//  
+//  st.buildAndShowFirmHtml(firm, secondName);
+//  
+//  return false;
+//});

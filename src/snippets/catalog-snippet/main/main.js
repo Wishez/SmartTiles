@@ -197,14 +197,12 @@ $(document).on('click', '#catalogFirms a', function() {
   
   showLoading(st.ids.main);
   
-  var $this = $(this),
-      // Массив категорий
-      categories = $this.attr('data-cat');
+  var $this = $(this);
   
   st.breadcrumb.firm.short_name = $this.attr('data-firm');
   st.breadcrumb.firm.name = $this.find('.tile__name')[0].innerHTML;
       
-  st.buildCategoriesFirm( categories );
+  st.buildCatalogFirmHTML();
   
   return false;
 });// end click
