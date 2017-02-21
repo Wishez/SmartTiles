@@ -1,48 +1,4 @@
 // Передаём в аргументы короткое имя категории, фирмы и их полные имена.
-st.buildAndShowFirmHtml = function(firm, firmName) {
-  var finalHTML = '<section class="mainContent__firm firm" id="firm">'; 
-  // Делаем запросы, получаем список фирм для того чтобы найти нужную и отобразить все её коллекции.
-  smartApp.getCategoryFirms().done(function( categoryItems ) {
-    // Шаблон плитки для коллекций фирмы
-    smartApp.getTile().done(function( tileHtml ) {
-      // Собираем коллекции фирмы.
-      var firmCollections = [];
-      categoryItems.map(function( firmItem ) {
-        if (firmItem.short_name == firm ) {
-          // Распаковываем массив с колекциями.
-          var collections = firmItem.collections;
-
-          collections.map(function( collection ) {
-            firmCollections.push(collection);
-          });            
-        }
-      });
-      // Строим навигационную цепочку, заголовок и плитки  в стиле "THE FIRM". 
-      var breadcrumb = buildBreadcrumbViewHTML("firm", "categories",  st.breadcrumb.category.name, firmName, "");
-      var heading = buildHeadingViewHTML("firm", firmName);
-      // Не указываю стиль "firm", потому что секция фирмы, стилизована по-умолчанию.
-      var collections = buildTilesViewHtml(firmCollections, tileHtml, "", "collection");
-
-      // Компануём всё это дело.
-      finalHTML += container + breadcrumb + heading + '</div>' + collections;
-
-      // Контрольный выстрел.
-      $main.html(finalHTML);
-      });// end getTile
-  });// end getCategoryFirms
-};// end buildAndShowFirmHtml
-
-$(document).on('click', '#firm a, #collectionsCategoryFirm a', function(e) {
-  showLoading('#main');
-  
-  var $this = $(this);
-  // Кэшируем данные выбранной коллекции.
-  st.breadcrumb.collection.short_name = $this.attr('data-col');
-  st.breadcrumb.collection.name = $this.find('.tile__name').html();
-  st.buildAndShowCollectionHtml(st.breadcrumb.collection.short_name,  st.breadcrumb.collection.name);
-  
-  e.preventDefault();
-});
 
 // Объект фирмы каталога.
 var catalogFirm = function( params ) {
@@ -50,19 +6,20 @@ var catalogFirm = function( params ) {
   
   that._name = that._firmName;
   
-  var firmBC = that._breadcrumbElements.bcElemActive + that._breadcrumbElements.ids.bcFirm + that._name + '</li></ol>';
+  var bcFirm = that._breadcrumbElements.bcElemActive + that._breadcrumbElements.ids.bcFirm + that._name + '</li></ol>';
   
   
   that._buildBreadcrumb = function() {
     var finalHTML = '<ol id="breadcrumb" class="mainContent__breadcrumb breadcrumb breadcrumb-firm">' +   that.homeAndCatalogBC;
     
-    finalHTML += firmBC;
+    finalHTML += bcFirm;
     
     return finalHTML;
   };
   
   return that;
 };// end catalogFirm
+
 
 // Функция которая отображает фирму каталога
 st.buildCatalogFirmHTML = function() {
@@ -73,7 +30,8 @@ st.buildCatalogFirmHTML = function() {
       smartApp.getTile().done(function(tileHtml) {
 
 //        var arrayCategories = arrCategories.split(" "),
-          var sortedCategories = [];
+          var sortedCategories = [],
+              firm;
 
         // Отбираем нужные категории.
         firms.forEach(function( firm ) {
@@ -91,7 +49,7 @@ st.buildCatalogFirmHTML = function() {
           }
         });// end firms.forEach
 
-        var firm = catalogFirm({
+        firm = catalogFirm({
                styleName: 'heading-firm',
                stylesPlace: 'mainContent__firm firm',
                idPlace: 'firmCategories',
@@ -107,8 +65,72 @@ st.buildCatalogFirmHTML = function() {
   });// end smartApp.getCategories
 };// end buildHomeCategories
 
+// Объект фирмы категории.
+var firmCategory = function( params ) {
+  var that = singleResource( params );
+  
+  that._name = that._firmName;
+  
+  var bcCategoryFirm = 
+      that._breadcrumbElements.bcElem + that._breadcrumbElements.ids.bcCategory + that._breadcrumbElements.bcRefer +  that._categoryName + '</a></li>' +
+      that._breadcrumbElements.bcElemActive + that._breadcrumbElements.ids.bcFirm + that._name + '</li></ol>';
+  
+  
+  that._buildBreadcrumb = function() {
+    var finalHTML = '<ol id="breadcrumb" class="mainContent__breadcrumb breadcrumb breadcrumb-firm">' +   that.homeAndCatalogBC;
+    
+    finalHTML += bcCategoryFirm;
+    
+    return finalHTML;
+  };
+  
+  return that;
+};// end catalogFirm
+
+st.buildAndShowFirmHTML = function() {
+  smartApp.getCategoryFirms().done(function( firms ) {
+    smartApp.getTile().done(function( tileHtml ) {
+       var arrayItems = [],
+           firm;
+      
+       firms.map(function( firm ) {
+        if (firm.short_name == st.breadcrumb.firm.short_name ) {
+          // Распаковываем и обрабатываем массив с колекциями.
+          firm.collections.map(function( collection ) {
+            arrayItems.push(collection);
+          });// end firm.collections.map           
+        }
+      });// end firms.map
+      
+      firm = firmCategory({
+         styleName: 'heading-firm',
+         stylesPlace: 'mainContent__firm firm',
+         idPlace: 'firm',
+         stock: arrayItems,
+         path: 'collection',
+         tileHtml: tileHtml,
+         geolocation: '#main'
+      });
+
+      firm.presentResource();
+    });// end smartApp.getTile
+  });// end smartApp.getCategoryFirms
+};// st.buildAndShowFirmHTML
+//#collectionsCategoryFirm a
+$(document).on('click', '#firm a', function() {
+  showLoading('#main');
+  
+  var $this = $(this);
+  // Кэшируем данные выбранной коллекции.
+  st.breadcrumb.collection.short_name = $this.attr('data-col');
+  st.breadcrumb.collection.name = $this.find('.tile__name').html();
+  
+  st.buildAndShowCollectionHtml('firm');
+  
+  return false;
+});
 // Когда выбираешь какую-нибудь категорию, строются  коллекциии фирмы выбранной категории. 
-$(document).on('click', '#firmCategories a', function(e) {
+$(document).on('click', '#firmCategories a.tile', function(e) {
   showLoading("#main");
   
   var $this = $(this);

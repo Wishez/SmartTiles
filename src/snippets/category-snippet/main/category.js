@@ -36,7 +36,7 @@ var singleResource = function( params ) {
     }
   };
   
-   that.homeAndCatalogBC = that._breadcrumbElements.bcElem +  'id="bcHome">' +     that._breadcrumbElements.bcRefer   + "Главная" + "</a></li>" + that._breadcrumbElements.bcElem + 'id="bcCatalog">' + that._breadcrumbElements.bcRefer + "Каталог" + "</a></li>"
+   that.homeAndCatalogBC = that._breadcrumbElements.bcElem +  'id="bcHome">' +     that._breadcrumbElements.bcRefer   + "Главная" + "</a></li>" + that._breadcrumbElements.bcElem + 'id="bcCatalog">' + that._breadcrumbElements.bcRefer + "Каталог" + "</a></li>";
   // Функция, которая будет переопределяться.
   that._buildBreadcrumb = function() {
 
@@ -78,7 +78,7 @@ var catalogAndHomeCategory = function( params ) {
   return that;
 };
 
-st.buildHomeAndCatalogCategory = function( short_name ) {
+st.buildHomeAndCatalogCategory = function() {
   // Получаем данные о фирмах в json формате.
   smartApp.getCategoryFirms().done(function( firms ) {
     smartApp.getTile().done(function( tileHtml ) {
@@ -91,7 +91,7 @@ st.buildHomeAndCatalogCategory = function( short_name ) {
          console.log(firm);
         firm.categories.forEach(function( cat ) {
           console.log(cat);
-          if ( cat == short_name ) {
+          if ( cat == st.breadcrumb.category.short_name ) {
             arrayItems.push(firm);
           }
         }); // end map
@@ -133,11 +133,11 @@ var categoryFirm = function( params ) {
 };// end collectionCategory
 
 st.buildCategoryOfFirmHTML = function() {
-//  // Получаю данные с плитками
+  // Получаю данные с плитками
   smartApp.getCategoryFirms().done(function( categories ) {
-//    // Получаю шаблон плиток.
+    // Получаю шаблон плиток.
     smartApp.getTile().done(function( tileHtml ) {
-//       Создаю массив нужных коллекций категории фирмы.
+      // Создаю массив нужных коллекций категории фирмы.
       var collections = [];
       // Заполняю этот массив.
       categories.forEach( function ( categoryFirm ) {
@@ -172,7 +172,18 @@ $(document).on('click', '#category a.tile', function(e) {
   st.breadcrumb.firm.short_name = $this.attr('data-firm');
   st.breadcrumb.firm.name = $this.find('.tile__name').html();
   
-  st.buildAndShowFirmHtml(st.breadcrumb.firm.short_name, st.breadcrumb.firm.name);
+  st.buildAndShowFirmHTML();
   
   e.preventDefault();
 });// end click
+
+$(document).on('click', '#categoryCollections a.tile', function() {
+  var $this = $(this);
+  
+  st.breadcrumb.collection.name = $this.find('.tile__name').text();
+  st.breadcrumb.collection.short_name = $this.attr('data-col');
+  
+  st.buildAndShowCollectionHtml(false);
+  
+  return false;
+});

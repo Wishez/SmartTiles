@@ -180,15 +180,14 @@ st.buildAndShowCatalog = function() {
 $(document).on( 'click', '#catalogCovers a, #homeCategories a', function( event ) {
   showLoading('#main');
   
-  var $this = $(this),
-      category = $this.attr('data-cat');
+  var $this = $(this);
   
   // Заполняем и обновляем кэш при клике.
-  st.breadcrumb.category.short_name = category;
+  st.breadcrumb.category.short_name = $this.attr('data-cat');
   st.breadcrumb.category.name = $this.find('.tile__name')[0].innerHTML;
   
 
-  st.buildHomeAndCatalogCategory( category );
+  st.buildHomeAndCatalogCategory();
   
   event.preventDefault();
 });// end click

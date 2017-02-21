@@ -30,10 +30,13 @@
   }
 }
 .body__contacts {
-   & > span {
+   & > a {
     display: block;
     color: #1d1610;
     font-size: (20em / 16);
+    &:hover, &:focus, &:active {
+      color: #1d1610;
+    }
     @include breakpoint($xxs) {
       font-size: (14em / 16);
     }
@@ -45,5 +48,5 @@
 .contacts__email {
   margin-top: 10px;
   font-weight: bold;
-  letter-spacing: 5px;
+  letter-spacing: 5px;  
 }

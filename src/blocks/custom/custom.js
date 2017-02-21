@@ -108,7 +108,7 @@ var smartApp = (function(){
     getCategories: function() {
       return $.getJSON(catalogCategories);
     },
-
+    // !!!Исправить название здесь и во всех функциях!!!
     getCategoryFirms: function() {
       return $.getJSON(firmItems);
     },

@@ -1,19 +1,22 @@
 var categories = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: '../data/categories.json'
+  prefetch: '../build/data/categories.json'
+  //../data/categories.json
 });
 
 var firms = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: '../data/firms.json'
+  prefetch: '../build/data/firms.json'
+  //../data/allCollections.json
 });
 
 var collection = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: '../data/allCollections.json'
+  prefetch: '../build/data/allCollections.json'
+  //../data/allCollections.json
 });
 
 $('#search .typeahead').typeahead({
