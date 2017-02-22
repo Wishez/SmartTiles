@@ -1,5 +1,3 @@
-// Передаём в аргументы короткое имя категории, фирмы и их полные имена.
-
 // Объект фирмы каталога.
 var catalogFirm = function( params ) {
   var that = singleResource( params );
@@ -115,31 +113,4 @@ st.buildAndShowFirmHTML = function() {
       firm.presentResource();
     });// end smartApp.getTile
   });// end smartApp.getCategoryFirms
-};// st.buildAndShowFirmHTML
-//#collectionsCategoryFirm a
-$(document).on('click', '#firm a', function() {
-  showLoading('#main');
-  
-  var $this = $(this);
-  // Кэшируем данные выбранной коллекции.
-  st.breadcrumb.collection.short_name = $this.attr('data-col');
-  st.breadcrumb.collection.name = $this.find('.tile__name').html();
-  
-  st.buildAndShowCollectionHtml('firm');
-  
-  return false;
-});
-// Когда выбираешь какую-нибудь категорию, строются  коллекциии фирмы выбранной категории. 
-$(document).on('click', '#firmCategories a.tile', function(e) {
-  showLoading("#main");
-  
-  var $this = $(this);
- 
-  st.breadcrumb.category.short_name = $this.attr('data-cat');
-  st.breadcrumb.category.name = $this.find('.tile__name').html();
-  
-  st.buildCategoryOfFirmHTML();
-  
-  e.preventDefault();
-});// end click
-
+};// end st.buildAndShowFirmHTML

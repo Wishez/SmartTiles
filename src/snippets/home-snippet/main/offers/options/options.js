@@ -1,11 +1,11 @@
 $(document).on('click', '#options a', function(e) {
-  showLoading('#main');
+  $st.showLoading('#main');
   var $this = $(this),
       // Массив категорий
       categories = $this.attr('data-cat'), 
-      headingName = $this.find('.option__variant')[0].innerHTML;
+      headingName = $this.find('.option__variant').text();
       
-      st.buildHomeCategories({name: headingName, arrayCategories: categories});
+  $st.buildHomeCategories({name: headingName, arrayCategories: categories});
   
   e.preventDefault();
 });

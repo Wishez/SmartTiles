@@ -123,27 +123,27 @@ var smartApp = (function(){
   };
 })();
 
-var showLoading = function(selector) {
+st.showLoading = function(selector) {
   var html = "<div class='text-center'>";
   html += "<img src='img/ajax-loader.gif'/></div>";
   $(selector).html(html);
 };
 
-var switchActiveMenu = function(selector) {
+st.switchActiveMenu = function(selector) {
   $('#nav').find('li').removeClass('active');
   $(selector).addClass('active');
 };
 
-var loadSelectedMenu = function(selector, smartAppRquest) {
-  $(selector).on('click', function(e) {
-    showLoading('#main');
-    switchActiveMenu(this);
-    smartAppRquest().done(function(data){  
-      $main.html(data);
-    });//end get
-    e.preventDefault();
-  }); // end click
-};
+//var loadSelectedMenu = function(selector, smartAppRquest) {
+//  $(selector).on('click', function(e) {
+//    showLoading('#main');
+//    switchActiveMenu(this);
+//    smartAppRquest().done(function(data){  
+//      $main.html(data);
+//    });//end get
+//    e.preventDefault();
+//  }); // end click
+//};
 
 var insertProperty = function(string, propName, propValue) {
   var propToReplace = "{{" + propName + "}}";

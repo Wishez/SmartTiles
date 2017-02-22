@@ -17,7 +17,7 @@
 ***********/
 (function(global) {
  //= ../blocks/custom/custom.js
- $(function() {
+// $(function() {
   //= ../blocks/header/header.js
 
   //= ../snippets/home-snippet/main/main.js
@@ -26,11 +26,21 @@
   //= ../snippets/contacts-snippet/connect/connect.js
   //= ../snippets/firm-snippet/main/firm.js
   //= ../snippets/collection-snippet/main/collection.js
-  //= ../snippets/breadcrumb-snippet/breadcrumb.js
-  //= ../snippets/heading-snippet/heading.js
-  //= ../snippets/tile-snippet/tile.js
-  //= ../snippets/sample-snippet/sample.js
-  });//end ready
+//  });//end ready
   
   global.$st = st; 
 })(window);
+
+// Controller
+$(function() {
+  //= ../snippets/home-snippet/main/offers/offers.js
+  //= ../blocks/header/navigation/navigation.js
+  //= ../blocks/header/search/search-controller.js
+  //= ../snippets/home-snippet/main/main-controller.js
+  //= ../snippets/catalog-snippet/main/main-controller.js
+  //= ../snippets/contacts-snippet/connect/contact/contactForm/contactForm-controller.js
+  //= ../snippets/category-snippet/main/category-controller.js
+  //= ../snippets/firm-snippet/main/firm-controller.js
+  //= ../snippets/breadcrumb-snippet/breadcrumb.js
+  //= ../snippets/tile-snippet/tile.js
+});//end ready

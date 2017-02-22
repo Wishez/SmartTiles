@@ -1,6 +1,5 @@
-// Используй силу, ЛЮК!
 $(document).on('click', '#firm #bcCategory a, #collectionFirm  #bcCategory a', function() {
-  var backToLastCategory = st.buildHomeAndCatalogCategory;
+  var backToLastCategory = $st.buildHomeAndCatalogCategory;
   
   backToLastCategory();
   
@@ -8,7 +7,7 @@ $(document).on('click', '#firm #bcCategory a, #collectionFirm  #bcCategory a', f
 });
 
 $(document).on('click', '#collectionFirm #bcFirm a', function() {
-  var backToLastFirm = st.buildAndShowFirmHTML;
+  var backToLastFirm = $st.buildAndShowFirmHTML;
   
   backToLastFirm();
   
@@ -16,7 +15,7 @@ $(document).on('click', '#collectionFirm #bcFirm a', function() {
 });
 
 $(document).on('click', '#collectionCategoryFirm #bcFirm a, #categoryCollections #bcFirm a', function() {
-  var backToLastFirm = st.buildCatalogFirmHTML;
+  var backToLastFirm = $st.buildCatalogFirmHTML;
   
   backToLastFirm();
   
@@ -24,7 +23,7 @@ $(document).on('click', '#collectionCategoryFirm #bcFirm a, #categoryCollections
 });
 
 $(document).on('click', '#collectionCategoryFirm #bcCategory a', function() {
-  var backToLastCategory = st.buildCategoryOfFirmHTML;
+  var backToLastCategory = $st.buildCategoryOfFirmHTML;
   
   backToLastCategory();
   

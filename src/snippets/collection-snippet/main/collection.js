@@ -1,5 +1,3 @@
-//= slides/slides.js
-//= contact/contact.js
 // Объект одиночной коллекции.
 var singleCollection = function( params ) {
   /* params  
@@ -189,4 +187,3 @@ st.buildAndShowCollectionHtml = function( path ) {
     });// end getSample
   });// end getCollectionItems
 };// end buildAndShowCollectionHtml
-//st.buildAndShowCollectionHtml('HSK', 'Helsinki');

@@ -1,52 +1,3 @@
-var categories = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-  queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: '../build/data/categories.json'
-  //../data/categories.json
-});
-
-var firms = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-  queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: '../build/data/firms.json'
-  //../data/allCollections.json
-});
-
-var collection = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-  queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: '../build/data/allCollections.json'
-  //../data/allCollections.json
-});
-
-$('#search .typeahead').typeahead({
-  highlight: true
-},
-{
-  name: 'categories',
-  display: 'name',
-  source: categories,
-  templates: {
-    header: '<h3 class="search__caption search__caption-theme_categories">Категории</h3>'
-  }
-},
-{
-  name: 'collection',
-  display: 'name',
-  source: collection,
-  templates: {
-    header: '<h3 class="search__caption search__caption-theme_collections">Коллекции</h3>'
-  }
-},
-{
-  name: 'firms',
-  display: 'name',
-  source: firms,
-  templates: {
-    header: '<h3 class="search__caption search__caption-theme_firms">Фирмы</h3>'
-  }
-});
-
 st.search = function( value ) {
   var matches = {
     categories : [],
@@ -103,21 +54,21 @@ st.search = function( value ) {
           if ( checkCats || checkCollections || checkFirms ) {
             finalHTML = '<h3 class="text-center heading" style="font-size: 2.5em;">Вы искали: <strong>' + value + '</strong></h3>';
             finalHTML += '<h4 class="text-center heading" style="font-size: 2em;">Вы нашли:</h4>';
+            // Переделать!
+//            categoriesTilesHTML = checkCats ? buildTilesViewHtml(matches.categories, tileHtml, false, 'category') : "";
+//            
+//            firmsTilesHTML = checkFirms ? ;
+//            
+//            collectionsTilesHTML = checkCollections ? buildTilesViewHtml(matches.collections, tileHtml, false, 'collection') : "";
+//            
+//            finalHTML += categoriesTilesHTML + firmsTilesHTML + collectionsTilesHTML;
             
-            categoriesTilesHTML = checkCats ? buildTilesViewHtml(matches.categories, tileHtml, false, 'category') : "";
-            
-            firmsTilesHTML = checkFirms ? buildTilesViewHtml(matches.firms, tileHtml, "firm", 'firms') : "";
-            
-            collectionsTilesHTML = checkCollections ? buildTilesViewHtml(matches.collections, tileHtml, false, 'collection') : "";
-            
-            finalHTML += categoriesTilesHTML + firmsTilesHTML + collectionsTilesHTML;
-            
-            $main.html(finalHTML);
+             st.select.$main.html(finalHTML);
           } else {
             finalHTML = '<p class="text-center mo-matches">Вы искали: <strong>' + value +'</strong>.</br>';
             finalHTML += 'По вашему запросу ничего не найдено.</p>';
             
-            $main.html(finalHTML);  
+            st.select.$main.html(finalHTML);  
           }
           
           // Подумать на счёт экземляров
@@ -128,11 +79,3 @@ st.search = function( value ) {
     });// end smartApp.getCategoryFirms
   });// end smartApp.getCategories
 };
-
-$(document).on('submit', '#search', function() {
-  var value = $(this).find('#searchInput').val();
-  console.log(value);
-  st.search(value);
-  
-  return false;
-}); 

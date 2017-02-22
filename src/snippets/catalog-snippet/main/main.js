@@ -1,5 +1,3 @@
-//= subNav/subNav.js
-
 var catalogResource = function( spec ) {
 /*
  {
@@ -138,9 +136,8 @@ var catalogResource = function( spec ) {
   return that;
 };
 
-
 // arrayCategories - массив категорий, извлечённых из data-cat категории на главной странице.
-st.buildAndShowCatalog = function() {
+st.buildAndShowAssortment = function() {
   // Получаем json-файл со всеми категориями.
   smartApp.getCategories().done(function( categories ){
     // Получаеем json с фирмами.
@@ -177,31 +174,9 @@ st.buildAndShowCatalog = function() {
   });// end getCategories
 };// end buildAndShowCategoriesHTML
 
-$(document).on( 'click', '#catalogCovers a, #homeCategories a', function( event ) {
-  showLoading('#main');
-  
-  var $this = $(this);
-  
-  // Заполняем и обновляем кэш при клике.
-  st.breadcrumb.category.short_name = $this.attr('data-cat');
-  st.breadcrumb.category.name = $this.find('.tile__name')[0].innerHTML;
-  
-
-  st.buildHomeAndCatalogCategory();
-  
-  event.preventDefault();
-});// end click
-
-$(document).on('click', '#catalogFirms a', function() {
-  
-  showLoading(st.ids.main);
-  
-  var $this = $(this);
-  
-  st.breadcrumb.firm.short_name = $this.attr('data-firm');
-  st.breadcrumb.firm.name = $this.find('.tile__name')[0].innerHTML;
-      
-  st.buildCatalogFirmHTML();
-  
-  return false;
-});// end click
+st.showCatalogHTML = function() {
+  smartApp.getCatalog().done(function( catalog ) {
+      st.select.$main.html(catalog);
+      st.buildAndShowAssortment();
+  });
+}; // end st.showCatalogHTML

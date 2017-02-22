@@ -1,5 +1,3 @@
-//= offers/offers.js
-
 // Загружаем домашнюю страницу.
 st.loadHomeContent = function() {
   smartApp.getHomePattern().done(function( homeContentHtml ) {
@@ -21,15 +19,11 @@ st.loadHomeContent = function() {
             }
           ]
       });
-      
       // Настраиваем форму.
       settingUpForm();
     });// end getContacts
   });// end getHomePettern
 }; // end loadHomeContent
-
-showLoading(st.ids.main);
-st.loadHomeContent();
 
 st.buildHomeCategories = function( spec ) {
   /* spec
@@ -57,8 +51,6 @@ st.buildHomeCategories = function( spec ) {
         });// end categories.forEach
       });// end arrayCategories.forEach
       
-      console.log(sortedCategories);
-
       var homeCategories = catalogResource({
              name: name,
              stylesPlace: 'mainContent__homeCategories',
