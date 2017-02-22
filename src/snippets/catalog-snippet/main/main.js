@@ -92,6 +92,7 @@ var catalogResource = function( spec ) {
           html = insertProperty(html, "collection", item.short_name);
 
           break;
+        // Наверное, можно убрать те варианты, что выше.
         // URL для фирм в каталоге.
         case 'firms':
           var cats = item.categories;
@@ -99,9 +100,18 @@ var catalogResource = function( spec ) {
             item.short_name + '/' +
             item.short_name;
 
-          console.log(cats[0]);
           html = insertProperty(html, "category", cats.toString());
           html = insertProperty(html, "firm", item.short_name);
+
+          break;
+        // URL для коллекция в поиске.
+        case 'collections':
+          short_name = item.category + "/" + 
+          item.firm + "/" + item.short_name + "/" + item.short_name;
+
+          html = insertProperty(html, "category", st.breadcrumb.category.short_name);
+          html = insertProperty(html, "firm", st.breadcrumb.firm.short_name);
+          html = insertProperty(html, "collection", item.short_name);
 
           break;
       }

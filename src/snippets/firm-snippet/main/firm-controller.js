@@ -1,4 +1,4 @@
-$(document).on('click', '#firm a', function() {
+$(document).on('click', '#firm a.tile, #foundCollections a.tile', function() {
   $st.showLoading('#main');
   
   var $this = $(this);

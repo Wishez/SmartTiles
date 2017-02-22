@@ -51,4 +51,7 @@
       color: lighten($maroon, 20%);      
     }
   }
+  & .breadcrumb__breadcrumbItem:before {
+    color: lighten($maroon, 20%);      
+  }
 }

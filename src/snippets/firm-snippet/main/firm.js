@@ -18,7 +18,6 @@ var catalogFirm = function( params ) {
   return that;
 };// end catalogFirm
 
-
 // Функция которая отображает фирму каталога
 st.buildCatalogFirmHTML = function() {
   // Получаем категории.
@@ -26,10 +25,8 @@ st.buildCatalogFirmHTML = function() {
     smartApp.getCategoryFirms().done(function( firms ) {      
       // Шаблон плитки.
       smartApp.getTile().done(function(tileHtml) {
-
-//        var arrayCategories = arrCategories.split(" "),
-          var sortedCategories = [],
-              firm;
+        var sortedCategories = [],
+            firm;
 
         // Отбираем нужные категории.
         firms.forEach(function( firm ) {

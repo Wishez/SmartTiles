@@ -14,7 +14,7 @@ $(document).on( 'click', '#catalogCovers a, #homeCategories a', function( event 
   event.preventDefault();
 });// end click
 
-$(document).on('click', '#catalogFirms a', function() {
+$(document).on('click', '#catalogFirms a.tile, #foundFirms a.tile', function() {
   
   $st.showLoading($st.ids.main);
   

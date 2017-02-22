@@ -10,6 +10,9 @@ st.select = {
 
 // Частоиспользуемые элементы
 var container = '<div class="container">';
+st.elements = {
+  container: '<div class="container">'
+};
 
 // Навигационные индификаторы
 st.nav = {

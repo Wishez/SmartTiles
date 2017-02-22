@@ -88,9 +88,7 @@ st.buildHomeAndCatalogCategory = function() {
       // Находим фирмы, которые принадлежат категории
       firms.forEach(function( firm ) {
         // Маccив категорий, которые принадлежат фирме.
-         console.log(firm);
         firm.categories.forEach(function( cat ) {
-          console.log(cat);
           if ( cat == st.breadcrumb.category.short_name ) {
             arrayItems.push(firm);
           }
@@ -123,8 +121,6 @@ var categoryFirm = function( params ) {
   
   that._buildBreadcrumb = function() {
     var finalHTML = '<ol id="breadcrumb" class="mainContent__breadcrumb breadcrumb">' +   that.homeAndCatalogBC;
-    
-    console.log(that._name);
     
     finalHTML += bcFirmCategory;
     
