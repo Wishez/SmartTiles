@@ -113,7 +113,7 @@ var collectionCategoryOfFirm = function( params ) {
   
   return that;
 };
-// Объекект фирмы. !РАСШИРИТЬ!
+// Объекект фирмы.
 var collectionFirm = function( params ) {
   var that = singleCollection( params );
   
@@ -140,15 +140,17 @@ var collectionFirm = function( params ) {
 // от категории фирмы, либо от самой фирмы.
 // firm or false
 st.buildAndShowCollectionHtml = function( path ) {
- // Получить образцы коллекций
- smartApp.getCollectionItems().done(function( collections ) {
-    // Получить шаблон образца
-    smartApp.getSample().done(function( sampleHtml ) {
+  // Получить шаблон образца
+  smartApp.getSample().done(function( sampleHtml ) {
+    // Получить образцы коллекций
+    smartApp.getCollectionItems().done(function( collections ) {
+      // Объект коллекции json файла, который хранит в себе всю информаци.
+      var collectionInfo = collections[0][st.breadcrumb.collection.short_name],
       // Массив образцов нужной коллекции
-      var samples = collections[0][st.breadcrumb.firm.short_name][st.breadcrumb.collection.short_name],
+        samples = collectionInfo.samples,
           // Объект, который будет создаваться в зависимости от, где он был выбран.
           collection,
-          id = path == 'firm' ? 'collectionFirm' : 'collectionCategoryFirm',
+          id = path === 'firm' ? 'collectionFirm' : 'collectionCategoryFirm',
           params = {
             stylesPlace: 'mainContent__collection',
             idPlace: id,
@@ -156,6 +158,12 @@ st.buildAndShowCollectionHtml = function( path ) {
             sampleHtml: sampleHtml,
             geolocation: '#main'  
           };
+      // Кэшируем пути бредкрамбов.
+      st.breadcrumb.category.short_name = collectionInfo.category.short_name;
+      st.breadcrumb.firm.short_name = collectionInfo.firm.short_name;
+      st.breadcrumb.category.name = collectionInfo.category.name;
+      st.breadcrumb.firm.name = collectionInfo.firm.name;
+      
       if ( path == 'firm') {
         collection = collectionFirm( params );
       } else {
@@ -184,6 +192,6 @@ st.buildAndShowCollectionHtml = function( path ) {
           enabled:true
         }
       });
-    });// end getSample
-  });// end getCollectionItems
+    });// end getCollectionItems
+  });// end getSample
 };// end buildAndShowCollectionHtml

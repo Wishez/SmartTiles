@@ -1,8 +1,11 @@
 $(document).on('submit', '#search', function() {
-  var value = $(this).find('#searchInput').val();
-  console.log(value);
+  
+  var $input = $(this).find('#searchInput'); 
+  var value = $input.val();
+
   $st.search(value);
   
+  $input.val('');
   return false;
 }); 
 

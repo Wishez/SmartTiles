@@ -3,6 +3,7 @@ $(document).on('click', '#firm a.tile, #foundCollections a.tile', function() {
   
   var $this = $(this);
   // Кэшируем данные выбранной коллекции.
+//  $st.breadcrumb.firm.short_name = $(this).attr('data-firm');
   $st.breadcrumb.collection.short_name = $this.attr('data-col');
   $st.breadcrumb.collection.name = $this.find('.tile__name').html();
   

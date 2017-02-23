@@ -133,7 +133,7 @@ st.search = function( value ) {
             $main.find(':first-child').remove();
           } else {
             finalHTML = '<p class="text-center no-matches">Вы искали: <strong>' + value +'</strong>.</br>';
-            finalHTML += 'По вашему запросу ничего не найдено.</p>';
+            finalHTML += 'Но ничего не нашли:(.</p>';
             
             st.select.$main.html(finalHTML);  
           }
