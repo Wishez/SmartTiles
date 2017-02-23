@@ -2,13 +2,13 @@
 var catalogFirm = function( params ) {
   var that = singleResource( params );
   
-  that._name = that._firmName;
+  that._name = '<span itemprop="name">' + that._firmName + '</span>';
   
-  var bcFirm = that._breadcrumbElements.bcElemActive + that._breadcrumbElements.ids.bcFirm + that._name + '</li></ol>';
+  var bcFirm = that._breadcrumbElements.bcElemActive + that._breadcrumbElements.ids.bcFirm + that._name + '<meta itemprop="position" content="3" /></li></ol>';
   
   
   that._buildBreadcrumb = function() {
-    var finalHTML = '<ol id="breadcrumb" class="mainContent__breadcrumb breadcrumb breadcrumb-firm">' +   that.homeAndCatalogBC;
+    var finalHTML = that._breadcrumbElements.listFirm +   that.homeAndCatalogBC;
     
     finalHTML += bcFirm;
     
@@ -64,15 +64,17 @@ st.buildCatalogFirmHTML = function() {
 var firmCategory = function( params ) {
   var that = singleResource( params );
   
-  that._name = that._firmName;
+  that._name = '<span itemprop="name">' + that._firmName + '</span>';
   
   var bcCategoryFirm = 
-      that._breadcrumbElements.bcElem + that._breadcrumbElements.ids.bcCategory + that._breadcrumbElements.bcRefer +  that._categoryName + '</a></li>' +
-      that._breadcrumbElements.bcElemActive + that._breadcrumbElements.ids.bcFirm + that._name + '</li></ol>';
+      that._breadcrumbElements.bcElem + that._breadcrumbElements.ids.bcCategory + that._breadcrumbElements.bcRefer +  
+      '<span itemprop="name">' + that._categoryName + '</span></a>' +
+      '<meta itemprop="position" content="3" /></li>' +
+      that._breadcrumbElements.bcElemActive + that._breadcrumbElements.ids.bcFirm + that._name + '<meta itemprop="position" content="4" /></li></ol>';
   
   
   that._buildBreadcrumb = function() {
-    var finalHTML = '<ol id="breadcrumb" class="mainContent__breadcrumb breadcrumb breadcrumb-firm">' +   that.homeAndCatalogBC;
+    var finalHTML = that._breadcrumbElements.listFirm +   that.homeAndCatalogBC;
     
     finalHTML += bcCategoryFirm;
     

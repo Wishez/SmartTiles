@@ -24,6 +24,9 @@
   &::-webkit-input-placeholder {
     color: #c4c4c4;
   }
+  @include breakpoint($xxs) {
+    font-size: (11em / 16);
+  }
 }
 .searchForm__btnSearch {
   font-size: (14em / 16);
@@ -101,6 +104,7 @@
     width: 45%;
   }
   @include breakpoint($xxs) {
+    margin: 0;
     width: 65%;
   }
 }

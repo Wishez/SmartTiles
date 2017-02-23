@@ -2,12 +2,16 @@ a.tilesList__tile.tile(
   href="#",
   data-cat="{{category}}",
   data-firm="{{firm}}",
-  data-col="{{collection}}"
+  data-col="{{collection}}",
+  role="listitem",
+  itemprop="item"
+)
+  li.tile__option(
   )
-  li.tile__option
     img.tile__img.img-responsive.center-block(
       src="img/{{short_name}}.jpg",
-      alt="{{name}}"
+      alt="{{name}}",
+      itemprop="image"
     )
-    h3.tile__name {{name}}
-    p.tile__description {{description}}
+    h3.tile__name(itemprop="name") {{name}}
+    p.tile__description(itemprop="description") {{description}}

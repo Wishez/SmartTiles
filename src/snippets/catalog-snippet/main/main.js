@@ -1,5 +1,5 @@
 var catalogResource = function( spec ) {
-/*
+/* spec
  {
    name: string,
    styleName: string(classes),
@@ -25,7 +25,7 @@ var catalogResource = function( spec ) {
       func = spec.func ? spec.func : "",
   // У этого место есть стиль.
   // А также наименнование.
-      position = '<section class="' + spec.stylesPlace + '" id="' + spec.idPlace + '">',
+      position = '<section class="' + spec.stylesPlace + '" id="' + spec.idPlace + '" itemscope itemtype="https://schema.org/Thing">',
       positionCloseTag = '</section>',
   // У ресурса есть свой инвентарь и стиль его стиль.
       stock = spec.stock,
@@ -42,7 +42,7 @@ var catalogResource = function( spec ) {
   // Что он умеет делать?
   // Умеет представить себя.
   that.buildHeading = function() {
-    var heading = '<h2 class="heading ' + styleName + '">';
+    var heading = '<h2 class="heading ' + styleName + '" role="heading" itemprop="category">';
     heading += that._name + '</h2>';
   
     return heading;
@@ -52,7 +52,7 @@ var catalogResource = function( spec ) {
   that.buildTiles = function() {
     var finalHtml = '<div class="coverTiles ' + styleStock + '">';
     finalHtml +=  '<div class="container">';
-    finalHtml += '<ul class="tiles__tilesList tilesList">';
+    finalHtml += '<ul class="tiles__tilesList tilesList" role="group" itemscope  itemtype="https://schema.org/Thing">';
 
     stock.map(function( item ) {
       // Извлекаем из каждой категории данные.
@@ -72,6 +72,7 @@ var catalogResource = function( spec ) {
           // Либо data-firm будет пустовать, категория загрузилась из каталога, раздела "Фирмы".
           // Либо в некоторых плитках категории будет кэшированное значение фирмы, но это же не критично. Ведь так?
           html = insertProperty(html, "firm", st.breadcrumb.firm.short_name);
+          html = insertProperty(html, "collection", "");
 
           break;
         // URL для фирм категории.
@@ -80,6 +81,7 @@ var catalogResource = function( spec ) {
 
           html = insertProperty(html, "category", st.breadcrumb.category.short_name);
           html = insertProperty(html, "firm", item.short_name);
+          html = insertProperty(html, "collection", "");
 
           break;
         // URL для коллекций фирмы.
@@ -102,6 +104,7 @@ var catalogResource = function( spec ) {
 
           html = insertProperty(html, "category", cats.toString());
           html = insertProperty(html, "firm", item.short_name);
+          html = insertProperty(html, "collection", "");
 
           break;
         // URL для коллекция в поиске.

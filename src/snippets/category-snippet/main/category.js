@@ -24,9 +24,11 @@ var singleResource = function( params ) {
 
   // Шаблоны элементов нав. цепочки.
   that._breadcrumbElements = {
-    bcElemActive: '<li class="breadcrumb__breadcrumbItem breadcrumbItem active" ',
-    bcElem: '<li data-cat="" data-firm="" class="breadcrumb__breadcrumbItem breadcrumbItem"  ',
-    bcRefer: '<a class="breadcrumbItem__refer" href="#">',
+    list: '<ol id="breadcrumb" class="mainContent__breadcrumb breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">',
+    listFirm: '<ol id="breadcrumb" class="mainContent__breadcrumb breadcrumb breadcrumb-firm" itemscope itemtype="http://schema.org/BreadcrumbList">',
+    bcElemActive: '<li class="breadcrumb__breadcrumbItem breadcrumbItem active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" ',
+    bcElem: '<li data-cat="" data-firm="" class="breadcrumb__breadcrumbItem breadcrumbItem" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" ',
+    bcRefer: '<a class="breadcrumbItem__refer" href="#" itemprop="item">',
     ids: {
       bcCategory: 'id="bcCategory">',
       bcFirm: 'id="bcFirm">'
@@ -36,7 +38,7 @@ var singleResource = function( params ) {
     }
   };
   
-   that.homeAndCatalogBC = that._breadcrumbElements.bcElem +  'id="bcHome">' +     that._breadcrumbElements.bcRefer   + "Главная" + "</a></li>" + that._breadcrumbElements.bcElem + 'id="bcCatalog">' + that._breadcrumbElements.bcRefer + "Каталог" + "</a></li>";
+   that.homeAndCatalogBC = that._breadcrumbElements.bcElem +  'id="bcHome">' +     that._breadcrumbElements.bcRefer   + '<span itemprop="name">Главная</span>' + '</a><meta itemprop="position" content="1" /></li>' + that._breadcrumbElements.bcElem + 'id="bcCatalog">' + that._breadcrumbElements.bcRefer + '<span itemprop="name">Каталог</span>' + '</a><meta itemprop="position" content="2" /></li>';
   // Функция, которая будет переопределяться.
   that._buildBreadcrumb = function() {
 
@@ -64,11 +66,11 @@ var catalogAndHomeCategory = function( params ) {
   // Имя для заголовка.
   that._name = that._categoryName;
   
-  var categoryBC = that._breadcrumbElements.bcElemActive + that._breadcrumbElements.ids.bcCategory + that._name + '</li></ol>';
+  var categoryBC = that._breadcrumbElements.bcElemActive + that._breadcrumbElements.ids.bcCategory + '<span itemprop="name">' + that._name + '</span></li></ol>';
   
   
   that._buildBreadcrumb = function() {
-    var finalHTML = '<ol id="breadcrumb" class="mainContent__breadcrumb breadcrumb">' +   that.homeAndCatalogBC;
+    var finalHTML = that._breadcrumbElements.list +   that.homeAndCatalogBC;
     
     finalHTML += categoryBC;
     
@@ -114,13 +116,13 @@ st.buildHomeAndCatalogCategory = function() {
 var categoryFirm = function( params ) {
   var that = singleResource( params );
   
-  that._name = that._categoryName;
+  that._name = '<span itemprop="name">' + that._categoryName + '</span>';
   
-  var bcFirmCategory = that._breadcrumbElements.bcElem + that._breadcrumbElements.ids.bcFirm +  that._breadcrumbElements.bcRefer + that._firmName + '</a>' + that._breadcrumbElements.bcElemActive + that._breadcrumbElements.ids.bcCategory + that._name + '</li></ol>';
+  var bcFirmCategory = that._breadcrumbElements.bcElem + that._breadcrumbElements.ids.bcFirm +  that._breadcrumbElements.bcRefer + '<span itemprop="name">' + that._firmName + '</span></a><meta itemprop="position" content="3" />' + that._breadcrumbElements.bcElemActive + that._breadcrumbElements.ids.bcCategory +  that._name + '<meta itemprop="position" content="4" /></li></ol>';
   
   
   that._buildBreadcrumb = function() {
-    var finalHTML = '<ol id="breadcrumb" class="mainContent__breadcrumb breadcrumb">' +   that.homeAndCatalogBC;
+    var finalHTML = that._breadcrumbElements.list +   that.homeAndCatalogBC;
     
     finalHTML += bcFirmCategory;
     

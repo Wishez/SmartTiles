@@ -15,10 +15,12 @@ var gulp = require('gulp'),
     jsonminify = require('gulp-jsonminify'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
+    imageminJpegoptim = require('imagemin-jpegoptim'),
+    imageminGifsicle = require('imagemin-gifsicle'),
     rigger = require('gulp-rigger'),
     rimraf = require('rimraf'),
     browserSync = require("browser-sync"),
-    concat = require('gulp-concat'),
+    jsonlint = require("gulp-jsonlint"),
     reload = browserSync.reload;
 
 var path = {
@@ -37,7 +39,7 @@ src: {
     data: 'src/data/*.json',
     style: 'src/scss/*.scss',
     snippets: 'src/snippets/*/*.pug',
-    img: 'src/img/**/*.*',
+    img: 'src/img/**/*',
     fonts: 'src/fonts/**/*.*'
 },
 watch: {
@@ -45,7 +47,7 @@ watch: {
     js: 'src/**/*.js',
     data: 'src/**/*.json',
     style: 'src/**/*.scss',
-    image: 'src/img/**/*.*',
+    image: 'src/img/**/*',
     fonts: 'src/fonts/**/*.*'
 },
 clean: './build'
@@ -93,6 +95,8 @@ gulp.task('js', function () {
         .pipe(sourcemaps.write()) //Пропишем карты
         .pipe(gulp.dest(path.build.js)) //Выплюнем готовый файл в build
     gulp.src(path.src.data)
+        .pipe(jsonlint())
+    	.pipe(jsonlint.reporter())
         .pipe(jsonminify())
         .pipe(gulp.dest(path.build.data))
         .pipe(reload({stream: true})) //Перезагрузим сервер
@@ -104,7 +108,8 @@ gulp.task('style', function () {
         .pipe(compass({
       		config_file: './config.rb',
       		css: 'build/css',
-      		sass: 'src/scss'
+      		sass: 'src/scss',
+      		img: 'src/img'
     	}))
         .pipe(prefixer())
         //Compress
@@ -119,7 +124,7 @@ gulp.task('image', function() {
         .pipe(imagemin ({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
-            use: [pngquant()],
+            use: [pngquant(),  imageminJpegoptim(), imageminGifsicle()],
             interlaced: true
         }))
         .pipe(gulp.dest(path.build.img))
