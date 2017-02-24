@@ -133,14 +133,12 @@ st.search = function( value ) {
             $main.find(':first-child').remove();
           } else {
             finalHTML = '<p class="text-center no-matches">Вы искали: <strong>' + value +'</strong>.</br>';
-            finalHTML += 'Но ничего не нашли:(.</p>';
+            finalHTML += 'Но ничего не нашли:(.</p>' +
+              '<div class="not-found-gif"><img class="img-respinsive center-block" src="../img/not-found.gif" alt="Not found:(."></img></div>';
             
             st.select.$main.html(finalHTML);  
           }
-          
-          // Подумать на счёт экземляров
-          // Добавить сообщение об ненахождение искомого.
-          // Добавить строчку, что искал пользователь.
+      
         });
       });// end smartApp.getAllCollections
     });// end smartApp.getCategoryFirms

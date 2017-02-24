@@ -70,7 +70,7 @@
 }
 
 .no-matches {
-  padding: 10% 0 20%;
+  margin-top: 10%;
   font: {
     family: $stackComfortaa;
     size: (30em / 16);
@@ -78,17 +78,20 @@
   line-height: (40em / 30);
   color: $beige;
   position: relative;
-  &::after {
-    content: "";
-    width: 372px;
-    height: 262px;
-    position: absolute;
-    background: url('../img/not-found.gif') center no-repeat;
-    background-size: cover;
-    top: 43%;
-    left: 40%;
-    padding-bottom: (262% / 372) * 10;
-  }
+//  &::after {
+//    content: "";
+//    width: 372px;
+//    height: 262px;
+//    position: absolute;
+//    background: url('../img/not-found.gif') center no-repeat;
+//    background-size: cover;
+//    top: 43%;
+//    left: 40%;
+//    padding-bottom: (262% / 372) * 10;
+//  }
+}
+.not-found-gif {
+  padding-bottom: 300px;
 }
 
 /* typeahead styles */

@@ -51,8 +51,6 @@ var smartApp = (function(){
   var homeHtml = "snippets/home-snippet/home-snippet.html",
       contactsHtml = "snippets/contacts-snippet/contacts-snippet.html",
       catalogHtml = "snippets/catalog-snippet/catalog-snippet.html",
-      categoryHtml = "../snippets/category-snippet/category-snippet.html",
-      firmHtml = "snippets/firm-snippet/firm-snippet.html",
       collectionHtml = "snippets/collection-snippet//collection-snippet.html",
 
       catalogCategories = "data/categories.json",
@@ -60,10 +58,6 @@ var smartApp = (function(){
       allCollections = "data/allCollections.json",
       collectionItems = "data/samples.json",
 
-      breadcrumbHtml = "snippets/breadcrumb-snippet/breadcrumb-snippet.html",
-      breadcrumbFirmHtml = "snippets/breadcrumb-snippet/breadcrumb-firm-snippet.html",
-      headingHtml = "snippets/heading-snippet/heading-snippet.html",
-      headingFirmHtml = "snippets/heading-snippet/heading-snippet-firm.html",
       tileHtml = "snippets/tile-snippet/tile-snippet.html",
       sampleHtml = "snippets/sample-snippet/sample-snippet.html";
                 
@@ -79,27 +73,11 @@ var smartApp = (function(){
     getCatalog: function() {
       return $.get(catalogHtml);
     },
-
-    getCategory: function() {
-      return $.get(categoryHtml);
-    },
-
-    getFirm: function() {
-      return $.get(firmHtml);
-    },
-
+    
     getCollection: function() {
       return $.get(collectionHtml);
     },
-
-    getBreadcrumb: function() {
-      return $.get(breadcrumbHtml);
-    },
-
-    getHeading: function() {
-      return $.get(headingHtml);
-    },
-
+    
     getTile: function() {
       return $.get(tileHtml); 
     },
@@ -136,17 +114,6 @@ st.switchActiveMenu = function(selector) {
   $('#nav').find('li').removeClass('active');
   $(selector).addClass('active');
 };
-
-//var loadSelectedMenu = function(selector, smartAppRquest) {
-//  $(selector).on('click', function(e) {
-//    showLoading('#main');
-//    switchActiveMenu(this);
-//    smartAppRquest().done(function(data){  
-//      $main.html(data);
-//    });//end get
-//    e.preventDefault();
-//  }); // end click
-//};
 
 var insertProperty = function(string, propName, propValue) {
   var propToReplace = "{{" + propName + "}}";
