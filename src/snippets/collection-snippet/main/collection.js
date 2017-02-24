@@ -25,30 +25,31 @@ var singleCollection = function( params ) {
     // Элементы.
         slides = '<div class="collection__collectionSlider collectionSlider">' +
         '<div id="collection"  class="collectionSlider__slides container">' + 
-        '<div id="collectionSamples">',
-        row = '<div class="row">',
+        '<div id="collectionSamples" role="group" itemscope itemtype="https://schema.org/Thing"> >',
+        row = '<div class="row" role="row">',
         ul = '<ul class="collectionSlider__listTiles">',
         closeTags = '</div></div></div>',
         finalHtml = slides + row + container + ul,
         visitCard = '<div class="collection__contact"><div class="container">' + 
-      '<div class="contact__visitCard"><div class="visitCard__header"></div>' +
-      '<div class="visitCard__body">' +
-      '<h3 class="body__title">Контакты</h3>' +
-      '<p class="body__contacts">' +
-      '<a class="contacts__tel" href="tel:8-495-909-50-20">8-495-909-50-20</a> <a class="contacts__email" href="mailto:connect@smart-tiles.ru"> connect@smart-tiles.ru</a>' +
-      '</p></div></div></div>',
+          '<div class="contact__visitCard" itemscope itemtype="http://schema.org/Organization"><div class="visitCard__header"></div>' +
+          '<div class="visitCard__body">' +
+          '<h3 class="body__title">Контакты</h3>' +
+          '<p class="body__contacts">' +
+          '<a class="contacts__tel" href="tel:8-495-909-50-20" itemprop="telephone">8-495-909-50-20</a>' + 
+          ' <a class="contacts__email" href="mailto:connect@smart-tiles.ru" itemprop="email"> connect@smart-tiles.ru</a>' +
+          '</p></div></div></div>',
     // Нужны для установки путей к изображением.
     // Изображения находяться, определённо, в фирме категории с названием коллекции,
     // поэтому надобность в указание определённого путя - отпадает.
-        categoryShortName = st.breadcrumb.category.short_name,
-        firmShortName = st.breadcrumb.firm.short_name,
-        collectionShortName = st.breadcrumb.collection.short_name,
+        categoryShortName = st.breadcrumb.category.short_name ,
+        firmShortName =  st.breadcrumb.firm.short_name,
+        collectionShortName =  st.breadcrumb.collection.short_name,
     // Счётчик для проверки колличества образцов с строке. 
         counter = 6;
 
     arrayItems.forEach(function( item, i ) {
       // Проверяем сколько образцов в строке
-      if ( (i) == counter && (i) != arrayItems.length ) {
+      if ( (i) === counter && (i) !== arrayItems.length ) {
         // При последнем нам конечно же не нужно добавляться закрывающие теги. 
         // Кому "нам" то? Ты здесь один. Ты совсем поехал что-ли?
         finalHtml += "</ul></div></div>" + row + container + ul;
@@ -98,13 +99,13 @@ var collectionCategoryOfFirm = function( params ) {
   that._name = that._collectionName;
   
   var bcFirmCategoryCollection = 
-      that._breadcrumbElements.bcElem + that._breadcrumbElements.ids.bcFirm +  that._breadcrumbElements.bcRefer + that._firmName + '</a></li>' + 
-      that._breadcrumbElements.bcElem + that._breadcrumbElements.ids.bcCategory + that._breadcrumbElements.bcRefer + that._categoryName + '</a></li>' + 
-      that._breadcrumbElements.bcElemActive +'>' + that._name + '</li></ol>';
+      that._breadcrumbElements.bcElem + that._breadcrumbElements.ids.bcFirm +  that._breadcrumbElements.bcRefer + that._firmName + '</a><meta itemprop="position" content="3" /></li>' + 
+      that._breadcrumbElements.bcElem + that._breadcrumbElements.ids.bcCategory + that._breadcrumbElements.bcRefer + that._categoryName + '</a><meta itemprop="position" content="4" /></li>' + 
+      that._breadcrumbElements.bcElemActive +'>' + that._name + '<meta itemprop="position" content="5" /></li></ol>';
   
   
   that._buildBreadcrumb = function() {
-    var finalHTML = '<ol id="breadcrumb" class="mainContent__breadcrumb breadcrumb">' +   that.homeAndCatalogBC;
+    var finalHTML = that._breadcrumbElements.list +   that.homeAndCatalogBC;
     
     finalHTML += bcFirmCategoryCollection;
     
@@ -120,13 +121,13 @@ var collectionFirm = function( params ) {
   that._name = that._collectionName;
   
   var bcCategoryFirmCollection = 
-      that._breadcrumbElements.bcElem + that._breadcrumbElements.ids.bcCategory +  that._breadcrumbElements.bcRefer + that._categoryName + '</a></li>' + 
-      that._breadcrumbElements.bcElem + that._breadcrumbElements.ids.bcFirm + that._breadcrumbElements.bcRefer + that._firmName + '</a></li>' + 
-      that._breadcrumbElements.bcElemActive +'>' + that._name + '</li></ol>';
+      that._breadcrumbElements.bcElem + that._breadcrumbElements.ids.bcCategory +  that._breadcrumbElements.bcRefer + that._categoryName + '</a><meta itemprop="position" content="3" /></li>' + 
+      that._breadcrumbElements.bcElem + that._breadcrumbElements.ids.bcFirm + that._breadcrumbElements.bcRefer + that._firmName + '</a><meta itemprop="position" content="4" /></li>' + 
+      that._breadcrumbElements.bcElemActive +'>' + that._name + '<meta itemprop="position" content="5" /></li></ol>';
   
   
   that._buildBreadcrumb = function() {
-    var finalHTML = '<ol id="breadcrumb" class="mainContent__breadcrumb breadcrumb">' +   that.homeAndCatalogBC;
+    var finalHTML = that._breadcrumbElements.list +   that.homeAndCatalogBC;
     
     finalHTML += bcCategoryFirmCollection;
     

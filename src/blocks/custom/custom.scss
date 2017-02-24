@@ -54,7 +54,7 @@ body {
   repeating-linear-gradient(125deg, transparent, transparent 2px, rgba(0,0,0,.2) 2px, rgba(0,0,0,.2) 3px, transparent 3px, transparent 5px, rgba(0,0,0,.2) 5px);
   padding-bottom: 192px;
 }
-main, .coversTiles, .mainContent, .header, .connect, .contact, .address {
+main, .coversTiles, .header, .connect, .contact, .address, section {
   @include clearfix;
 }
 a {

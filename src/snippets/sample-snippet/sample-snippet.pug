@@ -1,8 +1,14 @@
-a.listTiles__tile.tile(href="img/{{short_name}}.jpg")
-  li.tile__sample
+a.listTiles__tile.tile(
+  href="img/{{short_name}}.jpg",
+  role="listitem",
+  itemprop="item"
+)
+  li.tile__sample(itemprop="category")
     img.sample__img(
       src="img/{{short_name}}.jpg", 
-      alt="{{name}}"
+      alt="{{name}}",
+      role="img",
+      itemprop="image"
     )
-    span.sample__number {{number}}
-    p.sample__description {{description}}
+    span.sample__number(itemprop="name") {{number}}
+    p.sample__description(itemprop="description") {{description}}

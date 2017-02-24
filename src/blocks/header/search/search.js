@@ -42,7 +42,7 @@ st.showFoundElementsHTML = function( params ) {
              geolocation: '#main',
              func: "append"});
         break;
-    };
+    }
     
     foundElements.presentResource();        
   });// end getTile

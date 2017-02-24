@@ -1,27 +1,39 @@
 .offers__options.options#options
-  ul.options__optionsList.optionsList
+  ul.options__optionsList.optionsList(
+      role="group",  
+      itemscope,
+      itemtype="https://schema.org/Thing"
+  )
     a.optionsList__refer(
       href="#", 
-      data-cat="DT CT CC CL"
+      data-cat="DT CT CC CL",
+      role="listitem",
+      itemporp="item"
     )
-      li.optionsList__option.option.optionsList__option-flooring
-        .option__variant напольные покрытия
+      li.optionsList__option.option.optionsList__option-flooring(itemporp="category")
+        .option__variant(itemporp="name") напольные покрытия
     a.optionsList__refer(
       href="#", 
-      data-cat="FC"
+      data-cat="FC",
+      role="listitem",
+      itemporp="item"
     )
-      li.optionsList__option.option.optionsList__option-ceilingSystems
-        .option__variant потолочные системы
+      li.optionsList__option.option.optionsList__option-ceilingSystems(itemporp="category")
+        .option__variant(itemporp="name") потолочные системы
     a.optionsList__refer(
       href="#", 
-      data-cat="WC"
+      data-cat="WC",
+      role="listitem",
+      itemporp="item"
     )
-      li.optionsList__option.option.optionsList__option-wallCoverings
-        .option__variant настенные покрытия
+      li.optionsList__option.option.optionsList__option-wallCoverings(itemporp="category")
+        .option__variant(itemporp="name") настенные покрытия
     a.optionsList__refer(
       href="", 
-      data-cat="T"
+      data-cat="T",
+      role="listitem",
+      itemporp="item"
     )
-      li.optionsList__option.option.optionsList__option-textiles
-        .option__variant текстиль
+      li.optionsList__option.option.optionsList__option-textiles(itemporp="category")
+        .option__variant(itemporp="name") текстиль
         

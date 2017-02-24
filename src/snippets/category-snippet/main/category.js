@@ -18,9 +18,9 @@ var singleResource = function( params ) {
   delete params.name;
   delete params.func;
   // Кэшированные данные о последних передвижениях.
-  that._categoryName = st.breadcrumb.category.name;
-  that._firmName = st.breadcrumb.firm.name;
-  that._collectionName = st.breadcrumb.collection.name;
+  that._categoryName = '<span itemprop="name">' + st.breadcrumb.category.name + '</span>';
+  that._firmName = '<span itemprop="name">' + st.breadcrumb.firm.name + '</span>';
+  that._collectionName = '<span itemprop="name">' + st.breadcrumb.collection.name + '</span>';
 
   // Шаблоны элементов нав. цепочки.
   that._breadcrumbElements = {
@@ -66,7 +66,7 @@ var catalogAndHomeCategory = function( params ) {
   // Имя для заголовка.
   that._name = that._categoryName;
   
-  var categoryBC = that._breadcrumbElements.bcElemActive + that._breadcrumbElements.ids.bcCategory + '<span itemprop="name">' + that._name + '</span></li></ol>';
+  var categoryBC = that._breadcrumbElements.bcElemActive + that._breadcrumbElements.ids.bcCategory +  that._name + '</li></ol>';
   
   
   that._buildBreadcrumb = function() {
@@ -116,9 +116,9 @@ st.buildHomeAndCatalogCategory = function() {
 var categoryFirm = function( params ) {
   var that = singleResource( params );
   
-  that._name = '<span itemprop="name">' + that._categoryName + '</span>';
+  that._name = that._categoryName ;
   
-  var bcFirmCategory = that._breadcrumbElements.bcElem + that._breadcrumbElements.ids.bcFirm +  that._breadcrumbElements.bcRefer + '<span itemprop="name">' + that._firmName + '</span></a><meta itemprop="position" content="3" />' + that._breadcrumbElements.bcElemActive + that._breadcrumbElements.ids.bcCategory +  that._name + '<meta itemprop="position" content="4" /></li></ol>';
+  var bcFirmCategory = that._breadcrumbElements.bcElem + that._breadcrumbElements.ids.bcFirm +  that._breadcrumbElements.bcRefer + that._firmName + '</a><meta itemprop="position" content="3" />' + that._breadcrumbElements.bcElemActive + that._breadcrumbElements.ids.bcCategory +  that._name + '<meta itemprop="position" content="4" /></li></ol>';
   
   
   that._buildBreadcrumb = function() {
@@ -143,10 +143,8 @@ st.buildCategoryOfFirmHTML = function() {
       categories.forEach( function ( categoryFirm ) {
         if (categoryFirm.short_name == st.breadcrumb.firm.short_name) {
           
-          collections = categoryFirm.collections.map( function( collection ) {
-            if ( collection.category == st.breadcrumb.category.short_name ) {
-              return collection;                        
-            }
+          collections = categoryFirm.collections.filter( function( collection ) {
+             return collection.category === st.breadcrumb.category.short_name;
           });// end map 
         }
       });// end categoryFirmsItems.map

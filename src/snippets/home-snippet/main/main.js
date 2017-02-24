@@ -20,7 +20,7 @@ st.loadHomeContent = function() {
           ]
       });
       // Настраиваем форму.
-      settingUpForm();
+      st.settingUpForm();
     });// end getContacts
   });// end getHomePettern
 }; // end loadHomeContent

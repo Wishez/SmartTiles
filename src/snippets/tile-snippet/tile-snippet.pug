@@ -6,11 +6,11 @@ a.tilesList__tile.tile(
   role="listitem",
   itemprop="item"
 )
-  li.tile__option(
-  )
+  li.tile__option(itemprop="category")
     img.tile__img.img-responsive.center-block(
       src="img/{{short_name}}.jpg",
       alt="{{name}}",
+      role="img",
       itemprop="image"
     )
     h3.tile__name(itemprop="name") {{name}}

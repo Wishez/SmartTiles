@@ -1,6 +1,21 @@
-.offers__exclusive.exclusive
-  .exclusive__slides.slides
-    figure.slides__exclusiveImg.exclusiveImg-1
-    figure.slides__exclusiveImg.exclusiveImg-2
-    figure.slides__exclusiveImg.exclusiveImg-3
-    figure.slides__exclusiveImg.exclusiveImg-4
+.offers__exclusive.exclusive(
+  role="region",
+  itemscope,
+  itemtype="https://schema.org/Thing")
+  ul.exclusive__slides.slides(role="group")
+    figure.slides__exclusiveImg.exclusiveImg-1(
+      role="listitem",
+      itemtype="image"
+    )
+    figure.slides__exclusiveImg.exclusiveImg-2(
+      role="listitem",
+      itemtype="image"
+    )
+    figure.slides__exclusiveImg.exclusiveImg-3(
+      role="listitem"
+      itemtype="image"
+    )
+    figure.slides__exclusiveImg.exclusiveImg-4(
+      role="listitem",
+      itemtype="image"
+    )
