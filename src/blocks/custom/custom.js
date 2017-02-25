@@ -19,6 +19,7 @@ st.nav = {
   home: '#home',
   catalog: '#catalog',
   contacts: '#contacts',
+  service: '#service',
   btnUp: '#btnTop'
 };
 // Индификаторы
@@ -51,6 +52,7 @@ var smartApp = (function(){
   var homeHtml = "snippets/home-snippet/home-snippet.html",
       contactsHtml = "snippets/contacts-snippet/contacts-snippet.html",
       catalogHtml = "snippets/catalog-snippet/catalog-snippet.html",
+      serviceHtml = "snippets/service-snippet/service-snippet.html",
       collectionHtml = "snippets/collection-snippet//collection-snippet.html",
 
       catalogCategories = "data/categories.json",
@@ -68,6 +70,10 @@ var smartApp = (function(){
 
     getContacts: function() {
         return $.get(contactsHtml);
+    },
+    
+    getService: function() {
+      return $.get(serviceHtml);
     },
 
     getCatalog: function() {

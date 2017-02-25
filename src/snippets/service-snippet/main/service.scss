@@ -1,0 +1,10 @@
+.mainContent__service {
+  @extend .mainContent__firms;
+  color: $maroon;
+  min-height: 800px;
+  height: auto;
+//  height: calc(100% - 192px);
+}
+
+@import 'heading/heading.scss';
+@import 'services/services.scss';

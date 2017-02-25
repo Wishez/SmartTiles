@@ -1,0 +1,5 @@
+.service__heading {
+  @include breakpoint($xs) {
+    text-align: center; 
+  }
+}

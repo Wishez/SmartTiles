@@ -20,6 +20,7 @@
   //= ../blocks/header/header.js
   //= ../snippets/home-snippet/main/main.js
   //= ../snippets/catalog-snippet/main/main.js
+  //= ../snippets/service-snippet/main/service.js
   //= ../snippets/category-snippet/main/category.js
   //= ../snippets/contacts-snippet/connect/connect.js
   //= ../snippets/firm-snippet/main/firm.js

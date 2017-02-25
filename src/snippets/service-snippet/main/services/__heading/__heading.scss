@@ -1,0 +1,7 @@
+.services__heading {
+  margin-top: (101% / 1444) * 100;
+  font-size: (36em / 16);
+  @include breakpoint($xs) {
+    text-align: center;
+  }
+}

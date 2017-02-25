@@ -18,7 +18,7 @@ $(document).on('click', $st.nav.contacts, function() {
 
 $(document).on('click', $st.nav.home + ', ' + $st.ids.breadcrumb.home + ', #logo', function() {
   $st.showLoading($st.ids.main);
-  $st.switchActiveMenu(home);
+  $st.switchActiveMenu($st.nav.home);
   
   $st.loadHomeContent();
   
@@ -27,9 +27,18 @@ $(document).on('click', $st.nav.home + ', ' + $st.ids.breadcrumb.home + ', #logo
 
 $(document).on('click', $st.nav.catalog + ', ' + $st.ids.breadcrumb.catalog , function() {
   $st.showLoading($st.ids.main);
-  $st.switchActiveMenu(catalog);
+  $st.switchActiveMenu($st.nav.catalog);
   
   $st.showCatalogHTML();
+  
+  return false;
+}); // end click
+
+$(document).on('click', $st.nav.service, function() {
+  $st.showLoading($st.ids.main);
+  $st.switchActiveMenu($st.nav.service);
+  
+  $st.showServiceHTML();
   
   return false;
 }); // end click

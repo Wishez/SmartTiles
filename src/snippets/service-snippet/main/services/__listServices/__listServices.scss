@@ -1,0 +1,37 @@
+.services__listServices {
+  list-style: none;
+  font-family: $stackComfortaa;
+}
+
+.listServices__offer {
+  margin-top: (101% / 1444) * 100;
+  width: span(12);
+  @include clearfix;
+  @include breakpoint($xs) {
+    text-align: center !important;
+     margin-top: (200% / 1444) * 100;
+  }
+  &:nth-child(even) {
+    text-align: right;
+    .offerItem__description {
+      @include span(8 of last);
+      @include breakpoint($xs) {
+        float: none;
+        width: span(12);
+      }
+    }
+  }
+}
+
+.offerItem__name {
+  font: {
+    size: (32em / 16);
+    weight: bold; 
+  }
+}
+
+.offerItem__description {
+  font-size: (26em / 16);
+  margin-top: (55% / 1444) * 100;
+  line-height: 140%;
+}
