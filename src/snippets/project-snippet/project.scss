@@ -1,0 +1,57 @@
+.listWorks {
+  @extend .tiles__tilesList;
+  justify-content: space-between;
+  padding-bottom: 10%;
+}
+.listWorks__item {
+  @include span(6);
+  max-width: 500px;
+  margin: 5em 0 0;
+  &:hover {
+    .projectBody__description {
+      width: 50%;
+      color: $cyan;
+      padding: 3%;
+    }
+    .projectBody__img {
+      transform: scale(1.5, 1.5);
+    }
+  }
+}
+.project {
+  list-style-type: none;
+  height: auto;
+}
+.project__name {
+  text-align: center;
+  color: $cyan;
+  padding: 3% 0;
+}
+.project__projectBody {
+  overflow: hidden;
+  position: relative;
+  background-color: $beige;
+  box-shadow: 0 0 15px $shadow;
+  @include clearfix;
+  max-height: 275px;
+  height: 100%;
+}
+.projectBody__img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 1s;
+}
+.projectBody__description {
+  height: 100%;
+  width: 0;
+  top: 0;
+  position: absolute;
+  right: 0;
+  transition: width 1s, color 2s;
+  overflow: hidden;
+  color: transparent;
+  font-family: $stackComfortaa;
+  border-left: 5px double #000;
+  background-color: $ghostBlack;
+}

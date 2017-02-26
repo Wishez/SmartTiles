@@ -43,6 +43,15 @@ $(document).on('click', $st.nav.service, function() {
   return false;
 }); // end click
 
+$(document).on('click', $st.nav.projects, function() {
+  $st.showLoading($st.ids.main);
+  $st.switchActiveMenu($st.nav.projects);
+  
+  $st.showProjectsHTML();
+  
+  return false;
+}); // end click
+
 $st.select.$btnTop.hide();
 
 $(window).scroll(function(){

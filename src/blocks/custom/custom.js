@@ -20,6 +20,7 @@ st.nav = {
   catalog: '#catalog',
   contacts: '#contacts',
   service: '#service',
+  projects: '#projects',
   btnUp: '#btnTop'
 };
 // Индификаторы
@@ -59,8 +60,10 @@ var smartApp = (function(){
       firmItems = "data/firms.json",
       allCollections = "data/allCollections.json",
       collectionItems = "data/samples.json",
+      projects = "data/projects.json",
 
       tileHtml = "snippets/tile-snippet/tile-snippet.html",
+      projectTileHtml = "snippets/project-snippet/project-snippet.html",
       sampleHtml = "snippets/sample-snippet/sample-snippet.html";
                 
   return {  
@@ -87,6 +90,10 @@ var smartApp = (function(){
     getTile: function() {
       return $.get(tileHtml); 
     },
+    
+    getTileProject: function() {
+      return $.get(projectTileHtml);
+    },
 
     getSample: function() {
       return $.get(sampleHtml);
@@ -106,6 +113,10 @@ var smartApp = (function(){
 
     getCollectionItems: function() {
       return $.getJSON(collectionItems);
+    },
+    
+    getProjects: function() {
+      return $.getJSON(projects);
     }
   };
 })();

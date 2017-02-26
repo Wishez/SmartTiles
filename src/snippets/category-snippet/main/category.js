@@ -150,6 +150,7 @@ st.buildCategoryOfFirmHTML = function() {
       });// end categoryFirmsItems.map
        
       var category =  categoryFirm({
+             stylePlace: 'mainContent__category',
              idPlace: 'categoryCollections',
              stock: collections,
              styleStock: 'coverTiles-firm',

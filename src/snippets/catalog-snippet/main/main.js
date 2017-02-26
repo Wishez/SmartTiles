@@ -2,8 +2,8 @@ var catalogResource = function( spec ) {
 /* spec
  {
    name: string,
-   styleName: string(classes),
-   stylesPlace: string(otional[heading-firm]),
+   styleName: string(classes)string(otional[heading-firm],
+   stylesPlace: string(classes),
    idPlace: string(id),
    stock: array,
    styleStock: string(classes),
@@ -42,7 +42,7 @@ var catalogResource = function( spec ) {
   // Что он умеет делать?
   // Умеет представить себя.
   that.buildHeading = function() {
-    var heading = '<h2 class="heading ' + styleName + '" role="heading" itemprop="category">';
+    var heading = '<h2 class="heading ' + styleName + '" itemprop="category">';
     heading += that._name + '</h2>';
   
     return heading;
@@ -139,7 +139,7 @@ var catalogResource = function( spec ) {
     var finalHTML = that.position + 
         '<div class="container">' + heading +  '</div>' + 
         tiles + positionCloseTag;
-    if ( func == 'append' ){
+    if ( func === 'append' ){
       $(geolocation).append(finalHTML);
     } else {
       $(geolocation).html(finalHTML);
