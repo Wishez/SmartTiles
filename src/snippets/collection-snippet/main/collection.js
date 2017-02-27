@@ -30,14 +30,7 @@ var singleCollection = function( params ) {
         ul = '<ul class="collectionSlider__listTiles">',
         closeTags = '</div></div></div>',
         finalHtml = slides + row + container + ul,
-        visitCard = '<div class="collection__contact"><div class="container">' + 
-          '<div class="contact__visitCard" itemscope itemtype="http://schema.org/Organization"><div class="visitCard__header"></div>' +
-          '<div class="visitCard__body">' +
-          '<h3 class="body__title">Контакты</h3>' +
-          '<p class="body__contacts">' +
-          '<a class="contacts__tel" href="tel:8-495-909-50-20" itemprop="telephone">8-495-909-50-20</a>' + 
-          ' <a class="contacts__email" href="mailto:connect@smart-tiles.ru" itemprop="email"> connect@smart-tiles.ru</a>' +
-          '</p></div></div></div>',
+        visitCard = that._myVisitCard,
     // Нужны для установки путей к изображением.
     // Изображения находяться, определённо, в фирме категории с названием коллекции,
     // поэтому надобность в указание определённого путя - отпадает.

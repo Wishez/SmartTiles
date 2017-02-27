@@ -28,7 +28,8 @@ st.ids = {
   main: '#main',
   breadcrumb: {
     home: '#bcHome',
-    catalog: '#bcCatalog'
+    catalog: '#bcCatalog',
+    projects: '#bcProjects'
   }
 };
 // Навигационное кэширование.
@@ -44,6 +45,11 @@ st.breadcrumb = {
   collection: {
     short_name : "",
     name : ""
+  },
+  project: {
+    short_name: "",
+    name: "",
+    amountImgs: 0
   }
 };
 

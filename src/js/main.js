@@ -26,6 +26,7 @@
   //= ../snippets/contacts-snippet/connect/connect.js
   //= ../snippets/firm-snippet/main/firm.js
   //= ../snippets/collection-snippet/main/collection.js
+  //= ../snippets/single-project-snippet/main/project.js
 
   global.$st = st; 
 })(window);
@@ -39,6 +40,7 @@ $(function() {
   //= ../snippets/home-snippet/main/offers/offers.js
   //= ../snippets/catalog-snippet/main/main-controller.js
   //= ../snippets/contacts-snippet/connect/contact/contactForm/contactForm-controller.js
+  //= ../snippets/projects-snippet/main/projects-controller.js
   //= ../snippets/category-snippet/main/category-controller.js
   //= ../snippets/firm-snippet/main/firm-controller.js
   //= ../snippets/breadcrumb-snippet/breadcrumb.js

@@ -37,8 +37,18 @@ var singleResource = function( params ) {
       homeAndCatalogBC: ""
     }
   };
+  // Визитная карточка, одна на все одиночные ресурсы.
+  that._myVisitCard = '<div   class="collection__contact"><div class="container">' + 
+          '<div class="contact__visitCard" itemscope itemtype="http://schema.org/Organization"><div class="visitCard__header"></div>' +
+          '<div class="visitCard__body">' +
+          '<h3 class="body__title">Контакты</h3>' +
+          '<p class="body__contacts">' +
+          '<a class="contacts__tel" href="tel:8-495-909-50-20" itemprop="telephone">8-495-909-50-20</a>' + 
+          ' <a class="contacts__email" href="mailto:connect@smart-tiles.ru" itemprop="email"> connect@smart-tiles.ru</a>' +
+          '</p></div></div></div>';
   
    that.homeAndCatalogBC = that._breadcrumbElements.bcElem +  'id="bcHome">' +     that._breadcrumbElements.bcRefer   + '<span itemprop="name">Главная</span>' + '</a><meta itemprop="position" content="1" /></li>' + that._breadcrumbElements.bcElem + 'id="bcCatalog">' + that._breadcrumbElements.bcRefer + '<span itemprop="name">Каталог</span>' + '</a><meta itemprop="position" content="2" /></li>';
+  
   // Функция, которая будет переопределяться.
   that._buildBreadcrumb = function() {
 

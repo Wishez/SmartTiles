@@ -43,7 +43,7 @@ $(document).on('click', $st.nav.service, function() {
   return false;
 }); // end click
 
-$(document).on('click', $st.nav.projects, function() {
+$(document).on('click', $st.nav.projects + ',' + $st.ids.breadcrumb.projects, function() {
   $st.showLoading($st.ids.main);
   $st.switchActiveMenu($st.nav.projects);
   

@@ -1,0 +1,28 @@
+.mainContent__singleProject {
+  background-color: $gray; 
+}
+.singleProject__slider {
+  width: span(12);
+  margin-top: 100px;
+  color: $nightBlack;
+  text-align: center;
+  border-radius: 5px;
+  background-color: $beige;
+  max-width: 800px;
+  height: 350px;
+  margin: 0 auto;
+  box-shadow: 0 0 15px  $shadow;
+}
+.slider__slides {
+  height: auto;
+  width: 100%;
+  @include breakpoint($xxs) {
+      width: 100%;
+  }
+  .slick-prev {
+    margin: 0 -40px;
+  }
+  .slick-next:before, .slick-prev:before {
+    color: $nightBlack;
+  }
+}

@@ -21,8 +21,10 @@ var projectsResource = function( params ) {
           short_name = 'projects/' + item.short_name + '/' + item.short_name;
       
       html = insertProperty(html, "short_name", short_name);
+      html = insertProperty(html, "project", item.short_name);
       html = insertProperty(html, "name", name);
       html = insertProperty(html, "description", description);
+      html = insertProperty(html, "amountImgs", item.amount);
 
       finalHtml += html;
     });// end params.stock.map
@@ -52,4 +54,4 @@ st.showProjectsHTML = function() {
       myProjects.presentResource();
     });
   });
-};// st.showProjectsHTML
+};// end st.showProjectsHTML
