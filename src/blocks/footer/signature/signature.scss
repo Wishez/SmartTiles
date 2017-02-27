@@ -1,0 +1,9 @@
+.footer__signature {
+  width: span(2);
+  right: 0;
+  color: $cyan;
+}
+
+.signature__author {
+  color: darken($cyan, 20%) !important;  
+}

@@ -1,12 +1,15 @@
+@import 'info/info.scss';
 @import 'logo/logo.scss';
+@import 'signature/signature.scss';
 .footer {
-  @include span(12);
+  width: span(12);
   height: 192px;
   position: absolute;
   bottom: 0;
   background-color: #1d1610;
-  text-align: center;
   padding-top: 4.0625%;
+  text-align: center;
+  font-family: $stackComfortaa;
   @include breakpoint($sm) {
     padding-top: 7.0625%;
   }
@@ -16,4 +19,18 @@
   @include breakpoint($xxs) {
     padding-top: 11.0625%;
   }
+  & > .container {
+    position: relative;
+    height: 50%;
+  }
+  & a {
+    transition: color 1s;
+    &:hover {
+      color: $cyan !important;
+    }
+  }
+}
+.footer__signature, .footer__info {
+  position: absolute;
+  bottom: 0;
 }

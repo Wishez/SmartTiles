@@ -1,4 +1,6 @@
 .footer__logo {
   @extend .logo__name; 
+  @include span(12);
+  font-family: $stackGagalin;
   top: 0;
 }

@@ -10,7 +10,7 @@ st.loadHomeContent = function() {
       $('.exclusive__slides').slick({
         dots: true,
         autoplay: true,
-        autoplaySpeed: 2500,
+        autoplaySpeed: 3500,
         responsive: [{
               breakpoint: 768,
               settings: {

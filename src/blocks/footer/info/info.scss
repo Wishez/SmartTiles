@@ -1,0 +1,13 @@
+.footer__info {
+  width: span(4);
+  text-align: left;
+  color: $cyan;
+  left: 0;
+}
+
+.content__tel, .content__email, .content__address {
+  color: darken($cyan, 20%);
+}
+.content__address {
+  display: inline-block;
+}

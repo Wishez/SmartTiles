@@ -1,28 +1,49 @@
 .mainContent__singleProject {
   background-color: $gray; 
+  .contact__visitCard {
+    float: none;
+    margin: 125px auto 0;
+  }
+}
+
+.singleProject__heading {
+  color: $nightBlack;
 }
 .singleProject__slider {
   width: span(12);
-  margin-top: 100px;
   color: $nightBlack;
   text-align: center;
-  border-radius: 5px;
-  background-color: $beige;
   max-width: 800px;
-  height: 350px;
+  height: auto;
   margin: 0 auto;
-  box-shadow: 0 0 15px  $shadow;
 }
 .slider__slides {
+  box-shadow: 0 0 15px  $shadow;
   height: auto;
+  background-color: $beige;
   width: 100%;
-  @include breakpoint($xxs) {
-      width: 100%;
-  }
+  @include border-radius(5px);
+  margin-top: 85px !important;
   .slick-prev {
     margin: 0 -40px;
   }
   .slick-next:before, .slick-prev:before {
     color: $nightBlack;
   }
+  li.slick-active button:before {
+    color: $nightBlack;
+  }
+  li button:before {
+    color: $nightBlack;    
+  }
+}
+.slides__item {
+  @include border-radius(5px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  padding-bottom: 7.5%;
 }

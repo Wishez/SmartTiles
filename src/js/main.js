@@ -36,6 +36,7 @@ $(function() {
   //= ../blocks/header/navigation/navigation.js
   //= ../blocks/header/search/search-controller.js
   //= ../blocks/header/logo/logo.js
+  //= ../blocks/footer/footer.js
   //= ../snippets/home-snippet/main/main-controller.js
   //= ../snippets/home-snippet/main/offers/offers.js
   //= ../snippets/catalog-snippet/main/main-controller.js

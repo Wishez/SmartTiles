@@ -1,0 +1,29 @@
+.footer__info.info(
+  itemscope,    
+  itemtype="https://schema.org/Organization"
+)
+  .info__content.content(
+    itemprop="location",
+    itemscope,
+    itemtype="https://schema.org/Place"
+  )
+    span.address__labelAddress Адрес: 
+    address.content__address.address(
+      itemprop="address",
+      itemsope,
+      itemtype="https://schema.org/PostalAddress"
+    )
+      span.address__location(itemprop="addressLocality") Москва, 
+      span.address__location(itemprop="streenAddress") ул. Шумкина, дом 20с1
+    br
+    span.content__telLabel Телефон: 
+    a.content__tel(
+      itemprop="telephone",
+      href="tel:8-495-909-50-20"
+    ) 8-495-909-50-20
+    br
+    span.content__emailLabel Email: 
+    a.content__email(
+      itemprop="email",
+      href="mailto:connect@samrt-carpets.ru"
+    ) connect@samrt-carpets.ru
