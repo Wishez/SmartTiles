@@ -1,7 +1,17 @@
 .footer__signature {
   width: span(2);
-  right: 0;
+  @include last;
+//  right: 0;
   color: $cyan;
+  @include breakpoint($md) {
+    width: span(3);
+  }
+  @include breakpoint($sm) {
+    width: span(3);
+  }
+  @include breakpoint($xs) {
+    width: span(12);
+  }
 }
 
 .signature__author {

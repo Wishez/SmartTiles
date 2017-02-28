@@ -7,6 +7,10 @@
   @include span(6);
   max-width: 500px;
   margin: 5em 0 0;
+  @include breakpoint($xs) {
+    width: span(12);
+    margin: 0 auto;
+  }
   &:hover {
     .projectBody__description {
       width: 50%;

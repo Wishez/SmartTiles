@@ -1,6 +1,9 @@
 .footer__logo {
   @extend .logo__name; 
-  @include span(12);
   font-family: $stackGagalin;
   top: 0;
+  @include span(12);
+  @include breakpoint($lg) {
+    @include span(6);
+  }
 }

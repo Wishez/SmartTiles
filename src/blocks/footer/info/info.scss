@@ -1,8 +1,14 @@
 .footer__info {
-  width: span(4);
   text-align: left;
   color: $cyan;
-  left: 0;
+  @include span(9);
+  @include breakpoint($lg) {
+    @include span(4);
+  }
+   @include breakpoint($xs) {
+    width: span(12);
+    text-align: center;
+  }
 }
 
 .content__tel, .content__email, .content__address {
@@ -10,4 +16,16 @@
 }
 .content__address {
   display: inline-block;
+}
+
+.content__telLabel {
+  @include breakpoint($xs) {
+    margin-left: -60px;
+  }
+}
+
+.content__addressLabel {
+  @include breakpoint($xs) {
+    margin-left: 31px;
+  }
 }
