@@ -16,19 +16,19 @@ html(lang="ru")
       href="css/main.css"
     )
     link(
-      href="/css/screen.css", 
+      href="css/screen.css", 
       media="screen",
       rel="stylesheet",
       type="text/css"
     )
     link( 
-      href="/css/print.css",
+      href="css/print.css",
       media="print",
       rel="stylesheet",
       type="text/css"
     )
     <!--[if IE]>
-      <link href="/css/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+      <link href="css/ie.css" media="screen" rel="stylesheet" type="text/css" />
     <![endif]-->
 
     <!--[if lt IE 9]>
@@ -41,7 +41,10 @@ html(lang="ru")
     // Main Content
     include blocks/main/main.pug
     // Footer
-    include blocks/footer/footer.pug
-
-    script(src="js/main.js")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js")
+    include blocks/footer/footer.pug   
+link(
+  rel="stylesheet",
+  href="css/main.css"
+)
+script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js")
+script(async ,src="js/main.js")

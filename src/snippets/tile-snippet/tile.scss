@@ -25,15 +25,9 @@
   box-shadow: 0 0 15px $shadow;
   @include breakpoint($sm) {
     @include span(5);
-//    margin-right: auto;
   }
   @include breakpoint($xs) {
-//    @include span(5);
     @include span(12);
-//    margin-right: auto;
-  }
-  @include breakpoint($xxs) {
-//    margin-right: auto;
   }
   &:hover .tile__description {
     height: 70%;
