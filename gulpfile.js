@@ -15,8 +15,6 @@ var gulp = require('gulp'),
     jsonminify = require('gulp-jsonminify'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
-    imageminJpegoptim = require('imagemin-jpegoptim'),
-    imageminGifsicle = require('imagemin-gifsicle'),
     rigger = require('gulp-rigger'),
     rimraf = require('rimraf'),
     browserSync = require("browser-sync"),
@@ -124,7 +122,7 @@ gulp.task('image', function() {
         .pipe(imagemin ({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
-            use: [pngquant(),  imageminJpegoptim(), imageminGifsicle()],
+            use: [pngquant()],
             interlaced: true
         }))
         .pipe(gulp.dest(path.build.img))
