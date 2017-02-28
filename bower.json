@@ -28,6 +28,7 @@
     "jquery.maskedinput": "^1.4.1",
     "mailcheck": "^1.1.2",
     "magnific-popup": "^1.1.0",
-    "typeahead.js": "^0.11.1"
+    "typeahead.js": "^0.11.1",
+    "jquery-mask-plugin": "^1.14.10"
   }
 }

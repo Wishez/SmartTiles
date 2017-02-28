@@ -16,6 +16,10 @@ html(lang="ru")
       href="css/main.css"
     )
     link(
+      rel="stylesheet",
+      href="css/main.css"
+    )
+    link(
       href="css/screen.css", 
       media="screen",
       rel="stylesheet",
@@ -43,12 +47,7 @@ html(lang="ru")
     // Footer
     include blocks/footer/footer.pug   
     
-    link(
-      rel="stylesheet",
-      href="css/main.css"
-    )
     script(src="js/main.js")
-    script(
-      async,
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"
-    )
+    script(async,src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js")
+    
+    script(async, src="js/app.js")

@@ -33,7 +33,7 @@ build: {
 },
 src: { 
     html: 'src/*.pug', 
-    js: 'src/js/main.js',
+    js: 'src/js/*.js',
     data: 'src/data/*.json',
     style: 'src/scss/*.scss',
     snippets: 'src/snippets/*/*.pug',
