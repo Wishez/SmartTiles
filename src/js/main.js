@@ -10,3 +10,5 @@
 //= ../../bower_components/magnific-popup/dist/jquery.magnific-popup.min.js
 //= ../../bower_components/mailcheck/src/mailcheck.min.js
 //= ../../bower_components/typeahead.js/dist/typeahead.bundle.js
+
+//= app.js

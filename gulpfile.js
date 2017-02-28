@@ -72,6 +72,7 @@ gulp.task('clean', function (cb) {
 
 gulp.task('html', function buildHTML() {
     gulp.src(path.src.html) //Выберем файлы по нужному пути
+        .pipe(rigger())
         .pipe(pug()) //
         .pipe(gulp.dest(path.build.html)); //Выплюнем их в папку build
     gulp.src(path.src.snippets) //Выберем файлы по нужному пути
