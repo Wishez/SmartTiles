@@ -58,14 +58,12 @@
   }
 }
 .mainContent__foundFirms {
-  @extend .mainContent__firms;
   & .heading {
     color: $maroon;
   }
 }
 
 .mainContent__foundFirms, .mainContent__foundCategories, .mainContent__foundCollections {
-  @include clearfix;
   padding-bottom: 5.6% !important;
 }
 
