@@ -1,25 +1,36 @@
 .address__separator {
-  @include span(12);
-  display: inline-flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
   margin-top: 20px;
 }
+
+.flexbox {
+  & .address__separator {
+    width: span(12);
+    @include display-flex(inline-flex);
+    @include flex-flow(row nowrap);
+    @include justify-content(center);
+    @include align-items(center);
+  }
+}
+
 .separator__line {
   @include span(3);
   border-top: 0;
   height: 17px;
   background-color: #b3b3b3;
   margin: 0;
-  &:last-child {
-    @include last;
-  }
   @include breakpoint($xxs) {
     @include span(5);
-    &:last-child {
-           
-    }
+  }
+}
+.no-flexbox {
+  & .address__separator {
+    width: span(12);
+    position: relative;
+    top: 40px;
+    left: 19%;
+  }
+  & .separator__line {
+    margin: 20px 0 0;
   }
 }
 .separator__addressCard {

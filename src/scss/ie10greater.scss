@@ -1,0 +1,13 @@
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+// For ie10
+  .searchForm__inputSearch {
+     margin-left: -9px; 
+  }
+  .searchForm__btnSearch {
+    margin-bottom: 6px; 
+  }
+  
+  .tilesList__tile {
+    margin: 100px 100px 0;
+  }
+}

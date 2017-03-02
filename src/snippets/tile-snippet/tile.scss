@@ -6,12 +6,13 @@
   @extend .mainContent__firms;
   margin-top: 90px;
 }
-.tiles__tilesList{
-  @include display-flex(flex);
-  @include flex-flow(row wrap);
-  @include justify-content(center);
-  @include align-items(center);      
-
+.flexbox  {
+  .tiles__tilesList{
+    @include display-flex(flex);
+    @include flex-flow(row wrap);
+    @include justify-content(center);
+    @include align-items(center);      
+  }
 }
 .tilesList__tile { 
   @include span(4);
@@ -34,6 +35,11 @@
     border-bottom-width: 2px;
     box-shadow: 0 5px 20px $shadow;
     padding: 5%;
+  }
+}
+.no-flexbox {
+  & .tilesList__tile {
+    margin: 100px 100px 0;
   }
 }
 

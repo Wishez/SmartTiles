@@ -1,5 +1,5 @@
 doctype
-html(lang="ru", class="no-js", data-useragent="Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)")
+html(lang="ru", class="no-js")
   head
     meta(charset="UTF-8")
     meta(
@@ -48,7 +48,9 @@ link(
   media="print",
   rel="stylesheet"
 )
-<!--[if IE]>
-  <link type="text/css" rel="stylesheet" href="css/ie.css" />  
-<![endif]-->
+link( 
+  href="css/ie10greater.css",
+  rel="stylesheet"
+)
+<!--[if IE]><link type="text/css" rel="stylesheet" href="css/ie9.css" /><![endif]-->
 

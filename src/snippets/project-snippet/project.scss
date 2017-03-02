@@ -1,8 +1,15 @@
 .listWorks {
-  @extend .tiles__tilesList;
-  justify-content: space-between;
   padding-bottom: 10%;
 }
+.flexbox {
+  & .listWorks {
+    @include display-flex(flex);
+    @include flex-flow(row wrap);
+    @include justify-content(space-between);
+    @include align-items(center);
+  }
+}
+
 .listWorks__item {
   @include span(6);
   max-width: 500px;
@@ -22,6 +29,12 @@
     }
   }
 }
+.no-flexbox {
+  .project {
+    margin: 5em 2.1em 0;
+  }  
+}
+
 .project {
   list-style-type: none;
   height: auto;

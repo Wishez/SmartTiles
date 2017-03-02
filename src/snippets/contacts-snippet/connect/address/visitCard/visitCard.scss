@@ -11,7 +11,18 @@
 }
 .visitCard__header {
   height: 79px;
-  background: radial-gradient(circle, #ec4b4a 0%, #1f1f1f 80%);
+}
+
+.cssgradients {
+  & .visitCard__header {
+    background: radial-gradient(circle, #ec4b4a 0%, #1f1f1f 80%);
+  }
+}
+
+.no-cssgradients {
+  & .visitCard__header {
+    background-image: url('../img/gradients/visitCard-gradient.png');
+  }
 }
 .visitCard__body {
   background-color: #fff;
