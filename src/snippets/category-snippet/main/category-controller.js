@@ -1,4 +1,4 @@
-$(document).on('click', '#category a.tile, #foundCategories a.tile', function(e) {
+$(document).on('click', '#category a.tile', function(e) {
   $st.showLoading("#main");
   
   var $this = $(this);

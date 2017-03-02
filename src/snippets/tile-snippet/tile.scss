@@ -13,7 +13,7 @@
   @include align-items(center);      
 
 }
-.tilesList__tile {
+.tilesList__tile { 
   @include span(4);
   max-width: 400px;
   height: auto;

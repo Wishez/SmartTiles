@@ -3,7 +3,7 @@
   THIRD PARTY
 
 ***********/
-//= ../../bower_components/jquery/dist/jquery.min.js
+// ../../bower_components/jquery/dist/jquery.min.js
 //= ../../bower_components/jquery.easing/js/jquery.easing.min.js
 //= ../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js
 //= ../../bower_components/slick-carousel/slick/slick.min.js

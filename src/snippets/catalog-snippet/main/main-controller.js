@@ -1,5 +1,5 @@
 //= subNav/subNav.js
-$(document).on( 'click', '#catalogCovers a, #homeCategories a', function( event ) {
+$(document).on( 'click', '#catalogCovers a, #homeCategories a, #foundCategories a.tile', function( event ) {
   $st.showLoading('#main');
   
   var $this = $(this);
