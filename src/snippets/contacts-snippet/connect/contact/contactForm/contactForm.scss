@@ -7,9 +7,10 @@
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 .contactForm__controller {
-  @include span(8);
+  width:  span(8);
   align-items: flex-start;
   font-family: $stackComfortaa;
   &-filled .controller__label {
@@ -21,8 +22,11 @@
     color: $maroon;
   }
 }
+
+.controller__input, controller__label {
+  width: span(12);
+}
 .controller__label {
-  @include span(12);
   font-size: (20em / 16);
   display: block;
   position: relative;
@@ -36,7 +40,6 @@
   }
 }
 .controller__input {
-  @include span(12);
   background-color: transparent;
   border: 0;
   border-bottom: 1px solid #a4a2a1; 
@@ -61,7 +64,8 @@
   min-height: 102px;
 }
 .connectForm__button {
-  margin-top: 65px;
+  display: block;
+  margin: 65px auto 0;
   background-color: $beige;
   border: 2px solid #000;
   font-size: (24em / 16);

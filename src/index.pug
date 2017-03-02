@@ -1,5 +1,5 @@
 doctype
-html(lang="ru")
+html(lang="ru", class="no-js", data-useragent="Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)")
   head
     meta(charset="UTF-8")
     meta(
@@ -8,7 +8,7 @@ html(lang="ru")
     )
     meta(
       http-equiv="X-UA-Compatible",
-      content="IE=edge"
+      content="IE=edge,chrome=1"
     )
     title Smart Tiles
 
@@ -16,8 +16,7 @@ html(lang="ru")
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js">
     <![endif]-->
-    style.
-      
+    script(async, src="js/modernizr.min.js") 
   body
     // Header
     include blocks/header/header.pug
@@ -32,7 +31,6 @@ html(lang="ru")
       crossorigin="anonymous"
     )
     script(async, src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js")
-    script(async, src="js/modernizr-custom.js")
     script(async, src="js/main.js")
 
 
@@ -50,6 +48,7 @@ link(
   media="print",
   rel="stylesheet"
 )
-<![if IE]>
-<link type="text/css" rel="stylesheet" href="/css/ie.css" />
-<![endif]>
+<!--[if IE]>
+  <link type="text/css" rel="stylesheet" href="css/ie.css" />  
+<![endif]-->
+
