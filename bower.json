@@ -29,6 +29,7 @@
     "mailcheck": "^1.1.2",
     "magnific-popup": "^1.1.0",
     "typeahead.js": "^0.11.1",
-    "jquery-mask-plugin": "^1.14.10"
+    "jquery-mask-plugin": "^1.14.10",
+    "yepnope": "^2.0.0"
   }
 }

@@ -18,7 +18,7 @@ var projectsResource = function( params ) {
       var html = projectTileHtml,
           name = item.name,
           description = item.description,
-          short_name = 'projects/' + item.short_name + '/' + item.short_name;
+          short_name = 'projects/' + item.short_name + '/' + item.short_name.toLowerCase() + '_1';
       
       html = insertProperty(html, "short_name", short_name);
       html = insertProperty(html, "project", item.short_name);

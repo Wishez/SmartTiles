@@ -10,6 +10,9 @@
     @include justify-content(center);
     @include align-items(center);
   }
+  .separator__addressCard {
+    margin-right: 5px;
+  }
 }
 
 .separator__line {
@@ -28,9 +31,15 @@
     position: relative;
     top: 40px;
     left: 19%;
+    @include breakpoint($xxs) {
+      left: 0;
+    }
   }
   & .separator__line {
     margin: 20px 0 0;
+    @include breakpoint($xxs) {
+      margin: 11px 0 0;
+    }
   }
 }
 .separator__addressCard {
@@ -39,6 +48,6 @@
   text-align: center;
   margin: 0;
   @include breakpoint($xxs) {      
-    font-size: 25px;
+    font-size: 40px;
   }
 }

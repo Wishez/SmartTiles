@@ -14,9 +14,6 @@
   right: -5%;
   position: relative;
   @include clearfix;
-  @include transform-style(preserve-3d);
-  @include perspective(500px);
-  transition: perspective 0.5s;
   @include breakpoint($md) {
     @include span(6);
     margin: 0;
@@ -35,14 +32,67 @@
   @include breakpoint($xxs) {
     right: -4%;
   }
-  &:hover {
-   @include perspective(5000px);    
-  }
   &:nth-child(1n+3) {
     margin-top: 100px;   
     @include breakpoint($lg) {
       margin-top: 0;
     }
+  }
+}
+.csstransforms3d {
+  .optionsList__refer { 
+    @include transform-style(preserve-3d);
+    @include perspective(500px);
+    transition: perspective 0.5s;
+    &:hover {
+     @include perspective(5000px);    
+    }
+  }
+  .optionsList__option {
+    @include box-shadow(0 7px 15px $shadow);
+    @include rotateY(30deg);  
+    @include transition-property(transform, box-shadow);
+    @include transition-duration(0.5s);
+    &:hover {
+      @include rotateY(0);
+      @include box-shadow(0 3px 10px $shadow);
+      .option__variant {
+          @include rotateY(0deg);   
+          @include box-shadow(0 5px 10px $shadow);
+          width: 65.79634464751958%;
+          left: 17%;
+          @include breakpoint($lg) {
+            padding: 3% 8%;  
+          }
+          padding: 3% 12%;
+      }
+    }
+  }
+  .option__variant {
+    @include border-radius(5px);
+    @include box-shadow(0 20px 40px $shadow);
+    @include perspective(500px);
+    transform: translateZ(30px) rotateY(30deg);
+    @include transition-property(transform, box-shadow, left, width, padding);
+    @include transition-duration(0.5s);
+    width: 80.79634464751958%;
+    padding: 3% 19%;
+    left: 30%;
+    @include breakpoint($lg) {
+        padding: 3% 15%;  
+    }
+  }
+}
+
+.no-csstransforms3d {
+  .option__variant {
+    width: span(12);
+    bottom: 0;
+    top: auto;
+    @include breakpoint($lg) {
+      padding: 3% 8%;  
+    }
+    padding: 3% 12%;
   }
 }
 
@@ -54,55 +104,26 @@
   background-image: url('../img/options-sprite.png');
   position: relative;
   padding-bottom: (213% / 358) * 100;
-  @include box-shadow(0 7px 15px $shadow);
-  @include rotateY(30deg);  
-  @include transition-property(transform, box-shadow);
-  @include transition-duration(0.5s);
   @include breakpoint($lg) {
     margin: 0 15px 0 0;
   }
   @include breakpoint($xxs) {
     margin: 0 auto;
   }
-  &:hover {
-    @include rotateY(0);
-    @include box-shadow(0 3px 10px $shadow);
-    .option__variant {
-      @include rotateY(0deg);   
-      @include box-shadow(0 5px 10px $shadow);
-      width: 65.79634464751958%;
-      left: 17%;
-      @include breakpoint($lg) {
-        padding: 3% 8%;  
-      }
-      padding: 3% 12%;
-    }
-  }
 }
 
 .option__variant {
   position: absolute;
-  left: 30%;
   top: 90%;
   text-align: center;
   background-color: rgba(29, 22, 16, .8);
   border: 1px solid #000;
   font-size: (30rem / 16);
-  width: 80.79634464751958%;
   height: 36.47058823529412%;
-  padding: 3% 19%;
   word-wrap: break-word;
   overflow: hidden;
-  @include border-radius(5px);
-  @include box-shadow(0 20px 40px $shadow);
-  @include perspective(500px);
-  transform: translateZ(30px) rotateY(30deg);
-  @include transition-property(transform, box-shadow, left, width, padding);
-  @include transition-duration(0.5s);
-  @include breakpoint($lg) {
-        padding: 3% 15%;  
-  }
 }
+
 
 /* Background for options */
 @each $category, $y, $lg-y in 

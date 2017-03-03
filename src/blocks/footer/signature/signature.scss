@@ -1,7 +1,6 @@
 .footer__signature {
   width: span(2);
   @include last;
-//  right: 0;
   color: $cyan;
   @include breakpoint($md) {
     width: span(3);

@@ -6,4 +6,7 @@
   @include breakpoint($lg) {
     @include span(6);
   }
+  @include breakpoint($xxs) {
+    font-size: 9vw;
+  }
 }
