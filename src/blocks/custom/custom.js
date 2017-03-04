@@ -144,3 +144,16 @@ var insertProperty = function(string, propName, propValue) {
   
   return string;
 };
+
+st.setPolifillForPlaceholder = function() {
+  if (!Modernizr.input.placeholder) {
+    $.getScript('js/jquery.html5support.min.js')
+      .done(function() {
+          $.html5support();
+          $.placeholder();
+      })
+      .fail(function() {
+        console.log('Placeholder is not supported.');
+      });
+  } 
+};

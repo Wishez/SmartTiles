@@ -12,8 +12,9 @@ $(document).on('click', $st.nav.contacts, function() {
    $st.switchActiveMenu(this);
   
    $st.showContactsHTML();
+   $st.setPolifillForPlaceholder();
   
-  return false;
+   return false;
 });
 
 $(document).on('click', $st.nav.home + ', ' + $st.ids.breadcrumb.home + ', #logo', function() {

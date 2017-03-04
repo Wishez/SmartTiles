@@ -21,6 +21,7 @@ st.loadHomeContent = function() {
       });
       // Настраиваем форму.
       st.settingUpForm();
+      st.setPolifillForPlaceholder();
     });// end getContacts
   });// end getHomePettern
 }; // end loadHomeContent

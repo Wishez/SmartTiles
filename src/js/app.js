@@ -29,4 +29,5 @@ $(function() {
   //= ../snippets/firm-snippet/main/firm-controller.js
   //= ../snippets/breadcrumb-snippet/breadcrumb.js
   //= ../snippets/tile-snippet/tile.js
+  //= ../blocks/custom/custom-controller.js
 });//end ready
