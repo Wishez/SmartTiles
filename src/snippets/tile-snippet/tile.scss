@@ -1,11 +1,3 @@
-.coverTiles {
-  @include span(12);
-  padding-bottom: 75px;
-}
-.coverTiles-firm {
-  @extend .mainContent__firms;
-  margin-top: 90px;
-}
 .flexbox  {
   .tiles__tilesList{
     @include display-flex(flex);
@@ -13,6 +5,35 @@
     @include justify-content(center);
     @include align-items(center);      
   }
+}
+.no-flexbox {
+  & .tilesList__tile {
+    margin: 100px 100px 0;
+    @include breakpoint($xxs) {
+      margin: 0;
+    }
+  }
+}
+.csstransitions {
+  .tile__description {
+    transition: height 1s, border-width 1s, box-shadow 1s, padding 1s;
+  }
+  .tilesList__tile {  
+    &:hover .tile__description {
+      height: 70%;
+      border-bottom-width: 2px;
+      box-shadow: 0 5px 20px $shadow;
+      padding: 5%;
+    }
+  }
+}
+.coverTiles {
+  @include span(12);
+  padding-bottom: 75px;
+}
+.coverTiles-firm {
+  @extend .mainContent__firms;
+  margin-top: 90px;
 }
 .tilesList__tile { 
   @include span(4);
@@ -29,20 +50,6 @@
   }
   @include breakpoint($xs) {
     @include span(12);
-  }
-  &:hover .tile__description {
-    height: 70%;
-    border-bottom-width: 2px;
-    box-shadow: 0 5px 20px $shadow;
-    padding: 5%;
-  }
-}
-.no-flexbox {
-  & .tilesList__tile {
-    margin: 100px 100px 0;
-    @include breakpoint($xxs) {
-      margin: 0;
-    }
   }
 }
 
@@ -68,7 +75,6 @@
   top: 0;
   width: 100%;
   height: 0;
-  transition: height 1s, border-width 1s, box-shadow 1s, padding 1s;
   border-bottom: 0 solid #000;
   background-color: $ghostBlack;
   overflow:hidden;

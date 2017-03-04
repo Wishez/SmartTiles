@@ -1,3 +1,29 @@
-$(document).on('click', '.tile', function(e) {
-  e.preventDefault();
-}); // end click
+$(document).on('mouseover', '.tile, .sample__description', function() {
+  if (!Modernizr.csstransitions) {
+    console.log('test');
+    $(this)
+        .find('.tile__description, .sample__description')
+        .stop()
+        .animate({
+          height: "70%",
+          borderBottomWidth: 2,
+          boxShadow: '0 5px 20px rgba(0, 0, 0, .5)',
+          padding: '5%'
+        }, 1000);
+  }
+});
+
+$(document).on('mouseout', '.tile', function() {
+  if (!Modernizr.csstransitions) {
+    console.log('test');
+    $(this)
+        .find('.tile__description, .sample__description')
+        .stop()
+        .animate({
+          height: 0,
+          borderBottomWidth: 0,
+          boxShadow: 0,
+          padding: 0
+        }, 1000);
+  }
+});

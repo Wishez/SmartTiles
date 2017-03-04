@@ -5,13 +5,21 @@
   @include breakpoint($xs) {
     @include span(5);
   }
-  &:hover .sample__description {
-    height: 70%;
-    border-bottom-width: 2px;
-    box-shadow: 0 5px 20px $shadow;
-    padding: 5%;
+}
+.csstransitions {
+  .listTiles__tile  {
+    &:hover .sample__description {
+      height: 70%;
+      border-bottom-width: 2px;
+      box-shadow: 0 5px 20px $shadow;
+      padding: 5%;
+    }
+  }
+  .sample__description {
+     transition: height 1s, border 1s, box-shadow 1s, padding 1s; 
   }
 }
+
 .tile__sample {
   height: 100%;
   border: 10px solid #fff;

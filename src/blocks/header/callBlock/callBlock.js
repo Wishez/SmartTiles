@@ -2,14 +2,34 @@ var $callIcon = $('.call__icon i');
 
 $callIcon.hover(
   function() {
-    $callIcon
-      .removeClass('fa-phone')
-      .addClass('fa-volume-control-phone');
+    var $this = $(this);
+    $this
+      .stop(true)
+      .animate({
+        opacity: .1
+      }, 250, function() {
+        $this
+          .removeClass('fa-phone')
+          .addClass('fa-volume-control-phone');
+      })
+      .animate({
+        opacity: 1
+      }, 250);
   },
   function() {
-    $callIcon
-      .removeClass('fa-volume-control-phone')
-      .addClass('fa-phone');     
+    var $this = $(this);
+    $this
+      .stop(true)
+      .animate({
+        opacity: .1
+      }, 250, function() {
+        $this
+          .removeClass('fa-volume-control-phone')
+          .addClass('fa-phone');
+      })
+      .animate({
+        opacity: 1
+      }, 250);
   }                    
 );// end hover
 

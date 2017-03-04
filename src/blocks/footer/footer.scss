@@ -10,15 +10,6 @@
   padding-top: 4.0625%;
   font-family: $stackComfortaa;
   text-align: center;
-  @include breakpoint($sm) {
-//    padding-top: 7.0625%;
-  }
-  @include breakpoint($xs) {
-//    padding-top: 10.0625%;
-  }
-  @include breakpoint($xxs) {
-//    padding-top: 11.0625%;
-  }
   & a {
     transition: color 1s;
     &:hover {

@@ -10,3 +10,11 @@
 .subnavList__subCategory {
    width: span(6 of 12);
 }
+
+.collectionSlider__slides {
+  padding-bottom: 8%;
+}
+
+.collectionSlider__slides .slick-dots {
+    bottom: -40px;
+}

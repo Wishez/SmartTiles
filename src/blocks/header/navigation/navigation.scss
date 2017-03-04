@@ -50,14 +50,24 @@
   }
 }
 .navItem__refer {
-  transition: color .5s; 
   padding: 25px 14px 10px !important;
   @include link-colors($beige !important, $gray !important);
   @include breakpoint($xxs) {
    padding: 10px  !important; 
   }
-  &:hover {
-    color: lighten($beige, 20%) !important;
+}
+.csstransitions {
+  .navItem__refer {
+    transition: color 0.5s; 
+    &:hover {
+      color: lighten($beige, 20%) !important;
+    }
+  }
+  .navigation__btnTop { 
+    transition: color 0.5s;
+    &:hover {
+      color: lighten($cyan, 20%) !important;
+    }
   }
 }
 .navigation__btnTop {
@@ -69,12 +79,8 @@
   text-align: center;
   color: $cyan !important;
   background-color: $nightBlack;
-  transition: color 0.5s;
   font-size: (22em / 16);
   line-height: 220%;
-  &:hover {
-    color: lighten($cyan, 20%) !important;
-  }
   &:focus {
     text-decoration: none;
     @extend .navigation__btnTop;

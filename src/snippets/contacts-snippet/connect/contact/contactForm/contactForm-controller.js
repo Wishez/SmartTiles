@@ -2,7 +2,7 @@
 $(document)
   .on('input propertychange', '.contactForm__controller', function(e) {
     $(this).toggleClass('contactForm__controller-filled', !! $(e.target).val());
-  
+    
     var $nameInput = $('#name');
     var str = $nameInput.val();
   

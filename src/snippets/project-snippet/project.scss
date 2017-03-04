@@ -30,9 +30,12 @@
   }
 }
 .no-flexbox {
-  .project {
-    margin: 5em 2.1em 0;
-  }  
+  .listWorks__item {
+    margin: 3em 2.1em 0;
+  }
+  .projects__works {
+    padding-bottom: 10%;
+  }
 }
 
 .project {
