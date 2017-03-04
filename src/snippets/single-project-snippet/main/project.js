@@ -50,7 +50,7 @@ var singleProject = function( params ) {
       // короткого имя проекта в нижнем регистре и 
       // добавлением порядкового номера через нижнее подчёркивание.
       var html = '<figure class="slides__item" style=" background-image:url(img/projects/' + 
-      short_name + '/' + short_name.toLowerCase()  + '_' + i + '.JPG);"></figure>';
+      short_name + '/' + short_name.toLowerCase()  + '_' + i + '.jpg);"></figure>';
       
       finalHTML += html;
     }

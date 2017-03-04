@@ -1,7 +1,18 @@
 @import 'susy';
+.logo__navButton {
+  @media (max-width: 460px) { 
+    right: 38vw;
+  }
+}
 // Search
 .searchForm__inputSearch {
    margin-left: -9px; 
+  @media (max-width: 768px) { 
+     padding-bottom: 4px;
+  }
+  @media (max-width: 460px) { 
+     padding-bottom: 10px;
+  }
 }
 .searchForm__btnSearch {
   margin-bottom: 6px; 
@@ -13,8 +24,49 @@
 
 .collectionSlider__slides {
   padding-bottom: 8%;
+  @media (max-width: 460px) { 
+    padding-bottom: 18%;
+  }
 }
 
 .collectionSlider__slides .slick-dots {
     bottom: -40px;
+}
+
+.listTiles__tile {
+  @media (max-width: 460px) { 
+    width: 48%;
+  }
+}
+
+.coverTiles {
+  @media (max-width: 460px) { 
+   padding: 10% 0;
+  }
+}
+
+.tilesList__tile{
+  @media (max-width: 460px) { 
+     margin-top: 100px !important;
+  }
+}
+
+.optionsList__refer {
+  @media (max-width: 978px) and (min-width: 768px) {
+    position: static;
+  }
+  @media (max-width: 460px) {
+    position: static;
+  }
+}
+
+.listWorks__item {
+  @media (max-width: 1199px) and (min-width: 768px) {
+    float: none;
+  }
+}
+.project__projectBody {
+  @media (max-width: 1199px) and (min-width: 768px) {
+    max-height: 400px;
+  }
 }

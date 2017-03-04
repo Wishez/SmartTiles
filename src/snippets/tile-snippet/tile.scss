@@ -9,6 +9,15 @@
 .no-flexbox {
   & .tilesList__tile {
     margin: 100px 100px 0;
+    @include breakpoint($md) {
+      margin: 100px 75px 0;
+    }
+    @include breakpoint($sm) {
+      margin: 100px 30px 0;
+    }
+    @include breakpoint($xxs) {
+      margin: 100px 0 0 20vw;
+    }
     @include breakpoint($xxs) {
       margin: 0;
     }

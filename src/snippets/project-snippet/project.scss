@@ -18,16 +18,6 @@
     width: span(12);
     margin: 30px auto 0;
   }
-  &:hover {
-    .projectBody__description {
-      width: 50%;
-      color: $cyan;
-      padding: 3%;
-    }
-    .projectBody__img {
-      transform: scale(1.5, 1.5);
-    }
-  }
 }
 .no-flexbox {
   .listWorks__item {
@@ -60,7 +50,6 @@
   max-width: 100%;
   height: auto;
   display: block;
-  transition: transform 1s;
 }
 .projectBody__description {
   height: 100%;
@@ -68,10 +57,30 @@
   top: 0;
   position: absolute;
   right: 0;
-  transition: width 1s, color 2s;
   overflow: hidden;
   color: transparent;
   font-family: $stackComfortaa;
   border-left: 5px double #000;
   background-color: $ghostBlack;
+}
+
+.csstransitions {
+  .projectBody__description {
+    transition: width 1s, color 2s;
+  }
+  .projectBody__img {
+    transition: transform 1s;
+  }
+  .listWorks__item {
+    &:hover {
+      .projectBody__description {
+        width: 50%;
+        color: $cyan;
+        padding: 3%;
+      } 
+      .projectBody__img {
+        transform: scale(1.5, 1.5);
+      }
+    }
+  }
 }

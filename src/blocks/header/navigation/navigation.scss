@@ -27,16 +27,6 @@
     position: relative;
     right: 36%;
   }
-  @include breakpoint($xs) {
-    display: inline-flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-  }
-  @include breakpoint($xxs) {
-    flex-direction: column;
-  }
 }
 .navList__navItem {
   text-align: center;
@@ -54,20 +44,6 @@
   @include link-colors($beige !important, $gray !important);
   @include breakpoint($xxs) {
    padding: 10px  !important; 
-  }
-}
-.csstransitions {
-  .navItem__refer {
-    transition: color 0.5s; 
-    &:hover {
-      color: lighten($beige, 20%) !important;
-    }
-  }
-  .navigation__btnTop { 
-    transition: color 0.5s;
-    &:hover {
-      color: lighten($cyan, 20%) !important;
-    }
   }
 }
 .navigation__btnTop {
@@ -98,5 +74,52 @@
   }
   @include breakpoint($xxs) {
     font-size: (18em / 16);
+  }
+}
+.flexbox {
+  .navigation__navList {
+    @include breakpoint($xs) {
+      display: inline-flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+    }
+    @include breakpoint($xxs) {
+      flex-direction: column;
+    }
+  }
+}
+.no-flexbox {
+  .navigation__navList {
+    @include breakpoint($xs) {
+      width: 80%;
+      margin: 0 auto;
+    }
+    @include breakpoint($xxs) {
+      width: 100%;
+    }
+  }
+  .navList__navItem {
+    @include breakpoint($xs) {
+      display: inline-block;
+    }
+    @include breakpoint($xxs) {
+      margin: 7.5px -15px;
+    }
+  }
+}
+.csstransitions {
+  .navItem__refer {
+    transition: color 0.5s; 
+    &:hover {
+      color: lighten($beige, 20%) !important;
+    }
+  }
+  .navigation__btnTop { 
+    transition: color 0.5s;
+    &:hover {
+      color: lighten($cyan, 20%) !important;
+    }
   }
 }

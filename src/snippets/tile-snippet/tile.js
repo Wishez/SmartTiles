@@ -1,4 +1,4 @@
-$(document).on('mouseover', '.tile, .sample__description', function() {
+$(document).on('mouseover', '.tile', function() {
   if (!Modernizr.csstransitions) {
     console.log('test');
     $(this)
