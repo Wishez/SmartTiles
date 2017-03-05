@@ -54,6 +54,7 @@
   margin: 100px auto 0;
   list-style-type: none;
   box-shadow: 0 0 15px $shadow;
+  z-index: 999;
   @include breakpoint($sm) {
     @include span(5);
   }

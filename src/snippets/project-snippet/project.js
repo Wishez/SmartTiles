@@ -1,4 +1,3 @@
-
 $(document)
   .on('mouseover', '.listWorks__item', function() {
     if (!Modernizr.csstransitions) {

@@ -13,6 +13,7 @@ $(document).on('click', $st.nav.contacts, function() {
   
    $st.showContactsHTML();
    $st.setPolifillForPlaceholder();
+   $('#name').focus();
   
    return false;
 });

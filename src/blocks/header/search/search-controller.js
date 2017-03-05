@@ -2,6 +2,8 @@ $(document).on('submit', '#search', function() {
   
   var $input = $(this).find('#searchInput'); 
   var value = $input.val();
+  
+  $st.showLoading($st.ids.main);
 
   $st.search(value);
   

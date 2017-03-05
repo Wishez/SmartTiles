@@ -1,10 +1,11 @@
 $(document).on('click', '#category a.tile', function(e) {
-  $st.showLoading("#main");
   
   var $this = $(this);
   // Кэшируем иформацию о фирме
   $st.breadcrumb.firm.short_name = $this.attr('data-firm');
-  $st.breadcrumb.firm.name = $this.find('.tile__name').html();
+  $st.breadcrumb.firm.name = $this.find('.tile__name').text();
+  
+  $st.showLoading($st.ids.main);
   
   $st.buildAndShowFirmHTML();
   
@@ -12,12 +13,13 @@ $(document).on('click', '#category a.tile', function(e) {
 });// end click
 
 $(document).on('click', '#categoryCollections a.tile', function() {
-  $st.showLoading('#main');
   
   var $this = $(this);
   
-  $st.breadcrumb.collection.name = $this.find('.tile__name').html();
+  $st.breadcrumb.collection.name = $this.find('.tile__name').text();
   $st.breadcrumb.collection.short_name = $this.attr('data-col');
+  
+  $st.showLoading($st.ids.main);
   
   $st.buildAndShowCollectionHtml(false);
   

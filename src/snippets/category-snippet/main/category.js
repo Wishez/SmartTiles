@@ -57,11 +57,10 @@ var singleResource = function( params ) {
   that.presentResource = function() {
     var breadcrumb = that._buildBreadcrumb(),
         heading = that.buildHeading(),
-        tiles = that.buildTiles();
-   
-    var finalHTML = that.position + 
-        '<div class="container">' + breadcrumb + heading +  '</div>' + 
-        tiles + that.positionCloseTag;
+        tiles = that.buildTiles(),
+        finalHTML = that.position + 
+          '<div class="container">' + breadcrumb + heading +  '</div>' + 
+          tiles + that.positionCloseTag;
    
     $(params.geolocation).html(finalHTML);
   };
