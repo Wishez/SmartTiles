@@ -36,21 +36,31 @@ html(lang="ru", class="no-js")
 
 link(
   rel="stylesheet",
-  href="css/main.css"
+  href="css/main.css",
+  media="none",
+  onload="if(media!='all')media='all'",
+  lazyload="1"
 )
 link(
   href="css/screen.css", 
-  media="screen",
-  rel="stylesheet"
+  media="none",
+  rel="stylesheet",
+  onload="if(media!='screen')media='screen'",
+  lazyload="1"
 )
 link( 
   href="css/print.css",
-  media="print",
-  rel="stylesheet"
+  media="none",
+  rel="stylesheet",
+  onload="if(media!='print')media='print'",
+  lazyload="1"
 )
 link( 
   href="css/ie10greater.css",
-  rel="stylesheet"
+  rel="stylesheet",
+  media="none",
+  onload="if(media!='all')media='all'",
+  lazyload="1"
 )
-<!--[if IE]><link type="text/css" rel="stylesheet" href="css/ie9.css" /><![endif]-->
+<!--[if IE]><link type="text/css" rel="stylesheet" href="css/ie9.css" lazyload="1" /><![endif]-->
 

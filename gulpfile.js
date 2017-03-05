@@ -19,6 +19,7 @@ var gulp = require('gulp'),
     rimraf = require('rimraf'),
     browserSync = require("browser-sync"),
     jsonlint = require("gulp-jsonlint"),
+    inline_base64 = require('gulp-inline-base64'),
     reload = browserSync.reload;
 
 var path = {
@@ -110,6 +111,11 @@ gulp.task('style', function () {
       		sass: 'src/scss',
       		img: 'src/img'
     	}))
+//        .pipe(inline_base64({
+//          baseDir: 'build/css',
+//          maxSize: 14 * 1024,
+//          debug: true
+//        }))
         .pipe(prefixer())
         //Compress
         .pipe(cleanCSS())
@@ -117,6 +123,7 @@ gulp.task('style', function () {
         .pipe(gulp.dest(path.build.css))
         .pipe(reload({stream: true}))
 });
+
 
 gulp.task('image', function() {
     gulp.src(path.src.img)

@@ -21,6 +21,7 @@
 @import "../fonts/fonts.scss";
 @import "../blocks/custom/custom.scss"; 
 @import "../blocks/header/header.scss";
+@import "../blocks/footer/footer.scss";
 // Snippets of elements
 @import "../snippets/contacts-snippet/connect/connect.scss";
 @import "../snippets/breadcrumb-snippet/breadcrumb.scss";
@@ -36,6 +37,3 @@
 @import "../snippets/single-project-snippet/main/project.scss";
 @import "../snippets/firm-snippet/main/firm.scss";
 @import "../snippets/collection-snippet/main/collection.scss";
-
-
-@import "../blocks/footer/footer.scss";
