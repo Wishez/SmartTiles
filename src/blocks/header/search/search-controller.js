@@ -14,19 +14,19 @@ $(document).on('submit', '#search', function() {
 var categories = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: 'data/categories.json'
+  prefetch: '/media/smarttiles/data/categories.json'
 });
 
 var firms = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: 'data/firms.json'
+  prefetch: '/media/smarttiles/data/firms.json'
 });
 
 var collection = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: 'data/allCollections.json'
+  prefetch: '/media/smarttiles/data/allCollections.json'
 });
 
 $('#search .typeahead').typeahead({

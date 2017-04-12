@@ -1,0 +1,252 @@
+<!DOCTYPE html><html class="no-js" lang="ru"></html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equive="X-UA-Compatible" content="IE=edge">{% block title  %}
+{% endblock %}<!-- Header and Footer--><style>.header {
+    margin-top: 20px
+}
+.header__navbar {
+    background-color: transparent;
+    border: 0
+}
+.navContent__logo {
+    width: 32.57576%;
+    max-width: 320px
+}
+@media (min-width: 769px) and (max-width:991px) {
+    .navContent__logo {
+        width:99.24242%
+    }
+}
+@media (max-width: 769px) {
+    .navContent__logo {
+        width:99.24242%;
+        margin: 0 auto!important
+    }
+}
+#logo {
+    width: 100%;
+    height: auto
+}
+@media (max-width: 769px) {
+    .logo__navButton {
+        float:none;
+        display: block;
+        margin: 0 auto
+    }
+}
+.navContent__navigation {
+    width: 65.90909%;
+    float: right;
+    margin-top: 30px
+}
+@media (max-width: 1199px) {
+    .navContent__navigation {
+        width:99.24242%;
+        float: left;
+        margin-left: .37879%;
+        margin-right: .37879%;
+        padding-left: 0;
+        font-size: .9375em
+    }
+}
+@media (max-width: 768px) {
+    .navContent__navigation {
+        width:99.24242%;
+        float: left;
+        margin-left: .37879%;
+        margin-right: .37879%;
+        text-align: center;
+        margin-left: auto!important;
+        margin-right: auto!important;
+        padding: 0
+    }
+}
+.navigation__navList {
+    font-size: 1em
+}
+.navigation__navList .active .navItem__refer {
+    color: #fff!important;
+    background-color: #000!important
+}
+@media (max-width: 1199px) {
+    .navigation__navList {
+        float:left!important
+    }
+}
+@media (max-width: 768px) {
+    .navigation__navList {
+        float:none;
+        width: 99.24242%;
+        margin-left: 0;
+        margin-right: 0
+    }
+}
+.navList__navItem:hover .navItem__refer {
+    color: #fff!important;
+    background-color: #000!important
+}
+@media (max-width: 768px) {
+    .navList__navItem {
+        width:99.24242%
+    }
+}
+.navItem__refer {
+    -webkit-transition: color 1s,background 1s;
+    transition: color 1s,background 1s
+}
+.navigation__btnTop {
+    position: fixed;
+    bottom: 2vw;
+    right: 5vw;
+    z-index: 999
+}
+.navigation__btnTop i {
+    color: #3f3c39
+}
+.dropdown-menu {
+    min-width: 133px
+}
+@media (min-width: 1200px) {
+    .dropdown-menu {
+        min-width:137px
+    }
+}
+@media (max-width: 787px) {
+    .dropdown-menu {
+        text-align:center
+    }
+}
+.navList__navItem:hover .dropdown-menu .navItem__refer {
+    color: #fff!important
+}
+.footer {
+    border-top-style: double;
+    border-top-width: 3px;
+    border-color: #eee;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-size: .875em;
+    color: #827c76
+}
+@media (max-width: 460px) {
+    .footer {
+        padding-top:10%;
+        padding-bottom: 15%
+    }
+}
+.contacts {
+    width: 57.57576%;
+    float: left;
+    margin-left: .37879%;
+    margin-right: .37879%;
+    padding-bottom: 4%
+}
+@media (max-width: 769px) {
+    .contacts {
+        width:40.90909%;
+        float: left;
+        margin-left: .37879%;
+        margin-right: .37879%
+    }
+}
+@media (max-width: 460px) {
+    .contacts {
+        width:99.24242%;
+        float: left;
+        margin-left: .37879%;
+        margin-right: .37879%;
+        margin-top: 35px;
+        text-align: center;
+        padding-bottom: 10%
+    }
+}
+.address__item,.email__item,.officialSite__refer,.submitForm__agreement:hover,.submitForm__conditions:hover,.tel__item {
+    -webkit-transition: color .5s;
+    transition: color .5s;
+    color: #3f3c39
+}
+.address__item:hover,.email__item:hover,.officialSite__refer:hover,.submitForm__agreement:hover,.submitForm__conditions:hover,.tel__item:hover {
+    color: #bd0d0d!important
+}
+.address__item:visited,.email__item:visited,.officialSite__refer:visited,.submitForm__agreement:visited:hover,.submitForm__conditions:visited:hover,.tel__item:visited {
+    color: #3f3c39
+}
+.contacts__item {
+    margin-top: 20px
+}
+.address__label,.tel__label,email__label {
+    font-size: 1.125em
+}
+.info {
+    width: 32.57576%;
+    float: left;
+    margin-left: .37879%;
+    margin-right: .37879%;
+    margin-right: 4.54545%
+}
+@media (max-width: 769px) {
+    .info {
+        width:49.24242%;
+        float: left;
+        margin-left: .37879%;
+        margin-right: .37879%;
+        margin-right: 4.54545%
+    }
+}
+@media (max-width: 460px) {
+    .info {
+        width:99.24242%;
+        float: left;
+        margin-left: .37879%;
+        margin-right: .37879%;
+        margin-right: 0;
+        padding: 0 13%
+    }
+}
+.officialSite {
+    margin-top: 20px
+}
+.copyright {
+    padding: 4% 0 3%;
+    border-top: 1px solid #eee
+}
+@media (max-width: 460px) {
+    .copyright {
+        padding-top:10%
+    }
+}
+</style><script async src="/media/my/js/modernizr.js"> </script></head><body><!-- Main Content-->{% block content %}
+{% endblock %}<!-- Footer--><footer><div class="container footer"><p class="info">Регистрируясь на нашем сайте, вы попадаете в нашу команду! Мы поможем вам научиться оформлять заказы, будем консультировать и сопровождать. А если вы захотите зарабатывать с нами, научим всему необходимому</p><div class="contacts" itemscope itemtype="https://schema.org/Organization"><h3 class="contacts__title titke">Контакты</h3><address class="contacts__item" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"> <span class="address__label">Адрес: </span><a class="address__item" href="https://www.google.ru/maps/place/Ivanteevskaya+ul.,+13%D0%BA1,+Moskva,+107150/@55.818067,37.7239063,17z/data=!3m1!4b1!4m5!3m4!1s0x46b53450cf0645b9:0x869f26e9d7ad24d3!8m2!3d55.818067!4d37.726095?sa=X&amp;ved=0ahUKEwi_jtfNru3SAhWkE5oKHSiQDNYQ8gEIHjAA" itemprop="streetAddress">Ивантеевская д. 13 кор.1</a></address><div class="contacts__item tel" itemscope itemtype="https://schema.org/ContactPoint"><span class="tel__label">Телефон: </span><a class="tel__item" href="tel:8-965-158-14-81" itemprop="telephone">8 (965) 158-14-81</a></div><div class="contacts__item email" itemscope itemtype="https://schema.org/ContactPoint"><span class="email__label">E-mail: </span><a class="email__item" href="mailto:nat_kar_1971@mail.ru" itemprop="email">Support@cosmeticsyou.ru</a></div></div><div class="clearfix"></div><div class="copyright"><p class="cophyright__me">Copyright &copy; 2016 &dash; Сайт независимого консультанта Oriflame</p><p class="officialSite">Официальный сайт компании <a class="officialSite__refer anchor" href="https://oriflame.com/">www.oriflame.com</a></p><p class="authorSign" itemscope itemtype="http://schema.org/Person">Автор сайта <a class="authorSign__refer anchor" href="http://shining-present.tw1.ru/" itemprop="author">Филипп Журавлёв</a></p></div></div></footer><script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script><script async src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script><script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script><script async src="/media/my/js/main.js"></script></body><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/pepper-grinder/theme.min.css"><link rel="stylesheet" href="/media/my/css/main.css" media="none" onload="if(media!=='all')media='all'" lazyload="1"><link href="/media/my/css/screen.css" rel="stylesheet" media="none" onload="if(media!=='screen')media='screen'" lazyload="1"><link href="/media/my/css/print.css" rel="stylesheet" media="none" onload="if(media!=='print')media='print'" lazyload="1"><link href="/media/my/css/ie10greater.css" rel="stylesheet" media="none" onload="if(media!=='all') media='all'" lazyload="1"><!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/media/my/css/ie9.css" lazyload="1" />
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<script src="/media/my/js/jquery.html5support.min.js"></script>
+<![endif]--><script>(function(){var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://quickchat.pro/script/widget?w=5bf8601fa8'; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);})();</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-96952323-1', 'auto');
+ga('send', 'pageview');
+</script><script>(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter34654840 = new Ya.Metrika({
+                id:34654840,
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true
+            });
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script><noscript><div><img src="https://mc.yandex.ru/watch/34654840" style="position:absolute; left:-9999px;" alt=""></div></noscript><!-- /Yandex.Metrika counter -->

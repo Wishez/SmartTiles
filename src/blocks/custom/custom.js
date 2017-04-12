@@ -56,21 +56,21 @@ st.breadcrumb = {
 // Запросики.
 var smartApp = (function(){
   // Пути к шаблонам 
-  var homeHtml = "snippets/home-snippet/home-snippet.html",
-      contactsHtml = "snippets/contacts-snippet/contacts-snippet.html",
-      catalogHtml = "snippets/catalog-snippet/catalog-snippet.html",
-      serviceHtml = "snippets/service-snippet/service-snippet.html",
-      collectionHtml = "snippets/collection-snippet//collection-snippet.html",
+  var homeHtml = "/media/smarttiles/snippets/home-snippet/home-snippet.html",
+      contactsHtml = "/media/smarttiles/snippets/contacts-snippet/contacts-snippet.html",
+      catalogHtml = "/media/smarttiles/snippets/catalog-snippet/catalog-snippet.html",
+      serviceHtml = "/media/smarttiles/snippets/service-snippet/service-snippet.html",
+      collectionHtml = "/media/smarttiles/snippets/collection-snippet//collection-snippet.html",
 
-      catalogCategories = "data/categories.json",
-      firmItems = "data/firms.json",
-      allCollections = "data/allCollections.json",
-      collectionItems = "data/samples.json",
-      projects = "data/projects.json",
+      catalogCategories = "/media/smarttiles/data/categories.json",
+      firmItems = "/media/smarttiles/data/firms.json",
+      allCollections = "/media/smarttiles/data/allCollections.json",
+      collectionItems = "/media/smarttiles/data/samples.json",
+      projects = "/media/smarttiles/data/projects.json",
 
-      tileHtml = "snippets/tile-snippet/tile-snippet.html",
-      projectTileHtml = "snippets/project-snippet/project-snippet.html",
-      sampleHtml = "snippets/sample-snippet/sample-snippet.html";
+      tileHtml = "/media/smarttiles/snippets/tile-snippet/tile-snippet.html",
+      projectTileHtml = "/media/smarttiles/snippets/project-snippet/project-snippet.html",
+      sampleHtml = "/media/smarttiles/snippets/sample-snippet/sample-snippet.html";
                 
   return {  
     getHomePattern: function() {
@@ -129,7 +129,7 @@ var smartApp = (function(){
 
 st.showLoading = function(selector) {
   var html = "<div class='text-center'>";
-  html += "<img src='img/ajax-loader.gif'/></div>";
+  html += "<img src='/media/smarttiles/img/ajax-loader.gif'/></div>";
   $(selector).html(html);
 };
 

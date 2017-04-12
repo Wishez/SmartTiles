@@ -134,7 +134,7 @@ st.search = function( value ) {
           } else {
             finalHTML = '<p class="text-center no-matches">Вы искали: <strong>' + value +'</strong>.</br>';
             finalHTML += 'Но ничего не нашли:(.</p>' +
-              '<div class="not-found-gif"><img class="img-respinsive center-block" src="../img/not-found.gif" alt="Not found:(."></img></div>';
+              '<div class="not-found-gif"><img class="img-respinsive center-block" src="/media/smarttiles/img/not-found.gif" alt="Not found:(."></img></div>';
             
             st.select.$main.html(finalHTML);  
           }

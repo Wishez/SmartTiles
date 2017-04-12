@@ -1,0 +1,113 @@
+{% extends 'base.html' %}<!-- Header-->{% block title  %}<title>{{ share.title }}</title>{% endblock %}
+{% block content %}<header class="header" id="header"><nav class="header__navbar navbar navbar-default"><div class="container navbar__navContent navContent"><div class="navContent__logo logo navbar-header"><a class="navbar-brand" id="logo" href="{% url 'index' %}"><figure class="logo__img">    </figure></a><button class="logo__navButton navbar-toggle collapsed" id="toggleButton" type="button" data-toggle="collapse" data-target="#collapsable" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div><div class="clearfix visible-md visible-xs"></div><nav class="navContent__navigation navigation collapse navbar-collapse" id="collapsable" role="navigation"><ul class="navigation__navList navList nav navbar-nav navbar-right" id="nav"><li class="navList__navItem navItem" id="navHome" role="presentation"><a class="navItem__refer" href="{% url 'index' %}">Главная</a></li><li class="navList__navItem navItem active" id="navShares"><a class="navItem__refer" href="{% url 'share_list' %}">Акции</a></li><li class="navList__navItem navItem" id="navStore" role="presentation"><a class="navItem__refer" href="http://beautystore.oriflame.ru/502181">Интернет магазин</a></li><li class="dropdown navList__navItem navItem" id="navOpportunities" role="presentation"><a class="dropdown-toggle navItem__refer" href="{% url 'index' %}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Возможности <span class="caret"></span><ul class="dropdown-menu"><li class="navItem" id="navBusiness"><a href="{% url 'index' %}">Бизнес</a></li></ul></a></li><li class="navList__navItem navItem" id="navRegistr" role="presentation"><a class="navItem__refer" href="{% url 'registr' %}">Регистрация</a></li><li class="navList__navItem navItem" id="navVideos" role="presentation"><a class="navItem__refer" href="{% url 'index' %}">Видео</a></li><li class="navList__navItem navItem" id="navContacts" role="presentation"><a class="navItem__refer" href="{% url 'index' %}">Контакты</a></li></ul></nav><a class="navigation__btnTop" id="btnTop" href="#header"> <i class="fa fa-chevron-circle-up fa-3x" aria-hidden="true"></i></a></div></nav></header><!-- Main content--><div class="container">{% autoescape on %}<section class="singleShare">{% if share.published_date %}<div class="singleShare__date">{{ share.published_date }}</div>{% endif %}<h1 class="singleShare__title">{{ share.title }}
+</h1>{% if share.img %}<div class="singleShare__img"><img class="img-responsive" src="/media/{{ share.img }}" alt=""/></div>{% endif %}
+{% if share.text %} <p class="singleShare__text">{{ share.text|linebreaksbr }}</p>{% endif %}
+{% if share.text_2 %}<p class="singleShare__text">{{ share.text_2|linebreaksbr }}</p>{% endif %}
+{% if share.text_3 %}<p class="singleShare__text">{{ share.text_3|linebreaksbr }}</p>{% endif %}
+{% if share.conditions_h2_1 %}<h2 class="singleShare__conditions">{{ share.conditions_h2_1|linebreaksbr }}
+</h2><ul class="listConditions">{% if share.item_1_1 %}<li class="listConditions__item condition"><h3 class="condition__title">{{ share.item_1_1}}
+</h3>{% if share.p_1_1_1 %}<p class="condition__text">{{ share.p_1_1_1 }}</p>{% endif %}
+{% if share.img_1_1_1 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_1_1 }}" alt=""/></div>{% endif %}  
+{% if share.img_1_1_2 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_1_2 }}" alt=""/></div>{% endif %}  
+{% if share.img_1_1_3 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_1_3 }}" alt=""/></div>{% endif %}  
+{% if share.img_1_1_4 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_1_4 }}" alt=""/></div>{% endif %}  
+{% if share.p_1_1_2 %}<p class="condition__text">{{ share.p_1_1_2 }}</p>{% endif %}    </li>{% endif %}
+{% if share.item_1_2 %}<li class="listConditions__item condition"><h3 class="condition__title">{{ share.item_1_2}}
+</h3>{% if share.p_1_2_1 %}<p class="condition__text">{{ share.p_1_2_1 }}</p>{% endif %}
+{% if share.img_1_2_1 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_2_1 }}" alt=""/></div>{% endif %}  
+{% if share.img_1_2_2 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_2_2 }}" alt=""/></div>{% endif %}  
+{% if share.img_1_2_3 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_2_3 }}" alt=""/></div>{% endif %}  
+{% if share.img_1_2_4 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_2_4 }}" alt=""/></div>{% endif %}  
+{% if share.p_1_2_2 %}<p class="condition__text">{{ share.p_1_2_2 }}</p>{% endif %}    </li>{% endif %}
+{% if share.item_1_3 %}<li class="listConditions__item condition"><h3 class="condition__title">{{ share.item_1_3}}
+</h3>{% if share.p_1_3_1 %}<p class="condition__text">{{ share.p_1_3_1 }}</p>{% endif %}
+{% if share.img_1_3_1 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_3_1 }}" alt=""/></div>{% endif %}  
+{% if share.img_1_3_2 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_3_2 }}" alt=""/></div>{% endif %}  
+{% if share.img_1_3_3 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_3_3 }}" alt=""/></div>{% endif %}  
+{% if share.img_1_3_4 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_3_4 }}" alt=""/></div>{% endif %}  
+{% if share.p_1_3_2 %}<p class="condition__text">{{ share.p_1_3_2 }}</p>{% endif %}    </li>{% endif %}
+{% if share.item_1_4 %}<li class="listConditions__item condition"><h3 class="condition__title">{{ share.item_1_4}}
+</h3>{% if share.p_1_4_1 %}<p class="condition__text">{{ share.p_1_4_1 }}</p>{% endif %}
+{% if share.img_1_4_1 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_4_1 }}" alt=""/></div>{% endif %}  
+{% if share.img_1_4_2 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_4_2 }}" alt=""/></div>{% endif %}  
+{% if share.img_1_4_3 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_4_3 }}" alt=""/></div>{% endif %}  
+{% if share.img_1_4_4 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_4_4 }}" alt=""/></div>{% endif %}  
+{% if share.p_1_4_2 %}<p class="condition__text">{{ share.p_1_4_2 }}</p>{% endif %}    </li>{% endif %}
+{% if share.item_1_5 %}<li class="listConditions__item condition"><h3 class="condition__title">{{ share.item_1_5}}
+</h3>{% if share.p_1_4_1 %}<p class="condition__text">{{ share.p_1_5_1 }}</p>{% endif %}
+{% if share.img_1_5_1 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_5_1 }}" alt=""/></div>{% endif %}  
+{% if share.img_1_5_2 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_5_2 }}" alt=""/></div>{% endif %}  
+{% if share.img_1_5_3 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_5_3 }}" alt=""/></div>{% endif %}  
+{% if share.img_1_5_4 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_1_5_4 }}" alt=""/></div>{% endif %}  
+{% if share.p_1_5_2 %}<p class="condition__text">{{ share.p_1_5_2 }}</p>{% endif %}    </li>{% endif %}</ul>{% endif %}
+{% if share.conditions_h2_2 %}<h2 class="singleShare__conditions">{{ share.conditions_h2_2|linebreaksbr }}
+</h2><ul class="listConditions">{% if share.item_2_1 %}<li class="listConditions__item condition"><h3 class="condition__title">{{ share.item_2_1}}
+</h3>{% if share.p_2_1_1 %}<p class="condition__text">{{ share.p_2_1_1 }}</p>{% endif %}
+{% if share.img_2_1_1 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_1_1 }}" alt=""/></div>{% endif %}  
+{% if share.img_2_1_2 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_1_2 }}" alt=""/></div>{% endif %}  
+{% if share.img_2_1_3 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_1_3 }}" alt=""/></div>{% endif %}  
+{% if share.img_2_1_4 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_1_4 }}" alt=""/></div>{% endif %}  
+{% if share.p_2_1_2 %}<p class="condition__text">{{ share.p_2_1_2 }}</p>{% endif %}    </li>{% endif %}
+{% if share.item_2_2 %}<li class="listConditions__item condition"><h3 class="condition__title">{{ share.item_2_2}}
+</h3>{% if share.p_2_2_1 %}<p class="condition__text">{{ share.p_2_2_1 }}</p>{% endif %}
+{% if share.img_2_2_1 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_2_1 }}" alt=""/></div>{% endif %}  
+{% if share.img_2_2_2 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_2_2 }}" alt=""/></div>{% endif %}  
+{% if share.img_2_2_3 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_2_3 }}" alt=""/></div>{% endif %}  
+{% if share.img_2_2_4 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_2_4 }}" alt=""/></div>{% endif %}  
+{% if share.p_2_2_2 %}<p class="condition__text">{{ share.p_2_2_2 }}</p>{% endif %}    </li>{% endif %}
+{% if share.item_2_3 %}<li class="listConditions__item condition"><h3 class="condition__title">{{ share.item_2_3}}
+</h3>{% if share.p_2_3_1 %}<p class="condition__text">{{ share.p_2_3_1 }}</p>{% endif %}
+{% if share.img_2_3_1 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_3_1 }}" alt=""/></div>{% endif %}  
+{% if share.img_2_3_2 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_3_2 }}" alt=""/></div>{% endif %}  
+{% if share.img_2_3_3 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_3_3 }}" alt=""/></div>{% endif %}  
+{% if share.img_1_3_4 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_3_4 }}" alt=""/></div>{% endif %}  
+{% if share.p_2_3_2 %}<p class="condition__text">{{ share.p_2_3_2 }}</p>{% endif %}    </li>{% endif %}
+{% if share.item_2_4 %}<li class="listConditions__item condition"><h3 class="condition__title">{{ share.item_2_4}}
+</h3>{% if share.p_2_4_1 %}<p class="condition__text">{{ share.p_2_4_1 }}</p>{% endif %}
+{% if share.img_2_4_1 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_4_1 }}" alt=""/></div>{% endif %}  
+{% if share.img_2_4_2 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_4_2 }}" alt=""/></div>{% endif %}  
+{% if share.img_2_4_3 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_4_3 }}" alt=""/></div>{% endif %}  
+{% if share.img_2_4_4 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_4_4 }}" alt=""/></div>{% endif %}  
+{% if share.p_2_4_2 %}<p class="condition__text">{{ share.p_2_4_2 }}</p>{% endif %}    </li>{% endif %}
+{% if share.item_2_5 %}<li class="listConditions__item condition"><h3 class="condition__title">{{ share.item_2_5}}
+</h3>{% if share.p_2_4_1 %}<p class="condition__text">{{ share.p_2_5_1 }}</p>{% endif %}
+{% if share.img_2_5_1 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_5_1 }}" alt=""/></div>{% endif %}  
+{% if share.img_2_5_2 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_5_2 }}" alt=""/></div>{% endif %}  
+{% if share.img_2_5_3 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_5_3 }}" alt=""/></div>{% endif %}  
+{% if share.img_2_5_4 %}<div class="condition__img"><img class="img-responsive" src="/media/{{ share.img_2_5_4 }}" alt=""/></div>{% endif %}  
+{% if share.p_2_5_2 %}<p class="condition__text">{{ share.p_2_5_2 }}</p>{% endif %}    </li>{% endif %}</ul>{% endif %}
+{% if share.set_h3_1 %}<h3 class="share__set">{{ share.set_h3_1 }}
+</h3><ul class="setList">{% if share.item_s1_1 %}<li class="setList__item">{{ share.item_s1_1 }}</li>{% endif %}  
+{% if share.item_s1_2 %}<li class="setList__item">{{ share.item_s1_2 }}</li>{% endif %}  
+{% if share.item_s1_3 %}<li class="setList__item">{{ share.item_s1_3 }}</li>{% endif %}  
+{% if share.item_s1_4 %}<li class="setList__item">{{ share.item_s1_4 }}</li>{% endif %}
+{% if share.img_s1_1 %}<div class="setList__img"><img class="img-responsive" src="/media/{{ share.img_s1_1 }}" alt=""/></div>{% endif %}  
+{% if share.img_s1_2 %}<div class="setList__img"><img class="img-responsive" src="/media/{{ share.img_s1_2 }}" alt=""/></div>{% endif %}  </ul>{% endif %}
+{% if share.set_h3_2 %}<h3 class="share__set">{{ share.set_h3_2 }}
+</h3><ul class="setList">{% if share.item_s2_1 %}<li class="setList__item">{{ share.item_s2_1 }}</li>{% endif %}  
+{% if share.item_s2_2 %}<li class="setList__item">{{ share.item_s2_2 }}</li>{% endif %}  
+{% if share.item_s2_3 %}<li class="setList__item">{{ share.item_s2_3 }}</li>{% endif %}  
+{% if share.item_s2_4 %}<li class="setList__item">{{ share.item_s2_4 }}</li>{% endif %}
+{% if share.img_s2_1 %}<div class="setList__img"><img class="img-responsive" src="/media/{{ share.img_s2_1 }}" alt=""/></div>{% endif %}  
+{% if share.img_s2_2 %}<div class="setList__img"><img class="img-responsive" src="/media/{{ share.img_s2_2 }}" alt=""/></div>{% endif %}  </ul>{% endif %}
+{% if share.set_h3_3 %}<h3 class="share__set">{{ share.set_h3_3 }}
+</h3><ul class="setList">{% if share.item_s3_1 %}<li class="setList__item">{{ share.item_s3_1 }}</li>{% endif %}  
+{% if share.item_s3_2 %}<li class="setList__item">{{ share.item_s3_2 }}</li>{% endif %}  
+{% if share.item_s3_3 %}<li class="setList__item">{{ share.item_s3_3 }}</li>{% endif %}  
+{% if share.item_s3_4 %}<li class="setList__item">{{ share.item_s3_4 }}</li>{% endif %}
+{% if share.img_s3_1 %}<div class="setList__img"><img class="img-responsive" src="/media/{{ share.img_s3_1 }}" alt=""/></div>{% endif %}  
+{% if share.img_s3_2 %}<div class="setList__img"><img class="img-responsive" src="/media/{{ share.img_s3_2 }}" alt=""/></div>{% endif %}  </ul>{% endif %}
+{% if share.set_h3_4 %}<h3 class="share__set">{{ share.set_h3_4 }}
+</h3><ul class="setList">{% if share.item_s4_1 %}<li class="setList__item">{{ share.item_s4_1 }}</li>{% endif %}  
+{% if share.item_s4_2 %}<li class="setList__item">{{ share.item_s4_2 }}</li>{% endif %}  
+{% if share.item_s4_3 %}<li class="setList__item">{{ share.item_s4_3 }}</li>{% endif %}  
+{% if share.item_s4_4 %}<li class="setList__item">{{ share.item_s4_4 }}</li>{% endif %}
+{% if share.img_s4_1 %}<div class="setList__img"><img class="img-responsive" src="/media/{{ share.img_s4_1 }}" alt=""/></div>{% endif %}  
+{% if share.img_s4_2 %}<div class="setList__img"><img class="img-responsive" src="/media/{{ share.img_s4_2 }}" alt=""/></div>{% endif %}  </ul>{% endif %}
+{% if share.set_h3_5 %}<h3 class="share__set">{{ share.set_h3_5 }}
+</h3><ul class="setList">{% if share.item_s5_1 %}<li class="setList__item">{{ share.item_s5_1 }}</li>{% endif %}  
+{% if share.item_s5_2 %}<li class="setList__item">{{ share.item_s5_2 }}</li>{% endif %}  
+{% if share.item_s5_3 %}<li class="setList__item">{{ share.item_s5_3 }}</li>{% endif %}  
+{% if share.item_s5_4 %}<li class="setList__item">{{ share.item_s5_4 }}</li>{% endif %}
+{% if share.img_s5_1 %}<div class="setList__img"><img class="img-responsive" src="/media/{{ share.img_s5_1 }}" alt=""/></div>{% endif %}  
+{% if share.img_s5_2 %}<div class="setList__img"><img class="img-responsive" src="/media/{{ share.img_s5_2 }}" alt=""/></div>{% endif %}  </ul>{% endif %}<a class="share__backButton" href="{% url 'share_list' %}">Назад</a></section>{% endautoescape %}</div>{% endblock %}
