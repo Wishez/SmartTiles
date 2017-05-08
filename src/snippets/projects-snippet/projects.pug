@@ -1,0 +1,38 @@
+| {% extends 'project_base.html' %}
+
+| {% block title %}
+title Проекты
+| {% endblock %}
+
+| {% block content %}
+section.mainContent__projects.projects#contentProjects(
+  itemscope,
+  itemtype="https://schema.org/Thing"
+)
+  .container
+    h2.heading(itemprop="category") Проекты
+  .projects__works
+    .container
+      ul.listWorks(
+        role="group",
+        itemscope, 
+        itemtype="https://schema.org/Thing"
+      )
+        | {% for project in projects %}
+        a.listWorks__item(
+          href="{% url 'project_detail' pk=project.pk %}",
+          role="listitem",
+          itemprop="item",
+        )
+          li.project(itemprop="")
+            h2.project__name {{ project.name }}
+            .project__projectBody.projectBody
+              img.projectBody__img(
+                src="/media/{{ project.present_img }}",
+                alr="{{ project.name }}",
+                role="img",
+                itemprop="image"
+              )
+              p.projectBody__description {{ project.desc }}
+        | {% endfor %}
+| {% endblock %}

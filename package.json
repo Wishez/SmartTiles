@@ -2,11 +2,11 @@
   "name": "template",
   "version": "2.0.0",
   "description": "",
-  "author": "Shining Finger",
+  "author": "Filipp Zhuravlev",
   "license": "ISC",
   "private": true,
   "scripts": {
-    "istall": "bower install"
+    "install": "bower install"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",

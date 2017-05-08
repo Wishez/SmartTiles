@@ -1,0 +1,100 @@
+| { extends 'catalog_base.html' }
+
+| {% block title %}
+title Результаты поиска
+| {% endblock %}
+
+| {% block content %}
+| {% if categories %}
+section.mainContent__foundCategories#foundCategories
+  h2.heading Категории
+  coversTiles
+    .container
+      ul.tiles__tilesList.tilesList(
+        role="group",
+        itemscope,
+        itemtype="https://schema.org/Thing"
+      )
+        | {% for category in categories %}
+        a.tilesList__tile.tile(
+          href="{% url 'category_detail' pk=category.pk %}",
+          role="listitem",
+          itemprop="item"
+        )
+          li.tile__option(itemprop="category")
+            img.tile__img.img-responsive.center-block(
+              src="/media/{{ category.img }}",
+              alt="{{ category.name }}",
+              role="img",
+              itemprop="image"
+            )
+            h3.tile__name(itemprop="name") {{ category.name }}
+            p.tile__description(itemprop="description") {{ category.desc }}
+        | {% endfor %}
+| {% endif %}
+| {% if firms %}
+section.mainContent__foundFirms#foundFirms
+  h2.heading Фирмы
+  coversTiles
+    .container
+      ul.tiles__tilesList.tilesList(
+        role="group",
+        itemscope,
+        itemtype="https://schema.org/Thing"
+      )
+        | {% for firm in firms %}
+        a.tilesList__tile.tile(
+          href="{% url 'firm_detail' pk=firm.pk %}",
+          role="listitem",
+          itemprop="item"
+        )
+          li.tile__option(itemprop="category")
+            img.tile__img.img-responsive.center-block(
+              src="/media/{{ firm.img }}",
+              alt="{{ firm.name }}",
+              role="img",
+              itemprop="image"
+            )
+            h3.tile__name(itemprop="name") {{ firm.name }}
+            p.tile__description(itemprop="description") {{ firm.desc }}
+        | {% endfor %}
+| {% endif %}
+| {% if collection %}
+section.mainContent__foundCollections#foundCollections
+  h2.heading Коллекции
+  coversTiles
+    .container
+      ul.tiles__tilesList.tilesList(
+        role="group",
+        itemscope,
+        itemtype="https://schema.org/Thing"
+      )
+        | {% for collection in collections %}
+        a.tilesList__tile.tile(
+          href="{% url 'collection_detail' pk=collection.pk %}",
+          role="listitem",
+          itemprop="item"
+        )
+          li.tile__option(itemprop="category")
+            img.tile__img.img-responsive.center-block(
+              src="/media/{{ collection.img }}",
+              alt="{{ collection.name }}",
+              role="img",
+              itemprop="image"
+            )
+            h3.tile__name(itemprop="name") {{ collection.name }}
+            p.tile__description(itemprop="description") {{ collection.desc }}
+        | {% endfor %}
+| {% endif %}
+| {% if not collections and not firms and not categories %}
+p.text-center.no-matches Вы искали:
+  strong {{ value }}
+  br
+  | Но ничего не нашли:(.
+div.not-found-gif
+  img.img-respinsive.center-block(
+    src="/media/smarttiles/img/not-found.gif",
+    alt="Not found:(."
+  )
+| {% endif %}
+| {% endblock %}

@@ -3,7 +3,7 @@ $(document)
   .on('input propertychange', '.contactForm__controller', function(e) {
     $(this).toggleClass('contactForm__controller-filled', !! $(e.target).val());
     
-    var $nameInput = $('#name');
+    var $nameInput = $('#id_name');
     var str = $nameInput.val();
   
     // Преобразуем первую букву в имени пользователя.
@@ -28,7 +28,7 @@ var domains = ['gmail.com', 'aol.com', 'yahoo.com', 'mail.ru', 'yandex.ru', 'lis
 var topLevelDomains = ["com", "net", "org", "ru", "io"];
 
 // Хелпер для валидации введённого почтовго ящика.
-$(document).on('blur', '#email', function() {
+$(document).on('blur', '#id_email', function() {
   $(this).mailcheck({
     domains: domains,                       // optional
     topLevelDomains: topLevelDomains,       // optional
@@ -40,3 +40,5 @@ $(document).on('blur', '#email', function() {
     }
   });
 });
+
+$('#id_phone').mask('0 (000) 000 00 00');

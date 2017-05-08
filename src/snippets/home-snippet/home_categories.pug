@@ -1,0 +1,38 @@
+| {% extends 'catalog_base.html' %}
+
+| {% block title %}
+title {{ name }} 
+| {% endblock %}
+
+
+| {% block content %}
+section.mainContent__homeCategories#homeCategories(
+  itemscope,
+  itemtype="https://schema.org/Thing"
+)
+  h2.heading(itemprop="category") {{ name }}
+  .coversTiles
+    .container
+      ul.tiles__tilesList.tilesList(
+        role="group",
+        itemscope,
+        itemtype="https://schema.org/Thing"
+      )
+        | {% for category in categories %}
+        a.tilesList__tile.tile(
+          href="{% url 'category_detail' pk=category.pk %}",
+          data-cat="{{ category.short_name }}",
+          role="listitem",
+          itemprop="item"
+        )
+          li.tile__option(itemprop="category")
+            img.tile__img.img-responsive.center-block(
+              src="/media/{{ category.img }}",
+              alt="{{ category.name }}",
+              role="img",
+              itemprop="image"
+            )
+            h3.tile__name(itemprop="name") {{ category.name }}
+            p.tile__description(itemprop="description") {{ category.desc }}
+        | {% endfor %}
+| {% endblock %}

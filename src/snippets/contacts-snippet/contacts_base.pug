@@ -1,0 +1,35 @@
+| {% extends 'base.html' %}
+
+| {% block title %}
+title Контакты
+| {% endblock %}
+
+| {% block navigation %}
+nav.navContent__navigation.navigation.collapse.navbar-collapse#collapsable
+  ul#nav.navigation__navList.navList.nav.navbar-nav.navbar-right
+    li#home.navList__navItem.navItem
+      a.navItem__refer(href="{% url 'index' %}")
+        .navItem__icon
+          i.fa.fa-home.fa-2x(aria-hidden="true")
+        | Главная
+    li#catalog.navList__navItem.navItem
+      a.navItem__refer(href="{% url 'catalog' %}")
+        .navItem__icon
+          i.navItem__icon.fa.fa-book.fa-2x(aria-hidden="true")
+        | каталог
+    li#service.navList__navItem.navItem
+      a.navItem__refer(href="{% url 'service' %}")
+        .navItem__icon
+          i.navItem__icon.fa.fa-suitcase.fa-2x(aria-hidden="true")
+        | сервис
+    li#contacts.navList__navItem.navItem.active
+      a.navItem__refer(href="{% url 'contacts' %}")
+        .navItem__icon
+          i.navItem__icon.fa.fa-info-circle.fa-2x(aria-hidden="true")
+        | контакты
+    li#projects.navList__navItem.navItem
+      a.navItem__refer(href="{% url 'projects' %}")
+        .navItem__icon
+          i.navItem__icon.fa.fa-certificate.fa-2x(aria-hidden="true")
+        | Проекты
+| {% endblock %}

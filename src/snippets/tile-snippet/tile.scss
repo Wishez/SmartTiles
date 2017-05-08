@@ -3,7 +3,8 @@
     @include display-flex(flex);
     @include flex-flow(row wrap);
     @include justify-content(center);
-    @include align-items(center);      
+    @include align-items(center);
+    padding-bottom: 20%;
   }
 }
 .no-flexbox {
@@ -91,7 +92,7 @@
   padding: 0;
   text-align: center;
   font: {
-   family: stackComfortaa;
+   family: $stackComfortaa;
    size: (22em / 16);
   }
 }

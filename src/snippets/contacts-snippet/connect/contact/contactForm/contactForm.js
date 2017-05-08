@@ -1,4 +1,4 @@
 // Настраивает маски формы.
 st.settingUpForm = function() {
-  $('#phoneNumber').mask('0 (000) 000 00 00');
+  $('#id_phone').mask('0 (000) 000 00 00');
 };

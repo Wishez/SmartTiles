@@ -4,7 +4,7 @@ $(document)
       $(this)
         .find('.projectBody__description')
         .stop()
-        .animate({
+        .animate({ 
           width: "50%",
           color: '#76bdff',
           padding: '3%'

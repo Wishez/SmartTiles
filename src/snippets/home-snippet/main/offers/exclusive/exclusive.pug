@@ -3,19 +3,99 @@
   itemscope,
   itemtype="https://schema.org/Thing")
   ul.exclusive__slides.slides(role="group")
-    figure.slides__exclusiveImg.exclusiveImg-1(
+    | {% if slider.slide_1 %}
+    figure.slides__exclusiveImg.exclusiveImg(
       role="listitem",
-      itemtype="image"
+      itemtype="image",
+      style='background-image: url("/media/{{ slider.slide_1 }}");'
     )
-    figure.slides__exclusiveImg.exclusiveImg-2(
+    | {% endif %}
+    | {% if slider.slide_2 %}
+    figure.slides__exclusiveImg.exclusiveImg(
       role="listitem",
-      itemtype="image"
+      itemtype="image",
+      style='background-image: url("/media/{{ slider.slide_2 }}");'
     )
-    figure.slides__exclusiveImg.exclusiveImg-3(
-      role="listitem"
-      itemtype="image"
-    )
-    figure.slides__exclusiveImg.exclusiveImg-4(
+    | {% endif %}
+    | {% if slider.slide_3 %}
+    figure.slides__exclusiveImg.exclusiveImg(
       role="listitem",
-      itemtype="image"
+      itemtype="image",
+      style='background-image: url("/media/{{ slider.slide_3 }}");'
     )
+    | {% endif %}
+    | {% if slider.slide_4 %}
+    figure.slides__exclusiveImg.exclusiveImg(
+      role="listitem",
+      itemtype="image",
+      style='background-image: url("/media/{{ slider.slide_4 }}");'
+    )
+    | {% endif %}
+    | {% if slider.slide_5 %}
+    figure.slides__exclusiveImg.exclusiveImg(
+      role="listitem",
+      itemtype="image",
+      style='background-image: url("/media/{{ slider.slide_5 }}");'
+    )
+    | {% endif %}
+    | {% if slider.slide_6 %}
+    figure.slides__exclusiveImg.exclusiveImg(
+      role="listitem",
+      itemtype="image",
+      style='background-image: url("/media/{{ slider.slide_6 }}");'
+    )
+    | {% endif %}
+    | {% if slider.slide_7 %}
+    figure.slides__exclusiveImg.exclusiveImg(
+      role="listitem",
+      itemtype="image",
+      style='background-image: url("/media/{{ slider.slide_7 }}");'
+    )
+    | {% endif %}
+    | {% if slider.slide_8 %}
+    figure.slides__exclusiveImg.exclusiveImg(
+      role="listitem",
+      itemtype="image",
+      style='background-image: url("/media/{{ slider.slide_8 }}");'
+    )
+    | {% endif %}
+    | {% if slider.slide_9 %}
+    figure.slides__exclusiveImg.exclusiveImg(
+      role="listitem",
+      itemtype="image",
+      style='background-image: url("/media/{{ slider.slide_9 }}");'
+    )
+    | {% endif %}
+    | {% if slider.slide_10 %}
+    figure.slides__exclusiveImg.exclusiveImg(
+      role="listitem",
+      itemtype="image",
+      style='background-image: url("/media/{{ slider.slide_10 }}");'
+    )
+    | {% endif %}
+    | {% if slider.slide_11 %}
+    figure.slides__exclusiveImg.exclusiveImg(
+      role="listitem",
+      itemtype="image",
+      style='background-image: url("/media/{{ slider.slide_11 }}");'
+    )
+    | {% endif %}
+    | {% if slider.slide_12 %}
+    figure.slides__exclusiveImg.exclusiveImg(
+      role="listitem",
+      itemtype="image",
+      style='background-image: url("/media/{{ slider.slide_12 }}");'
+    )
+    | {% endif %}
+//    figure.slides__exclusiveImg.exclusiveImg(
+//      role="listitem",
+//      itemtype="image"
+//    )
+//    figure.slides__exclusiveImg.exclusiveImg(
+//      role="listitem"
+//      itemtype="image"
+//    )
+//    figure.slides__exclusiveImg.exclusiveImg(
+//      role="listitem",
+//      itemtype="image"
+//    )

@@ -1,0 +1,134 @@
+| {% extends 'project_base.html' %}
+
+| {% block title %}
+title {{ project.name }}
+| {% endblock %}
+
+| {% block content %}
+section.mainContent__singleProject.singleProject
+  .container
+    ol#breadcrumb.mainContent__breadcrumb.breadcrumb.breadcrumb-firm(
+        itemscope , 
+        itemtype="http://schema.org/BreadcrumbList"
+       )
+         li#bcProjects.breadcrumb__breadcrumbItem.breadcrumbItem(
+          itemprop="itemListElement",
+          itemscope itemtype="http://schema.org/ListItem"
+        )
+           a.breadcrumbItem__refer( 
+             href="{% url 'projects' %}",
+             itemprop="item"
+           )
+             span(itemprop='name') Проекты
+           meta(
+             itemprop='position',
+             content='1'
+           )
+         li.breadcrumb__breadcrumbItem.breadcrumbItem.active(
+          itemprop="itemListElement",
+          itemscope itemtype="http://schema.org/ListItem"
+        )
+           span(itemprop='name') {{ project.name }}
+           meta(
+             itemprop='position',
+             content='2'
+           )  
+    h2.singleProject__heading.heading(itemprop='category') {{ project.name }}
+   
+  .singleProject__slider.slider(
+    role='region',
+    itemscope,
+    itemtype='https://schema.org/Thing'
+  )
+    ul.slider__slides
+      | {% if project.img_1 %}
+      figure.slides__item(
+        style="background-image:url('/media/{{ project.img_1 }}');"
+      )
+      | {% endif %}
+      | {% if project.img_2 %}
+      figure.slides__item(
+        style="background-image:url('/media/{{ project.img_2 }}');"
+      )
+      | {% endif %}
+      | {% if project.img_3 %}
+      figure.slides__item(
+        style="background-image:url('/media/{{ project.img_3 }}');"
+      )
+      | {% endif %}
+      | {% if project.img_4 %}
+      figure.slides__item(
+        style="background-image:url('/media/{{ project.img_4 }}');"
+      )
+      | {% endif %}
+      | {% if project.img_5 %}
+      figure.slides__item(
+        style="background-image:url('/media/{{ project.img_5 }}');"
+      )
+      | {% endif %}
+      | {% if project.img_6 %}
+      figure.slides__item(
+        style="background-image:url('/media/{{ project.img_6 }}');"
+      )
+      | {% endif %}
+      | {% if project.img_7 %}
+      figure.slides__item(
+        style="background-image:url('/media/{{ project.img_7 }}');"
+      )
+      | {% endif %}
+      | {% if project.img_8 %}
+      figure.slides__item(
+        style="background-image:url('/media/{{ project.img_8 }}');"
+      )
+      | {% endif %}
+      | {% if project.img_9 %}
+      figure.slides__item(
+        style="background-image:url('/media/{{ project.img_9 }}');"
+      )
+      | {% endif %}
+      | {% if project.img_10 %}
+      figure.slides__item(
+        style="background-image:url('/media/{{ project.img_10 }}');"
+      )
+      | {% endif %}
+      | {% if project.img_11 %}
+      figure.slides__item(
+        style="background-image:url('/media/{{ project.img_11 }}');"
+      )
+      | {% endif %}
+      | {% if project.img_12 %}
+      figure.slides__item(
+        style="background-image:url('/media/{{ project.img_12 }}');"
+      )
+      | {% endif %}
+      | {% if project.img_13 %}
+      figure.slides__item(
+        style="background-image:url('/media/{{ project.img_13 }}');"
+      )
+      | {% endif %}
+      | {% if project.img_14 %}
+      figure.slides__item(
+        style="background-image:url('/media/{{ project.img_14 }}');"
+      )
+      | {% endif %}
+      | {% if project.img_15 %}
+      figure.slides__item(
+        style="background-image:url('/media/{{ project.img_15 }}');"
+      )
+      | {% endif %}
+  .contact__visitCard(
+        itemscope,
+        itemtype="http://schema.org/Organization")
+        .visitCard__header
+        .visitCard__body
+          h3.body__title Контакты
+          p.body__contacts
+            a.contacts__tel(
+              href="tel:8-495-909-50-20",
+              itemprop="telephone"
+            ) 8-495-909-50-20
+            a.contacts__email(
+              href="mailto:connect@smart-tiles.ru",
+              itemprop="email"
+            ) connect@smart-tiles.ru
+| {% endblock %}

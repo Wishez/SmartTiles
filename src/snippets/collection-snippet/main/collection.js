@@ -175,7 +175,7 @@ st.buildAndShowCollectionHtml = function( path ) {
               arrows: false
             }  
           }
-        ]
+        ] 
       }); // end slick
 
       // Добавляем увеличение картинок.

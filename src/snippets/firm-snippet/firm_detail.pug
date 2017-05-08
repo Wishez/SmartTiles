@@ -1,0 +1,90 @@
+| {% extends 'catalog_base.html' %}
+
+| {% block title %}
+title {{ firm.name }}
+| {% endblock %}
+
+
+| {% block content %}
+section#firmCategories.mainContent__firm.firm
+  .container
+    ol#breadcrumb.mainContent__breadcrumb.breadcrumb.breadcrumb-firm(
+      itemscope , 
+      itemtype="http://schema.org/BreadcrumbList"
+     )
+       li#bcHome.breadcrumb__breadcrumbItem.breadcrumbItem(
+        itemprop="itemListElement",
+        itemscope itemtype="http://schema.org/ListItem"
+      )
+         a.breadcrumbItem__refer( 
+           href="{% url 'index' %}",
+           itemprop="item"
+         )
+           span(itemprop='name') Главная
+         meta(
+           itemprop='position',
+           content='1'
+         )
+       li#bcCatalog.breadcrumb__breadcrumbItem.breadcrumbItem(
+        itemprop="itemListElement",
+        itemscope itemtype="http://schema.org/ListItem"
+      )
+         a.breadcrumbItem__refer( 
+           href="{% url 'catalog' %}",
+           itemprop="item"
+         )
+           span(itemprop='name') Каталог
+         meta(
+           itemprop='position',
+           content='2'
+         )  
+       li#bcCategory.breadcrumb__breadcrumbItem.breadcrumbItem(
+           itemprop="itemListElement",
+           itemscope,
+           itemtype="http://schema.org/ListItem"
+        )
+         a.breadcrumbItem__refer( 
+           href="{% url 'category_detail' pk=firm.category.pk %}",
+           itemprop="item"
+         )
+           span(itemprop='name') {{ firm.category.name }}
+         meta(
+           itemprop='position',
+           content='3'
+         )
+       li#bcFirm.breadcrumb__breadcrumbItem.breadcrumbItem.active(
+         itemprop="itemListElement",
+         itemscope,
+         itemtype="http://schema.org/ListItem"
+       )
+         span(itemprop='name') {{ firm.name }}
+         meta(
+           itemprop='position',
+           content='3'
+         )
+    h2.heading.heading-firm(itemprop='category') {{ firm.name }}
+  
+  .coverTiles
+    .container
+      ul.tiles__tilesList.tileList(
+        role='group',
+        itemscope,
+        itemtype='https://schema.org/Thing'
+      )
+        | {% for collection in collections %}
+        a.tilesList__tile.tile(
+          href="{% url 'collection_detail' pk=collection.pk %}",
+          role="listitem",
+          itemprop="item"
+        )
+          li.tile__option(itemprop="category")
+            img.tile__img.img-responsive.center-block(
+              src="/media/{{ collection.img }}",
+              alt="{{ collection.name }}",
+              role="img",
+              itemprop="image"
+            )
+            h3.tile__name(itemprop="name") {{ collection.name }}
+            p.tile__description(itemprop="description") {{ collection.desc }}
+        | {% endfor %}  
+| {% endblock %}

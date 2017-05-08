@@ -1,0 +1,76 @@
+| {% extends 'catalog_base.html' %}
+
+| {% block title %}
+title {{ category_name }}
+| {% endblock %}
+
+
+| {% block content %}
+section.mainContent__category
+  .container
+    ol#breadcrumb.mainContent__breadcrumb.breadcrumb(
+      itemscope , 
+      itemtype="http://schema.org/BreadcrumbList"
+    )
+      li#bcHome.breadcrumb__breadcrumbItem.breadcrumbItem(
+      itemprop="itemListElement",
+      itemscope itemtype="http://schema.org/ListItem"
+    )
+        a.breadcrumbItem__refer( 
+          href="{% url 'index' %}",
+          itemprop="item"
+        )
+          span(itemprop='name') Главная
+        meta(
+          itemprop='position',
+          content='1'
+        )
+      li#bcCatalog.breadcrumb__breadcrumbItem.breadcrumbItem(
+        itemprop="itemListElement",
+        itemscope itemtype="http://schema.org/ListItem"
+      )
+        a.breadcrumbItem__refer( 
+          href="{% url 'catalog' %}",
+          itemprop="item"
+        )
+          span(itemprop='name') Каталог
+        meta(
+          itemprop='position',
+          content='2'
+        )  
+      li#bcCategory.breadcrumb__breadcrumbItem.breadcrumbItem.active(
+          itemprop="itemListElement",
+          itemscope itemtype="http://schema.org/ListItem"
+        )
+        span(itemprop='name') {{ category_name }}
+        meta(
+          itemprop='position',
+          content='3'
+        )
+    h2.heading(itemprop='category') {{ category_name }}
+  
+  .coverTiles.coverTiles-firm
+    .container
+      ul.tiles__tilesList.tileList(
+        role='group',
+        itemscope,
+        itemtype='https://schema.org/Thing'
+      )
+        //- {% url 'firm' pk=category.pk %}
+        | {% for firm in firms %}
+        a.tilesList__tile.tile(
+          href="{% url 'firm_detail' pk=firm.pk %}",
+          role="listitem",
+          itemprop="item"
+        )
+          li.tile__option(itemprop="category")
+            img.tile__img.img-responsive.center-block(
+              src="/media/{{ firm.img}}",
+              alt="{{ firm.name }}",
+              role="img",
+              itemprop="image"
+            )
+            h3.tile__name(itemprop="name") {{ firm.name }}
+            p.tile__description(itemprop="description") {{ frim.desc }}
+        | {% endfor %}  
+| {% endblock %}

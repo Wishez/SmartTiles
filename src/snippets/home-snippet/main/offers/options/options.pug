@@ -5,32 +5,28 @@
       itemtype="https://schema.org/Thing"
   )
     a.optionsList__refer(
-      href="#", 
-      data-cat="DT CT CC CL",
+      href="{% url 'type_categories' pk='CC' %}",
       role="listitem",
       itemporp="item"
     )
       li.optionsList__option.option.optionsList__option-flooring(itemporp="category")
         .option__variant(itemporp="name") напольные покрытия
     a.optionsList__refer(
-      href="#", 
-      data-cat="FC",
+      href="{% url 'type_categories' pk='CS' %}", 
       role="listitem",
       itemporp="item"
     )
       li.optionsList__option.option.optionsList__option-ceilingSystems(itemporp="category")
         .option__variant(itemporp="name") потолочные системы
     a.optionsList__refer(
-      href="#", 
-      data-cat="WC",
+      href="{% url 'type_categories' pk='WC' %}", 
       role="listitem",
       itemporp="item"
     )
       li.optionsList__option.option.optionsList__option-wallCoverings(itemporp="category")
         .option__variant(itemporp="name") настенные покрытия
     a.optionsList__refer(
-      href="", 
-      data-cat="T",
+      href="{% url 'type_categories' pk='TT' %}",
       role="listitem",
       itemporp="item"
     )

@@ -1,55 +1,66 @@
 .contact__formBlock
   form#contact.formBLock__contactForm.contactForm(
-    action="",
+    method='POST',
     role="form"  
   )
+    | {% csrf_token %}
+    | {% for field in form %}
     .contactForm__controller.controller
-      label.controller__label.controller__label-for_name(
-        for="name",
-        aria-labelledby="имя"
-      ) Имя
-      input#name.controller__input(
-        type="text",
-        name="name",
-        placeholder="Имя",
-        maxlength="24",
-        minlength="1",
-        required=""
-      )
-    .contactForm__controller.controller
-      label.controller__label.controller__label-for_email(
-        for="email",
-        aria-labelledby="email"
-      ) Email
-      input#email.controller__input(
-        type="email",
-        name="email",
-        placeholder="Email",
-        maxlength="40",
-        minlength="10",
-        required=''
-      )
+      | {{ field.label_tag }}
+      | {{ field }}
+      | {{ field.errors }}
+      | {% if field.email %}
       p#helper.conroller__emailHelper
-    .contactForm__controller.controller
-      label.controller__label.controller__label-for_email(
-        for="phoneNumber",
-        aria-labelledby="Телефон"
-      ) Телефон
-      input#phoneNumber.controller__input(
-        type="tel",
-        name="phoneNumber",
-        placeholder="Телефон",
-        required=''
-      )
-    .contactForm__controller.controller
-      label.controller__label.controller__label-for_message(
-        for="message",
-        aria-labelledby="сообщение"
-      ) Сообщение
-      textarea#message.controller__input.controller__input-textarea(
-        type="text",
-        name="message",
-        placeholder="Сообщение",
-        required=''
-      )
+      | {% endif %}
+    | {% endfor %}
+    
     button#sendForm.connectForm__button Отправить
+//    .contactForm__controller.controller
+//      label.controller__label.controller__label-for_name(
+//        for="name",
+//        aria-labelledby="имя"
+//      ) Имя
+//      input#name.controller__input(
+//        type="text",
+//        name="name",
+//        placeholder="Имя",
+//        maxlength="24",
+//        minlength="1",
+//        required=""
+//      )
+//    .contactForm__controller.controller
+//      label.controller__label.controller__label-for_email(
+//        for="email",
+//        aria-labelledby="email"
+//      ) Email
+//      input#email.controller__input(
+//        type="email",
+//        name="email",
+//        placeholder="Email",
+//        maxlength="40",
+//        minlength="10",
+//        required=''
+//      )
+//      p#helper.conroller__emailHelper
+//    .contactForm__controller.controller
+//      label.controller__label.controller__label-for_email(
+//        for="phoneNumber",
+//        aria-labelledby="Телефон"
+//      ) Телефон
+//      input#phoneNumber.controller__input(
+//        type="tel",
+//        name="phoneNumber",
+//        placeholder="Телефон",
+//        required=''
+//      )
+//    .contactForm__controller.controller
+//      label.controller__label.controller__label-for_message(
+//        for="message",
+//        aria-labelledby="сообщение"
+//      ) Сообщение
+//      textarea#message.controller__input.controller__input-textarea(
+//        type="text",
+//        name="message",
+//        placeholder="Сообщение",
+//        required=''
+//      )

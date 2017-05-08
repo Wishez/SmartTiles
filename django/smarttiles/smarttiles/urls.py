@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """smarttiles URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,7 +19,13 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     url(r'', include('home.urls')),
+    url(r'^connect/', include('connect.urls')),
+    url(r'^projects/', include('projects.urls')),
+    url(r'^catalog/', include('catalog.urls')),
+    url(r'^service/', include('service.urls')),
     url(r'^admin/', admin.site.urls),
-]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    url(r'^api/v0/', include('api_v0.urls'))
+]

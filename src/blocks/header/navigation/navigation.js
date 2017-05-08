@@ -6,53 +6,55 @@ $(document).on('click', '#subNav .subCategory__refer, #btnTop' , function() {
   
   return false;
 });// end click
+//
+//$(document).on('click', $st.nav.contacts, function() {
+//   $st.showLoading($st.ids.main);
+//   $st.switchActiveMenu(this);
+//  
+//   $st.showContactsHTML();
+//   $st.setPolifillForPlaceholder();
+//   $('#name').focus();
+//  
+//   return false;
+//});
 
-$(document).on('click', $st.nav.contacts, function() {
-   $st.showLoading($st.ids.main);
-   $st.switchActiveMenu(this);
-  
-   $st.showContactsHTML();
-   $st.setPolifillForPlaceholder();
-   $('#name').focus();
-  
-   return false;
-});
+// $st.nav.home, #logo
+//$(document).on('click', $st.ids.breadcrumb.home, function() {
+//  $st.showLoading($st.ids.main);
+//  $st.switchActiveMenu($st.nav.home);
+//  
+//  $st.loadHomeContent();
+//  
+//  return false;
+//}); // end click
 
-$(document).on('click', $st.nav.home + ', ' + $st.ids.breadcrumb.home + ', #logo', function() {
-  $st.showLoading($st.ids.main);
-  $st.switchActiveMenu($st.nav.home);
-  
-  $st.loadHomeContent();
-  
-  return false;
-}); // end click
+////$st.nav.catalog
+//$(document).on('click', $st.ids.breadcrumb.catalog , function() {
+//  $st.showLoading($st.ids.main);
+//  $st.switchActiveMenu($st.nav.catalog);
+//  
+//  $st.showCatalogHTML();
+//  
+//  return false;
+//}); // end click
 
-$(document).on('click', $st.nav.catalog + ', ' + $st.ids.breadcrumb.catalog , function() {
-  $st.showLoading($st.ids.main);
-  $st.switchActiveMenu($st.nav.catalog);
-  
-  $st.showCatalogHTML();
-  
-  return false;
-}); // end click
+//$(document).on('click', $st.nav.service, function() {
+//  $st.showLoading($st.ids.main);
+//  $st.switchActiveMenu($st.nav.service);
+//  
+//  $st.showServiceHTML();
+//  
+//  return false;
+//}); // end click
 
-$(document).on('click', $st.nav.service, function() {
-  $st.showLoading($st.ids.main);
-  $st.switchActiveMenu($st.nav.service);
-  
-  $st.showServiceHTML();
-  
-  return false;
-}); // end click
-
-$(document).on('click', $st.nav.projects + ',' + $st.ids.breadcrumb.projects, function() {
-  $st.showLoading($st.ids.main);
-  $st.switchActiveMenu($st.nav.projects);
-  
-  $st.showProjectsHTML();
-  
-  return false;
-}); // end click
+//$(document).on('click', $st.nav.projects + ',' + $st.ids.breadcrumb.projects, function() {
+//  $st.showLoading($st.ids.main);
+//  $st.switchActiveMenu($st.nav.projects);
+//  
+//  $st.showProjectsHTML();
+//  
+//  return false;
+//}); // end click
 
 $st.select.$btnTop.hide();
 

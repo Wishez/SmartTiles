@@ -1,3 +1,6 @@
+$('.loading__figure').fadeOut();
+$('.loading').delay(250).fadeOut(400);
+
 $st.setPolifillForPlaceholder();
 
 $('.searchForm__btnSearch').hover( function() {
@@ -29,4 +32,3 @@ $('#nav li').mouseover( function() {
         }, 500);
       }
 });
-  

@@ -1,0 +1,1133 @@
+| {% extends 'catalog_base.html' %}
+
+| {% block title %}
+title {{ collection.name }}
+| {% endblock %}
+
+
+| {% block content %}
+section#collectionFirm.mainContent__collection
+  .container
+    ol#breadcrumb.mainContent__breadcrumb.breadcrumb(
+      itemscope , 
+      itemtype="http://schema.org/BreadcrumbList"
+    )
+      li#bcHome.breadcrumb__breadcrumbItem.breadcrumbItem(
+      itemprop="itemListElement",
+      itemscope itemtype="http://schema.org/ListItem"
+    )
+        a.breadcrumbItem__refer( 
+          href="{% url 'index' %}",
+          itemprop="item"
+        )
+          span(itemprop='name') Главная
+        meta(
+          itemprop='position',
+          content='1'
+        )
+      li#bcCatalog.breadcrumb__breadcrumbItem.breadcrumbItem(
+        itemprop="itemListElement",
+        itemscope itemtype="http://schema.org/ListItem"
+      )
+        a.breadcrumbItem__refer( 
+          href="{% url 'catalog' %}",
+          itemprop="item"
+        )
+          span(itemprop='name') Каталог
+        meta(
+          itemprop='position',
+          content='2'
+        )  
+      li#bcCategory.breadcrumb__breadcrumbItem.breadcrumbItem(
+          itemprop="itemListElement",
+          itemscope itemtype="http://schema.org/ListItem"
+        )
+         a.breadcrumbItem__refer( 
+            href="{% url 'category_detail' pk=collection.category.pk %}",
+            itemprop="item"
+          )
+           span(itemprop='name') {{ collection.category.name }}
+         meta(
+           itemprop='position',
+           content='3'
+         )
+      li#bcFirm.breadcrumb__breadcrumbItem.breadcrumbItem(
+            itemprop="itemListElement",
+            itemscope,
+            itemtype="http://schema.org/ListItem"
+        )
+         a.breadcrumbItem__refer( 
+             href="{% url 'firm_detail' pk=collection.firm.pk %}",
+             itemprop="item"
+           )
+           span(itemprop='name') {{ collection.firm.name }}
+         meta(
+             itemprop='position',
+             content='4'
+         )
+      li#bcCollection.breadcrumb__breadcrumbItem.breadcrumbItem.active(
+            itemprop="itemListElement",
+            itemscope itemtype="http://schema.org/ListItem"
+          )
+         span(itemprop='name') {{ collection.name }}
+         meta(
+            itemprop='position',
+            content='5'
+          )
+    h2.heading(itemprop='category') {{ collection.name }}
+  
+  .collection__collectionSlider.collectionSlider
+    #collection.collectionSlider__slides.container
+      #collectionSamples(
+        role="group", 
+        itemscope,
+        itemtype="https://schema.org/Thing"
+      )
+        | {% if collection.name_sample_1 %}
+        ul.collectionSlider__listTiles(
+          role='group',
+          itemscope,
+          itemtype='https://schema.org/Thing'
+        )
+          .row(role='row')
+            .container
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_1 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_1 }}", 
+                    alt="{{ collection.name_sample_1 }}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_1 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_1 }}
+              | {% if collection.name_sample_2 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_2 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_2 }}", 
+                    alt="{{ collection.name_sample_2}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_2 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_2 }}
+              | {% endif %}
+              | {% if collection.name_sample_3 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_3 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_3 }}", 
+                    alt="{{ collection.name_sample_3 }}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_3 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_3 }}
+              | {% endif %}
+              | {% if collection.name_sample_4 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_4 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_4 }}", 
+                    alt="{{ collection.name_sample_4 }}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_4 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_4 }}
+              | {% endif %}
+              | {% if collection.name_sample_5 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_5 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_5 }}", 
+                    alt="{{ collection.name_sample_5 }}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_5 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_5 }}
+              | {% endif %}
+              | {% if collection.name_sample_6 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_6 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_6 }}", 
+                    alt="{{ collection.name_sample_6}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_6 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_6 }}
+              | {% endif %}
+        | {% endif %}
+        | {% if collection.name_sample_7 %}
+        ul.collectionSlider__listTiles(
+          role='group',
+          itemscope,
+          itemtype='https://schema.org/Thing'
+        )
+          .row(role='row')
+            .container
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_7 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_7 }}", 
+                    alt="{{ collection.name_sample_7 }}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_7 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_7 }}
+              | {% if collection.name_sample_8 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_8 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_8 }}", 
+                    alt="{{ collection.name_sample_8}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_8 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_8 }}
+              | {% endif %}
+              | {% if collection.name_sample_9 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_9 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_9 }}", 
+                    alt="{{ collection.name_sample_9}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_9 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_9 }}
+              | {% endif %}
+              | {% if collection.name_sample_10 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_10 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_10 }}", 
+                    alt="{{ collection.name_sample_10}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_10 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_10 }}
+              | {% endif %}
+              | {% if collection.name_sample_11 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_11 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_11 }}", 
+                    alt="{{ collection.name_sample_11}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_11 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_11 }}
+              | {% endif %}
+              | {% if collection.name_sample_12 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_12 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_12 }}", 
+                    alt="{{ collection.name_sample_12}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_12 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_12 }}
+              | {% endif %}
+        | {% endif %}    
+        | {% if collection.name_sample_13 %}
+        ul.collectionSlider__listTiles(
+          role='group',
+          itemscope,
+          itemtype='https://schema.org/Thing'
+        )
+          .row(role='row')
+            .container
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_13 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_13 }}", 
+                    alt="{{ collection.name_sample_13 }}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_13 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_13 }}
+              | {% if collection.name_sample_14 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_14 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_14 }}", 
+                    alt="{{ collection.name_sample_14}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_14 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_14 }}
+              | {% endif %}
+              | {% if collection.name_sample_15 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_15 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_15 }}", 
+                    alt="{{ collection.name_sample_2}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_15 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_15 }}
+              | {% endif %}
+              | {% if collection.name_sample_16 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_16 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_16 }}", 
+                    alt="{{ collection.name_sample_16}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_16 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_16 }}
+              | {% endif %}
+              | {% if collection.name_sample_17 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_17 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_17 }}", 
+                    alt="{{ collection.name_sample_17}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_17 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_17 }}
+              | {% endif %}
+              | {% if collection.name_sample_18 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_18 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_18 }}", 
+                    alt="{{ collection.name_sample_18}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_18 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_18 }}
+              | {% endif %}
+        | {% endif %}
+        | {% if collection.name_sample_19 %}
+        ul.collectionSlider__listTiles(
+          role='group',
+          itemscope,
+          itemtype='https://schema.org/Thing'
+        )
+          .row(role='row')
+            .container
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_19 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_19 }}", 
+                    alt="{{ collection.name_sample_19 }}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_19 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_19 }}
+              | {% if collection.name_sample_20 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_20 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_20 }}", 
+                    alt="{{ collection.name_sample_20}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_20 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_20 }}
+              | {% endif %}
+              | {% if collection.name_sample_21 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_21 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_21 }}", 
+                    alt="{{ collection.name_sample_2}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_21 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_21 }}
+              | {% endif %}
+              | {% if collection.name_sample_22 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_22 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_22 }}", 
+                    alt="{{ collection.name_sample_2}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_22 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_22 }}
+              | {% endif %}
+              | {% if collection.name_sample_23 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_23 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_23 }}", 
+                    alt="{{ collection.name_sample_23}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_23 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_23 }}
+              | {% endif %}
+              | {% if collection.name_sample_24 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_24 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_24 }}", 
+                    alt="{{ collection.name_sample_24}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_24 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_24 }}
+              | {% endif %}
+        | {% endif %}    
+        | {% if collection.name_sample_25 %}
+        ul.collectionSlider__listTiles(
+          role='group',
+          itemscope,
+          itemtype='https://schema.org/Thing'
+        )
+          .row(role='row')
+            .container
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_25 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_25 }}", 
+                    alt="{{ collection.name_sample_25 }}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_25 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_25 }}
+              | {% if collection.name_sample_26 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_26 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_26 }}", 
+                    alt="{{ collection.name_sample_26}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_26 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_26 }}
+              | {% endif %}
+              | {% if collection.name_sample_27 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_27 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_27 }}", 
+                    alt="{{ collection.name_sample_27}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_27 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_27 }}
+              | {% endif %}
+              | {% if collection.name_sample_28 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_28 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_28 }}", 
+                    alt="{{ collection.name_sample_28}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_28 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_28 }}
+              | {% endif %}
+              | {% if collection.name_sample_29 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_29 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_29 }}", 
+                    alt="{{ collection.name_sample_2}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_29 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_29 }}
+              | {% endif %}
+              | {% if collection.name_sample_30 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_30 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_30 }}", 
+                    alt="{{ collection.name_sample_30 }}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_30 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_30 }}
+              | {% endif %}
+        | {% endif %}    
+        | {% if collection.name_sample_31 %}
+        ul.collectionSlider__listTiles(
+          role='group',
+          itemscope,
+          itemtype='https://schema.org/Thing'
+        )
+          .row(role='row')
+            .container
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_31 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_31 }}", 
+                    alt="{{ collection.name_sample_31 }}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_31 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_31 }}
+              | {% if collection.name_sample_32 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_32 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_32 }}", 
+                    alt="{{ collection.name_sample_2}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_32 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_32 }}
+              | {% endif %}
+              | {% if collection.name_sample_33 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_33 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_33 }}", 
+                    alt="{{ collection.name_sample_33}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_33 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_33 }}
+              | {% endif %}
+              | {% if collection.name_sample_34 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_34 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_34 }}", 
+                    alt="{{ collection.name_sample_34}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_34 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_34 }}
+              | {% endif %}
+              | {% if collection.name_sample_35 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_35 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_35 }}", 
+                    alt="{{ collection.name_sample_35}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_35 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_35 }}
+              | {% endif %}
+              | {% if collection.name_sample_36 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_36 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_36 }}", 
+                    alt="{{ collection.name_sample_36}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_36 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_36 }}
+              | {% endif %}
+        | {% endif %}    
+        | {% if collection.name_sample_37 %}
+        ul.collectionSlider__listTiles(
+          role='group',
+          itemscope,
+          itemtype='https://schema.org/Thing'
+        )
+          .row(role='row')
+            .container
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_37 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_37 }}", 
+                    alt="{{ collection.name_sample_37 }}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_37 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_37 }}
+              | {% if collection.name_sample_38 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_38 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_38 }}", 
+                    alt="{{ collection.name_sample_38}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_38 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_38 }}
+              | {% endif %}
+              | {% if collection.name_sample_39 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_39 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_39 }}", 
+                    alt="{{ collection.name_sample_39}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_39 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_39 }}
+              | {% endif %}
+              | {% if collection.name_sample_40 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_40 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_40 }}", 
+                    alt="{{ collection.name_sample_40}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_40 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_40 }}
+              | {% endif %}
+              | {% if collection.name_sample_41 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_41 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_41 }}", 
+                    alt="{{ collection.name_sample_41}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_41 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_41 }}
+              | {% endif %}
+              | {% if collection.name_sample_42 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_42 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_42 }}", 
+                    alt="{{ collection.name_sample_42}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_42 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_42 }}
+              | {% endif %}
+        | {% endif %}    
+        | {% if collection.name_sample_43 %}
+        ul.collectionSlider__listTiles(
+          role='group',
+          itemscope,
+          itemtype='https://schema.org/Thing'
+        )
+          .row(role='row')
+            .container
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_43 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_43 }}", 
+                    alt="{{ collection.name_sample_43 }}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_43 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_43 }}
+              | {% if collection.name_sample_2 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_44 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_44 }}", 
+                    alt="{{ collection.name_sample_44}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_44 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_44 }}
+              | {% endif %}
+              | {% if collection.name_sample_45 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_45 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_45 }}", 
+                    alt="{{ collection.name_sample_45}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_45 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_45 }}
+              | {% endif %}
+              | {% if collection.name_sample_46 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_46 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_46 }}", 
+                    alt="{{ collection.name_sample_46}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_46 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_46 }}
+              | {% endif %}
+              | {% if collection.name_sample_47 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_47 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_47 }}", 
+                    alt="{{ collection.name_sample_47}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_47 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_47 }}
+              | {% endif %}
+              | {% if collection.name_sample_48 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_48 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_48 }}", 
+                    alt="{{ collection.name_sample_48}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_48 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_48 }}
+              | {% endif %}
+        | {% endif %}    
+        | {% if collection.name_sample_49 %}
+        ul.collectionSlider__listTiles(
+          role='group',
+          itemscope,
+          itemtype='https://schema.org/Thing'
+        )
+          .row(role='row')
+            .container
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_49 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_49 }}", 
+                    alt="{{ collection.name_sample_49 }}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_49 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_49 }}
+              | {% if collection.name_sample_50 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_50 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_50 }}", 
+                    alt="{{ collection.name_sample_50}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_50 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_50 }}
+              | {% endif %}
+              | {% if collection.name_sample_51 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_51 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_51 }}", 
+                    alt="{{ collection.name_sample_51}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_51 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_51 }}
+              | {% endif %}
+              | {% if collection.name_sample_52 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_52 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_52 }}", 
+                    alt="{{ collection.name_sample_52}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_52 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_52 }}
+              | {% endif %}
+              | {% if collection.name_sample_53 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_53 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_53 }}", 
+                    alt="{{ collection.name_sample_53}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_53 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_53 }}
+              | {% endif %}
+              | {% if collection.name_sample_54 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_54 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_54 }}", 
+                    alt="{{ collection.name_sample_54}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_54 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_54 }}
+              | {% endif %}
+        | {% endif %}    
+        | {% if collection.name_sample_55 %}
+        ul.collectionSlider__listTiles(
+          role='group',
+          itemscope,
+          itemtype='https://schema.org/Thing'
+        )
+          .row(role='row')
+            .container
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_55 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_55 }}", 
+                    alt="{{ collection.name_sample_55 }}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_55 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_55 }}
+              | {% if collection.name_sample_56 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_56 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_56 }}", 
+                    alt="{{ collection.name_sample_56}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_56 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_56 }}
+              | {% endif %}
+              | {% if collection.name_sample_57 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_57 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_57 }}", 
+                    alt="{{ collection.name_sample_57}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_57 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_57 }}
+              | {% endif %}
+              | {% if collection.name_sample_58 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_58 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_58 }}", 
+                    alt="{{ collection.name_sample_58}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_58 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_58 }}
+              | {% endif %}
+              | {% if collection.name_sample_59 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_59 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_59 }}", 
+                    alt="{{ collection.name_sample_59}}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_59 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_59 }}
+              | {% endif %}
+              | {% if collection.name_sample_60 %}
+              a.listTiles__tile.tile(
+                href="/media/{{ collection.name_sample_60 }}",
+                role="listitem",
+                itemprop="item"
+              )
+                li.tile__sample(itemprop="category")
+                  img.sample__img(
+                    src="/media/{{ collection.img_sample_60 }}", 
+                    alt="{{ collection.name_sample_60 }}",
+                    role="img",
+                    itemprop="image"
+                  )
+                  span.sample__number(itemprop="name") {{ collection.name_sample_60 }}
+                  p.sample__description(itemprop="description") {{ collection.desc_sample_60 }}
+              | {% endif %}
+        | {% endif %}
+  .collection__contact
+    .container 
+      .contact__visitCard(
+        itemscope,
+        itemtype="http://schema.org/Organization")
+        .visitCard__header
+        .visitCard__body
+          h3.body__title Контакты
+          p.body__contacts
+            a.contacts__tel(
+              href="tel:8-495-909-50-20",
+              itemprop="telephone"
+            ) 8-495-909-50-20
+            a.contacts__email(
+              href="mailto:connect@smart-tiles.ru",
+              itemprop="email"
+            ) connect@smart-tiles.ru
+| {% endblock %}

@@ -27,6 +27,7 @@ $(function() {
   //= ../snippets/projects-snippet/main/projects-controller.js
   //= ../snippets/category-snippet/main/category-controller.js
   //= ../snippets/firm-snippet/main/firm-controller.js
+  //= ../snippets/collection-snippet/main/collection-controller.js
   //= ../snippets/breadcrumb-snippet/breadcrumb.js
   //= ../snippets/tile-snippet/tile.js
   //= ../snippets/project-snippet/project.js

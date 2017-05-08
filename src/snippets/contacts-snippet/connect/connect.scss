@@ -1,12 +1,22 @@
 @import 'contact/contact.scss';
 @import 'address/address.scss';
 .mainContent__connect {
-  @include span(12);
+  width: span(12);
   background-color: $gray;
   padding-bottom: 15%;  
 }
 .connect__devider {
   border-top-color: #c3c3c3;
   margin-top: 120px;
+}
+
+.success__paragraph {
+  color: $cyan;
+  padding: 10% 22% 25%;
+  font: {
+    family: $stackComfortaa;
+    size: (25em / 16);
+  }
+  line-height: 150%;
 }
 

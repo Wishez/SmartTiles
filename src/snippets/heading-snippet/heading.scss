@@ -2,7 +2,7 @@
   font-size: (59em / 16);
   color: $beige;
   text-align: center;
-  @include span(12);
+  width: span(12);
   margin-top: 50px;
   @include breakpoint($xs) {
     font-size: (45em / 16);    

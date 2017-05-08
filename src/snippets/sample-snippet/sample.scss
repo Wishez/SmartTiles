@@ -26,6 +26,11 @@
   background-color: $gray;
   position: relative;
   list-style: none;
+  margin: 15px;
+  @include breakpoint($xs) {
+    margin: 15px auto;
+    
+  }
 }
 .sample__img {
   width: 100%;

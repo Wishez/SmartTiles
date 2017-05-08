@@ -1,6 +1,5 @@
 $(document).on('mouseover', '.tile', function() {
   if (!Modernizr.csstransitions) {
-    console.log('test');
     $(this)
         .find('.tile__description, .sample__description')
         .stop()
@@ -15,7 +14,6 @@ $(document).on('mouseover', '.tile', function() {
 
 $(document).on('mouseout', '.tile', function() {
   if (!Modernizr.csstransitions) {
-    console.log('test');
     $(this)
         .find('.tile__description, .sample__description')
         .stop()

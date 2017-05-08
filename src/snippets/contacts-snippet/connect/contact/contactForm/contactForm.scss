@@ -13,32 +13,34 @@
   width:  span(8);
   align-items: flex-start;
   font-family: $stackComfortaa;
-  &-filled .controller__label {
+  & label {
+    font-size: (20em / 16);
+    display: block;
+    position: relative;
+    top: 2em;
+    opacity: 0;
+    z-index: 0;
+    margin: 5px 0;
+    transition: top .3s ease, opacity .3s ease;
+    &::after {
+      content: '*';
+    }
+  }
+  &-filled label {
     color: #a4a2a1;
     top: 0;
     opacity: 1;
   }
-  &-focused .controller__label {
+  &-focused label {
     color: $maroon;
   }
 }
+//.controller__label
 
-.controller__input, controller__label {
+.controller__input, label {
   width: span(12);
 }
-.controller__label {
-  font-size: (20em / 16);
-  display: block;
-  position: relative;
-  top: 2em;
-  opacity: 0;
-  z-index: 0;
-  margin: 5px 0;
-  transition: top .3s ease, opacity .3s ease;
-  &::after {
-    content: '*';
-  }
-}
+
 .controller__input {
   background-color: transparent;
   border: 0;

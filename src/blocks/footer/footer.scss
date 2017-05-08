@@ -13,6 +13,12 @@
       color: $cyan !important;
     }
   }
+  @include breakpoint($xs) {
+    padding-top: 1.0625%;
+  }
+  @include breakpoint($xxs) {
+    padding-top: 4.0625%;
+  }
 }
 .footer__signature, .footer__info {
   @include breakpoint($md) {

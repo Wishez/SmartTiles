@@ -51,17 +51,27 @@
     }
   }
 }
-@for $i from 1 through 4
-      {
-      .exclusiveImg-#{$i} {
-        background: url(../img/exclusive/ex_#{$i}.jpg) no-repeat center;
-        background-size: cover;
-        padding-bottom: 7.9%;
-        @include breakpoint($md) {
-          padding-bottom: 9.7%;    
-        }
-      }
+.exclusiveImg {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 7.9%;
+  @include breakpoint($md) {
+    padding-bottom: 9.7%;    
+  }
 }
+
+//@for $i from 1 through 4
+//      {
+//      .exclusiveImg-#{$i} {
+//        background: url(../img/exclusive/ex_#{$i}.jpg) no-repeat center;
+//        background-size: cover;
+//        padding-bottom: 7.9%;
+//        @include breakpoint($md) {
+//          padding-bottom: 9.7%;    
+//        }
+//      }
+//}
 /* Slider */
 .slick-next:before, .slick-prev:before {
   font-size: 40px;

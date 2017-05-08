@@ -1,4 +1,11 @@
 .navContent__search.search(role="search")
-  form#search.search__searchForm.searchForm()
-    input#searchInput.searchForm__inputSearch.typeahead(type="search", placeholder="Категории, Фирмы, Коллекции")
+  form#search.search__searchForm.searchForm(
+    method='get',
+    action='/search/'
+  )
+    | {% csrf_token %}
+    | {% for field in searchForm %}
+    | {{ field }}
+    | {% endfor %}
+    //- input#searchInput.searchForm__inputSearch.typeahead(type="search", placeholder="Категории, Фирмы, Коллекции")
     button.searchForm__btnSearch(type="submit") Искать

@@ -1,0 +1,89 @@
+doctype
+html(lang="ru", class="no-js")
+  head
+    meta(charset="UTF-8")
+    meta(
+      name="viewport",
+      content="width=device-width, initial-scale=1.0"
+    )
+    meta(
+      http-equiv="X-UA-Compatible",
+      content="IE=edge,chrome=1"
+    )
+    
+    | {% block title %}
+    | {% endblock %}
+    
+    script(
+      src="https://code.jquery.com/jquery-3.1.1.min.js",
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=",
+      crossorigin="anonymous"
+    )
+    script(async, src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js")
+    
+    style.
+      .loading, .loading__figure {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        margin: 0;
+      }
+      .loading {
+        background-color: #eee;
+        z-index: 10000;
+        top: 0;
+        left: 0;
+      }
+      .loading__figure {
+        background: url('/media/smarttiles/img/ajax-loader.gif') center no-repeat;
+        background-size: 150px;
+      }
+    script(async, src="/media/smarttiles/js/modernizr.min.js") 
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js">
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js">
+    <![endif]-->
+  body
+    .loading
+      figure.loading__figure
+    // Header
+    include blocks/header/header.pug
+    // Main
+    | {% block content %}
+    | {% endblock %}
+    
+    // Footer
+    include blocks/footer/footer.pug   
+    script(async, src="/media/smarttiles/js/main.js")
+//    script.
+//      document.querySelector('body').style.display = "none";  
+link(
+  rel="stylesheet",
+  href="/media/smarttiles/css/main.css",
+  media="none",
+  onload="if(media!='all')media='all'",
+  lazyload="1"
+)
+link(
+  href="/media/smarttiles/css/screen.css", 
+  media="none",
+  rel="stylesheet",
+  onload="if(media!='screen')media='screen'",
+  lazyload="1"
+)
+link( 
+  href="/media/smarttiles/css/print.css",
+  media="none",
+  rel="stylesheet",
+  onload="if(media!='print')media='print'",
+  lazyload="1"
+)
+link( 
+  href="/media/smarttiles/css/ie10greater.css",
+  rel="stylesheet",
+  media="none",
+  onload="if(media!='all')media='all'",
+  lazyload="1"
+)
+<!--[if IE]><link rel="stylesheet" href="/media/smarttiles/css/ie9.css" lazyload="1" /><![endif]-->
+

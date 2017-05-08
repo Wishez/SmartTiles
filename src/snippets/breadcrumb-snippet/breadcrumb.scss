@@ -1,5 +1,5 @@
 .breadcrumb {
-  @include span(12);
+  width: span(12);
   background-color: transparent;
   text-transform: uppercase;
   font: {
@@ -27,14 +27,17 @@
   }
   & .breadcrumb__breadcrumbItem:first-child:before {
     content: "";
-    @include breakpoint($xxs) {
+    @include breakpoint($xs) {
       content: '\21CB';
+      margin: 0 18px;
+    }
+    @include breakpoint($xxs) {
       margin: 0 5px;
     }
   }
 }
 .breadcrumb__breadcrumbItem {
-  @include breakpoint($xxs) {
+  @include breakpoint($xs) {
     display: block !important;
   }
   & .breadcrumbItem__refer{

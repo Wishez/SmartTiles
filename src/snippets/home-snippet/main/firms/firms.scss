@@ -2,7 +2,7 @@
 @import "firmsList/firmsList.scss";
 
 .mainContent__firms, .mainContent__foundFirms { 
-  @include span(12);
+  width: span(12); 
   position: relative;
   background: url("../img/purty_wood.png") repeat;
   background-size: 100px 100px;

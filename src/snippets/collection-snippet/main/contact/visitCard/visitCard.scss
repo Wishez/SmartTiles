@@ -1,4 +1,7 @@
 .contact__visitCard {
   @extend .address__visitCard; 
-  margin-right: 27%;
+  margin-right: auto;
+  margin-left: auto;
+  float: none;
+  max-width: 470px;
 }

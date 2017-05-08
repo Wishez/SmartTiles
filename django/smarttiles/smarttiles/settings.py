@@ -32,7 +32,13 @@ ALLOWED_HOSTS = ['smart-tiles.tmweb.ru', 'www.smart-tiles.tmweb.ru',
 # Application definition
 
 INSTALLED_APPS = [
+    'api_v0.apps.ApiV0Config',
+    'service.apps.ServiceConfig',
+    'connect.apps.ConnectConfig',
+    'projects.apps.ProjectsConfig',
+    'catalog.apps.CatalogConfig',
     'home.apps.HomeConfig',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,8 +85,12 @@ WSGI_APPLICATION = 'smarttiles.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'smarttiles',
+            'USER': 'smarttiles',
+            'PASSWORD': 'root',
+            'HOST': 'localhost',
+            'PORT': '5432'
     }
 }
 
@@ -107,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'UTC'
 
@@ -117,12 +127,20 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Custom MAIL
+DEFAULT_FROM_EMAIL = 'comandos.testing@list.ru'
+SERVER_EMAIL = 'comandos.testing@list.ru'
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_HOST_USER = 'comandos.testing@list.ru'
+EMAIL_HOST_PASSWORD = 'demonstrationmail'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'C:/Users/RoryMercury/django-projects/smarttiles/static'
+STATIC_ROOT = 'C:/Users/Shining/django-projects/smarttiles/static'
 MEDIA_URL = '/media/'
-ADMIN_MEDIA_PREFIX = 'C:/Users/RoryMercury/django-projects/smarttiles/media'
-MEDIA_ROOT = 'C:/Users/RoryMercury/django-projects/smarttiles/media'
+ADMIN_MEDIA_PREFIX = 'C:/Users/Shining/django-projects/smarttiles/media'
+MEDIA_ROOT = 'C:/Users/Shining/django-projects/smarttiles/media'
